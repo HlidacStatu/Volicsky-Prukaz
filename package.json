@@ -1,0 +1,22 @@
+{
+  "name": "VolebniPrukaz",
+  "version": "1.0.0",
+  "description": "Fork: Voľby zo zahraničia — [volby.digital](https://volby.digital/) ============================",
+  "main": "index.html",
+  "scripts": {
+    "eslint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelVanecek/VolebniPrukaz.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PavelVanecek/VolebniPrukaz/issues"
+  },
+  "homepage": "https://github.com/PavelVanecek/VolebniPrukaz#readme",
+  "devDependencies": {
+    "eslint": "^4.6.1"
+  }
+}
