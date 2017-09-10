@@ -2,19 +2,19 @@ var App = window.election;
 
 function findZIP(){
   var psc = $("#addressslovakia-zip").val().replace(' ', '');
-  if ( psc.length == 5 ){
+  if ( psc.length === 5 ){
     if ( psc in App.psc){
       kraj = App.psc[psc][2] + " kraj";
-      okres = "Okres "+ App.psc[psc][1];
+      okres = "Okres " + App.psc[psc][1];
       obec = App.psc[psc][0];
 
-      if ($("#addressslovakia-kraj option[value='"+kraj+"']").length > 0){
+      if ($("#addressslovakia-kraj option[value='" + kraj + "']").length > 0){
         $("#addressslovakia-kraj").val(kraj).trigger("change");
       }
-      if ($("#addressslovakia-okres option[value='"+okres+"']").length > 0){
+      if ($("#addressslovakia-okres option[value='" + okres + "']").length > 0){
         $("#addressslovakia-okres").val(okres).trigger("change");
       }
-      if ($("#addressslovakia-city option[value='"+obec+"']").length > 0){
+      if ($("#addressslovakia-city option[value='" + obec + "']").length > 0){
         $("#addressslovakia-city").val(obec).trigger("change");
       }
 
@@ -32,44 +32,44 @@ function getAddressOneLine(id) {
   var format = getAdressFormat(id);
 
   if ($('#' + id + '-street').val()) {
-    if (format=="sk" || format=="sk-poste-restante" ){
+    if (format === "sk" || format === "sk-poste-restante" ){
       ret += $('#' + id + '-street').val() + " " + $('#' + id + '-streetno').val();
-    } else if (format == "usa" || format=="usa-poste-restante" ){
+    } else if (format === "usa" || format === "usa-poste-restante" ){
       ret += $('#' + id + '-streetno').val() + " " + $('#' + id + '-street').val();
     }
   } else {
-    if (id == "addressslovakia") {
+    if (id === "addressslovakia") {
       getObec() + " " + $('#' + id + '-streetno').val();
     } else {
 
-      if (format=="sk" || format=="sk-poste-restante"){
+      if (format === "sk" || format === "sk-poste-restante"){
         ret += $('#' + id + '-city').val() + " " + $('#' + id + '-streetno').val();
-      } else if (format == "usa" || format=="usa-poste-restante"){
+      } else if (format === "usa" || format === "usa-poste-restante"){
         ret += $('#' + id + '-streetno').val() + " " + $('#' + id + '-city').val();
       }
     }
 
   }
-  if (ret != " ") {
+  if (ret !== " ") {
     ret += ", ";
   }
 
 
-  if (id == "addressslovakia") {
+  if (id === "addressslovakia") {
     ret += $('#' + id + '-zip').val() + " " + getObec();
   } else {
-    if (format=="sk" || format=="sk-poste-restante"){
+    if (format === "sk" || format === "sk-poste-restante"){
       ret += $('#' + id + '-zip').val() + " " + $('#' + id + '-city').val();
-    } else if (format == "usa" || format=="usa-poste-restante"){
+    } else if (format === "usa" || format === "usa-poste-restante"){
       ret += $('#' + id + '-city').val() + " " + $('#' + id + '-zip').val();
     }
   }
 
-  if (ret != " ") {
+  if (ret !== " ") {
     ret += ", ";
   }
 
-  if (id == "addressslovakia") {
+  if (id === "addressslovakia") {
     ret += "Slovenská republika";
   } else {
     ret += $('#' + id + '-country').val();
@@ -141,10 +141,10 @@ function nastavObec(obec) {
     if (o[kraj] && o[kraj][okres] && o[kraj][okres][ico]) {
       var data = o[kraj][okres][ico];
       adresa = data[App.C2N_TYP_URADU] + "\n";
-      if (data[App.C2N_TYP_URADU_RIADOK2] != "") {
+      if (data[App.C2N_TYP_URADU_RIADOK2] !== "") {
         adresa += data[App.C2N_TYP_URADU_RIADOK2] + "\n";
       }
-      if (data[App.C2N_ADRESA_URADU_ULICA] != "" || data[App.C2N_ADRESA_URADU_CISLO_DOMU] != "") {
+      if (data[App.C2N_ADRESA_URADU_ULICA] !== "" || data[App.C2N_ADRESA_URADU_CISLO_DOMU] !== "") {
         if (data[App.C2N_ADRESA_URADU_ULICA]) {
           adresa += data[App.C2N_ADRESA_URADU_ULICA] + " ";
         }
@@ -157,14 +157,14 @@ function nastavObec(obec) {
 
       var email = data[App.C2N_EMAIL];
 
-      if ((App.request_form == "ziadostOPreukazPostou" || App.request_form =="ziadostOPreukaPreSplnomocnenca") && data[App.C2N_ALT_EMAIL_PRE_PREUKAZ].indexOf("@") != -1){
+      if ((App.request_form === "ziadostOPreukazPostou" || App.request_form === "ziadostOPreukaPreSplnomocnenca") && data[App.C2N_ALT_EMAIL_PRE_PREUKAZ].indexOf("@") !== -1){
         email = data[App.C2N_ALT_EMAIL_PRE_PREUKAZ];
       }
 
       adresa += data[App.C2N_ADRESA_URADU_PSC] + " " + data[App.C2N_ADRESA_URADU_MESTO] + "\n" + email.replace(/;/i, "\n");
 
 
-      if (App.request_form == 'volbaPostouBezTrvalehoPobytu'){
+      if (App.request_form === 'volbaPostouBezTrvalehoPobytu'){
         $("#adresa").val("Ministerstvo vnútra Slovenskej republiky\nodbor volieb, referenda a politických strán\nDrieňová 22\n826 86  Bratislava 29\nSLOVAK REPUBLIC");
         $("#sendto").html("volby@minv.sk");
         $("#phone").html("");
@@ -172,7 +172,7 @@ function nastavObec(obec) {
       } else {
         $("#adresa").val(adresa);
         $("#sendto").html(email);
-        if (data[App.C2N_TELEFON] != ""){
+        if (data[App.C2N_TELEFON] !== ""){
           $("#phone").html(data[App.C2N_TEL_PREDVOLBA] + " / " + data[App.C2N_TELEFON]);
           $("#phonetext").show();
         } else {
@@ -180,14 +180,14 @@ function nastavObec(obec) {
           $("#phonetext").hide();
         }
       }
-      if ($("#sendto").html().indexOf("@") == -1){
+      if ($("#sendto").html().indexOf("@") === -1){
         $("#sendemail").hide();
         $("#noemail").show();
       } else {
         $("#sendemail").show();
         $("#noemail").hide();
       }
-      if (data[App.C2N_POTVRDENE_UDAJE] == "1"){
+      if (data[App.C2N_POTVRDENE_UDAJE] === "1"){
         $("#emailpotvrdeny").show();
       } else {
         $("#emailpotvrdeny").hide();
@@ -195,20 +195,20 @@ function nastavObec(obec) {
 
       var subj = "Ziadost";
       var textemailu = "";
-      var meno = $('#basicinfo-name').val()+" "+$('#basicinfo-lastname').val();
-      if (App.request_form == 'volbaPostouSTrvalymPobytom'){
-        var subj = "Žiadosť o voľbu poštou pre voľby do NRSR";
-        var textemailu = "Dobrý deň, "+decodeURIComponent("%0D%0A%0D%0A")+"podľa § 60 ods. 1 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o voľbu poštou pre voľby do Národnej rady Slovenskej republiky v roku 2016. Zároveň Vás chcem poprosiť o potvrdenie e-mailom, že žiadosť bola prijatá a spracovaná. "+decodeURIComponent("%0D%0A%0D%0A")+"V prílohe zasielam podpísanú žiadosť. "+decodeURIComponent("%0D%0A%0D%0A")+"Ďakujem,"+decodeURIComponent("%0D%0A%0D%0A")+" "+meno;
-      } else if (App.request_form == 'volbaPostouBezTrvalehoPobytu'){
+      var meno = $('#basicinfo-name').val() + " " + $('#basicinfo-lastname').val();
+      if (App.request_form === 'volbaPostouSTrvalymPobytom'){
+        subj = "Žiadosť o voľbu poštou pre voľby do NRSR";
+        textemailu = "Dobrý deň, " + decodeURIComponent("%0D%0A%0D%0A") + "podľa § 60 ods. 1 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o voľbu poštou pre voľby do Národnej rady Slovenskej republiky v roku 2016. Zároveň Vás chcem poprosiť o potvrdenie e-mailom, že žiadosť bola prijatá a spracovaná. " + decodeURIComponent("%0D%0A%0D%0A") + "V prílohe zasielam podpísanú žiadosť. " + decodeURIComponent("%0D%0A%0D%0A") + "Ďakujem," + decodeURIComponent("%0D%0A%0D%0A") + " " + meno;
+      } else if (App.request_form === 'volbaPostouBezTrvalehoPobytu'){
         $("#emailpotvrdeny").hide();
-        var subj = "Žiadosť o voľbu poštou pre voľby do NRSR";
-        var textemailu = "Dobrý deň, "+decodeURIComponent("%0D%0A%0D%0A")+"podľa § 59 ods. 1 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o voľbu poštou pre voľby do Národnej rady Slovenskej republiky v roku 2016 a o zaslanie hlasovacích lístkov a obálok na adresu uvedenú v žiadosti. Zároveň Vás chcem poprosiť o potvrdenie e-mailom, že žiadosť bola prijatá a spracovaná. "+decodeURIComponent("%0D%0A%0D%0A")+"V prílohe zasielam podpísanú žiadosť. "+decodeURIComponent("%0D%0A%0D%0A")+"Ďakujem,"+decodeURIComponent("%0D%0A%0D%0A")+" "+meno;
-      } else if (App.request_form == "ziadostOPreukazPostou"){
-        var subj = "Žiadosť o hlasovací preukaz";
-        var textemailu = "Dobrý deň, "+decodeURIComponent("%0D%0A%0D%0A")+"podľa § 46 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o vydanie hlasovacieho preukazu pre voľby do Národnej rady Slovenskej republiky v roku 2016. Hlasovací preukaz si želám odoslať na adresu uvedenú v žiadosti. Zároveň Vás chcem poprosiť o potvrdenie e-mailom, že žiadosť bola prijatá a spracovaná. "+decodeURIComponent("%0D%0A%0D%0A")+"V prílohe zasielam podpísanú žiadosť. "+decodeURIComponent("%0D%0A%0D%0A")+"Ďakujem,"+decodeURIComponent("%0D%0A%0D%0A")+" "+meno;
-      } else if (App.request_form =="ziadostOPreukaPreSplnomocnenca"){
-        var subj = "Žiadosť o hlasovací preukaz";
-        var textemailu = "Dobrý deň, "+decodeURIComponent("%0D%0A%0D%0A")+"podľa § 46 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o vydanie hlasovacieho preukazu pre voľby do Národnej rady Slovenskej republiky v roku 2016. Hlasovací preukaz za mňa preberie splnomocnenec. Zároveň Vás chcem poprosiť o potvrdenie e-mailom, že žiadosť bola prijatá a spracovaná. "+decodeURIComponent("%0D%0A%0D%0A")+"V prílohe zasielam podpísanú žiadosť. "+decodeURIComponent("%0D%0A%0D%0A")+"Ďakujem,"+decodeURIComponent("%0D%0A%0D%0A")+" "+meno;
+        subj = "Žiadosť o voľbu poštou pre voľby do NRSR";
+        textemailu = "Dobrý deň, " + decodeURIComponent("%0D%0A%0D%0A") + "podľa § 59 ods. 1 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o voľbu poštou pre voľby do Národnej rady Slovenskej republiky v roku 2016 a o zaslanie hlasovacích lístkov a obálok na adresu uvedenú v žiadosti. Zároveň Vás chcem poprosiť o potvrdenie e-mailom, že žiadosť bola prijatá a spracovaná. " + decodeURIComponent("%0D%0A%0D%0A") + "V prílohe zasielam podpísanú žiadosť. " + decodeURIComponent("%0D%0A%0D%0A") + "Ďakujem," + decodeURIComponent("%0D%0A%0D%0A") + " " + meno;
+      } else if (App.request_form === "ziadostOPreukazPostou"){
+        subj = "Žiadosť o hlasovací preukaz";
+        textemailu = "Dobrý deň, " + decodeURIComponent("%0D%0A%0D%0A") + "podľa § 46 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o vydanie hlasovacieho preukazu pre voľby do Národnej rady Slovenskej republiky v roku 2016. Hlasovací preukaz si želám odoslať na adresu uvedenú v žiadosti. Zároveň Vás chcem poprosiť o potvrdenie e-mailom, že žiadosť bola prijatá a spracovaná. " + decodeURIComponent("%0D%0A%0D%0A") + "V prílohe zasielam podpísanú žiadosť. " + decodeURIComponent("%0D%0A%0D%0A") + "Ďakujem," + decodeURIComponent("%0D%0A%0D%0A") + " " + meno;
+      } else if (App.request_form === "ziadostOPreukaPreSplnomocnenca"){
+        subj = "Žiadosť o hlasovací preukaz";
+        textemailu = "Dobrý deň, " + decodeURIComponent("%0D%0A%0D%0A") + "podľa § 46 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o vydanie hlasovacieho preukazu pre voľby do Národnej rady Slovenskej republiky v roku 2016. Hlasovací preukaz za mňa preberie splnomocnenec. Zároveň Vás chcem poprosiť o potvrdenie e-mailom, že žiadosť bola prijatá a spracovaná. " + decodeURIComponent("%0D%0A%0D%0A") + "V prílohe zasielam podpísanú žiadosť. " + decodeURIComponent("%0D%0A%0D%0A") + "Ďakujem," + decodeURIComponent("%0D%0A%0D%0A") + " " + meno;
       }
 
       $("#emailsubject").html(subj);

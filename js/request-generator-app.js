@@ -222,7 +222,7 @@ RequestGeneratorApp.prototype = {
   downloadPdf: function() {
     var src;
 
-    if (this.active_section == 'pdf') {
+    if (this.active_section === 'pdf') {
       src = $('#preview').attr('src');
     } else {
       src = $('#final').attr('src');
@@ -281,7 +281,7 @@ RequestGeneratorApp.prototype = {
 
     $.each(parts, function(i, part) {
       $.each(['tp', 'volba', 'preukaz', 'action'], function(i, prefix) {
-        if (part.indexOf(prefix) == 0) {
+        if (part.indexOf(prefix) === 0) {
           state[prefix] = part;
         }
       });

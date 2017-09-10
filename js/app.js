@@ -113,7 +113,7 @@ $(document).ready(function () {
     $("#download-preview-btn").hide();
     makeSecondStep6ButtonPrimary();
   }
-  iosver =iOSversion();
+  iosver = iOSversion();
   if (iosver){
     $("#download-final-ios-text").show();
     $(".ios").removeClass("hidden").show();

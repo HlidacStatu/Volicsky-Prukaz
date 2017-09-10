@@ -120,7 +120,7 @@ function createDocument(preview, download) {
         bold: true
       }
     ];
-  } else if (App.request_form == 'volbaPostouBezTrvalehoPobytu') {
+  } else if (App.request_form === 'volbaPostouBezTrvalehoPobytu') {
     paragraph = 'Podľa § 59 ods. 1 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o voľbu poštou pre voľby do Národnej rady Slovenskej republiky v roku 2016 a o zaslanie hlasovacích lístkov a obálok na adresu:';
     noTP = [
 

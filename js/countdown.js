@@ -45,18 +45,18 @@ $(document).ready( function () {
       var daysWarning = 60;
       var daysDanger = 30;
 
-      if (daysNumber <= daysDanger && ! counter.hasClass('label-danger')) {
+      if (daysNumber <= daysDanger && !counter.hasClass('label-danger')) {
         switchLabelClass('label-danger');
-      } else if (daysNumber <= daysWarning && ! counter.hasClass('label-warning')) {
+      } else if (daysNumber <= daysWarning && !counter.hasClass('label-warning')) {
         switchLabelClass('label-warnign');
-      } else if (daysNumber <= daysInfo && ! counter.hasClass('label-info')) {
+      } else if (daysNumber <= daysInfo && !counter.hasClass('label-info')) {
         switchLabelClass('label-info');
       }
     }
 
     var daysNumber = Math.floor(remainingTime / (24 * 60 * 60 * 1000));
     var dayInflection;
-    if (daysNumber == 1) {
+    if (daysNumber === 1) {
       dayInflection = 'deň';
     } else if (daysNumber > 1 && daysNumber < 5) {
       dayInflection = 'dni';
@@ -68,7 +68,7 @@ $(document).ready( function () {
 
     var hoursNumber = Math.floor(remainingTime / (60 * 60 * 1000));
     var hourInflection;
-    if (hoursNumber == 1) {
+    if (hoursNumber === 1) {
       hourInflection = 'hodina';
     } else if (hoursNumber > 1 && hoursNumber < 5) {
       hourInflection = 'hodiny';
@@ -80,7 +80,7 @@ $(document).ready( function () {
 
     var minutesNumber = Math.floor(remainingTime / (60 * 1000));
     var minuteInflection;
-    if (minutesNumber == 1) {
+    if (minutesNumber === 1) {
       minuteInflection = 'minúta';
     } else if (minutesNumber > 1 && minutesNumber < 5) {
       minuteInflection = 'minúty';
@@ -88,7 +88,7 @@ $(document).ready( function () {
       minuteInflection = 'minút';
     }
 
-    return ''+ daysNumber +' '+ dayInflection + ', '+ hoursNumber +' '+ hourInflection +' a '+ minutesNumber +' '+ minuteInflection;
+    return '' + daysNumber + ' ' + dayInflection + ', ' + hoursNumber + ' ' + hourInflection + ' a ' + minutesNumber + ' ' + minuteInflection;
 
   }
 });

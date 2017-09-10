@@ -241,8 +241,8 @@ module.exports = {
         "space-before-blocks": "off",
         "space-before-function-paren": "off",
         "space-in-parens": "off",
-        "space-infix-ops": "off",
-        "space-unary-ops": "off",
+        "space-infix-ops": "warn",
+        "space-unary-ops": "warn",
         "spaced-comment": "off",
         "strict": "off",
         "switch-colon-spacing": [

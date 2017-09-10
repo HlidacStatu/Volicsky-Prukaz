@@ -13,9 +13,9 @@ var validateBirthNumber = function(value, messages) {
       "pattern":/^\d{2}[0156]\d{3}\/\d{4}$/,
       "message":"Rodné číslo musí mať 10 číslic vo formáte XXXXXX/XXXX. Tretia číslica musí byť 0, 1, 5 alebo 6."
     });
-    if (messages.length == 0) {
+    if (messages.length === 0) {
       var rc = value.substr(0, 6).concat(value.substr(7, 11));
-      if (rc % 11 != 0) {
+      if (rc % 11 !== 0) {
         yii.validation.addMessage(messages, "Rodné číslo by malo byť deliteľné 11. Nemáte v ňom preklep?", value);
       }
     }
@@ -25,24 +25,24 @@ var validateBirthNumber = function(value, messages) {
 function fixBirthNumberSlash(){
   var value = $("#basicinfo-birthno").val();
   var newvalue = "";
-  if (value.indexOf("/") == -1){
+  if (value.indexOf("/") === -1){
     if (value.substr(0, 2) < 54) { // ludi narodenych v tomto tisicroci pre ucely volieb 2016 mozme ignorovat
-      if (value.length == 9){
+      if (value.length === 9){
         newvalue = value.substr(0, 6) + "/" + value.substr(6);
       }
     } else {
-      if (value.length == 10){
+      if (value.length === 10){
         newvalue = value.substr(0, 6) + "/" + value.substr(6);
       }
     }
   }
-  if ( newvalue != ""){
+  if ( newvalue !== ""){
     $("#basicinfo-birthno").val(newvalue);
   }
 }
 
 var validatePSC = function(value, messages) {
-  if ( value.length != 5 ) {
+  if ( value.length !== 5 ) {
     yii.validation.addMessage(messages, "Vaše domáce PSČ by malo byť dlhé 5 číslic.", value);
   } else {
     yii.validation.regularExpression(value, messages, {
@@ -58,7 +58,7 @@ jQuery(document).ready(function () {
   var pathname = window.location.pathname;
   var test = pathname.indexOf('/test/');
   if ( test > -1 ){
-    $( '<p class="footer text-center">Váš prehliadač je: '+ua+'</p>' ).insertAfter( "#github" );
+    $( '<p class="footer text-center">Váš prehliadač je: ' + ua + '</p>' ).insertAfter( "#github" );
     if (detectIE()){
       $( '<p class="footer text-center">Používate Internet explorer</p>' ).insertAfter( "#github" );
     }
@@ -67,12 +67,12 @@ jQuery(document).ready(function () {
     }
     var ver = iOSversion();
     if (ver){
-      $( '<p class="footer text-center">Používate iOS '+ver+'</p>' ).insertAfter( "#github" );
+      $( '<p class="footer text-center">Používate iOS ' + ver + '</p>' ).insertAfter( "#github" );
     }
   } else {
-    if ( ua.indexOf('Android') > -1 && ua.indexOf('Chrome') == -1 ){
+    if ( ua.indexOf('Android') > -1 && ua.indexOf('Chrome') === -1 ){
       $( '<p><span class="digitalRed text-biggest">Pozor! Máte nepodporovaný prehliadač a nemusí Vám všetko správne fungovať. Použite prosím Google Chrome.'
-    +'</span></p>' ).insertAfter( ".text-justify.text-bigger.paragraph-2" );
+    + '</span></p>' ).insertAfter( ".text-justify.text-bigger.paragraph-2" );
     }
   }
 
