@@ -168,5 +168,9 @@ $(document).ready(function () {
     fixBirthNumberSlash();
   });
 
+  $("#basicinfo-birth").on("change", function(){
+    fixBirthFormat();
+  });
+
 });
 

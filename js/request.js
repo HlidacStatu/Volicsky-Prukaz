@@ -231,8 +231,8 @@ function createDocument(preview, download) {
       },
       {
         columns: [
-          {text: 'Rodné číslo: ', style: 'line', },
-          {text: $('#basicinfo-birthno').val().toUpperCase(), style: 'value'},
+          {text: 'Datum narození: ', style: 'line', },
+          {text: $('#basicinfo-birth').val().toUpperCase(), style: 'value'},
           {text: ''}
         ]
       },
@@ -353,7 +353,7 @@ function createDocument(preview, download) {
       {
         columns: [
           {
-            text: ['Rodné číslo: ', {text: $('#basicinfo-birthno').val(), style: 'value'}],
+            text: ['Datum narození: ', {text: $('#basicinfo-birth').val(), style: 'value'}],
             style: 'line',
           },
           {
