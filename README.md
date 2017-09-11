@@ -1,4 +1,4 @@
-#Volby s volebním průkazem — [volby.hlidacstatu.cz](https://volby.hlidacstatu.cz/)
+# Volby s volebním průkazem — [volby.hlidacstatu.cz](https://volby.hlidacstatu.cz/)
 ============================
 
 Webová aplikace, která připraví žádost o volební průkaz pro volby do Parlamentu ČR v 2017.
@@ -6,8 +6,8 @@ Vygenerovanou žádost si volič může stáhnout podepsat a stahnout jako PDF.
 
 Odeslání pomocí datové schránky či doručení s ověřeným podpisem na úřad (poštou, messenger) již musí volič provést sám. 
 
-##Termíny
-###Žádost o volební průkaz
+## Termíny
+### Žádost o volební průkaz
 1. **Při osobní žádosti o volební průkaz**
 	 v tomto případě není písemná žádost vyžadována, neboť obecní úřad, který je oprávněn voličský průkaz vydat, o žádosti voliče po prokázání jeho totožnosti učiní úřední záznam, ve kterém veškeré potřebné údaje uvede; o vydání voličského průkazu lze požádat do okamžiku uzavření stálého seznamu voličů, tj. do 18. října 2017 do 16.00 hodin.
 
@@ -20,18 +20,18 @@ Odeslání pomocí datové schránky či doručení s ověřeným podpisem na ú
 	Žádost o volební průkaz pro volby do Parlamentu ČR v 2017 musí být na příslušný obecní úřad podle trvalého bydliště žadatele zaslána nejpozději 7 dnů přede dnem voleb, tj. **do 13. října 2017**.
 
 
-###Doručení volebního průkazu
+### Doručení volebního průkazu
 Obecní úřad voličský průkaz nejdříve 15 dnů přede dnem voleb, tj. **5. října 2017**, předá osobně voliči nebo osobě, která se prokáže plnou mocí s ověřeným podpisem voliče žádajícího o vydání voličského průkazu (jedná se pouze o plnou moc k převzetí / vyzvednutí voličského průkazu, nikoliv však k podání žádosti o vydání voličského průkazu), anebo jej voliči zašle na jím uvedenou adresu, a to i do zahraničí. Voličský průkaz lze zaslat na základě žádosti voliče i na adresu zastupitelského úřadu, kde se volič rozhodl hlasovat. V tomto případě se stačí v den voleb dostavit na tento zastupitelský úřad, kde bude voličský průkaz předán a následně je možné přistoupit k hlasování.
 
 
 
 
-##Ochrana osobní údajů:
+## Ochrana osobní údajů:
 Aplikace běží pouze na klientovi, nedochází k žádnému přenášení údajů na server provozovatele (Hlídač Státu z.ú.), tzn. z hlediska zákona o ochraně osobních údajů nedochází ke zpracování osobních údajů. 
 
 
 
-##Další
+## Další
 **Nápad na aplikace vznikl na:**  
 [platforma.slovensko.digital](https://platforma.slovensko.digital/)
 
@@ -39,7 +39,7 @@ Aplikace byla vytvořena s použitím zdrojových kódů z https://github.com/ma
 
 
 
-##Seznam podporovaných/otestovaných zařízení:
+## Seznam podporovaných/otestovaných zařízení:
 
 * Windows 10, Firefox 42.0 - Plná funkcionalita
 * Windows 10, Chrome 47.0.2526.80 - Plná funkcionalita
