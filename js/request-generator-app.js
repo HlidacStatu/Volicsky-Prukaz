@@ -4,7 +4,7 @@ var RequestGeneratorApp = function() {
   this.state = {
     tp: -1, // {'tp-na-slovensku', 'tp-odhlaseny'}
     volba: -1, // {volba-postou, volba-s-preukazom}
-    preukaz: -1, // {preukaz-do-vlastnych-ruk, preukaz-preberie-splnomocnenec}
+    prukaz: -1, // {preukaz-do-vlastnych-ruk, preukaz-preberie-splnomocnenec}
     action: '' // {action-preview, action-sign, action-finalize, action-send}
   };
 
@@ -70,8 +70,8 @@ RequestGeneratorApp.prototype = {
       'intro': 0,
 //      'start': 1, // 'intro',
 //      'tp-na-slovensku': 2, // 'start',
-      'preukaz': 1, // 'tp-na-slovensku',
-      'ziadost': 2,
+      'prukaz': 1, // 'tp-na-slovensku',
+      'zadost': 2,
       'pdf': 3,
       'sign': 4,
       'pdf-final': 5,
@@ -156,7 +156,7 @@ RequestGeneratorApp.prototype = {
     }
   },
 
-  resolveSectionAndState: function(hash) { console.log(hash);
+  resolveSectionAndState: function(hash) {
     hash = hash.replace( /^#/, '');
 
     var section;
@@ -170,7 +170,7 @@ RequestGeneratorApp.prototype = {
     case 'tp-na-slovensku&volba-s-preukazom':
     case 'volba-s-preukazom':
     case 'volba-s-prukazem':
-      section = 'preukaz';
+      section = 'prukaz';
       break;
     case 'tp-odhlaseny':
     case 'tp-na-slovensku&volba-postou':
@@ -178,9 +178,9 @@ RequestGeneratorApp.prototype = {
     case 'tp-na-slovensku&volba-s-preukazom&preukaz-preberie-splnomocnenec':
     case 'volba-s-preukazom&preukaz-do-vlastnych-ruk':
     case 'volba-s-preukazom&preukaz-preberie-splnomocnenec':
-    case 'volba-s-prukazem&prukaz-do-vlasnich-rukou':
+    case 'volba-s-prukazem&prukaz-do-vlastnich-rukou':
     case 'volba-s-prukazem&prukaz-zmocnenec':
-      section = 'ziadost';
+      section = 'zadost';
       break;
     default:
       section = 'intro';
@@ -257,7 +257,7 @@ RequestGeneratorApp.prototype = {
     fbq('track', 'CompleteRegistration');
   },
 
-  initForm: function() {
+  initForm: function() { console.log(this.state);
 
     if (this.state.tp === 'tp-odhlaseny') {
       nemamTP();
@@ -267,11 +267,11 @@ RequestGeneratorApp.prototype = {
       postaTP();
     }
 
-    if (this.state.preukaz === 'preukaz-do-vlastnych-ruk') {
+    if (this.state.prukaz === 'prukaz-do-vlastnich-rukou') {
       preukazTP();
     }
 
-    if (this.state.preukaz === 'preukaz-preberie-splnomocnenec') {
+    if (this.state.prukaz === 'prukaz-zplnomocnenec') {
       preukazPS();
     }
   },
@@ -280,14 +280,14 @@ RequestGeneratorApp.prototype = {
     var state = {
       tp: -1,
       volba: -1,
-      preukaz: -1,
+      prukaz: -1,
       action: ''
     };
 
     var parts = hash.split('&');
 
     $.each(parts, function(i, part) {
-      $.each(['volba', 'preukaz', 'action'], function(i, prefix) {
+      $.each(['volba', 'prukaz', 'action'], function(i, prefix) {
         if (part.indexOf(prefix) === 0) {
           state[prefix] = part;
         }
@@ -309,7 +309,7 @@ RequestGeneratorApp.prototype = {
 
       $('html, body').animate({ scrollTop: 0 }, 'slow');
 
-      if (that.active_section === 'ziadost') {
+      if (that.active_section === 'zadost') {
         that.initForm();
       }
     });
