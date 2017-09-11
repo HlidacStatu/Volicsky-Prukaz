@@ -127,11 +127,11 @@ $(document).ready(function () {
     }
   }
   if (isAndroid() || iosver > 1){
-    $(".mobile").removeClass("hidden").show();
+//    $(".mobile").removeClass("hidden").show();
     $("#intro").show();
     $("#intromobile").show();
   } else {
-    $(".pc").removeClass("hidden").show();
+//    $(".pc").removeClass("hidden").show();
     $("#intro").show();
     $("#intromobile").hide();
   }
