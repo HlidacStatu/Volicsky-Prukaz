@@ -68,14 +68,14 @@ RequestGeneratorApp.prototype = {
   getStep: function(section) {
     var steps_map = {
       'intro': 0,
-      'start': 1, // 'intro',
-      'tp-na-slovensku': 2, // 'start',
-      'preukaz': 3, // 'tp-na-slovensku',
-      'ziadost': 4,
-      'pdf': 5,
-      'sign': 6,
-      'pdf-final': 7,
-      'sendsection': 8
+//      'start': 1, // 'intro',
+//      'tp-na-slovensku': 2, // 'start',
+      'preukaz': 1, // 'tp-na-slovensku',
+      'ziadost': 2,
+      'pdf': 3,
+      'sign': 4,
+      'pdf-final': 5,
+      'sendsection': 6
     };
 
     return steps_map[section];
@@ -156,23 +156,30 @@ RequestGeneratorApp.prototype = {
     }
   },
 
-  resolveSectionAndState: function(hash) {
+  resolveSectionAndState: function(hash) { console.log(hash);
     hash = hash.replace( /^#/, '');
 
     var section;
 
     switch (hash) {
-    case 'start':
+    //case 'start':
     case 'tp-na-slovensku':
       section = hash;
       break;
+    case 'start':
     case 'tp-na-slovensku&volba-s-preukazom':
+    case 'volba-s-preukazom':
+    case 'volba-s-prukazem':
       section = 'preukaz';
       break;
     case 'tp-odhlaseny':
     case 'tp-na-slovensku&volba-postou':
     case 'tp-na-slovensku&volba-s-preukazom&preukaz-do-vlastnych-ruk':
     case 'tp-na-slovensku&volba-s-preukazom&preukaz-preberie-splnomocnenec':
+    case 'volba-s-preukazom&preukaz-do-vlastnych-ruk':
+    case 'volba-s-preukazom&preukaz-preberie-splnomocnenec':
+    case 'volba-s-prukazem&prukaz-do-vlasnich-rukou':
+    case 'volba-s-prukazem&prukaz-zmocnenec':
       section = 'ziadost';
       break;
     default:
@@ -280,7 +287,7 @@ RequestGeneratorApp.prototype = {
     var parts = hash.split('&');
 
     $.each(parts, function(i, part) {
-      $.each(['tp', 'volba', 'preukaz', 'action'], function(i, prefix) {
+      $.each(['volba', 'preukaz', 'action'], function(i, prefix) {
         if (part.indexOf(prefix) === 0) {
           state[prefix] = part;
         }
