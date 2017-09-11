@@ -1,64 +1,45 @@
-Voľby zo zahraničia — [volby.digital](https://volby.digital/)
+#Volby s volebním průkazem — [volby.hlidacstatu.cz](https://volby.hlidacstatu.cz/)
 ============================
 
-Webová aplikácia, ktorá vygeneruje žiadosť pre voľby do Národnej rady SR
-alebo o volebný preukaz. Vygenerovanú žiadosť si volič môže stiahnuť a poslať poštou,
-alebo ju poslať rovno emailom na príslušný úrad.
+Webová aplikace, která připraví žádost o volební průkaz pro volby do Parlamentu ČR v 2017.
+Vygenerovanou žádost si volič může stáhnout podepsat a stahnout jako PDF.
+
+Odeslání pomocí datové schránky či doručení s ověřeným podpisem na úřad (poštou, messenger) již musí volič provést sám. 
+
+##Termíny
+###Žádost o volební průkaz
+1. **Při osobní žádosti o volební průkaz**
+	 v tomto případě není písemná žádost vyžadována, neboť obecní úřad, který je oprávněn voličský průkaz vydat, o žádosti voliče po prokázání jeho totožnosti učiní úřední záznam, ve kterém veškeré potřebné údaje uvede; o vydání voličského průkazu lze požádat do okamžiku uzavření stálého seznamu voličů, tj. do 18. října 2017 do 16.00 hodin.
+
+2. **doručením písemné žádosti na úřad**
+	1. **v listinné podobě opatřené úředně ověřeným podpisem voliče**
+	Žádost o volební průkaz pro volby do Parlamentu ČR v 2017 musí být na příslušný obecní úřad podle trvalého bydliště žadatele doručena nejpozději 7 dnů přede dnem voleb, tj. **do 13. října 2017**.
+	Ověřený podpis žadatele zákon o volbách do Parlamentu vyžaduje proto, aby byl volič, který o vydání voličského průkazu žádá, chráněn před zneužitím tohoto institutu.
+
+	2. **v elektronické podobě zaslané prostřednictvím datové schránky.**
+	Žádost o volební průkaz pro volby do Parlamentu ČR v 2017 musí být na příslušný obecní úřad podle trvalého bydliště žadatele zaslána nejpozději 7 dnů přede dnem voleb, tj. **do 13. října 2017**.
 
 
-Formálne: Z hľadiska zákona o ochrane osobných údajov 122/2013 Z.z. keďže nie sú údaje prenášané na servery prevádzkovateľa aplikácie, nedochádza u neho k "spracúvaniu osobných údajov" v zmysle §4.3.a, nie sú teda naplnené požiadavky §2, a preto sa na neho tento zákon nevzťahuje. Špeciálne odoslanie žiadosti je úkon ktorý vykonáva používateľ aplikácie sám (z vlastnej vôle) a prostriedkami plne pod vlastnou kontrolou (svoj email či pošta), preto prevádzkovateľ aplikácie ani nevykonáva "odovzdávanie osobných údajov tretej strane", t.j. poskytovanie údajov v zmysle §4.3.a.1. Aplikácia je určená pre pomoc zabezpečovania osobnej činnosti fyzickej osoby a v takomto prípade sa v zmysle §3.2.a tento zákon nevťahuje ani na používateľa aplikácie (t.j. používateľ nemusí nič riešiť).
-
-Informácie poskytované prostredníctvom tejto aplikácie týkajúce sa volieb (termíny, možnosti voliča, text žiadosti) sú zísakné z verejne dostupných zdrojov a overené. Správnosť informácií týkajúcich sa adries obcí tiež podľa možností overujeme, ale najmä pri e-mailových adresách malých obcí nevieme garantovať ich funkčnosť. Ak niekto zistí že sú tu nesprávne údaje, vytvorte prosím issue na githube. Napriek snahe autorov aplikácie aby všetko fungovalo ako má, za výsledok neručíme a odporúčame používateľom neodkladať zaslanie žiadosti na poslednú chvíľu, aby aj v prípade nefunkčnosti aplikácie, napr. v dôsledku nekompatibilnej konfigurácie zariadenia používateľa, alebo probléme v komunikácii (napr. zlá emailová adresa úradu) nedošlo k zmeškaniu kritických lehôt.
-
-Žiadosti musia byť DORUČENÉ do 15.1/15.2. Ďalšie informácie sú dostupné napríklad na stránke http://volby.scholtz.sk/, https://platforma.slovensko.digital/t/registracia-na-volby-postou-zo-zahranicia-alebo-volicsky-preukaz/893/34
-
-Oficiálne informácie o hlasovacom preukaze: http://www.minv.sk/?nr16-preukaz 
-
-Oficiálne informácie o hlasovaní poštou pre osobu s trvalým pobytom na Slovensku: http://www.minv.sk/?nr16-posta2
-
-Oficiálne informácie o hlasovaní poštou pre osobu bez trvalého pobytu na Slovensku: http://www.minv.sk/?nr16-posta1
+###Doručení volebního průkazu
+Obecní úřad voličský průkaz nejdříve 15 dnů přede dnem voleb, tj. **5. října 2017**, předá osobně voliči nebo osobě, která se prokáže plnou mocí s ověřeným podpisem voliče žádajícího o vydání voličského průkazu (jedná se pouze o plnou moc k převzetí / vyzvednutí voličského průkazu, nikoliv však k podání žádosti o vydání voličského průkazu), anebo jej voliči zašle na jím uvedenou adresu, a to i do zahraničí. Voličský průkaz lze zaslat na základě žádosti voliče i na adresu zastupitelského úřadu, kde se volič rozhodl hlasovat. V tomto případě se stačí v den voleb dostavit na tento zastupitelský úřad, kde bude voličský průkaz předán a následně je možné přistoupit k hlasování.
 
 
----
-**Ako si nechať doručiť hlasovacie lístky na adresu v cudzine, ktorú ešte nepoznáte?**
 
-(Kamionisti, ktorý sú mesiac na cestách po EU, alebo ľudia, ktorí adresu v cudzine po 30.1. keď im hlasovacie lístky majú prísť v čase keď majú o ne požiadať, teda do 15.1. ešte nepoznajú)
-V tomto prípade môžete požiadať o poslatie zásielky na adresu pošty v meste, kde budete v danú dobu. To znamená, že si zistíte iba adresu pošty v meste, v ktorom budete v čase doručenia hlasovacích lístkov. Ako adresu miesta pobytu v cudzine vo formulári zadáte namiesto Ulice a čísla slová "Poste Restante" - http://i.imgur.com/REVhJsM.jpg Obec Vám to pošle na adresu:
-```
-Meno Priezvisko
-Poste Restante
-PSC MESTO
-KRAJINA
-```
-Zásielka sa Vám vydá na základe dokladu totožnosti, kde sa overuje Vaše meno.
-**Zásielka sa drží na pošte doručenia 2 týždne.** Preto ak nebudete v danom meste celú dobu v rámci ktorej Vám môžu prísť hlasovacie lístky, bude dobré sa informovať úradníkov kam ste zasielali žiadosť o lístky kedy Vám to pošlú. Nedá sa na to spoliehať, pretože majú iba povinnosť Vám to poslať v termíne do 35 dní pred voľbami a nie Vás o dátume poslania informovať. Prípadne predom dohodnúť dlhšiu dobu dodania. V možnostiach pošty je "Predĺženie odbernej lehoty, Časové doposielanie, Splnomocnenie, Doručenie na inú adresu na žiadosť adresáta" ( http://www.posta.sk/sluzby/doporucena-zasielka-svet a Infolinke pošty 0800 122 413 )
-Zásielky sa budú posielať doporučene. Do niektorych krajín to nie je možné, preto ak by bol problém, treba sa dohodnúť s obcou na nedoporučenej zásielke.
 
-*Toto platí iba pre tých, ktorí nepoznajú adresu svojho pobytu v cudzine v mesiaci február, keď prídu hlasovacie lístky*
+##Ochrana osobní údajů:
+Aplikace běží pouze na klientovi, nedochází k žádnému přenášení údajů na server provozovatele (Hlídač Státu z.ú.), tzn. z hlediska zákona o ochraně osobních údajů nedochází ke zpracování osobních údajů. 
 
----
-**Testovacia stránka:**  
-https://volby.digital/test/
 
-**Nápad vznikol na:**  
+
+##Další
+**Nápad na aplikace vznikl na:**  
 [platforma.slovensko.digital](https://platforma.slovensko.digital/)
 
-**Ohlasy v médiách**
-
-21.12. [Info.sk: Aké majú možnosti Slováci v zahraničí?](http://www.info.sk/sprava/81039/volby-2016-ake-maju-moznosti-slovaci-v-zahranici/) 
-
-20.12. [TV Markiza](http://videoarchiv.markiza.sk/video/televizne-noviny/televizne-noviny/39681_televizne-noviny) (9. reportáž "Zo zahraničia sa volí skôr") 
-
-19.12. [TV RTVS](http://www.rtvs.sk/televizia/archiv/7600/82947) (Čas 26:20-29:05)
-
-18.12. [BB Online: Voľby do NRSR: Desiatky Bystričanov kandidujú do národného parlamentu](http://bbonline.sk/volby-do-nrsr-desiatky-bystricanov-kandiduju-do-narodneho-parlamentu/)
-
-17.12. [StartitUp: Slovensko.digital zvládla za niekoľko dní to, čo štát nedokázal roky!](http://www.startitup.sk/slovakia-digital-zvladla-za-niekolko-dni-to-co-stat-nedokazal-roky/)
-
-13.12. [DennikN:V cudzine sú desaťtisíce hlasov, politici na ne nemyslia, mobilizujú aktivisti](https://dennikn.sk/319788/slovakov-zo-zahranicia-urnam-nemobilizuje-stat-aktivisti/)
+Aplikace byla vytvořena s použitím zdrojových kódů z https://github.com/marsher/volby-zo-zahranicia
 
 
-**Zoznam podporovaných/otestovaných zariadení:**  
+
+##Seznam podporovaných/otestovaných zařízení:
 
 * Windows 10, Firefox 42.0 - Plná funkcionalita
 * Windows 10, Chrome 47.0.2526.80 - Plná funkcionalita
@@ -79,24 +60,4 @@ https://volby.digital/test/
 * Ubuntu 14.10, Firefox 42.0 - Plná funkcionalita
 * FreeBSD 10.2-RELEASE-p4, Firefox 41.0.2 - Plná funkcionalita
 
----
 
-**Changelog:**  
-  1.0-stable 23.12.2015 
-	Aktualizácia údajov potvrdených obcami
-	Výber kraja okresu a obce podľa PSČ
-	Umiestnenie najpočetnejšieho kraja, okresu a obce na vrch výberu a ostatné zoradené podľa abecedy
-	Podpora rôznych emailov pre odosielanie žiadostí o hlasovanie poštou a žiadostí o hlasovací preukaz
-		
-  1.0-beta 11.12.2015 
-	Formulár žiadosti o hlasovací preukaz poštou bol skontrolovaný
-	Formulár žiadosti o hlasovací preukaz pre splnomocnenca bol skontrolovaný
-	Formulár žiadosti o hlasovanie poštou s trvalým pobytom na Slovensku bol skontrolovaný
-	Formulár žiadosti o hlasovanie poštou bez trvalého pobytu na Slovensku bol skontrolovaný
-	Zmena štýlu
-	Odstránená funkcionalita vkladania foto - cez mailto nie je možné odoslať prílohy, iba vytvoriť email a prílohy manuálne pripnúť
-	
-  0.4 - Všetky možnosti pokryte  
-  0.3 - Podpis a fotografia je vkladaná do PDF  
-  0.2 - Proof of concept - signaturePad  
-  0.1 - Proof of concept - Generovanie žiadosť
