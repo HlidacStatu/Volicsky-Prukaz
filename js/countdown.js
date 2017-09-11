@@ -9,7 +9,7 @@ $(document).ready( function () {
 
   function countDownElections() {
     var counter = $('#count-down-elections');
-    var remaining = getRemainingTimeText('2016-03-05T07:00:00', '#count-down-elections', 'Voľby sa už začali');
+    var remaining = getRemainingTimeText('2017-10-20T07:00:00', '#count-down-elections', 'Voľby sa už začali');
     if (remaining){
       var text = 'Do volieb zostáva: ' + remaining;
       counter.html(text);
@@ -18,7 +18,7 @@ $(document).ready( function () {
 
   function countDownVotingPass() {
     var counter = $('#count-down-voting-pass');
-    var remaining = getRemainingTimeText('2016-02-15T23:59:59', '#count-down-voting-pass', 'Uplynul termín pre podanie žiadosti o hlasovací preukaz');
+    var remaining = getRemainingTimeText('2017-10-13T23:59:59', '#count-down-voting-pass', 'Uplynul termín pre podanie žiadosti o hlasovací preukaz');
     if (remaining){
       var text = 'Pre podanie žiadosti o hlasovací preukaz ostáva: ' + remaining;
       counter.html(text);
@@ -26,7 +26,7 @@ $(document).ready( function () {
   }
   function countDownVotingByPost() {
     var counter = $('#count-down-vote-by-post');
-    var remaining = getRemainingTimeText('2016-01-15T23:59:59', '#count-down-vote-by-post', 'Uplynul termín pre podanie žiadosti o voľbu poštou');
+    var remaining = getRemainingTimeText('2017-10-13T23:59:59', '#count-down-vote-by-post', 'Uplynul termín pre podanie žiadosti o voľbu poštou');
     if (remaining){
       var text = 'Pre podanie žiadosti o hlasovací preukaz ostáva: ' + remaining;
       counter.html(text);
