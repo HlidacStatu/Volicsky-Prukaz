@@ -31,7 +31,7 @@ function createDocument(preview, download) {
                 style: 'footer',
               },
               {
-                text: ['Dátum: ', {text: '' + dd + '. ' + mm + '. ' + yyyy, style: 'value'}],
+                text: ['Datum: ', {text: '' + dd + '. ' + mm + '. ' + yyyy, style: 'value'}],
                 style: 'footer',
               },
               {
@@ -50,7 +50,7 @@ function createDocument(preview, download) {
         style: 'footer',
       },
       {
-        text: ['Dátum: ', {text: '' + dd + '. ' + mm + '. ' + yyyy, style: 'value'}],
+        text: ['Datum: ', {text: '' + dd + '. ' + mm + '. ' + yyyy, style: 'value'}],
         style: 'footer',
       },
       {
@@ -75,18 +75,18 @@ function createDocument(preview, download) {
 
 
   if (App.request_form === 'volbaPostouSTrvalymPobytom') {
-    paragraph = 'Podľa § 60 ods. 1 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o voľbu poštou pre voľby do Národnej rady Slovenskej republiky v roku 2016.';
+    paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro volby do Poslanecké sněmovny Parlamentu České republiky.';
     localaddress = [
       {text: '', style: 'spacesmall'},
       {
-        text: 'Adresa trvalého pobytu v Slovenskej republike:',
+        text: 'Adresa trvalého pobytu v ČR:',
         style: 'line',
         //style: 'header',
         bold: true
       },
       {
         columns: [
-          {text: 'Ulica: ', style: 'line', },
+          {text: 'Ulice: ', style: 'line', },
           {text: $('#addressslovakia-street').val().toUpperCase(), style: 'value'},
           {text: ''}
         ]
@@ -114,14 +114,14 @@ function createDocument(preview, download) {
       },
       {text: '', style: 'spacesmall'},
       {
-        text: 'Adresa miesta pobytu v cudzine (pre zaslanie hlasovacích lístkov a obálok):',
+        text: 'Adresa místa pobytu v zahraničí (pro zaslání volebního průkazu a dalších dokumentů):',
         style: 'line',
         //style: 'header',
         bold: true
       }
     ];
   } else if (App.request_form === 'volbaPostouBezTrvalehoPobytu') {
-    paragraph = 'Podľa § 59 ods. 1 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov žiadam o voľbu poštou pre voľby do Národnej rady Slovenskej republiky v roku 2016 a o zaslanie hlasovacích lístkov a obálok na adresu:';
+    paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro volby do Poslanecké sněmovny Parlamentu České republiky a o zaslání voličského průkazu na adresu:';
     noTP = [
 
       {text: '', style: 'space'},
@@ -161,7 +161,7 @@ function createDocument(preview, download) {
       },
       {text: '', style: 'space'},
       {
-        text: 'Na účely voľby poštou do Národnej rady Slovenskej republiky v roku 2016',
+        text: 'pro hlasování ve volbách do Poslanecké sněmovny Parlamentu ČR v roce 2017',
         alignment: 'center'
       },
       {text: '', style: 'space'},
@@ -182,7 +182,7 @@ function createDocument(preview, download) {
 
     formContent = [
       {
-        text: 'Žiadosť',
+        text: 'Žádost',
         style: 'header',
         alignment: 'center'
       },
@@ -192,7 +192,7 @@ function createDocument(preview, download) {
         alignment: 'center'
       },
       {
-        text: 'pre voľby do Národnej rady Slovenskej republiky v roku 2016',
+        text: 'pro hlasování ve volbách do Poslanecké sněmovny Parlamentu ČR v roce 2017',
         style: 'header',
         alignment: 'center'
       },
@@ -276,20 +276,20 @@ function createDocument(preview, download) {
     ];
   }
   if (App.request_form === "ziadostOPreukazPostou") {
-    preukazHeader = 'Žiadosť o vydanie hlasovacieho preukazu';
+    preukazHeader = 'Žádost o vydání voličského průkazu';
     preukazDelivery = [
       {
-        text: 'Hlasovací preukaz žiadam zaslať na adresu:',
+        text: 'Voličský průkaz žádam zaslat na adresu:',
         style: 'line',
         alignment: 'left'
       },
       {
         columns: [
           {
-            text: ['Meno: ', {text: $('#basicinfo-name').val().toUpperCase(), style: 'value'}],
+            text: ['Jméno: ', {text: $('#basicinfo-name').val().toUpperCase(), style: 'value'}],
           },
           {
-            text: ['Priezvisko: ', {text: $('#basicinfo-lastname').val().toUpperCase(), style: 'value'}],
+            text: ['Příjmení: ', {text: $('#basicinfo-lastname').val().toUpperCase(), style: 'value'}],
           }
         ]
       },
@@ -301,25 +301,25 @@ function createDocument(preview, download) {
   }
 
   if (App.request_form === "ziadostOPreukaPreSplnomocnenca") {
-    preukazHeader = 'Žiadosť o vydanie hlasovacieho preukazu a splnomocnenie na jeho prevzatie';
+    preukazHeader = 'Žádost o vydání voličského průkazu a plná moc pro jeho převzetí';
     preukazDelivery = [
       {
-        text: 'Na prevzatie hlasovacieho preukazu podľa § 46 ods. 6 zákona  splnomocňujem:',
+        text: 'K převzetí voličského průkazu splnomocňuji:',
         style: 'line',
         alignment: 'left'
       },
       {
         columns: [
           {
-            text: ['Meno: ', {text: $('#proxy-name').val().toUpperCase(), style: 'value'}],
+            text: ['Jméno: ', {text: $('#proxy-name').val().toUpperCase(), style: 'value'}],
           },
           {
-            text: ['Priezvisko: ', {text: $('#proxy-lastname').val().toUpperCase(), style: 'value'}],
+            text: ['Příjmení: ', {text: $('#proxy-lastname').val().toUpperCase(), style: 'value'}],
           }
         ]
       },
       {
-        text: ['Číslo občianskeho preukazu: ', {text: $('#proxy-idno').val().toUpperCase(), style: 'value'}],
+        text: ['Číslo PO: ', {text: $('#proxy-idno').val().toUpperCase(), style: 'value'}],
         style: 'line'
       }
     ];
@@ -341,11 +341,11 @@ function createDocument(preview, download) {
       {
         columns: [
           {
-            text: ['Meno: ', {text: $('#basicinfo-name').val().toUpperCase(), style: 'value'}],
+            text: ['Jméno: ', {text: $('#basicinfo-name').val().toUpperCase(), style: 'value'}],
             style: 'line',
           },
           {
-            text: ['Priezvisko: ', {text: $('#basicinfo-lastname').val().toUpperCase(), style: 'value'}],
+            text: ['Příjmení: ', {text: $('#basicinfo-lastname').val().toUpperCase(), style: 'value'}],
             style: 'line',
           },
         ]
@@ -357,7 +357,7 @@ function createDocument(preview, download) {
             style: 'line',
           },
           {
-            text: ['Štátna príslušnosť: ', {text: 'Slovenská republika'.toUpperCase(), style: 'value'}],
+            text: ['Státní příslušnost: ', {text: 'Slovenská republika'.toUpperCase(), style: 'value'}],
             style: 'line',
           },
         ]
@@ -368,16 +368,16 @@ function createDocument(preview, download) {
       },
       {text: '', style: 'space'},
       {
-        text: 'žiadam',
+        text: 'žádam',
         style: 'header',
         alignment: 'center'
       },
       {text: '', style: 'space'},
       {
         text: [
-          {text: 'podľa § 46 zákona č. 180/2014 Z. z. o podmienkach výkonu volebného práva a o zmene a doplnení niektorých zákonov '},
-          {text: 'o vydanie hlasovacieho preukazu', bold: true},
-          {text: ' pre voľby do Národnej rady Slovenskej republiky v roku 2016.'},
+          {text: 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky,'},
+          {text: 'tímto žádám o vydání voličského průkazu ', bold: true},
+          {text: ' pro volby do Poslanecké sněmovny Parlamentu České republiky.'},
         ]
       },
       {text: '', style: 'space'},
@@ -387,9 +387,9 @@ function createDocument(preview, download) {
   var dd = {
     pageSize: 'A4',
     info: {
-      title: 'Žiadosť o účasť vo voľbách',
-      author: 'volby.digital',
-      subject: 'Žiadosť o účasť vo voľbách',
+      title: 'Žádost o voličský průkaz',
+      author: 'volby.hlidacstatu.cz',
+      subject: 'Žádost o voličský průkaz',
     },
     content: [
       formContent,
@@ -448,18 +448,18 @@ function createDocument(preview, download) {
     }
   };
 
-  var name = "ziadost";
+  var name = "žádost";
   if (preview){
     if (App.request_form === "ziadostOPreukazPostou" || App.request_form === "ziadostOPreukaPreSplnomocnenca") {
-      name = "ziadost-o-hlasovaci-preukaz-nahlad.pdf";
+      name = "zadost-o-volicsky-prukaz-nahlad.pdf";
     } else {
-      name = "ziadost-o-volbu-postou-nahlad.pdf";
+      name = "zadost-o-volicsky-prukaz-nahlad.pdf";
     }
   } else {
     if (App.request_form === "ziadostOPreukazPostou" || App.request_form === "ziadostOPreukaPreSplnomocnenca") {
-      name = "ziadost-o-hlasovaci-preukaz.pdf";
+      name = "zadost-o-volicsky-prukaz.pdf";
     } else {
-      name = "ziadost-o-volbu-postou.pdf";
+      name = "zadost-o-volicsky-prukaz.pdf";
     }
   }
 
