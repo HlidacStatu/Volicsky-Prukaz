@@ -353,7 +353,7 @@ function createDocument(preview, download) {
       {
         columns: [
           {
-            text: ['Rodné číslo: ', {text: $('#basicinfo-birthno').val(), style: 'value'}],
+            text: ['Datum narození: ', {text: $('#basicinfo-birth').val(), style: 'value'}],
             style: 'line',
           },
           {

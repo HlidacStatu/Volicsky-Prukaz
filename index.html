@@ -160,9 +160,16 @@ Pomůžeme vám připravit žádost o voličský průkaz a provedeme vás možno
 						<input type="text" id="basicinfo-maidenlastname" class="form-control" name="BasicInfo[maidenLastname]">
 						<div class="help-block"></div>
 					</div>
-					<div class="form-group field-basicinfo-birthno required">
+					<!--
+                    <div class="form-group field-basicinfo-birthno required">
 						<label class="control-label" for="basicinfo-birthno">Rodné číslo</label>
 						<input type="text" id="basicinfo-birthno" class="form-control" name="BasicInfo[birthNo]" autocomplete="off">
+						<div class="help-block"></div>
+					</div>
+                    -->
+					<div class="form-group field-basicinfo-birth required">
+						<label class="control-label" for="basicinfo-birth">Datum narození (dd.mm.rrrr)</label>
+						<input type="text" id="basicinfo-birth" class="form-control" name="BasicInfo[birth]" autocomplete="off">
 						<div class="help-block"></div>
 					</div>
 				</form>

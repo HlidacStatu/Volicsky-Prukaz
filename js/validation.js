@@ -41,6 +41,22 @@ function fixBirthNumberSlash(){
   }
 }
 
+function fixBirthFormat(){
+  var value = $("#basicinfo-birth").val();
+  value = value.replace(new RegExp('\/|,', 'g'), '.'); console.log(value);
+  var newvalue = "";
+
+  var segments = value.split('.');
+  if (!parseInt(segments[0].trim()) || !parseInt(segments[1].trim()) || !parseInt(segments[2].trim())) return false;
+  newvalue += parseInt(segments[0].trim()) + '.';
+  newvalue += parseInt(segments[1].trim()) + '.';
+  newvalue += ((parseInt(segments[2].trim()) < 100)?'19':'') + parseInt(segments[2].trim());
+
+  if ( newvalue !== ""){
+    $("#basicinfo-birth").val(newvalue);
+  }
+}
+
 var validatePSC = function(value, messages) {
   if ( value.length !== 5 ) {
     yii.validation.addMessage(messages, "Vaše domáce PSČ by malo byť dlhé 5 číslic.", value);
