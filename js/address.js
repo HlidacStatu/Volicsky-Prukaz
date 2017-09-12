@@ -1,7 +1,8 @@
 var App = window.election;
 
+
 function findZIP(){
-  var psc = $("#addressslovakia-zip").val().replace(' ', '');
+  var psc = parseInt($("#addressslovakia-zip").val().replace(' ', ''));
   if ( psc.length === 5 ){
     if ( psc in App.psc){
       kraj = App.psc[psc][2] + " kraj";
@@ -89,7 +90,7 @@ function nacitajKraje(){
   }
   nastavKraj();
 }
-function nastavKraj(){
+function nastavKraj(){ return false;
   var options = $("#addressslovakia-okres");
   options.find('option').remove();
   var kraj = $("#addressslovakia-kraj").val();
@@ -101,7 +102,7 @@ function nastavKraj(){
     options.select2({width:"100%"});
   }
 }
-function nastavOkres(){
+function nastavOkres(){ return false;
   var options = $("#addressslovakia-city");
   options.find('option').remove();
   var kraj = $("#addressslovakia-kraj").val();

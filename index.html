@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<link href="assets/css/select2.min.css" rel="stylesheet" />
+	<link href="assets/css/jquery-ui.min.css" rel="stylesheet" />
 	<link href="css/site.css" rel="stylesheet" />
 
 	<!-- open graph specification if anyone shares -->
@@ -75,7 +76,7 @@
 		<!-- ----- ----- -->
 		<div id="intro" class="intro section">
 
-		<div class="">
+		<div class="pc hidden">
 
 			<h1>Parlamentní volby 20. a 21. října 2017</h1>
 			<h2>Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz.</h2>
@@ -220,12 +221,18 @@ Pomůžeme vám připravit žádost o voličský průkaz a provedeme vás možno
 						<div class="help-block"></div>
 					</div>
 					<div class="form-group field-addressslovakia-zip required">
-						<label class="control-label" for="addressslovakia-zip">PSČ <small>(Zadajte PSČ, alebo vyberte mesto zo zoznamu.)</small></label>
-						<input type="text" id="addressslovakia-zip" class="form-control" name="AddressSlovakia[zip]" onkeyup="findZIP()" onchange="findZIP()">
+						<label class="control-label" for="addressslovakia-zip">PSČ <small>(Zadajte PSČ, nebo vyberte ze seznamu.)</small></label>
+						<input type="text" id="addressslovakia-zip" class="form-control" name="AddressSlovakia[zip]">
 						<div class="wrong-psc"></div>
 						<div class="help-block psc"></div>
 						<div><small>(PSČ Vášho obecného/mestského úradu sa môže líšiť od Vášho.)</small></div>
 					</div>
+					<div class="form-group field-addressslovakia-city required">
+						<label class="control-label" for="addressslovakia-city">Město <small>(Město, nebo vyberte ze seznamu.)</small></label>
+						<input type="text" id="addressslovakia-city" class="form-control" name="AddressSlovakia[city]" >
+						<div class="help-block"></div>
+					</div>
+                    <!--
 					<div class="form-group field-addressslovakia-kraj required">
 						<label class="control-label" for="addressslovakia-kraj">Kraj</label>
 						<select class="form-control" id="addressslovakia-kraj" name="AddressSlovakia[kraj]" onchange="nastavKraj()" >
@@ -247,6 +254,7 @@ Pomůžeme vám připravit žádost o voličský průkaz a provedeme vás možno
 						</select>
 						<div class="help-block"></div>
 					</div>
+                    -->
 				</form>
 			</div>
 
@@ -568,6 +576,7 @@ window.election.cities = {};
 window.election.psc = {};
 </script>
 <script src="assets/js/jquery-latest.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
 <script src="assets/js/jquery.mobile.hashchange.min.js"></script>
 <script src="assets/js/signature_pad.min.js"></script>
 <script src="assets/js/select2.min.js"></script>

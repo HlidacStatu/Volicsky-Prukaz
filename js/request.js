@@ -1,5 +1,29 @@
 var App = window.election;
 
+$.getJSON('js/out.json', function(data) {
+
+    cities = data;
+
+    citiesAC = new Array();
+    for (id in cities) {
+
+        citiesAC.push({'id':id, 'value':cities[id].zip + ' ' + cities[id].city});
+
+    }
+
+    $('#addressslovakia-zip').autocomplete({
+        source: citiesAC,
+        select: function(event, ui){
+            zip = ui.item.value.substr(0,5);
+            city = ui.item.value.substr(6);
+            $('#addressslovakia-zip').val(zip);
+            $('#addressslovakia-city').val(city);
+            return false;
+        }
+    });
+
+});
+
 function createDocument(preview, download) {
   jQuery.data( document.body, "psc-locked", "1");
   nastavObec();
