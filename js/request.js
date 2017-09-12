@@ -7,7 +7,9 @@ $.getJSON('js/out.json', function(data) {
     citiesAC = new Array();
     for (id in cities) {
 
-        citiesAC.push({'id':id, 'value':cities[id].zip + ' ' + cities[id].city});
+        citiesAC.push({'id':id, 'value':cities[id].zip + ' ' + cities[id].city, 'address':cities[id].address + ', ' + cities[id].datovaSchranka + ', ' + cities[id].email});
+
+        if (cities[id].zip == 11000) console.log(cities[id]);
 
     }
 
@@ -18,6 +20,7 @@ $.getJSON('js/out.json', function(data) {
             city = ui.item.value.substr(6);
             $('#addressslovakia-zip').val(zip);
             $('#addressslovakia-city').val(city);
+            $('.field-addressslovakia-city .help-block').html('<span style="color: blue; font-weight: bold;">'+ui.item.address+'</span>');
             return false;
         }
     });
