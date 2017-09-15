@@ -1,32 +1,5 @@
 var App = window.election;
 
-$.getJSON('js/out.json', function(data) {
-
-    cities = data;
-
-    citiesAC = new Array();
-    for (id in cities) {
-
-        citiesAC.push({'id':id, 'value':cities[id].zip + ' ' + cities[id].city, 'address':cities[id].address + ', ' + cities[id].datovaSchranka + ', ' + cities[id].email});
-
-        if (cities[id].zip == 11000) console.log(cities[id]);
-
-    }
-
-    $('#addressslovakia-zip').autocomplete({
-        source: citiesAC,
-        select: function(event, ui){
-            zip = ui.item.value.substr(0,5);
-            city = ui.item.value.substr(6);
-            $('#addressslovakia-zip').val(zip);
-            $('#addressslovakia-city').val(city);
-            $('.field-addressslovakia-city .help-block').html('<span style="color: blue; font-weight: bold;">'+ui.item.address+'</span>');
-            return false;
-        }
-    });
-
-});
-
 function createDocument(preview, download) {
   jQuery.data( document.body, "psc-locked", "1");
   nastavObec();
@@ -384,7 +357,7 @@ function createDocument(preview, download) {
             style: 'line',
           },
           {
-            text: ['Státní příslušnost: ', {text: 'Slovenská republika'.toUpperCase(), style: 'value'}],
+            text: ['Státní příslušnost: ', {text: 'Česká republika'.toUpperCase(), style: 'value'}],
             style: 'line',
           },
         ]

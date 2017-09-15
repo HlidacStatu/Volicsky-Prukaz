@@ -26,14 +26,14 @@ function postaTP() {
   App.request_form = 'volbaPostouSTrvalymPobytom';
 }
 
-function preukazTP() { console.log('ziadostOPreukazPostou');
+function preukazTP() { //console.log('ziadostOPreukazPostou');
   clearForm();
   $('.preukaz-tp').show();
   $('#photo-link').hide();
   App.request_form = 'ziadostOPreukazPostou';
 }
 
-function preukazPS() { console.log('ziadostOPreukaPreSplnomocnenca');
+function preukazPS() { //console.log('ziadostOPreukaPreSplnomocnenca');
   clearForm();
   $('.preukaz-ps').show();
   $('#photo-link').hide();

@@ -1,5 +1,57 @@
 var App = window.election;
 
+$.getJSON('js/out.json', function(data) {
+
+    cities = data;
+
+    citiesAC = new Array();
+    for (id in cities) {
+
+        citiesAC.push({'id':id, 'value':cities[id].zip + ' ' + cities[id].city, 'array': cities[id], 'address':cities[id].address + ', ' + cities[id].datovaSchranka + ', ' + cities[id].email});
+
+        //if (cities[id].zip == 11000) console.log(cities[id]);
+
+    }
+
+    $('.field-zip input').autocomplete({
+        source: citiesAC,
+        select: function(event, ui){
+            zip = ui.item.value.substr(0,5);
+            city = ui.item.value.substr(6);
+            console.log(ui.item.array);
+            $(this).val(zip);
+            $('input', $(this).parent('div').next('div')).val(city);
+
+            if ($(this).parents('div').hasClass('field-addressslovakia-zip')) {
+
+                $('#addressoffice-name').val(ui.item.array.name);
+                $('#addressoffice-street').val(ui.item.array.street || ui.item.array.city);
+                $('#addressoffice-streetno').val(ui.item.array.houseNumber);
+                $('#addressoffice-city').val(ui.item.array.city);
+                $('#addressoffice-zip').val(ui.item.array.zip);
+                $('#addressoffice-email').val(ui.item.array.email);
+                $('#addressoffice-ebox').val(ui.item.array.datovaSchranka);
+                updateOfficeAddress();
+
+            }
+
+            return false;
+        }
+    });
+
+    $('#address-foreign input').change(function(){
+
+        updateOfficeAddress();
+
+    });
+
+});
+
+function updateOfficeAddress() {
+
+    $('#adresa').val($('#addressoffice-name').val() + "\n" + $('#addressoffice-street').val() + " " + $('#addressoffice-streetno').val() + "\n" + $('#addressoffice-zip').val() + " " + $('#addressoffice-city').val() + "\nE-mail: " + $('#addressoffice-email').val() + "\nDatová schránka: " + $('#addressoffice-ebox').val());
+
+}
 
 function findZIP(){
   var psc = parseInt($("#addressslovakia-zip").val().replace(' ', ''));
@@ -71,7 +123,7 @@ function getAddressOneLine(id) {
   }
 
   if (id === "addressslovakia") {
-    ret += "Slovenská republika";
+    ret += "Česká republika";
   } else {
     ret += $('#' + id + '-country').val();
   }
@@ -118,14 +170,14 @@ function nastavOkres(){ return false;
 function getObec(){
 
   var ico = $("#addressslovakia-city").val();
-  var kraj = $("#addressslovakia-kraj").val();
-  var okres = $("#addressslovakia-okres").val();
-  var o = App.cities;
+//  var kraj = $("#addressslovakia-kraj").val();
+//  var okres = $("#addressslovakia-okres").val();
+//  var o = App.cities;
 
-  if (ico && o[kraj] && o[kraj][okres] && o[kraj][okres][ico]) {
-    return o[kraj][okres][ico][App.C2N_NAZOV_OBCE];
+  if (ico) {
+    return ico;
   }
-  return "Nepodarilo sa načítať obec";
+  return "Nepodařilo se načíst obec";
 }
 function nastavObec(obec) {
 

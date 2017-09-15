@@ -257,7 +257,7 @@ RequestGeneratorApp.prototype = {
     fbq('track', 'CompleteRegistration');
   },
 
-  initForm: function() { console.log(this.state);
+  initForm: function() { //console.log(this.state);
 
     if (this.state.tp === 'tp-odhlaseny') {
       nemamTP();

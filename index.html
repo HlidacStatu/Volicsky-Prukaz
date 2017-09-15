@@ -204,7 +204,7 @@ Pomůžeme vám připravit žádost o voličský průkaz a provedeme vás možno
 
 			<div class="preukaz-ps preukaz-tp posta-tp">
 				<h3 class="as-title-with-padding digitalRed">
-					Vaša adresa trvalého pobytu v Slovenskej republike</h3>
+					Vaše adresa trvalého pobytu v České republice</h3>
 				<hr>
 				<!-- ----- ----- -->
 				<!-- STEP 2 FORM ADDRESS SLOVAKIA -->
@@ -220,14 +220,14 @@ Pomůžeme vám připravit žádost o voličský průkaz a provedeme vás možno
 						<input type="text" id="addressslovakia-streetno" class="form-control" name="AddressSlovakia[streetNo]">
 						<div class="help-block"></div>
 					</div>
-					<div class="form-group field-addressslovakia-zip required">
+					<div class="form-group field-addressslovakia-zip field-zip required">
 						<label class="control-label" for="addressslovakia-zip">PSČ <small>(Zadajte PSČ, nebo vyberte ze seznamu.)</small></label>
 						<input type="text" id="addressslovakia-zip" class="form-control" name="AddressSlovakia[zip]">
 						<div class="wrong-psc"></div>
 						<div class="help-block psc"></div>
 						<div><small>(PSČ Vášho obecného/mestského úradu sa môže líšiť od Vášho.)</small></div>
 					</div>
-					<div class="form-group field-addressslovakia-city required">
+					<div class="form-group field-addressslovakia-city field-city required">
 						<label class="control-label" for="addressslovakia-city">Město <small>(Město, nebo vyberte ze seznamu.)</small></label>
 						<input type="text" id="addressslovakia-city" class="form-control" name="AddressSlovakia[city]" >
 						<div class="help-block"></div>
@@ -283,19 +283,19 @@ Pomůžeme vám připravit žádost o voličský průkaz a provedeme vás možno
 						<input type="text" id="addressforeign-streetno" class="form-control" name="AddressForeign[streetNo]">
 						<div class="help-block"></div>
 					</div>
-					<div class="form-group field-addressforeign-city required">
-						<label class="control-label" for="addressforeign-city">Mesto</label>
-						<input type="text" id="addressforeign-city" class="form-control" name="AddressForeign[city]">
-						<div class="help-block"></div>
-					</div>
-					<div class="form-group field-addressforeign-zip required">
+					<div class="form-group field-addressforeign-zip field-zip required">
 						<label class="control-label" for="addressforeign-zip">PSČ</label>
 						<input type="text" id="addressforeign-zip" class="form-control" name="AddressForeign[zip]">
 						<div class="help-block"></div>
 					</div>
+					<div class="form-group field-addressforeign-city field-city required">
+						<label class="control-label" for="addressforeign-city">Mesto</label>
+						<input type="text" id="addressforeign-city" class="form-control" name="AddressForeign[city]">
+						<div class="help-block"></div>
+					</div>
 					<div class="form-group field-addressforeign-country required">
 						<label class="control-label" for="addressforeign-country">Štát</label>
-						<input type="text" id="addressforeign-country" class="form-control" name="AddressForeign[country]" value="Slovensko">
+						<input type="text" id="addressforeign-country" class="form-control" name="AddressForeign[country]" value="Česká republika">
 						<div class="help-block"></div>
 					</div>
 					<div class="form-group field-addressforeign-format posta-tp nemam-tp">
@@ -309,6 +309,52 @@ Pomůžeme vám připravit žádost o voličský průkaz a provedeme vás možno
 						<div class="help-block"></div>
 					</div>
 				</form>
+
+				<h3 id="office-header" class="as-title-with-padding digitalRed preukaz-tp">
+					Adresa příslušného úřadu
+				</h3>
+				<hr>
+				<!-- ----- ----- -->
+				<!-- STEP 2 FORM ADDRESS OFFICE -->
+				<!-- ----- ----- -->
+				<form id="address-foreign" action="/" method="post">
+					<div class="form-group field-addressoffice-name required">
+						<label class="control-label" for="addressoffice-name">Ulice</label>
+						<input type="text" id="addressoffice-name" class="form-control" name="AddressOffice[name]">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-addressoffice-street required">
+						<label class="control-label" for="addressoffice-street">Ulice</label>
+						<input type="text" id="addressoffice-street" class="form-control" name="AddressOffice[street]">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-addressoffice-streetno required">
+						<label class="control-label" for="addressoffice-streetno">Číslo domu</label>
+						<input type="text" id="addressoffice-streetno" class="form-control" name="AddressOffice[streetNo]">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-addressoffice-zip field-zip required">
+						<label class="control-label" for="addressoffice-zip">PSČ</label>
+						<input type="text" id="addressoffice-zip" class="form-control" name="AddressOffice[zip]">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-addressoffice-city field-city required">
+						<label class="control-label" for="addressoffice-city">Město</label>
+						<input type="text" id="addressoffice-city" class="form-control" name="AddressOffice[city]">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-addressoffice-email required">
+						<label class="control-label" for="addressoffice-email">E-mail</label>
+						<input type="text" id="addressoffice-email" class="form-control" name="AddressOffice[email]">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-addressoffice-ebox required">
+						<label class="control-label" for="addressoffice-ebox">Datová schránka</label>
+						<input type="text" id="addressoffice-ebox" class="form-control" name="AddressOffice[ebox]">
+						<div class="help-block"></div>
+					</div>
+				</form>
+
 			</div>
 
 			<p>
