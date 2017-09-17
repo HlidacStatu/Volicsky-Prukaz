@@ -294,13 +294,13 @@ function nastavPosteRestante(){
     $('.field-addressforeign-street label:first').html('Poste Restante');
     $('#addressforeign-street').val('Poste Restante');
     $('.field-addressforeign-streetno label:first').html('Adresa Pošty');
-    $('.field-addressforeign-city label:first').html('Mesto');
+    $('.field-addressforeign-city label:first').html('Město');
     $('.field-addressforeign-zip label:first').html('PSČ Pošty');
   } else {
-    $('.field-addressforeign-street label:first').html('Ulica');
+    $('.field-addressforeign-street label:first').html('Ulice');
     $('#addressforeign-street').val('');
     $('.field-addressforeign-streetno label:first').html('Číslo domu');
-    $('.field-addressforeign-city label:first').html('Mesto');
+    $('.field-addressforeign-city label:first').html('Město');
     $('.field-addressforeign-zip label:first').html('PSČ');
   }
 }

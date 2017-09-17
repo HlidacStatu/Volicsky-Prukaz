@@ -22,7 +22,7 @@ RequestGeneratorApp.prototype = {
       e.preventDefault();
       var submitform = true;
       if ($(".has-error").length > 0){
-        if (!confirm ("Ste si istý, že chcete vytvoriť žiadosť aj keď obsahuje chybu?")){
+        if (!confirm ("Žádost je neúplná či obsahuje chybu. Opravdu ji chcete vytvořit?")){
           submitform = false;
         }
       }
@@ -89,7 +89,7 @@ RequestGeneratorApp.prototype = {
 
       $('.counter__step').text(step);
       var previous_step = this.getPreviousStep();
-      a.attr('href', '#' + this.getBackUrl()).text(previous_step === 0 ? 'Späť na úvod' : 'Späť na krok ' + previous_step);
+      a.attr('href', '#' + this.getBackUrl()).text(previous_step === 0 ? 'Zpět na úvod' : 'Zpět na krok ' + previous_step);
 
       $('.counter').show();
       $('.nav-item').show();
@@ -239,7 +239,7 @@ RequestGeneratorApp.prototype = {
   },
 
   finalizePdf: function() {
-    if (App.signaturePad.isEmpty() && !confirm ("Ste si istý, že chcete vytvoriť žiadosť aj bez podpisu?")) {
+    if (App.signaturePad.isEmpty() && !confirm ("Chcete vytvořit žádost bez podpisu? Pokud ano, podepište žádost před odesláním.")) {
     } else {
       $('#signature').val(App.signaturePad.toDataURL());
       createDocument(false);

@@ -239,7 +239,7 @@ function createDocument(preview, download) {
       localaddress,
       {
         columns: [
-          {text: ( App.poste_res ? 'Adresa v cudzine:' : 'Ulica: '), style: 'line', },
+          {text: ( App.poste_res ? 'Adresa v zahraničí:' : 'Ulice: '), style: 'line', },
           {text: ( App.poste_res ? 'Poste Restante' : $('#addressforeign-street').val().toUpperCase() ), style: 'value'},
           {text: ''}
         ]
