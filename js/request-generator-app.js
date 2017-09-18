@@ -35,6 +35,7 @@ RequestGeneratorApp.prototype = {
       e.preventDefault();
       createDocument(true, true);
       //that.downloadPdf();
+      $('#step6but2').trigger('click');
     });
     $('.btn-download-pdf').on('click', function(e){
       e.preventDefault();
