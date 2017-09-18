@@ -6,7 +6,7 @@ var validateBirthNumber = function(value, messages) {
   if (value.substr(0, 2) < 54) {
     yii.validation.regularExpression(value, messages, {
       "pattern":/^\d{2}[0156]\d{3}\/\d{3}$/,
-      "message":"Rodné číslo pred rokom 1954 musí mať 9 číslic vo formáte XXXXXX/XXX. Tretia číslica musí byť 0,1,5 alebo 6."
+      "message":"Rodné číslo pred rokem 1954 musí mít 9 číslic ve formátě XXXXXX/XXX. Třetí číslica musí byť 0,1,5 alebo 6."
     });
   } else {
     yii.validation.regularExpression(value, messages, {
@@ -59,11 +59,11 @@ function fixBirthFormat(){
 
 var validatePSC = function(value, messages) {
   if ( value.length !== 5 ) {
-    yii.validation.addMessage(messages, "Vaše domáce PSČ by malo byť dlhé 5 číslic.", value);
+    yii.validation.addMessage(messages, "PSČ vaší adresy by mělo mít 5 číslic.", value);
   } else {
     yii.validation.regularExpression(value, messages, {
       "pattern":/^\d{5}$/,
-      "message":"Vaše domáce PSČ by malo obsahovať iba čísla."
+      "message":"PSČ vaší adresy by mělo obsahovat pouze číslice."
     });
   }
 };
@@ -74,20 +74,20 @@ jQuery(document).ready(function () {
   var pathname = window.location.pathname;
   var test = pathname.indexOf('/test/');
   if ( test > -1 ){
-    $( '<p class="footer text-center">Váš prehliadač je: ' + ua + '</p>' ).insertAfter( "#github" );
+    $( '<p class="footer text-center">Váš prehlížeč je: ' + ua + '</p>' ).insertAfter( "#github" );
     if (detectIE()){
-      $( '<p class="footer text-center">Používate Internet explorer</p>' ).insertAfter( "#github" );
+      $( '<p class="footer text-center">Používáte Internet explorer</p>' ).insertAfter( "#github" );
     }
     if (isAndroid()){
-      $( '<p class="footer text-center">Používate Android</p>' ).insertAfter( "#github" );
+      $( '<p class="footer text-center">Používáte Android</p>' ).insertAfter( "#github" );
     }
     var ver = iOSversion();
     if (ver){
-      $( '<p class="footer text-center">Používate iOS ' + ver + '</p>' ).insertAfter( "#github" );
+      $( '<p class="footer text-center">Používáte iOS ' + ver + '</p>' ).insertAfter( "#github" );
     }
   } else {
     if ( ua.indexOf('Android') > -1 && ua.indexOf('Chrome') === -1 ){
-      $( '<p><span class="digitalRed text-biggest">Pozor! Máte nepodporovaný prehliadač a nemusí Vám všetko správne fungovať. Použite prosím Google Chrome.'
+      $( '<p><span class="digitalRed text-biggest">Pozor! Váš prohlížeč nepodporujeme. Nemusí Vám proto všechno fungovat správně. Použijte prosím nejlépe Google Chrome.'
     + '</span></p>' ).insertAfter( ".text-justify.text-bigger.paragraph-2" );
     }
   }
@@ -104,7 +104,7 @@ jQuery(document).ready(function () {
     "input": "#basicinfo-name",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Pre vytvorenie žiadosti je potrebné zadať Vaše krstné meno."
+        "message": "Na žádosti musí být vaše jméno. Uveďte ho prosím."
       });
     }
   }, {
@@ -114,7 +114,7 @@ jQuery(document).ready(function () {
     "input": "#basicinfo-lastname",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Pre vytvorenie žiadosti je potrebné zadať Vaše priezvisko."
+        "message": "Na žádosti musí být vaše příjmení. Uveďte ho prosím."
       });
     }
   }, {
@@ -124,7 +124,7 @@ jQuery(document).ready(function () {
     "input": "#basicinfo-birthno",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Pre vytvorenie žiadosti je potrebné zadať Vaše rodné číslo."
+        "message": "Na žádosti musí být váš datum narození. Uveďte ho prosím."
       });
       validateBirthNumber(value, messages);
     }
@@ -136,7 +136,7 @@ jQuery(document).ready(function () {
     "input": "#proxy-name",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Pre vytvorenie žiadosti je potrebné zadať krstné meno splnomocnenca."
+        "message": "Na žádosti musí být vaše jméno člověka, kterého zplnomocňujete k převzetí voličského průkazu. Uveďte ho prosím."
       });
     }
   }, {
@@ -146,7 +146,7 @@ jQuery(document).ready(function () {
     "input": "#proxy-lastname",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Pre vytvorenie žiadosti je potrebné zadať priezvisko splnomocnenca."
+        "message": "Na žádosti musí být vaše příjmení člověka, kterého zplnomocňujete k převzetí voličského průkazu. Uveďte ho prosím."
       });
     }
   }, {
@@ -156,7 +156,7 @@ jQuery(document).ready(function () {
     "input": "#proxy-idno",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Pre vytvorenie žiadosti je potrebné zadať číslo občianskeho preukazu splnomocnenca."
+        "message": "Na žádosti musí být číslo OP člověka, kterého zplnomocňujete k převzetí voličského průkazu. Uveďte ho prosím."
       });
     }
   }], []);
@@ -167,7 +167,7 @@ jQuery(document).ready(function () {
     "input": "#addressslovakia-street",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Ulica Vášho trvalého pobytu musí byť vyplnená."
+        "message": "Vyplňte prosím ulici vašeho trvalého pobytu."
       });
     }
   }, {
@@ -177,7 +177,7 @@ jQuery(document).ready(function () {
     "input": "#addressslovakia-streetno",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Číslo domu Vášho trvalého pobytu musí byť vyplnené."
+        "message": "Vyplňte prosím číslo domu vašeho trvalého pobytu."
       });
     }
   }, {
@@ -187,7 +187,7 @@ jQuery(document).ready(function () {
     "input": "#addressslovakia-city",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Mesto Vášho trvalého pobytu musí byť vyplnené."
+        "message": "Vyplňte prosím město vašeho trvalého pobytu."
       });
     }
   }, {
@@ -197,7 +197,7 @@ jQuery(document).ready(function () {
     "input": "#addressslovakia-zip",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Poštové smerovacie číslo Vášho trvalého pobytu musí byť vyplnené."
+        "message": "Vyplňte prosím PSČ vašeho trvalého pobytu."
       });
       validatePSC(value, messages);
     }
@@ -209,7 +209,7 @@ jQuery(document).ready(function () {
     "input": "#addressforeign-street",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Vaša ulica kam si chcete odoslať hlasovacie lístky alebo hlasovací preukaz musí byť vyplnená."
+        "message": "Uveďte prosím ulici, kam chcete odeslat voličský průkaz."
       });
     }
   }, {
@@ -219,7 +219,7 @@ jQuery(document).ready(function () {
     "input": "#addressforeign-streetno",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Vaše číslo domu kam si chcete odoslať hlasovacie lístky alebo hlasovací preukaz musí byť vyplnené."
+        "message": "Uveďte prosím číslo domu, kam chcete odeslat voličský průkaz."
       });
     }
   }, {
@@ -229,7 +229,7 @@ jQuery(document).ready(function () {
     "input": "#addressforeign-city",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Mesto kam si chcete odoslať hlasovacie lístky alebo hlasovací preukaz musí byť vyplnené."
+        "message": "Uveďte prosím město, kam chcete odeslat voličský průkaz."
       });
     }
   }, {
@@ -239,7 +239,7 @@ jQuery(document).ready(function () {
     "input": "#addressforeign-zip",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Poštové smerovacie číslo adresy kam si chcete odoslať hlasovacie lístky alebo hlasovací preukaz musí byť vyplnené."
+        "message": "Uveďte prosím PSČ, kam chcete odeslat voličský průkaz."
       });
     }
   }, {
@@ -249,7 +249,7 @@ jQuery(document).ready(function () {
     "input": "#addressforeign-country",
     "validate": function (attribute, value, messages) {
       yii.validation.required(value, messages, {
-        "message": "Štát adresy kam si chcete odoslať hlasovacie lístky musí byť vyplnený."
+        "message": "Uveďte prosím stát, kam chcete odeslat voličský průkaz."
       });
     }
   }], []);

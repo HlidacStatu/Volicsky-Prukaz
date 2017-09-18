@@ -48,7 +48,13 @@
     <nav class="navbar navbar-volby navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">PARLAMENTNÍ VOLBY 2017</a>
+                <a class="navbar-brand" href="#">
+                    <div>
+                        <a href="https://www.hlidacstatu.cz"><svg viewBox="0 0 46 46" style="float:left; width: 60px;height: 60px;position: relative;top: 2px"><use xlink:href="https://www.hlidacstatu.cz/content/defs.svg#logo"></use></svg>
+                            <div style="position: relative;top:10px;">Hlídač Státu</a>
+                                <br/>PARLAMENTNÍ VOLBY 2017</a>
+                            </div>
+                    </div>
             </div>
             <div id="krokomer" class="navbar-steps">
                 <div class="wrap">
@@ -91,7 +97,7 @@
                     <!-- Sem dorobime Social buttonky -->
                     <hr/>
                     <div style="font-size: 80%;" class="text-muted">
-                        Tatu služba vznikla ve spolupráci s <a href="https://www.hlidacstatu.cz"><svg viewBox="0 0 46 46" style="width: 20px;height: 20px;position: relative;top: 2px"><use xlink:href="https://www.hlidacstatu.cz/content/defs.svg#logo"></use></svg>Hlídač Státu</a>, byla inspirována <a href="http://slovensko.digital/"><img style="height: 13px;width: auto;" src="https://volby.digital/images/standard-logo.png"></a>, vyvinuta úpravou zdrojových kódů <a href="https://github.com/marsher/volby-zo-zahranicia">volby.digital z GitHubu</a> pro českou legislativu. Velké poděkování patří autorům úprav Romanovi Gregorovi, <a href="http://janmarek.net">Honzovi Markovi</a> a <a href="https://www.michalblaha.cz">Michalu Bláhovi</a>.
+                        Tato služba vznikla ve spolupráci s <a href="https://www.hlidacstatu.cz"><svg viewBox="0 0 46 46" style="width: 20px;height: 20px;position: relative;top: 2px"><use xlink:href="https://www.hlidacstatu.cz/content/defs.svg#logo"></use></svg>Hlídač Státu</a>, byla inspirována <a href="http://slovensko.digital/"><img style="height: 13px;width: auto;" src="https://volby.digital/images/standard-logo.png"></a>, vyvinuta úpravou zdrojových kódů <a href="https://github.com/marsher/volby-zo-zahranicia">volby.digital z GitHubu</a> pro českou legislativu. Velké poděkování patří autorům úprav Romanovi Gregorovi, <a href="http://janmarek.net">Honzovi Markovi</a> a <a href="https://www.michalblaha.cz">Michalu Bláhovi</a>.
                     </div>
                     <hr/>
                     <div style="font-size: 80%;" class="text-muted">
@@ -111,9 +117,14 @@
                 <p>
                     <a class="btn btn-block btn-volby-blue dontcountstep" href="#volba-s-prukazem&prukaz-zmocnenec" role="button"><strong>Pro průkaz mi na úřad dojde zplnomocněná osoba</strong></a>
                 </p>
-                <hr/>
-                <h3>Osobní vyzvednutí voličského průkazu</h3>
-                <p>Voličský průkaz si můžete vyzvednout i osobně, na obecním úřad příslušném k vaší trvalé adrese. V takovém případě <b>není písemná žádost vyžadována</b>, neboť obecní úřad, který je oprávněn voličský průkaz vydat, o žádosti voliče po prokázání jeho totožnosti učiní úřední záznam, ve kterém veškeré potřebné údaje uvede; o vydání voličského průkazu lze požádat <b>nejpozději do 18. října 2017 do 16.00 hodin</b>; do okamžiku uzavření stálého seznamu voličů.</p>
+                <p>
+                    <a class="btn btn-block btn-volby-blue dontcountstep" href="#" role="button" onclick="$('#osobniVyzvednuti').toggle();return false;"><strong>Osobní vyzvednutí voličského průkazu</strong></a>
+                </p>
+                <div id="osobniVyzvednuti" style="display: none" >
+                    <h3>Osobní vyzvednutí voličského průkazu</h3>
+                    <p>Voličský průkaz si můžete vyzvednout i osobně, na obecním úřad příslušném k vaší trvalé adrese. V takovém případě <b>není písemná žádost vyžadována</b>, neboť obecní úřad, který je oprávněn voličský průkaz vydat, o žádosti voliče po prokázání jeho totožnosti učiní úřední záznam, ve kterém veškeré potřebné údaje uvede; o vydání voličského průkazu lze požádat <b>nejpozději do 18. října 2017 do 16.00 hodin</b>; do okamžiku uzavření stálého seznamu voličů.</p>
+                    <p>&nbsp;</p>
+                </div>
                 <div class="help panel panel-info">
                     <div class="panel-heading">Nápověda</div>
                     <div class="panel-body">
@@ -122,6 +133,7 @@
                         </p>
                     </div>
                 </div>
+
             </div>
             <!-- ----- ----- -->
             <!-- STEP 2 -->
@@ -464,53 +476,70 @@
             <!-- ----- ----- -->
             <div class="section krok7 sendsection" id="sendsection">
                 <div class="" id="sendemail">
-                    <h2>Odošlite email</h2>
+                    <h2>Zaslání žádosti o voličský průkaz</h2>
                     <div class="alert alert-warning" role="alert">
-                        Nezabudnite priložiť <b>stiahnutú žiadosť</b> k emailu.
-                        <br /><small>(Tú s vytvoreným podpisom.)</small>
+                        Žádost je připravena, ale není odeslaná. Pozorně si přečtěte a následujte uvedené pokyny.
                     </div>
                     <div class="alert alert-warning nemam-tp" role="alert">
-                        Nezabudnite priložiť <b>fotokópiu časti cestovného dokladu</b> Slovenskej republiky s osobnými údajmi voliča <b>alebo</b> fotokópiu osvedčenia o štátnom občianstve Slovenskej republiky.
                     </div>
                     <div id="emailpotvrdeny" class="alert alert-info" role="alert">
-                        Vaša obec alebo mesto nám potvrdili, že email je správny pre účel podávania žiadostí k voľbám do NRSR v roku 2016.
+                        Nemáme 100% jistotu, že námi doporučený obecní/městský úřad skutečně patří k vašemu bydlišti. Ověřte si to prosím.
                     </div>
+                    <h2>
+Jak dál postupovat
+                    </h2>
+
+                <div style="display:none"> <!-- HACK, hide it all -->
+                                <a style="display:none;" id="send" class="btn btn-volby-blue btn-block" target="_blank" href="" role="button">Vytvoriť email</a>
+                                <p>
+                                    Na emailovú adresu: <strong><span id="sendto"></span></strong>
+                                    <button type="button" class="copy-btn" data-clipboard-target="#sendto" title="Skopírovať email do schránky (Ctrl+C)">
+                                        <img src="images/copy.png" alt="Skopíruj"/>
+                                    </button>
+                                </p>
+                                <p>
+                                    S predmetom: <b><span class="bold" id="emailsubject"></span></b>
+                                    <button type="button" class="copy-btn" data-clipboard-target="#emailsubject" title="Skopírovať predmet do schránky (Ctrl+C)">
+                                        <img src="images/copy.png" alt="Skopíruj"/>
+                                    </button>
+                                </p>
+                                <p>
+                                    S textom: <b><span class="bold" id="emailbody"></span></b>
+                                    <button type="button" class="copy-btn" data-clipboard-target="#emailbody" title="Skopírovať text do schránky (Ctrl+C)">
+                                        <img src="images/copy.png" alt="Skopíruj"/>
+                                    </button>
+                                </p>
+                                <hr>
+                                <p>Po odoslaní emailu <strong>s prílohou</strong> očakávajte potvrdenie, že Vaša žiadosť bola spracovaná.</p>
+                                <p id="phonetext">Ak sa tak nestane, kontaktujte ich telefonicky. Ak nedostanete potvrdenie o prijatí Vašej pošty do 3 dní, skúste im zavolať na telefón: (+421) <b><span class="bold" id="phone"></span></b></p>                
+                    </div>
+
+
+                    <h3>
+                    1) Mám datovou schránku a chci žádost poslat přes ni
+                    </h3>
                     <p>
-                        Ak máte aktivovaného mailového klienta, tlačítko <b>Vytvoriť email</b> nižšie by malo vytvoriť email automaticky.
+                        Nejjednodušší varianta. Pošlete uloženou žádost v PDF souboru. Žádost nemusí být podepsaná, nemusíte podpis ověřovat, stačí žádost poslat do datové schránky vašeho obecního/městského úřadu.
+                        <br/><b>Žádost musíte odeslat nejpozději 7 dnů přede dnem voleb, tj. do 13. října 2017</b>
                     </p>
-                    <a id="send" class="btn btn-volby-blue btn-block" target="_blank" href="" role="button">Vytvoriť email</a>
+                    <h3>
+                    2) Žádost chci poslat písemně na úřad
+                    </h3>
                     <p>
+                        Doručte <b>podepsanou žádost s ověřeným podpisem</b> v listinné podobě poštou nebo jiným způsobem na váš obecní/městský úřad. 
+<small>Ověřený podpis žadatele zákon o volbách do Parlamentu vyžaduje proto, aby byl volič, který o vydání voličského průkazu žádá, chráněn před zneužitím tohoto institutu.</small>
+                        <br/><b>Žádost musíte doručit (DORUČIT, nikoliv odeslat) nejpozději 7 dnů přede dnem voleb, tj. do 13. října 2017</b>
                     </p>
+			        <h3>
+                    3) Pro voličský průkaz si dojdu na úřad osobně 
+                    </h3>
                     <p>
-                        Ak to u Vás nefunguje, odošlite nasledovný email skopírovaním nasledujúcich textov do príjmateľa, predmetu a obsahu emailu.
-                        <br /><small>(Na kopírovanie do schránky použite <b>obrázky obálok</b> pri textoch a na vloženie do emailu na PC pravé tlačítko myši a vložiť, alebo "Ctrl" a súčasne "V". Na mobilnom telefóne podržťe prst na políčku, kde budete vkladať a po zobrazení ponuky stlačiť "vložiť", alebo "paste".)<small></p>
-				<p>
-					Na emailovú adresu: <strong><span id="sendto"></span></strong>
-					<button type="button" class="copy-btn" data-clipboard-target="#sendto" title="Skopírovať email do schránky (Ctrl+C)">
-						<img src="images/copy.png" alt="Skopíruj"/>
-					</button>
-				</p>
-				<p>
-					S predmetom: <b><span class="bold" id="emailsubject"></span></b>
-					<button type="button" class="copy-btn" data-clipboard-target="#emailsubject" title="Skopírovať predmet do schránky (Ctrl+C)">
-						<img src="images/copy.png" alt="Skopíruj"/>
-					</button>
-				</p>
-				<p>
-					S textom: <b><span class="bold" id="emailbody"></span></b>
-					<button type="button" class="copy-btn" data-clipboard-target="#emailbody" title="Skopírovať text do schránky (Ctrl+C)">
-						<img src="images/copy.png" alt="Skopíruj"/>
-					</button>
-				</p>
-				<hr>
-				<p>Po odoslaní emailu <strong>s prílohou</strong> očakávajte potvrdenie, že Vaša žiadosť bola spracovaná.</p>
-				<p id="phonetext">Ak sa tak nestane, kontaktujte ich telefonicky. Ak nedostanete potvrdenie o prijatí Vašej pošty do 3 dní, skúste im zavolať na telefón: (+421) <b><span class="bold" id="phone"></span></b></p>
+                        Pro tuto situaci žádnou písemnou žádost nepotřebujete, ale musíte na úřad přijít osobně s občanských průkazem nebo pasem.
+                        <br/><b>Na úřad musíte přijít do okamžiku uzavření stálého seznamu voličů, tj. do 18. října 2017 do 16.00 hodin.</b>
+                    </p>
+            	
 				<hr />
-				<p><b>Na dnes všetko. Ďakuje Vám
-					<a target="_blank" href="">
-						img
-					</a>
-					a Vaše Slovensko </b> <img src="favicon.ico"> ;)
+				<p><b>To je vše. Přejeme vám klidné volby. Autoři a  <a href="https://www.hlidacstatu.cz"><svg viewBox="0 0 46 46" style="width: 20px;height: 20px;position: relative;top: 2px"><use xlink:href="https://www.hlidacstatu.cz/content/defs.svg#logo"></use></svg>Hlídač Státu</a>
 				</p>
 
 			</div>
