@@ -334,8 +334,8 @@ body.nav-open nav ul .social {
     }
 
 .social .social-tw {
-    padding-bottom: 5px;
-    background-color: #46ade9;
+	position: relative;
+	top: 6px;
 }
 
 
