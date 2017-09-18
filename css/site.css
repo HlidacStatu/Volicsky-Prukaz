@@ -30,6 +30,9 @@ h1 {
 h2 {
 	font-size: 1.4em;
 }
+h3 {
+	padding-top: 18px;
+}
 
 .container {
 	max-width: 600px;
