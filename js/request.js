@@ -319,7 +319,7 @@ function createDocument(preview, download) {
         ]
       },
       {
-        text: ['Číslo PO: ', {text: $('#proxy-idno').val().toUpperCase(), style: 'value'}],
+        text: ['Číslo OP: ', {text: $('#proxy-idno').val().toUpperCase(), style: 'value'}],
         style: 'line'
       }
     ];
