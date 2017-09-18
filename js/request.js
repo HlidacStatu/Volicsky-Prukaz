@@ -454,9 +454,9 @@ function createDocument(preview, download) {
   var name = "žádost";
   if (preview){
     if (App.request_form === "ziadostOPreukazPostou" || App.request_form === "ziadostOPreukaPreSplnomocnenca") {
-      name = "zadost-o-volicsky-prukaz-nahlad.pdf";
+      name = "zadost-o-volicsky-prukaz-nahled.pdf";
     } else {
-      name = "zadost-o-volicsky-prukaz-nahlad.pdf";
+      name = "zadost-o-volicsky-prukaz-nahled.pdf";
     }
   } else {
     if (App.request_form === "ziadostOPreukazPostou" || App.request_form === "ziadostOPreukaPreSplnomocnenca") {
