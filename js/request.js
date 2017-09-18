@@ -279,7 +279,7 @@ function createDocument(preview, download) {
     preukazHeader = 'Žádost o vydání voličského průkazu';
     preukazDelivery = [
       {
-        text: 'Voličský průkaz žádam zaslat na adresu:',
+        text: 'Voličský průkaz žádám zaslat na adresu:',
         style: 'line',
         alignment: 'left'
       },
@@ -371,7 +371,7 @@ function createDocument(preview, download) {
       },
       {text: '', style: 'space'},
       {
-        text: 'žádam',
+        text: 'žádám',
         style: 'header',
         alignment: 'center'
       },
