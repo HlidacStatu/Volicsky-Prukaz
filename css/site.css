@@ -30,6 +30,9 @@ h1 {
 h2 {
 	font-size: 1.4em;
 }
+h3 {
+			padding-top: 18px;
+}
 
 .container {
 	max-width: 600px;
@@ -298,6 +301,42 @@ h2.as-title-with-padding, h3.as-title-with-padding {
 	transition: background-color 0s;
 }
 
+
+
+.social {
+    margin-left: 13px;
+}
+
+body.nav-open nav ul .social {
+    margin-left: 0;
+}
+
+.social a {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 4px 6px 4px 4px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+    background-color: #3d5e96;
+    border-radius: 4px;
+}
+
+    .social a:hover {
+        color: #ffffff;
+    }
+
+    .social a svg {
+        margin-right: 4px;
+        vertical-align: middle;
+    }
+
+.social .social-tw {
+	position: relative;
+	top: 6px;
+}
 
 
 /*
