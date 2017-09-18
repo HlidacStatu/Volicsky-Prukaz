@@ -303,6 +303,42 @@ h2.as-title-with-padding, h3.as-title-with-padding {
 
 
 
+.social {
+    margin-left: 13px;
+}
+
+body.nav-open nav ul .social {
+    margin-left: 0;
+}
+
+.social a {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 4px 6px 4px 4px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+    background-color: #3d5e96;
+    border-radius: 4px;
+}
+
+    .social a:hover {
+        color: #ffffff;
+    }
+
+    .social a svg {
+        margin-right: 4px;
+        vertical-align: middle;
+    }
+
+.social .social-tw {
+    padding-bottom: 5px;
+    background-color: #46ade9;
+}
+
+
 /*
 
 
