@@ -271,7 +271,7 @@ RequestGeneratorApp.prototype = {
       preukazTP();
     }
 
-    if (this.state.prukaz === 'prukaz-zplnomocnenec') {
+    if (this.state.prukaz === 'prukaz-zmocnenec') {
       preukazPS();
     }
   },

@@ -325,6 +325,9 @@ function createDocument(preview, download) {
     ];
   }
 
+
+//console.log(App.request_form);
+
   if (App.request_form === "ziadostOPreukazPostou" || App.request_form === "ziadostOPreukaPreSplnomocnenca") {
     formContent = [
       {

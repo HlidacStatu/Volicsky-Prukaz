@@ -18,7 +18,7 @@ $.getJSON('js/out.json', function(data) {
         select: function(event, ui){
             zip = ui.item.value.substr(0,5);
             city = ui.item.value.substr(6);
-            console.log(ui.item.array);
+            //console.log(ui.item.array);
             $(this).val(zip);
             $('input', $(this).parent('div').next('div')).val(city);
 
