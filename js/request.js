@@ -75,7 +75,7 @@ function createDocument(preview, download) {
 
 
   if (App.request_form === 'volbaPostouSTrvalymPobytom') {
-    paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro volby do Poslanecké sněmovny Parlamentu České republiky.';
+    paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro volby do Poslanecké sněmovny Parlamentu České republiky 20. a 21. října 2017.';
     localaddress = [
       {text: '', style: 'spacesmall'},
       {
@@ -121,7 +121,7 @@ function createDocument(preview, download) {
       }
     ];
   } else if (App.request_form === 'volbaPostouBezTrvalehoPobytu') {
-    paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro volby do Poslanecké sněmovny Parlamentu České republiky a o zaslání voličského průkazu na adresu:';
+    paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro volby do Poslanecké sněmovny Parlamentu České republiky 20. a 21. října 2017 a o zaslání voličského průkazu na adresu:';
     noTP = [
 
       {text: '', style: 'space'},
@@ -380,7 +380,7 @@ function createDocument(preview, download) {
         text: [
           {text: 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky,'},
           {text: 'tímto žádám o vydání voličského průkazu ', bold: true},
-          {text: ' pro volby do Poslanecké sněmovny Parlamentu České republiky.'},
+          {text: ' pro volby do Poslanecké sněmovny Parlamentu České republiky 20. a 21. října 2017.'},
         ]
       },
       {text: '', style: 'space'},
