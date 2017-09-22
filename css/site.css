@@ -82,9 +82,25 @@ h3 {
 	font-size: .6em;
 }
 
+.headlogo {
+	width:60px;
+	height:60px;
+}
 
-
-
+.headtxt
+{
+}
+@media (max-width: 480px) {
+	.headlogo {
+		width: 40px;
+		height:40px;
+	}
+	.headtxt
+	{
+		font-size: 70%;
+		color: red;
+	}
+}
 
 .intro .paragraph-1 {
 	color: #333;
