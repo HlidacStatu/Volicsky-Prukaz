@@ -4,33 +4,35 @@ $.getJSON('js/out.json', function(data) {
 
     cities = data;
 
-    citiesAC = new Array();
-    for (id in cities) {
+    function source(input, callback) {
+      var term = input.term;
+      var filtered = cities.filter(function (city) {
+        return (city.zip && city.zip.indexOf(term) > -1) || (city.city && city.city.indexOf(term) > -1);
+      }).slice(0, 10).map(function (city) {
+        return {label: city.zip + ' ' + city.city, value: city};
+      });
 
-        citiesAC.push({'id':id, 'value':cities[id].zip + ' ' + cities[id].city, 'array': cities[id], 'address':cities[id].address + ', ' + cities[id].datovaSchranka + ', ' + cities[id].email});
-
-        //if (cities[id].zip == 11000) console.log(cities[id]);
-
+      callback(filtered);
     }
 
     $('.field-zip input').autocomplete({
-        source: citiesAC,
+        source: source,
         select: function(event, ui){
-            zip = ui.item.value.substr(0,5);
-            city = ui.item.value.substr(6);
+            var zip = ui.item.value.zip;
+            var city = ui.item.value.city;
             //console.log(ui.item.array);
             $(this).val(zip);
             $('input', $(this).parent('div').next('div')).val(city);
 
             if ($(this).parents('div').hasClass('field-addressslovakia-zip')) {
 
-                $('#addressoffice-name').val(ui.item.array.name);
-                $('#addressoffice-street').val(ui.item.array.street || ui.item.array.city);
-                $('#addressoffice-streetno').val(ui.item.array.houseNumber);
-                $('#addressoffice-city').val(ui.item.array.city);
-                $('#addressoffice-zip').val(ui.item.array.zip);
-                $('#addressoffice-email').val(ui.item.array.email);
-                $('#addressoffice-ebox').val(ui.item.array.datovaSchranka);
+                $('#addressoffice-name').val(ui.item.value.name);
+                $('#addressoffice-street').val(ui.item.value.street || ui.item.value.city);
+                $('#addressoffice-streetno').val(ui.item.value.houseNumber);
+                $('#addressoffice-city').val(ui.item.value.city);
+                $('#addressoffice-zip').val(ui.item.value.zip);
+                $('#addressoffice-email').val(ui.item.value.email);
+                $('#addressoffice-ebox').val(ui.item.value.datovaSchranka);
                 updateOfficeAddress();
 
             }
