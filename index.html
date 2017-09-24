@@ -80,8 +80,8 @@
                     <a href="https://www.hlidacstatu.cz"><svg viewBox="0 0 46 46" class="headlogo"><use xlink:href="/assets/defs.svg#logo"></use></svg>
                     </a>
                 </div>
-                <div class="col-xs-5 col-sm-5 headtxt"><a href="https://www.hlidacstatu.cz">Hlídač Státu
-                    <br/>PARLAMENTNÍ VOLBY 2017</a>
+                <div class="col-xs-5 col-sm-5 headtxt"><a href="https://www.hlidacstatu.cz">Hlídač Státu</a>
+                    <br/>Voličský&nbsp;průkaz Parlamentní&nbsp;volby&nbsp;2017
                 </div>
                 <div id="krokomer" class="col-xs-5 col-sm-5 navbar-steps">
                     <div class="wrap">
@@ -161,7 +161,7 @@
                     <a  onclick="ga('send', 'event', 'bnt', 'start', 'step1','zplnomocnit');" class="btn btn-block btn-volby-blue dontcountstep" href="#volba-s-prukazem&prukaz-zmocnenec" role="button"><strong>Pro průkaz mi na úřad dojde zplnomocněná osoba</strong></a>
                 </p>
                 <p>
-                    <a  onclick="ga('send', 'event', 'bnt', 'start', 'step1','osobne');" class="btn btn-block btn-volby-blue dontcountstep" href="#" role="button" onclick="$('#osobniVyzvednuti').toggle();return false;"><strong>Osobní vyzvednutí voličského průkazu</strong></a>
+                    <a class="btn btn-block btn-volby-blue dontcountstep" href="#" role="button" onclick="ga('send', 'event', 'bnt', 'start', 'step1','osobne');$('#osobniVyzvednuti').toggle();var $anchor = $('#osobniVyzvednuti').offset();$('body').animate({ scrollTop: $anchor.top });return false;"><strong>Osobní vyzvednutí voličského průkazu</strong></a>
                 </p>
                 <div id="osobniVyzvednuti" style="display: none" >
                     <h3>Osobní vyzvednutí voličského průkazu</h3>
