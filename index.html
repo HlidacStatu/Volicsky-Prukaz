@@ -32,6 +32,25 @@
         display: none;
     }
     </style>
+    <!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '504307399742969');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=504307399742969&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+
 </head>
 
 <body>
@@ -97,7 +116,7 @@
 
 
                     <p>
-                        <a class="btn btn-lg btn-success btn-step btn-volby-blue" href="#volba-s-prukazem" role="button"><strong>Připravit žádost o voličský průkaz</strong></a>
+                        <a class="btn btn-lg btn-success btn-step btn-volby-blue" href="#volba-s-prukazem" role="button" onclick="ga('send', 'event', 'bnt', 'start', 'step0');"><strong>Připravit žádost o voličský průkaz</strong></a>
                     </p>
                     <ul>
                         <li>Vytvoření žádosti trvá asi <strong>2 minuty</strong></li>
@@ -136,13 +155,13 @@
                 <h2 class="as-title-with-padding">Vyberte si z možností:</h2>
                 <hr>
                 <p>
-                    <a class="btn btn-block btn-volby-blue dontcountstep" href="#volba-s-prukazem&prukaz-do-vlastnich-rukou" role="button"><strong>Chci zaslat voličský průkaz do vlastních rukou</strong></a>
+                    <a onclick="ga('send', 'event', 'bnt', 'start', 'step1','dorukou');" class="btn btn-block btn-volby-blue dontcountstep" href="#volba-s-prukazem&prukaz-do-vlastnich-rukou" role="button"><strong>Chci zaslat voličský průkaz do vlastních rukou</strong></a>
                 </p>
                 <p>
-                    <a class="btn btn-block btn-volby-blue dontcountstep" href="#volba-s-prukazem&prukaz-zmocnenec" role="button"><strong>Pro průkaz mi na úřad dojde zplnomocněná osoba</strong></a>
+                    <a  onclick="ga('send', 'event', 'bnt', 'start', 'step1','zplnomocnit');" class="btn btn-block btn-volby-blue dontcountstep" href="#volba-s-prukazem&prukaz-zmocnenec" role="button"><strong>Pro průkaz mi na úřad dojde zplnomocněná osoba</strong></a>
                 </p>
                 <p>
-                    <a class="btn btn-block btn-volby-blue dontcountstep" href="#" role="button" onclick="$('#osobniVyzvednuti').toggle();return false;"><strong>Osobní vyzvednutí voličského průkazu</strong></a>
+                    <a  onclick="ga('send', 'event', 'bnt', 'start', 'step1','osobne');" class="btn btn-block btn-volby-blue dontcountstep" href="#" role="button" onclick="$('#osobniVyzvednuti').toggle();return false;"><strong>Osobní vyzvednutí voličského průkazu</strong></a>
                 </p>
                 <div id="osobniVyzvednuti" style="display: none" >
                     <h3>Osobní vyzvednutí voličského průkazu</h3>
@@ -412,7 +431,7 @@
                     </div>
                     <div class="col-sm-6">
                         <p>
-                            <a id="download-preview-btn" class="btn btn-volby-gray btn-block btn-download-preview" href="#pdf" role="button">Stáhnout žádost<br />(bez podpisu)</a>
+                            <a id="download-preview-btn" class="btn btn-volby-gray btn-block btn-download-preview" onclick="ga('send', 'event', 'bnt', 'step3');" href="#pdf" role="button">Stáhnout žádost<br />(bez podpisu)</a>
                         </p>
                     </div>
                 </div>
@@ -472,7 +491,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <p id="download-final-btn">
-                            <a class="btn btn-volby-blue btn-block btn-download-pdf" href="#pdf" id="step6but1" role="button">Stáhnout</a>
+                            <a class="btn btn-volby-blue btn-block btn-download-pdf" href="#pdf" id="step6but1" role="button" onclick="ga('send', 'event', 'bnt', 'step5');">Stáhnout</a>
                         </p>
                     </div>
                     <div class="col-sm-6">
@@ -542,7 +561,7 @@
                     <h3>Žádost</h3>
                     <p>Pokud jste si v předchozích krocích nestáhli vytvořenou žádost na svůj počítač či mobil, učiňte tak nyní. Pokud ho už máte, pokračujte dál.
                     <br/>
-                    <a style="padding: 0.4em 0.6em;margin: 20px 0px;" class="btn btn-volby-blue btn-block btn-download-pdf" href="#pdf" id="step6but1" role="button">Stáhnout vytvořenou žádost jako PDF</a>
+                    <a style="padding: 0.4em 0.6em;margin: 20px 0px;" class="btn btn-volby-blue btn-block btn-download-pdf" href="#pdf" id="step6but1" role="button" onclick="ga('send', 'event', 'bnt', 'step6');">Stáhnout vytvořenou žádost jako PDF</a>
 
                     </p>
                     <h3>
