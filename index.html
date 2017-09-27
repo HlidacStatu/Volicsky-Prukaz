@@ -73,31 +73,71 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     </script>
-    <nav class="navbar navbar-volby navbar-fixed-top">
-        <div class="container">            
-            <div class="row">
-                <div class="col-xs-2 col-sm-2">
-                    <a href="https://www.hlidacstatu.cz"><svg viewBox="0 0 46 46" class="headlogo"><use xlink:href="/assets/defs.svg#logo"></use></svg>
-                    </a>
-                </div>
-                <div class="col-xs-5 col-sm-5 headtxt"><a href="https://www.hlidacstatu.cz">Hlídač Státu</a>
-                    <br/>Voličský&nbsp;průkaz Parlamentní&nbsp;volby&nbsp;2017
-                </div>
-                <div id="krokomer" class="col-xs-5 col-sm-5 navbar-steps">
-                    <div class="wrap">
-                        <div class="nav--progress">
-                            <div class="counter">
-                                <button id="showhelp" class="btn btn-default btn-xs">Nápověda</button>
-                                <span class="counter__step">0</span>6
+    <div class="visible-xs-block">
+        <nav class="navbar navbar-volby navbar-fixed-top">
+            <div class="container">            
+                <div class="row">
+                    <div class="col-xs-2 col-sm-2">
+                        <a href="https://www.hlidacstatu.cz"><svg viewBox="0 0 46 46" class="headlogo"><use xlink:href="/assets/defs.svg#logo"></use></svg>
+                        </a>
+                    </div>
+                    <div class="col-xs-5 col-sm-5 headtxt"><a class="logo" href="https://www.hlidacstatu.cz">Hlídač <strong>Státu</strong></a>
+                        <br/>Voličský&nbsp;průkaz Parlamentní&nbsp;volby&nbsp;2017
+                    </div>
+                    <div class="krokomer col-xs-5 col-sm-5 navbar-steps" style="width: 40%;">
+                        <div class="wrap">
+                            <div class="nav--progress">
+                                <div class="counter">
+                                    <button id="showhelp" class="btn btn-default btn-xs">Nápověda</button>
+                                    <span class="counter__step">0</span>6
+                                </div>
+                                <span class="nav-item"><a href="" class="digitalBlue"></a></span>
                             </div>
-                            <span class="nav-item"><a href="" class="digitalBlue"></a></span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </nav>
+            </div>
+        </nav>
+    </div>
+    <div class="hidden-xs bighead" style="background-color: #fbfbfb">
+        <nav class="navbar navbar-volby navbar-fixed-top">
+            <a href="/" class="logo"><svg viewBox="0 0 46 46" class="headlogo"><use xlink:href="/assets/defs.svg#logo"></use></svg>
+                Hlídač <strong>Státu</strong>
+            </a>
+
+                <ul>
+                    <li>
+                        &nbsp;<a href="https://www.hlidacStatu.cz/"
+                                 onclick="return trackOutLink(this,'header');"
+                                 data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač Státu" data-content="Centrální místo všech hlídačů, komentáře, analýzy. Zde se dozvíte vše podstatné na jednom místě.">Hlídač Státu</a>
+                    </li>
+                    <li>
+                        &nbsp;<a href="https://www.hlidacsmluv.cz/osoby"
+                                 onclick="return trackOutLink(this,'header');"
+                                 data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač politiků a osob" data-content="Informace o politicích, sponzorech politických stran a osob navázaných na politiky. Dary, vazby na firmy a vazby na smlouvy uzavírané se státem.">Hlídač osob</a>
+                    </li>
+                    <li>
+                        &nbsp;<a href="https://www.hlidacstatu.cz/ucty"
+                                 onclick="return trackOutLink(this,'header');"
+                                 data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač politických financí" data-content="Příjmy a výdaje z transparentních účtů politických stran, hnutí a osobností kandidujících ve volbách. Postupně přidáme analýzy příjmů, výdajů, sponzorujících osob a firem. Údaje budeme kontrolovat zejména ve vztahu k volebnímu zákonu, který používání transparentních účtu přikazuje a ve vztahu k registru smluv.">Hlídač financí</a>
+                    </li>
+                </ul>
+                                    <div class="krokomer navbar-steps">
+                        <div class="wrap">
+                            <div class="nav--progress">
+                                <div class="counter">
+                                    <button id="showhelp" class="btn btn-default btn-xs">Nápověda</button>
+                                    <span class="counter__step">0</span>6
+                                </div>
+                                <span class="nav-item"><a href="" class="digitalBlue"></a></span>
+                            </div>
+                        </div>
+                    </div>
+    
+            </nav>
+    </div>
+
     <div class="steps">
         <div class="container">
             <!-- ----- ----- -->
