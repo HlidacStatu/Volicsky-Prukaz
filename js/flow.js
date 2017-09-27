@@ -8,11 +8,11 @@ App.Analytics = (function() {
      * @param {boolean} isStepBack
      */
   function trackStep(step, stepNumber) {
-    track('Application', 'step', step, stepNumber);
+    track('app', 'step', step, stepNumber);
   }
 
   function trackStepBack(stepNumber, previousStepNumber) {
-    track('Application', 'step_back', stepNumber, previousStepNumber);
+    track('app', 'step_back', stepNumber, previousStepNumber);
   }
 
   /**
