@@ -304,7 +304,7 @@ function createDocument(preview, download) {
     preukazHeader = 'Žádost o vydání voličského průkazu a plná moc pro jeho převzetí';
     preukazDelivery = [
       {
-        text: 'K převzetí voličského průkazu splnomocňuji:',
+        text: 'K převzetí voličského průkazu zplnomocňuji:',
         style: 'line',
         alignment: 'left'
       },
