@@ -438,14 +438,14 @@ function createDocument(preview, download) {
         margin: [0, 20, 0, 0]
       },
       signatureStyle: {
-        margin: [0, -60, 0, 0],
+        margin: [0, -30, 0, 0],
         alignment: 'right'
       },
       signatureTextStyle: {
         decoration: 'overline',
         decorationStyle: 'dotted',
         alignment: 'right',
-        margin: [30, 10],
+        margin: [50, 10],
         fontSize: 9
       }
     }
