@@ -74,16 +74,16 @@ function createDocument(preview, download) {
   }
 
     if ($('#kolo1:checked').length && $('#kolo2:checked').length)
-        paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro volby prezidenta České republiky a to první kolo 12. a 13. ledna 2018 a druhé kolo 26. a 27. ledna 2018.';
+        paragraph = 'Podle ustanovení § 33 zákona č. 275/2012 Sb., o volbě prezidenta republiky, tímto žádám o vydání voličského průkazu pro volby prezidenta České republiky a to první kolo 12. a 13. ledna 2018 a druhé kolo 26. a 27. ledna 2018.';
 
     if ($('#kolo1:checked').length && !$('#kolo2:checked').length)
-        paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro první kolo volby prezidenta České republiky 12. a 13. ledna 2018.';
+        paragraph = 'Podle ustanovení § 33 zákona č. 275/2012 Sb., o volbě prezidenta republiky, tímto žádám o vydání voličského průkazu pro první kolo volby prezidenta České republiky 12. a 13. ledna 2018.';
 
     if (!$('#kolo1:checked').length && $('#kolo2:checked').length)
-        paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro druhé kolo volby prezidenta České republiky 26. a 27. ledna 2018.';
+        paragraph = 'Podle ustanovení § 33 zákona č. 275/2012 Sb., o volbě prezidenta republiky, tímto žádám o vydání voličského průkazu pro druhé kolo volby prezidenta České republiky 26. a 27. ledna 2018.';
 
     if (!$('#kolo1:checked').length && !$('#kolo2:checked').length)
-        paragraph = 'Podle ustanovení § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky, tímto žádám o vydání voličského průkazu pro volby prezidenta České republiky a to první kolo 12. a 13. ledna 2018 a druhé kolo 26. a 27. ledna 2018.';
+        paragraph = 'Podle ustanovení § 33 zákona č. 275/2012 Sb., o volbě prezidenta republiky, tímto žádám o vydání voličského průkazu pro volby prezidenta České republiky a to první kolo 12. a 13. ledna 2018 a druhé kolo 26. a 27. ledna 2018.';
 
   if (App.request_form === 'volbaPostouSTrvalymPobytom') {
 
@@ -450,14 +450,14 @@ function createDocument(preview, download) {
         margin: [0, 20, 0, 0]
       },
       signatureStyle: {
-        margin: [0, -60, 0, 0],
+        margin: [0, -30, 0, 0],
         alignment: 'right'
       },
       signatureTextStyle: {
         decoration: 'overline',
         decorationStyle: 'dotted',
         alignment: 'right',
-        margin: [30, 10],
+        margin: [50, 10],
         fontSize: 9
       }
     }
