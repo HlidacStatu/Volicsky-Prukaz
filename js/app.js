@@ -151,7 +151,7 @@ $(document).ready(function () {
       $('#addressforeign-streetno').val($('#addressslovakia-streetno').val());
     }
     if ($('#addressslovakia-city').val()) {
-      $('#addressforeign-city').val($('#addressslovakia-city').html());
+      $('#addressforeign-city').val($('#addressslovakia-city').val());
     }
     if ($('#addressslovakia-zip').val()) {
       $('#addressforeign-zip').val($('#addressslovakia-zip').val());
