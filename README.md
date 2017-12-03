@@ -1,10 +1,10 @@
 # Volby s volebním průkazem — [volby.hlidacstatu.cz](https://volby.hlidacstatu.cz/)
 ============================
 
-Webová aplikace, která připraví žádost o volební průkaz pro volby do Parlamentu ČR v 2017.
+Webová aplikace, která připraví žádost o volební průkaz pro volby prezidenta České republiky v roce 2018.
 Vygenerovanou žádost si volič může stáhnout podepsat a stahnout jako PDF.
 
-Odeslání pomocí datové schránky či doručení s ověřeným podpisem na úřad (poštou, messenger) již musí volič provést sám. 
+Odeslání pomocí datové schránky či doručení s ověřeným podpisem na úřad (poštou, messenger) již musí volič provést sám.
 
 ## Termíny
 ### Žádost o volební průkaz
@@ -13,21 +13,21 @@ Odeslání pomocí datové schránky či doručení s ověřeným podpisem na ú
 
 2. **doručením písemné žádosti na úřad**
 	1. **v listinné podobě opatřené úředně ověřeným podpisem voliče**
-	Žádost o volební průkaz pro volby do Parlamentu ČR v 2017 musí být na příslušný obecní úřad podle trvalého bydliště žadatele doručena nejpozději 7 dnů přede dnem voleb, tj. **do 13. října 2017**.
-	Ověřený podpis žadatele zákon o volbách do Parlamentu vyžaduje proto, aby byl volič, který o vydání voličského průkazu žádá, chráněn před zneužitím tohoto institutu.
+	Žádost o volební průkaz pro volby prezidenta České republiky v roce 2018 musí být na příslušný obecní úřad podle trvalého bydliště žadatele doručena nejpozději 7 dnů přede dnem voleb, tj. **do 10. ledna 2018**.
+	Ověřený podpis žadatele zákon o volbách prezidenta vyžaduje proto, aby byl volič, který o vydání voličského průkazu žádá, chráněn před zneužitím tohoto institutu.
 
 	2. **v elektronické podobě zaslané prostřednictvím datové schránky.**
-	Žádost o volební průkaz pro volby do Parlamentu ČR v 2017 musí být na příslušný obecní úřad podle trvalého bydliště žadatele zaslána nejpozději 7 dnů přede dnem voleb, tj. **do 13. října 2017**.
+	Žádost o volební průkaz pro volby prezidenta České republiky v roce 2018 musí být na příslušný obecní úřad podle trvalého bydliště žadatele zaslána nejpozději 7 dnů přede dnem voleb, tj. **do 10. ledna 2018**.
 
 
 ### Doručení volebního průkazu
-Obecní úřad voličský průkaz nejdříve 15 dnů přede dnem voleb, tj. **5. října 2017**, předá osobně voliči nebo osobě, která se prokáže plnou mocí s ověřeným podpisem voliče žádajícího o vydání voličského průkazu (jedná se pouze o plnou moc k převzetí / vyzvednutí voličského průkazu, nikoliv však k podání žádosti o vydání voličského průkazu), anebo jej voliči zašle na jím uvedenou adresu, a to i do zahraničí. Voličský průkaz lze zaslat na základě žádosti voliče i na adresu zastupitelského úřadu, kde se volič rozhodl hlasovat. V tomto případě se stačí v den voleb dostavit na tento zastupitelský úřad, kde bude voličský průkaz předán a následně je možné přistoupit k hlasování.
+Obecní úřad voličský průkaz nejdříve 15 dnů přede dnem voleb, tj. **28. prosince 2017**, předá osobně voliči nebo osobě, která se prokáže plnou mocí s ověřeným podpisem voliče žádajícího o vydání voličského průkazu (jedná se pouze o plnou moc k převzetí / vyzvednutí voličského průkazu, nikoliv však k podání žádosti o vydání voličského průkazu), anebo jej voliči zašle na jím uvedenou adresu, a to i do zahraničí. Voličský průkaz lze zaslat na základě žádosti voliče i na adresu zastupitelského úřadu, kde se volič rozhodl hlasovat. V tomto případě se stačí v den voleb dostavit na tento zastupitelský úřad, kde bude voličský průkaz předán a následně je možné přistoupit k hlasování.
 
 
 
 
 ## Ochrana osobní údajů:
-Aplikace běží pouze na klientovi, nedochází k žádnému přenášení údajů na server provozovatele (Hlídač Státu z.ú.), tzn. z hlediska zákona o ochraně osobních údajů nedochází ke zpracování osobních údajů. 
+Aplikace běží pouze na klientovi, nedochází k žádnému přenášení údajů na server provozovatele (Hlídač Státu z.ú.), tzn. z hlediska zákona o ochraně osobních údajů nedochází ke zpracování osobních údajů.
 
 
 
