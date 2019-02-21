@@ -23,11 +23,17 @@ function createDocument(preview, download) {
 
   signature2 = [];
   if ($('#signature').val() !== '') {
+    var city_signature = "";
+    if (App.request_form === "ziadostOPreukaPreSplnomocnenca") { 
+      city_signature = $('#addressslovakia-city').val();
+    } else {
+      city_signature = $('#addressforeign-city').val();      
+    }
     signature =
             [
               {text: '', style: 'space'},
               {
-                text: ['V ', {text: $('#addressforeign-city').val(), style: 'value'}],
+                text: ['V ', {text: city_signature, style: 'value'}],
                 style: 'footer',
               },
               {
