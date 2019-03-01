@@ -1,21 +1,21 @@
 {
-  "name": "VolebniPrukaz",
-  "version": "1.0.0",
-  "description": "Fork: Voľby zo zahraničia — [volby.digital](https://volby.digital/) ============================",
+  "name": "volicske-prukazy",
+  "version": "2.0.0",
+  "description": "Volte odjinud než je trvalé bydliště (fork ze volby.digital)",
   "main": "index.html",
   "scripts": {
     "eslint": "eslint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PavelVanecek/VolebniPrukaz.git"
+    "url": "https://github.com/HlidacStatu/Volicsky-Prukaz.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/PavelVanecek/VolebniPrukaz/issues"
+    "url": "https://github.com/HlidacStatu/Volicsky-Prukaz/issues"
   },
-  "homepage": "https://github.com/PavelVanecek/VolebniPrukaz#readme",
+  "homepage": "https://github.com/HlidacStatu/Volicsky-Prukaz/",
   "devDependencies": {
     "eslint": "^4.6.1"
   }
