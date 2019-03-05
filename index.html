@@ -21,13 +21,33 @@
     <meta name="twitter:title" content="Rychlá žádost o voličský průkaz" />
     <meta name="twitter:description" content="Nemůžete volit prezidenta v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            var app = new Vue({ el: '#app',
+                data: {
+                    sections: [
+                        { id: "cr-cr", text:"Jsem občanem ČR a chci volit v ČR" },
+                        { id: "cr-eu", text:"Jsem občanem ČR a chci volit v EU" },
+                        { id: "eu-cr", text:"Jsem občanem EU a chci volit v ČR" }
+                    ]
+                },
+                methods: {
+                    log: function(e) { console.log(getElelment.documentById(e.target.id); }
+                }
+            });
+        });
+    </script>
+    <style>
+        .step { display: none }
+    </style>
 </head>
 
 <body>
-    <ul>
-        <li>Jsem občanem ČR a chci volit v ČR</li>
-        <li>Jsem občanem ČR a chci volit v EU</li>
-        <li>Jsem občanem EU a chci volit v ČR</li>
-    </ul>
+    <div id="app">
+        <ul>
+            <li v-for="section in sections" v-on:click="log">{{section.text}}</li>
+        </ul>
+        <div v-for="section in sections" class="step content" :id="section.id">{{section.id}}</div>
+    </div>
 </body>
 </html>
