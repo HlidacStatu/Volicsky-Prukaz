@@ -1,7 +1,7 @@
 {
   "name": "volicske-prukazy",
   "version": "2.0.0",
-  "description": "Volte odjinud než je trvalé bydliště (fork ze volby.digital)",
+  "description": "Volte odjinud než je trvalé bydliště ",
   "main": "index.html",
   "repository": {
     "type": "git",

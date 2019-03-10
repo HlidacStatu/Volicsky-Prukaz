@@ -6,48 +6,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- add description of the website -->
-    <title>Žádost o vydání voličského průkazu pro prezidenstké volby 2018</title>
+    <title>Žádost o vydání voličského průkazu pro prezidenstké volby 2019</title>
     <meta name="description" content="Nemůžete volit prezidenta v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <!-- open graph specification if anyone shares -->
     <meta property="og:title" content="Rychlá žádost o voličský průkaz" />
-    <meta property="og:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" />
+    <!-- needs update <meta property="og:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
     <meta property="og:description" content="Nemůžete volit prezidenta v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://volby.hlidacstatu.cz/" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:url" content="https://volby.hlidacstatu.cz/" />
-    <meta name="twitter:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" />
+    <!-- needs update <meta name="twitter:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
     <meta name="twitter:title" content="Rychlá žádost o voličský průkaz" />
     <meta name="twitter:description" content="Nemůžete volit prezidenta v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-        window.addEventListener('load', function() {
-            var app = new Vue({ el: '#app',
-                data: {
-                    sections: [
-                        { id: "cr-cr", text:"Jsem občanem ČR a chci volit v ČR" },
-                        { id: "cr-eu", text:"Jsem občanem ČR a chci volit v EU" },
-                        { id: "eu-cr", text:"Jsem občanem EU a chci volit v ČR" }
-                    ]
-                },
-                methods: {
-                    log: function(e) { console.log(getElelment.documentById(e.target.id); }
-                }
-            });
-        });
-    </script>
-    <style>
-        .step { display: none }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
 </head>
 
 <body>
     <div id="app">
-        <ul>
-            <li v-for="section in sections" v-on:click="log">{{section.text}}</li>
-        </ul>
-        <div v-for="section in sections" class="step content" :id="section.id">{{section.id}}</div>
+        <h1>Voličské průkazy!</h1>
+        <p id="navigation">
+            <router-link v-for="route in routes" :key="route.path" :to="route.path">{{route.text}}</router-link>
+        </p>
+        <div id="intro" v-if="$route.path=='/intro'">
+            <h1>Intro</h1>
+        </div>
+        
+        <div id="cr-cr" v-if="$route.path=='/cr-cr'">
+            <h1>Jsem občan ČR a volím na území ČR</h1>
+        </div>
+        
+        <div id="cr-eu" v-if="$route.path=='/cr-eu'">
+            <h1>Jsem občan ČR a volím v zahraničí na území EU</h1>
+        </div>
+        
+        <div id="eu-cr" v-if="$route.path=='/eu-cr'">
+            <h1>Jsem občan EU a volím na území ČR</h1>
+        </div>
     </div>
+
+    <script>
+        var routes = [
+            {path: '/intro', text: 'Intro'},
+            {path: '/cr-cr', text: 'ČR v ČR'},
+            {path: '/cr-eu', text: 'ČR v EU'},
+            {path: '/eu-cr', text: 'EU v ČR'}
+        ];
+        const router = new VueRouter({ routes });
+        window.app = new Vue({
+            router,
+            el: '#app',
+            data: { routes }
+        });
+    </script>
+    <style>
+        #navigation a {
+            display: block;
+        };
+    </style>
 </body>
 </html>
