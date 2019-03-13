@@ -2,7 +2,10 @@
     "name": "volicsky-prukaz",
     "version": 2,
     "alias": "volicsky-prukaz",
-    "builds": [ { "src": "*", "use": "@now/static" } ],
+    "builds": [
+        { "src": "index.html", "use": "@now/static" },
+        { "src": "favicon.ico", "use": "@now/static" }
+    ],
     "github": {
         "enabled": true,
         "silent": false
