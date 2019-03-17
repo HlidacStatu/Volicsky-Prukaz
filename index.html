@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.53/src/printer.min.js" integrity="sha384-m3RtHzW8tFgZxBQmuSqM2or44NjRuHaqdA8xUTdkk73MdmHjKqPRzdnGJNY/dEvg" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -119,7 +118,7 @@
             {path: '/preview' }
         ];
         const paths = routes.map(function(route) { return route.path })
-        const router = new VueRouter({ routes });
+        const router = new VueRouter({ routes: routes });
         router.beforeEach((to, from, next) => {
             if (paths.indexOf(to.path)==-1) {
                 next({path: '/cr-cr', replace: true});
