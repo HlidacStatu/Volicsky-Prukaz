@@ -119,15 +119,15 @@
         ];
         const paths = routes.map(function(route) { return route.path })
         const router = new VueRouter({ routes: routes });
-        router.beforeEach((to, from, next) => {
+        router.beforeEach(function(to, from, next) {
             if (paths.indexOf(to.path)==-1) {
                 next({path: '/cr-cr', replace: true});
             } else next();
         })
         window.app = new Vue({
-            router,
+            router: router,
             el: '#app',
-            data: { routes }
+            data: { routes: routes }
         });
     </script>
     <style>
