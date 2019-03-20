@@ -99,13 +99,13 @@
 
         </div>
 
-        <div id="form" class="pane" v-if="$route.path=='/form'">
-            <div class="section warning">
-                <div class="label">
+        <div id="form" class="pane table" v-if="$route.path=='/form'">
+            <div class="form-group warning">
+                <div class="left">
                     <img src="assets/images/lock.png" width="41" height="50" />
-                    <h3>Soukromí</h3>
+                    <h3 class="section-title">Soukromí</h3>
                 </div>
-                <div class="content">
+                <div class="right">
                     <strong>Než začneme…</strong>
                     <p>
                         Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.
@@ -113,12 +113,107 @@
                         Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu.
                     </p>
                 </div>
-                
             </div>
-
-            <router-link tag="button" to="/preview" class="btn btn-primary">Vytvořit žádost</router-link>
+            <div class="form-group">
+                <div class="left">
+                    <img src="assets/images/id-card.png" width="50" height="38" />
+                    <h3 class="section-title">Moje identita</h3>
+                </div>
+                <div class="right">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <label for="name">Jméno a Příjmení</label>
+                            <input id="name" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label for="birthday">Datum Narození</label>
+                            <input id="birthday" class="form-control" type="date">
+                        </div>
+                        <div class="col-xs-5">
+                            <label for="phone">Telefon</label>
+                            <input id="phone" class="form-control" type="tel">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left">
+                    <img src="assets/images/home.png" width="50" height="40" />
+                    <h3 class="section-title">Moje adresa trvalého pobytu</h3>
+                </div>
+                <div class="right">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <label for="street">Ulice a číslo popisné</label>
+                            <input id="street" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <label for="zip">PSČ</label>
+                            <input id="zip" class="form-control" type="text">
+                        </div>
+                        <div class="col-xs-7">
+                            <label for="city">Město</label>
+                            <input id="city" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="left">
+                    <img src="assets/images/office.png" width="39" height="50" />
+                    <h3 class="section-title">Můj obecní úřad</h3>
+                </div>
+                <div class="right">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <label for="office-name">Název úřadu</label>
+                            <input id="office-name" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <label for="office-street">Ulice a číslo popisné</label>
+                            <input id="office-street" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <label for="office-zip">PSČ</label>
+                            <input id="office-zip" class="form-control" type="text">
+                        </div>
+                        <div class="col-xs-7">
+                            <label for="office-city">Město</label>
+                            <input id="office-city" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10">Nelekněte se, PSČ vašeho obecního úřadu se může od vašeho lišit.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                    <div class="left">
+                        <img src="assets/images/envelope.png" width="50" height="39" />
+                        <h3 class="section-title">Doručení</h3>
+                    </div>
+                    <div class="right">
+                        <div class="row">
+                            <label for="delivery">Voličský průkaz po vyhotovení:</label><br>
+                            <input type="radio" name="delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
+                            <input type="radio" name="delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                            <input type="radio" name="delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                            <input type="radio" name="delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
+                        </div>
+                    </div>
+                </div>
+        
+            <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
         </div>
-        <div id="form" class="pane" v-if="$route.path=='/preview'">
+        <div id="preview" class="pane" v-if="$route.path=='/preview'">
 
             <router-link tag="button" to="/" class="btn btn-primary">Stáhnout žádost</router-link>
         </div>
@@ -190,21 +285,41 @@
             position: relative;
             top: -1em;
         }
-        #form .section.warning {
-            background-color: rgb(247, 248, 172);
+
+        #form .row {
+            margin: 15px 0px;
         }
-        #form .section .label {
+        #form label {
+            font-weight: normal;
+        }
+        #form .form-group {
+            margin-bottom: 0px;
+        }
+        #form .form-group:nth-child(2n+1) {
+            background-color: rgb(228, 228, 228)
+        }
+        #form .form-group:nth-child(2n) {
+            background-color: rgb(215, 215, 215)
+        }
+
+        #form .form-group.warning {
+            background-color: rgb(255, 255, 204);
+        }
+        #form .form-group .left {
             width: 300px;
             position: absolute;
             padding: 50px 20px;
         }
-        #form .section .label img {
+        #form .form-group .left img {
             float: left;
         }
-        #form .section .content {
+        #form .form-group .left h3 {
+            margin-left: 60px;
+        }
+        #form .form-group .right {
             margin-left: 300px;
-            padding: 50px 20px;
-            min-height: 200px;
+            padding: 50px 0px;
+            min-height: 160px;
         }
 
     </style>
