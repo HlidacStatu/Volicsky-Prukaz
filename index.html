@@ -119,6 +119,21 @@
         </div>
 
         <div id="form" class="pane" v-if="$route.path=='/form'">
+            <div class="section warning">
+                <div class="label">
+                    <img src="assets/images/lock.png" width="41" height="50" />
+                    <h3>Soukromí</h3>
+                </div>
+                <div class="content">
+                    <strong>Než začneme…</strong>
+                    <p>
+                        Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.
+                        Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.
+                        Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu.
+                    </p>
+                </div>
+                
+            </div>
 
             <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
         </div>
@@ -155,8 +170,8 @@
         }
 
         div#app {
-            width: 810px;
-            margin-left: -405px;
+            width: 940px;
+            margin-left: -470px;
         }
 
         .pane {
@@ -166,6 +181,23 @@
             position: relative;
             top: -1em;
         }
+        #form .section.warning {
+            background-color: rgb(247, 248, 172);
+        }
+        #form .section .label {
+            width: 300px;
+            position: absolute;
+            padding: 50px 20px;
+        }
+        #form .section .label img {
+            float: left;
+        }
+        #form .section .content {
+            margin-left: 300px;
+            padding: 50px 20px;
+            min-height: 200px;
+        }
+
     </style>
 </body>
 
