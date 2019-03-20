@@ -20,108 +20,127 @@
     <meta name="twitter:title" content="Rychlá žádost o voličský průkaz" />
     <meta name="twitter:description" content="Nemůžete volit prezidenta v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
+    <link href="assets/hlidac.css" rel="stylesheet" />
 </head>
 
 <body>
     <div id="app">
-        <h1>Volby do Evropského parlamentu 2019</h1>
-        <h2>Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. 29 (od 8:00 do 14:00)</strong></h2>
-        <p id="navigation">
-            <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link><!--
-         --><router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link><!--
-         --><router-link to="/eu-cr">Jsem občanem EU a chci volit v ČR</router-link>
-        </p>
+        <h1 class="new-title">Volby do Evropského parlamentu 2019</h1>
+        <p class="new-p">Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a
+            <strong>25. 5. (od 8:00 do 14:00)</strong></p>
+
+        <div class="row">
+            <div class="col-xs-offset-0 col-xs-12 col-md-offset-0 col-md-12">
+                <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" :class="$route.path=='/cr-cr' ? 'active': ''">
+                            <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link>
+                        </li>
+                        <li role="presentation" :class="$route.path=='/cr-eu' ? 'active': ''">
+                            <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
+                        </li>
+    
+                        <li role="presentation" :class="$route.path=='/eu-cr' ? 'active': ''">
+                            <router-link to="/eu-cr" role="tab">Jsem občanem EU a chci volit v ČR</router-link>
+                        </li>
+                        </li>
+                </ul>
+            </div>
+        </div>
         <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
-            <h3>Chci volit v místě svého trvalého bydliště</h3>
-            <p>
+            <h3 class="section-title">Chci volit v místě svého trvalého bydliště</h3>
+            <p class="new-p">
                 Nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).
             </p>
-            <h3>Chci volit v kterémkoliv volebním obvodě v ČR</h3>
-            <p>
+            <h3 class="section-title">Chci volit v kterémkoliv volebním obvodě v ČR</h3>
+            <p class="new-p">
                 Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.
             </p>
-            <h3>O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
-            <ul>
-                <li><strong>osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                <li><strong>písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.
+            <h3 class="section-title">O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
+            <ul class="new-p">
+                <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
+                <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.
                 </li>
             </ul>
-            <router-link tag="button" to="/form" class="btn btn-primary">Vytvořit písemnou žádost o voličský průkaz</router-link>
+            <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
         </div>
-        
+
         <div id="cr-eu" class="pane" v-if="$route.path=='/cr-eu'">
-            <h3>Chci volit české kandidáty</h3>
-            
-            <p>Pro české kandidáty nelze hlasovat ze zahraničí.</p>
-            <p>Ze zahraničí může občan, který žije dlouhodobě mimo ČR, zastupitelský úřad požádat o zápis do zvláštního seznamu voličů a následně se na něj obrátit s žádostí o vydání voličského průkazu. S tímto průkazem pak může volit v den voleb ve kterékoliv volební místosti na území ČR.</p>
+            <h3 class="section-title">Chci volit české kandidáty</h3>
 
-            <p><strong>O voličský průkaz můžete zažádat na svém zastupitelském úřadě a to buď:</strong></p>
-            <ul>
-                <li><strong>osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                <li><strong>písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
+            <p class="new-p">Pro české kandidáty nelze hlasovat ze zahraničí.</p>
+            <p class="new-p">Ze zahraničí může občan, který žije dlouhodobě mimo ČR, zastupitelský úřad požádat o zápis do zvláštního seznamu voličů a následně se na něj obrátit s žádostí o vydání voličského průkazu. S tímto průkazem pak může volit v den voleb ve kterékoliv volební místosti na území ČR.</p>
+
+            <h4 class="section-title">O voličský průkaz můžete zažádat na svém zastupitelském úřadě a to buď:</h4>
+            <ul class="new-p">
+                <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
+                <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
             </ul>
 
-            <p><router-link tag="button" to="/form" class="btn btn-primary">Vytvořit písemnou žádost o voličský průkaz</router-link></p>
+            <p class="new-p">
+                <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+            </p>
 
-            <h3>Chci volit kandidáty z jiné členské země EU</h3>
-            <p>Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
+            <h3 class="section-title">Chci volit kandidáty z jiné členské země EU</h3>
+            <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
         </div>
-        
+
         <div id="eu-cr" class="pane" v-if="$route.path=='/eu-cr'">
-            <h3>Chci volit české kandidáty</h3>
-            
-            <p>Podmínkou je, aby byla osoba registrována k trvalému nebo přechodnému pobytu na území ČR minimálně 45 dní před volbami a byla na seznamu voličů do Evropského parlamentu.</p>
+            <h3 class="section-title">Chci volit české kandidáty</h3>
 
-            <ul>
+            <p class="new-p">Podmínkou je, aby byla osoba registrována k trvalému nebo přechodnému pobytu na území ČR minimálně 45 dní před volbami a byla na seznamu voličů do Evropského parlamentu.</p>
+
+            <ul class="new-p">
                 <li>V případě, že se osoba již zúčastnila voleb do EP v minulosti a byla tak zapsaná na seznam voličů do EP, může se v daném volebním okrsku voleb opět účastnit.</li>
-                <li>V případě, že je osoba již zapsaná ve volebním rejstříku pro komunální volby, může požádat nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) o přesun svých údajů ze stálého seznamu voličů do seznamu voličů pro volby do EP <a href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">vyplněním žádosti</a>. Tuto žádost je nutné podat osobně.</li>
-                <li>V případě, že osoba zatím ve volbách do EP nevolila, musí nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) příslušný obecní úřad <a href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">požádat o zapsání na seznam voličů</a>. Tuto žádost je nutné podat osobně.</li>
-            </ul>
-            
-            <h3>Chci volit v místě svého trvalého bydliště v ČR</h3>
-            <p>Splňujete-li výše popsané podmínky, nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).</p>
-
-            <h3>Chci volit v kterémkoliv volebním obvodě v ČR</h3>
-            <p>Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.</p>
-
-            <h3>O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
-            <ul>
-                <li><strong>osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                <li><strong>písemně</strong> – džádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
+                <li>V případě, že je osoba již zapsaná ve volebním rejstříku pro komunální volby, může požádat nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) o přesun svých údajů ze stálého seznamu voličů do seznamu voličů pro volby do EP <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">vyplněním žádosti</a>. Tuto žádost je nutné podat osobně.</li>
+                <li>V případě, že osoba zatím ve volbách do EP nevolila, musí nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) příslušný obecní úřad <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">požádat o zapsání na seznam voličů</a>. Tuto žádost je nutné podat osobně.</li>
             </ul>
 
-            <p><router-link tag="button" to="/form" class="btn btn-primary">Vytvořit písemnou žádost o voličský průkaz</router-link></p>
-            <h3>Chci volit kandidáty z jiné členské země EU</h3>
-            Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.
+            <h3 class="section-title">Chci volit v místě svého trvalého bydliště v ČR</h3>
+            <p class="new-p">Splňujete-li výše popsané podmínky, nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).</p>
+
+            <h3 class="section-title">Chci volit v kterémkoliv volebním obvodě v ČR</h3>
+            <p class="new-p">Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.</p>
+
+            <h3 class="section-title">O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
+            <ul class="new-p">
+                <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
+                <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
+            </ul>
+
+            <p class="new-p">
+                <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+            </p>
+            <h3 class="section-title">Chci volit kandidáty z jiné členské země EU</h3>
+            <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
 
         </div>
 
         <div id="form" class="pane" v-if="$route.path=='/form'">
 
-            <router-link tag="button" to="/preview" class="btn btn-primary">Vytvořit žádost</router-link>
+            <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
         </div>
         <div id="form" class="pane" v-if="$route.path=='/preview'">
 
-            <router-link tag="button" to="/" class="btn btn-primary">Stáhnout žádost</router-link>
+            <router-link tag="button" to="/" class="btn btn-primary btn-primary-new">Stáhnout žádost</router-link>
         </div>
     </div>
 
     <script>
         const routes = [
-            {path: '/cr-cr'},
-            {path: '/cr-eu'},
-            {path: '/eu-cr'},
-            {path: '/form' },
-            {path: '/preview' }
+            { path: '/cr-cr' },
+            { path: '/cr-eu' },
+            { path: '/eu-cr' },
+            { path: '/form' },
+            { path: '/preview' }
         ];
-        const paths = routes.map(function(route) { return route.path })
+        const paths = routes.map(function (route) { return route.path })
         const router = new VueRouter({ routes: routes });
-        router.beforeEach(function(to, from, next) {
-            if (paths.indexOf(to.path)==-1) {
-                next({path: '/cr-cr', replace: true});
+        router.beforeEach(function (to, from, next) {
+            if (paths.indexOf(to.path) == -1) {
+                next({ path: '/cr-cr', replace: true });
             } else next();
         })
         window.app = new Vue({
@@ -132,42 +151,15 @@
     </script>
     <style>
         body {
-            font-family: sans-serif;
             margin: 50px 50%;
         }
+
         div#app {
             width: 810px;
             margin-left: -405px;
         }
-        h2 {
-            font-weight: normal;
-            font-size: small;
-        }
-        h3 {
-            font-size: medium;
-            font-weight: bold;
-            margin-bottom: 0px;
-        }
 
-        #navigation a {
-            display: inline-block;
-            width: 270px;
-            padding: 15px;
-            height: 80px;
-            border: 1px solid black;
-            border-left: 0px;
-            margin: 0px;
-            text-align: center;
-        }
-        #navigation a:first-child {
-            border-left: 1px solid black;
-        }
-        #navigation a.router-link-active {
-            color:red;
-            border-bottom: 0px;
-        }
         .pane {
-            border: 1px solid black;
             border-top: 0px;
             padding: 15px;
             margin: 0px;
@@ -176,4 +168,5 @@
         }
     </style>
 </body>
+
 </html>
