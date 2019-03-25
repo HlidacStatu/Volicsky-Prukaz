@@ -123,17 +123,17 @@
                     <div class="row">
                         <div class="col-xs-10">
                             <label for="name">Jméno a Příjmení</label>
-                            <input id="name" class="form-control" type="text">
+                            <input id="name" v-model="userData.fullName" class="form-control" type="text">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-5">
-                            <label for="birthday">Datum Narození</label>
-                            <input id="birthday" class="form-control" type="date">
+                            <label for="bday">Datum Narození</label>
+                            <input id="bday" v-model="userData.birthdate" class="form-control" type="date">
                         </div>
                         <div class="col-xs-5">
-                            <label for="phone">Telefon</label>
-                            <input id="phone" class="form-control" type="tel">
+                            <label for="tel">Telefon</label>
+                            <input id="tel" v-model="userData.phone" class="form-control" type="tel">
                         </div>
                     </div>
                 </div>
@@ -146,18 +146,18 @@
                 <div class="right">
                     <div class="row">
                         <div class="col-xs-10">
-                            <label for="street">Ulice a číslo popisné</label>
-                            <input id="street" class="form-control" type="text">
+                            <label for="address-line1">Ulice a číslo popisné</label>
+                            <input id="address-line1" v-model="userData.addressLine1" class="form-control" type="text">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-3">
-                            <label for="zip">PSČ</label>
-                            <input id="zip" class="form-control" type="text">
+                            <label for="postal-code">PSČ</label>
+                            <input id="postal-code" v-model="userData.postalCode" class="form-control" type="text">
                         </div>
                         <div class="col-xs-7">
-                            <label for="city">Město</label>
-                            <input id="city" class="form-control" type="text">
+                            <label for="locality">Město</label>
+                            <input id="locality" v-model="userData.city" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -171,23 +171,23 @@
                     <div class="row">
                         <div class="col-xs-10">
                             <label for="office-name">Název úřadu</label>
-                            <input id="office-name" class="form-control" type="text">
+                            <input id="office-name" v-model="userData.municipality.name" class="form-control" type="text" autocomplete="off">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-10">
                             <label for="office-street">Ulice a číslo popisné</label>
-                            <input id="office-street" class="form-control" type="text">
+                            <input id="office-street" v-model="userData.municipality.addressLine1" class="form-control" type="text" autocomplete="off">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-3">
                             <label for="office-zip">PSČ</label>
-                            <input id="office-zip" class="form-control" type="text">
+                            <input id="office-zip" v-model="userData.municipality.postalCode" class="form-control" type="text" autocomplete="off">
                         </div>
                         <div class="col-xs-7">
                             <label for="office-city">Město</label>
-                            <input id="office-city" class="form-control" type="text">
+                            <input id="office-city" v-model="userData.municipality.city" class="form-control" type="text" autocomplete="off">
                         </div>
                     </div>
                     <div class="row">
@@ -237,7 +237,12 @@
         window.app = new Vue({
             router: router,
             el: '#app',
-            data: { routes: routes }
+            data: {
+                routes: routes,
+                userData: {
+                    municipality: {}
+                }
+            }
         });
     </script>
     <style>
