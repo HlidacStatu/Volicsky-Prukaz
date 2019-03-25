@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
+    <!-- html2pdf needs proper setup -->
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.9.1/dist/html2pdf.js" integrity="sha256-vzO/Is3piKqdqLXRh5RUecYxetRt2RQwjJ9tQMTNi3A=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -214,7 +216,52 @@
             <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
         </div>
         <div id="preview" class="pane" v-if="$route.path=='/preview'">
-
+            <div id="document-to-print" class="pageA4">
+                <p class="">
+                    Číslo voličského průkazu:
+                </p>
+                <p class="">
+                    Obecní úřad
+                    V ………………………………….. dne ......................... 2019
+                </p>
+                <p class="">
+                    <strong>ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
+                    pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019</strong>
+                </p>
+                <p class="">
+                    Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
+                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad #obecni-urad# o
+                    vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
+                    5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
+                </p>
+                <p class="">
+                    <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
+                    <strong>Datum narození:</strong> {{userData.birthdate}} <br>
+                    <strong>Trvalý pobyt:</strong> {{userData.addressLine1}} {{userData.city}} {{userData.postalCode}} <br>
+                    <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
+                </p>
+                <p class=""><strong>Beru na vědomí, že</strong><br>
+                    podle ustanovení § 30 odst. 3 zákona o volbách do EP mne voličský průkaz opravňuje ve dnech konání voleb
+                    do Evropského parlamentu k hlasování v jakémkoli volebním okrsku na území České republiky.
+                </p>
+                <p class=""><strong>K tomu sděluji, že voličský průkaz:</strong><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-in-person" disabled>
+                        <label for="pdf-in-person">převezmu osobně</label><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-representative" disabled>
+                        <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-my-address" disabled>
+                        <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-other-address" disabled>
+                        <label for="pdf-other-address">žádám zaslat na jinou adresu:</label> #jmeno2# #adresat2# #ulice2# #mesto2# #psc2# #stat2#
+                </p>
+                <p class="">
+                    <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
+                </p>
+                <p class="">
+                    <strong>…………………………………………….<br>
+                    PODPIS VOLIČE</strong>
+                </p>
+            </div>
             <router-link tag="button" to="/" class="btn btn-primary">Stáhnout žádost</router-link>
         </div>
     </div>
@@ -244,6 +291,16 @@
                 }
             }
         });
+        //HTML2PDF start
+        var element = document.getElementById('document-to-print');
+        var opt = {
+            margin:       1,
+            filename:     'Zadost-Volicsky-Prukaz-' + new Date().toLocaleDateString() + '.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }            
+        };        
+        //HTML2PDF end
     </script>
     <style>
         body {
@@ -325,6 +382,15 @@
             margin-left: 300px;
             padding: 50px 0px;
             min-height: 160px;
+        }
+
+        .pageA4 {
+            width: 794px;
+            height: 1122px;            
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            position: relative;         
         }
 
     </style>
