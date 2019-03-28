@@ -217,7 +217,7 @@
             <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
         </div>
         <div id="preview" class="pane" v-if="$route.path=='/preview'">
-            <img src="pdf.gif" alt="pdf-preview" height="200" width="200">
+            <div id="preview-gif"></div>
             <div id="document-template" style="display:none;">
                 <div id="document-to-print" class="pageA4">
                     <p class="">
@@ -268,7 +268,7 @@
             </div>
             <router-link tag="button" to="/" class="btn btn-primary">Stáhnout žádost</router-link>
             <button class="btn btn-primary btn-primary-new" onclick="generatePreview()">PDF img</button>
-            <button class="btn btn-primary btn-primary-new" onclick="generatePDF()">PDF dwn</button>
+            <button class="btn btn-primary btn-primary-new" onclick="()">PDF dwn</button>
         </div>
     </div>
 
@@ -297,21 +297,30 @@
                 }
             }
         });
-        function generatePDF() {
-        var element = document.getElementById('document-to-print');
-        html2pdf().from(element).set({
-          margin: 1,
-          filename: 'Zadost-Volicsky-Prukaz-' + new Date().toLocaleDateString() + '.pdf',
-          html2canvas: { scale: 2 },
-          jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
-        }).save();
+
+        window.worker = null;
+
+        function downloadPdf() {
+            var element = document.getElementById('document-to-print');
+            html2pdf().from(element).set({
+                margin: 1,
+                filename: 'Zadost-Volicsky-Prukaz-' + new Date().toLocaleDateString() + '.pdf',
+                html2canvas: { scale: 2 },
+                jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
+            }).save();
         }
         function generatePreview() {
-        var element = document.getElementById('document-to-print');
-        var opt = {
-            filename:     'pdf-preview.jpeg',      
-        };
-        var worker = html2pdf().from(element).outputImg('datauristring',opt);                
+            var element = document.getElementById('document-to-print');
+            var target_element = document.getElementById('preview-gif');
+            var opt = {
+            };
+            window.worker = html2pdf().from(element).toImg('datauristring',opt).then(finished);
+        }
+        function finished() {
+            var imageElement = this.prop.img;
+            imageElement.setAttribute('height',500);
+            imageElement.setAttribute('width',350);
+            document.getElementById('preview-gif').appendChild(imageElement);
         }
               
 </script>
