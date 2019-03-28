@@ -1,145 +1,315 @@
 <!DOCTYPE html>
-<html lang="cs-CZ">
-
+<html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rychlá žádost o voličský průkaz</title>
-    <meta name="description" content="Nemůžete volit prezidenta v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
+    <meta name="description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <!-- open graph specification if anyone shares -->
     <meta property="og:title" content="Rychlá žádost o voličský průkaz" />
     <!-- needs update <meta property="og:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
-    <meta property="og:description" content="Nemůžete volit prezidenta v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
+    <meta property="og:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://volby.hlidacstatu.cz/" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:url" content="https://volby.hlidacstatu.cz/" />
     <!-- needs update <meta name="twitter:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
     <meta name="twitter:title" content="Rychlá žádost o voličský průkaz" />
-    <meta name="twitter:description" content="Nemůžete volit prezidenta v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
+    <meta name="twitter:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
+
+    <link rel="canonical" href="https://volby.hlidacstatu.cz/" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="assets/site.css" rel="stylesheet">
+    <link href="assets/globalsite.css" rel="stylesheet">
+    <link href="assets/hlidac.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
-    <link href="assets/hlidac.css" rel="stylesheet" />
+    <script>
+        var _showFAD = true;
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-154075-22', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script>
+        _showFAD = false;
+    </script>
+    <script type='text/javascript'>
+        var appInsights=window.appInsights||function(config)
+        {
+            function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
+            var t = { config:config},u=document,e=window,o='script',s=u.createElement(o),i,f;for(s.src=config.url||'//az416426.vo.msecnd.net/scripts/a/ai.0.js',u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=['Event','Exception','Metric','PageView','Trace','Ajax'];i.length;)r('track'+i.pop());return r('setAuthenticatedUserContext'),r('clearAuthenticatedUserContext'),config.disableExceptionTracking||(i='onerror',r('_'+i),f=e[i],e[i]=function(config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o),s}),t
+        }({
+            instrumentationKey:'7b640525-5d24-4ad7-87e1-0f2c24cc1945'
+        });
+
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+    </script>
+    
 </head>
 
 <body class="body">
-    <div id="app" class="container">
-        <h1 class="new-title">Volby do Evropského parlamentu 2019</h1>
-        <p class="new-p">Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a
-            <strong>25. 5. (od 8:00 do 14:00)</strong></p>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v2.9";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
-        <div class="row">
-            <div class="col-xs-offset-0 col-xs-12 col-md-offset-0 col-md-12">
-                <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" :class="$route.path=='/cr-cr' ? 'active': ''">
-                            <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link>
-                        </li>
-                        <li role="presentation" :class="$route.path=='/cr-eu' ? 'active': ''">
-                            <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
-                        </li>
-    
-                        <li role="presentation" :class="$route.path=='/eu-cr' ? 'active': ''">
-                            <router-link to="/eu-cr" role="tab">Jsem občanem EU a chci volit v ČR</router-link>
-                        </li>
-                        </li>
-                </ul>
-            </div>
-        </div>
-        <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
-            <h3 class="section-title">Chci volit v místě svého trvalého bydliště</h3>
-            <p class="new-p">
-                Nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).
-            </p>
-            <h3 class="section-title">Chci volit v kterémkoliv volebním obvodě v ČR</h3>
-            <p class="new-p">
-                Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.
-            </p>
-            <h3 class="section-title">O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
-            <ul class="new-p">
-                <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.
+    <header class="clearfix">
+        <a href="https://www.hlidacstatu.cz/" class="logo">
+            <svg width="46" height="46" viewBox="0 0 46 46">
+                <!-- TODO: zmenit na male!!!! -->
+                <use xlink:href="assets/images/defs.svg#logo"></use>
+            </svg>
+            Hlídač <strong>Státu</strong>
+        </a>
+        <nav>
+            <a href="#" class="hamburger"></a>
+
+            <ul>
+                <style>
+.blink {
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+    50% {
+    opacity: 0;
+    }
+}
+</style>
+<li>
+    &nbsp;<a href="https://www.darujme.cz/projekt/1200384"
+                onclick="return trackOutLink(this,'header');"
+                data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Podpořte nás" data-content="Už více než rok kontrolujeme politiky a úředníky zda s našimi penězi zacházejí správně. Už více než rok jim pomáháme zavádět moderní e-government. Do Hlídače Státu dáváme své peníze a veškerý čas, avšak to nestačí. Chceme-li dál měnit prostředí v ČR, potřebujeme vaši pomoc."><span style="color:red;">Podpořte nás</span></a>
+    &nbsp;<a href="https://www.hlidacstatu.cz/PridatSe" style="margin-left:0px;"
+                onclick="return trackOutLink(this,'header');"
+                data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Přidejte se k nám, hlídejte s námi politiky a stát." data-content="Pokud chcete, stejně jako já a dobrovolníci kolem Hlídačů, dál zlepšovat český stát, potřebujeme zrychlit a nabrat sílu. Hlídače musí dělat větší team lidí. Potřebujeme programátory, analytiky, právníky, redaktory, marketing a další. Přidejte se k nám."><span class="text-success">Přidejte se k nám</span></a>
+</li>
+<li>
+    &nbsp;<b style="margin-left:20px">HLÍDAČI</b>
+    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacstatu.cz/Smlouvy"
+                                            onclick="return trackOutLink(this,'header');"
+                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač Smluv"
+                                            data-content="Prohledáváme jak informace o smlouvě, tak samotné texty smluv, smlouvy kontrolujeme, napojujeme na rejstříky firem a politiky. Analyzujeme propojení firem a státu ze všech stran.">Smluv</a>
+
+    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacstatu.cz/VerejneZakazky"
+                                            onclick="return trackOutLink(this,'header');"
+                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač Veřejných zakázak"
+                                            data-content="Prohledáváme informace o všech plánovaných i ukončených veřejných zakázkách státní správy a upozorníme vás na nově vypsané zakázky.">Veř.zakázek</a>
+
+    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacstatu.cz/osoby"
+                                            onclick="return trackOutLink(this,'header');"
+                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač politiků a osob"
+                                            data-content="Informace o politicích, sponzorech politických stran a osob navázaných na politiky. Dary, vazby na firmy a vazby na smlouvy uzavírané se státem.">Osob</a>
+    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacstatu.cz/ucty"
+                                            onclick="return trackOutLink(this,'header');"
+                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač politických financí"
+                                            data-content="Příjmy a výdaje z transparentních účtů politických stran, hnutí a osobností kandidujících ve volbách. Postupně přidáme analýzy příjmů, výdajů, sponzorujících osob a firem. Údaje budeme kontrolovat zejména ve vztahu k volebnímu zákonu, který používání transparentních účtu přikazuje a ve vztahu k registru smluv.">Financí</a>
+    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacStatu.cz/StatniWeby"
+                                            onclick="return trackOutLink(this,'header');"
+                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač Státních Webů"
+                                            data-content="Hlídání dostupnosti a funkčnosti státní webů.Měříme každou minutu, zda důležité weby státu vůbec běží, a pokud ano, tak jak rychle odpovídají.">Webů</a>
+</li>
+
+
+
+
+                    <li class="separator"><a href="/account/Login" id="loginLink">Přihlásit se</a></li>
+
+
+
+                <li class="level2"><a href="https://www.hlidacstatu.cz/data">Datové sady</a></li>
+<li class="level2"><a href="https://www.hlidacstatu.cz/Reporty">Analýzy & reporty</a></li>
+<li class="level2"><a href="https://www.hlidacstatu.cz/texty">Komentáře</a></li>
+<li class="level2"><a href="https://platforma.hlidacstatu.cz/">Platforma</a></li>
+
+
+                <li class="level2">
+                    <div class="social">
+                        <a href="https://www.facebook.com/sharer/sharer.php?sdk=joey&u=https%3A%2F%2Fwww.hlidacstatu.cz%2F&display=popup&ref=plugin&src=share_button" target="_blank" class="social-fb">
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <use xlink:href="assets/images/defs.svg#facebook"></use>
+                            </svg>
+                            Sdílet
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fwww.hlidacstatu.cz%2F&ref_src=twsrc%5Etfw&text=Hl%C3%ADda%C4%8D%20st%C3%A1tu%20-%20ve%C5%99ejn%C3%A1%20kontrola%20st%C3%A1tn%C3%ADch%20a%20ve%C5%99ejn%C3%BDch%20instituc%C3%AD.%20Ve%C5%99ejnoprosp%C4%9B%C5%A1n%C3%BD%20projekt.%20Hl%C3%ADda%C4%8D%20smluv%20a%20registr%20smluv.%20Hl%C3%ADda%C4%8D%20Web%C5%AF.&tw_p=tweetbutton&url=https%3A%2F%2Fwww.hlidacstatu.cz%2F" target="_blank" class="social-tw">
+                            <svg width="17" height="14" viewBox="0 0 17 14">
+                                <use xlink:href="assets/images/defs.svg#twitter"></use>
+                            </svg>
+                            Tweet
+                        </a>
+                    </div>
                 </li>
+
             </ul>
-            <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+        </nav>
+        <nav class="level2">
+            <ul>
+
+                <li><a href="https://www.hlidacstatu.cz/data"><span class="small blink" style="color:red">►</span>Datové sady</a></li>
+<li><a href="https://www.hlidacstatu.cz/Reporty">Analýzy & reporty</a></li>
+<li><a href="https://www.hlidacstatu.cz/texty">Komentáře</a></li>
+<li><a href="https://platforma.hlidacstatu.cz/">Platforma</a></li>
+
+
+                <li class="separator">
+                    <div class="social">
+                        <a href="https://www.facebook.com/sharer/sharer.php?sdk=joey&u=https%3A%2F%2Fwww.hlidacstatu.cz%2F&display=popup&ref=plugin&src=share_button" target="_blank" class="social-fb">
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <use xlink:href="assets/images/defs.svg#facebook"></use>
+                            </svg>
+                            Sdílet
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fwww.hlidacstatu.cz%2F&ref_src=twsrc%5Etfw&text=Hl%C3%ADda%C4%8D%20st%C3%A1tu%20-%20ve%C5%99ejn%C3%A1%20kontrola%20st%C3%A1tn%C3%ADch%20a%20ve%C5%99ejn%C3%BDch%20instituc%C3%AD.%20Ve%C5%99ejnoprosp%C4%9B%C5%A1n%C3%BD%20projekt.%20Hl%C3%ADda%C4%8D%20smluv%20a%20registr%20smluv.%20Hl%C3%ADda%C4%8D%20Web%C5%AF.&tw_p=tweetbutton&url=https%3A%2F%2Fwww.hlidacstatu.cz%2F" target="_blank" class="social-tw">
+                            <svg width="17" height="14" viewBox="0 0 17 14">
+                                <use xlink:href="assets/images/defs.svg#twitter"></use>
+                            </svg>
+                            Tweet
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+            <span></span>
+    </div>
+
+
+
+
+    <div id="app" class="container">
+        <div class="col-md-10 col-md-offset-1">
+            <h1 class="new-title">Volby do Evropského parlamentu 2019</h1>
+            <p class="new-p center-block text-center">Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. (od 8:00 do 14:00)</strong></p>
         </div>
 
-        <div id="cr-eu" class="pane" v-if="$route.path=='/cr-eu'">
-            <h3 class="section-title">Chci volit české kandidáty</h3>
-
-            <p class="new-p">Pro české kandidáty nelze hlasovat ze zahraničí.</p>
-            <p class="new-p">Ze zahraničí může občan, který žije dlouhodobě mimo ČR, zastupitelský úřad požádat o zápis do zvláštního seznamu voličů a následně se na něj obrátit s žádostí o vydání voličského průkazu. S tímto průkazem pak může volit v den voleb ve kterékoliv volební místosti na území ČR.</p>
-
-            <h4 class="section-title">O voličský průkaz můžete zažádat na svém zastupitelském úřadě a to buď:</h4>
-            <ul class="new-p">
-                <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
-            </ul>
-
-            <p class="new-p">
-                <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
-            </p>
-
-            <h3 class="section-title">Chci volit kandidáty z jiné členské země EU</h3>
-            <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
-        </div>
-
-        <div id="eu-cr" class="pane" v-if="$route.path=='/eu-cr'">
-            <h3 class="section-title">Chci volit české kandidáty</h3>
-
-            <p class="new-p">Podmínkou je, aby byla osoba registrována k trvalému nebo přechodnému pobytu na území ČR minimálně 45 dní před volbami a byla na seznamu voličů do Evropského parlamentu.</p>
-
-            <ul class="new-p">
-                <li>V případě, že se osoba již zúčastnila voleb do EP v minulosti a byla tak zapsaná na seznam voličů do EP, může se v daném volebním okrsku voleb opět účastnit.</li>
-                <li>V případě, že je osoba již zapsaná ve volebním rejstříku pro komunální volby, může požádat nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) o přesun svých údajů ze stálého seznamu voličů do seznamu voličů pro volby do EP <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">vyplněním žádosti</a>. Tuto žádost je nutné podat osobně.</li>
-                <li>V případě, že osoba zatím ve volbách do EP nevolila, musí nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) příslušný obecní úřad <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">požádat o zapsání na seznam voličů</a>. Tuto žádost je nutné podat osobně.</li>
-            </ul>
-
-            <h3 class="section-title">Chci volit v místě svého trvalého bydliště v ČR</h3>
-            <p class="new-p">Splňujete-li výše popsané podmínky, nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).</p>
-
-            <h3 class="section-title">Chci volit v kterémkoliv volebním obvodě v ČR</h3>
-            <p class="new-p">Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.</p>
-
-            <h3 class="section-title">O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
-            <ul class="new-p">
-                <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
-            </ul>
-
-            <p class="new-p">
-                <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
-            </p>
-            <h3 class="section-title">Chci volit kandidáty z jiné členské země EU</h3>
-            <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
-
-        </div>
-
-        <div id="form" class="pane" v-if="$route.path=='/form'">
-            <div class="section warning">
-                <div class="label">
-                    <img src="assets/images/lock.png" width="41" height="50" />
-                    <h3>Soukromí</h3>
+        <div class="body">
+            <div class="row">
+                <div class="col-xs-offset-0 col-xs-12 col-md-offset-0 col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" :class="$route.path=='/cr-cr' ? 'active': ''">
+                                <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link>
+                            </li>
+                            <li role="presentation" :class="$route.path=='/cr-eu' ? 'active': ''">
+                                <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
+                            </li>
+        
+                            <li role="presentation" :class="$route.path=='/eu-cr' ? 'active': ''">
+                                <router-link to="/eu-cr" role="tab">Jsem občanem EU a chci volit v ČR</router-link>
+                            </li>
+                            </li>
+                    </ul>
                 </div>
-                <div class="content">
-                    <strong>Než začneme…</strong>
-                    <p>
-                        Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.
-                        Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.
-                        Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu.
-                    </p>
-                </div>
-                
+            </div>
+            <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
+                <h3 class="section-title">Chci volit v místě svého trvalého bydliště</h3>
+                <p class="new-p">
+                    Nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).
+                </p>
+                <h3 class="section-title">Chci volit v kterémkoliv volebním obvodě v ČR</h3>
+                <p class="new-p">
+                    Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.
+                </p>
+                <h3 class="section-title">O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
+                <ul class="new-p">
+                    <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
+                    <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.
+                    </li>
+                </ul>
+                <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
             </div>
 
-            <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
-        </div>
-        <div id="form" class="pane" v-if="$route.path=='/preview'">
+            <div id="cr-eu" class="pane" v-if="$route.path=='/cr-eu'">
+                <h3 class="section-title">Chci volit české kandidáty</h3>
 
-            <router-link tag="button" to="/" class="btn btn-primary btn-primary-new">Stáhnout žádost</router-link>
+                <p class="new-p">Pro české kandidáty nelze hlasovat ze zahraničí.</p>
+                <p class="new-p">Ze zahraničí může občan, který žije dlouhodobě mimo ČR, zastupitelský úřad požádat o zápis do zvláštního seznamu voličů a následně se na něj obrátit s žádostí o vydání voličského průkazu. S tímto průkazem pak může volit v den voleb ve kterékoliv volební místosti na území ČR.</p>
+
+                <h4 class="section-title">O voličský průkaz můžete zažádat na svém zastupitelském úřadě a to buď:</h4>
+                <ul class="new-p">
+                    <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
+                    <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
+                </ul>
+
+                <p class="new-p">
+                    <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+                </p>
+
+                <h3 class="section-title">Chci volit kandidáty z jiné členské země EU</h3>
+                <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
+            </div>
+
+            <div id="eu-cr" class="pane" v-if="$route.path=='/eu-cr'">
+                <h3 class="section-title">Chci volit české kandidáty</h3>
+
+                <p class="new-p">Podmínkou je, aby byla osoba registrována k trvalému nebo přechodnému pobytu na území ČR minimálně 45 dní před volbami a byla na seznamu voličů do Evropského parlamentu.</p>
+
+                <ul class="new-p">
+                    <li>V případě, že se osoba již zúčastnila voleb do EP v minulosti a byla tak zapsaná na seznam voličů do EP, může se v daném volebním okrsku voleb opět účastnit.</li>
+                    <li>V případě, že je osoba již zapsaná ve volebním rejstříku pro komunální volby, může požádat nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) o přesun svých údajů ze stálého seznamu voličů do seznamu voličů pro volby do EP <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">vyplněním žádosti</a>. Tuto žádost je nutné podat osobně.</li>
+                    <li>V případě, že osoba zatím ve volbách do EP nevolila, musí nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) příslušný obecní úřad <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">požádat o zapsání na seznam voličů</a>. Tuto žádost je nutné podat osobně.</li>
+                </ul>
+
+                <h3 class="section-title">Chci volit v místě svého trvalého bydliště v ČR</h3>
+                <p class="new-p">Splňujete-li výše popsané podmínky, nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).</p>
+
+                <h3 class="section-title">Chci volit v kterémkoliv volebním obvodě v ČR</h3>
+                <p class="new-p">Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.</p>
+
+                <h3 class="section-title">O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
+                <ul class="new-p">
+                    <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
+                    <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
+                </ul>
+
+                <p class="new-p">
+                    <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+                </p>
+                <h3 class="section-title">Chci volit kandidáty z jiné členské země EU</h3>
+                <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
+
+            </div>
+
+            <div id="form" class="pane" v-if="$route.path=='/form'">
+                <div class="section warning">
+                    <div class="label">
+                        <img src="assets/images/lock.png" width="41" height="50" />
+                        <h3>Soukromí</h3>
+                    </div>
+                    <div class="content">
+                        <strong>Než začneme…</strong>
+                        <p>
+                            Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.
+                            Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.
+                            Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu.
+                        </p>
+                    </div>
+                    
+                </div>
+
+                <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
+            </div>
+            <div id="form" class="pane" v-if="$route.path=='/preview'">
+
+                <router-link tag="button" to="/" class="btn btn-primary btn-primary-new">Stáhnout žádost</router-link>
+            </div>
         </div>
     </div>
 
@@ -195,6 +365,89 @@
         }
 
     </style>
+
+<footer>
+    <div class="container">
+        <ul class="list-inline">
+            <li><a href="https://www.hlidacstatu.cz/texty/vize">Vize Hlídače Státu</a></li>
+            <li><a href="https://www.hlidacstatu.cz/texty/O-Registru">O registru smluv</a></li>
+            <li><a href="https://www.hlidacstatu.cz/texty/kontakt">Kontakt</a></li>
+            <li><a href="https://www.darujme.cz/projekt/1200384" onclick="return trackOutLink(this,'footer');"><span style="color:red;">Finanční podpora</span></a></li>
+            <li><a href="https://www.HlidacStatu.cz/api">API a opendata pro vývojáře</a></li>
+        </ul>
+        <p>
+            &copy; Hlídač Státu z.ú. & Michal Bláha.
+            Převzetí údajů a použití dat možné pod <a href="https://www.hlidacstatu.cz/texty/licence">licencí CC BY 3.0</a> anebo po vzájemné <a href="https://www.hlidacstatu.cz/texty/kontakt/">písemné dohodě</a>.
+            <a href="https://www.HlidacStatu.cz/texty/provoznipodminky">Podmínky užívání</a>
+        </p>
+    </div>
+</footer>
+
+
+
+    <div id="dar-footer-msg">
+
+        <div id="ad1">
+            <div class="fund-list grey" style="display: block;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-xs-12">
+                            <p class="small">
+                                Pokud vás zaujme nějaký dokument, profil firmy, výsledek hledání či prakticky jakýkoliv údaj na Hlídači,
+                                <b>nemusíte si ho pamatovat</b>. Stačí si ho uložit do záložek a my si to zapamatujeme za vás.
+                            </p>
+                            <p class="small">
+                                Uložení záložky je snadné, stačí kliknout na ikonu  <a style="font-size:120%" href="#" class="bookmark bookmarkOff" onclick="javascript:return false;"></a>.
+                                Pokud už je konkrétní záložka vytvořená, pak je vybarvena červeně <a style="font-size:120%" href="#" class="bookmark bookmarkOn" onclick="javascript:return false;"></a>.
+                            </p>
+                        </div>
+                        <div class="col-sm-2 col-xs-12">
+                            <a style="margin-top:15px;" class="fund-daruj-btn pull-right text-right" onclick="ga('send', 'event', 'darujAdFooter', 'daruj-btn', '1'); return false;" id="fund-daruj-btn" target="_blank" href="#">Chápu, díky!</a>
+                        </div>
+                        <div class="fund-zavri">
+                            <a id="fund-info-btn" onclick="ga('send', 'event', 'darujAdFooter', 'viceinfo', '1');" target="_blank" href="https://www.hlidacstatu.cz/texty/zalozky-si-za-vas-zapamatuji-vse-co-potrebujete/">Více informací</a>
+                            <a id="fund-zavri-btn" onclick="ga('send', 'event', 'darujAdFooter', 'zavri', '1');" style="margin-left:30px;color:#ff5900" href="#"><span class="glyphicon glyphicon-remove"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <noscript>
+            <style>
+                #dar-footer-msg {
+                    display: none;
+                }
+            </style>
+        </noscript>
+    </div>
+
+
+        <div id="bookmarkInfoAnon" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Záložky</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Pokud vás zaujme nějaký dokument, profil firmy, výsledek hledání či prakticky jakýkoliv údaj na Hlídači,
+                            <b>nemusíte si ho pamatovat</b>. Stačí si ho uložit do záložek a my si to zapamatujeme za vás.
+                        </p>
+                        <p>
+                            Uložení záložky je snadné, stačí kliknout na ikonu  <a style="font-size:120%" href="#" class="bookmark bookmarkOff" onclick="javascript:return false;"></a>.
+                            Pokud už je konkrétní záložka vytvořená, pak je vybarvena červeně <a style="font-size:120%" href="#" class="bookmark bookmarkOn" onclick="javascript:return false;"></a>.
+                        </p>
+                        <p>Abychom ale vědeli, komu jaké záložky patří, <a href="/account/login" class="btn btn-default">musíte se zalogovat</a>.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
 </body>
 
 </html>
