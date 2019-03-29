@@ -404,16 +404,36 @@
             <transition  v-on:after-enter="generatePreview">
                 <div id="preview" class="pane" v-if="$route.path=='/preview'">
                     <div>
-                        <div>
-                            <h3>1. Zkontrolujte žádost</h3>
-                        </div>
-                        <div></div>
+                        <h3>1. Zkontrolujte žádost</h3>
+                        <p>Zkontrolujte, prosím, údaje ve vygenerované žádosti.</p>
+                        <p>Pokud jsou všechny údaje v pořádku, stáhněte žádost do svého počítače nebo mobilního zařízení a pokračujte volbou doručení v následujícím kroku.</p>
+                        <p>Je-li některá z vyplněných informací v nepořádku, nic se neděje. Údaje můžete snadno změnit.</p>
+                        <p>Pokud se vám náhled žádosti nezobrazuje, nevadí. Žádost můžete stáhnout a zkontrolovat přímo z vašeho počítače.</p>
+                        <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Stáhnout žádost</button>
+                        <router-link tag="button" to="/form" class="btn btn-primary">Změnit údaje</router-link>                
                     </div>
+                    <div id="preview-gif"></div>
                     <div>
                         <h3>2. Doručte žádost na váš úřad</h3>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div>
+                            <h4>Skrz datovou schránku</h4>
+                            <p>Pokud máte datovou schránku, stačí odeslat vytvořenou žádost jako přílohu ve formátu PDF na adresu příslušného úřadu.</p>
+                                <p>#Adresa datovky#</p>
+                                <p>Žádost nemusí být podepsaná a tím pádem nemusíte podpis ani ověřovat – vaše identita je ověřena přihlášením do datové schránky.</p>
+                                <p>Žádost odešlete nejpozději do 17. května 2019 v 16:00 hodin.</p>
+                        </div>
+                        <div>
+                            <h4>Poštou</h4>
+                            <p>Vytvořenou žádost vytiskněte a s úředně ověřeným podpisem odešlete na adresu vašeho úřadu:</p>
+                            <p>#Adresa úřadu#</p>
+                            <p>Žádost musí být doručena (doručena, nikoliv odeslána) do 17. května 2019 v 16:00 hodin.</p>
+                        </div>
+                        <div>
+                            <h4>Osobně</h4>
+                            <p>Pokud se můžete na úřad dostavit osobně, nepotřebujete předem žádnou písemnou žádost. Stačí, pokud se dostavíte na příslušný úřad s platným dokladem totožnosti (občanský průkaz nebo pas).</p>
+                            <p>#Adresa úřadu#</p>
+                            <p>Na úřad můžete přijít podat žádost nejpozději 22. května 2019 do 16:00 hodin.</p>
+                        </div>
                     </div>
                     <div>
                         <h3>3. Přejeme dobrou volbu!</h3>
@@ -424,7 +444,6 @@
                             Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
                         </p>
                     </div>
-                    <div id="preview-gif"></div>
                     <div id="document-template" style="display:none;">
                         <div id="document-to-print" class="pageA4">
                             <p class="">
@@ -467,19 +486,15 @@
                             <p class="">
                                 <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
                             </p>
-                            <p class="">
-                                <strong>…………………………………………….<br>
-                                PODPIS VOLIČE</strong>
+                            <p>
+                                Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
                             </p>
                         </div>
-                    </div>
-                    <router-link tag="button" to="/form" class="btn btn-primary">Změnit údaje</router-link>
-                    <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Stáhnout žádost</button>                
+                    </div>                                
                 </div>
             </transition>
         </div>
     </div>
-
     <script>
         const routes = [
             { path: '/cr-cr' },
@@ -581,7 +596,7 @@
         }
         .pageA4 {
             width: 794px;
-            height: 1122px;            
+            /*height: 1122px;*/           
             border: 0px;
             padding: 0px;
             margin: 0px;
