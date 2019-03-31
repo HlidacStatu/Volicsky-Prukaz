@@ -214,7 +214,7 @@
                             </li>
         
                             <li role="presentation" :class="$route.path=='/eu-cr' ? 'active': ''">
-                                <router-link to="/eu-cr" role="tab">Jsem občanem EU a chci volit v ČR</router-link>
+                                <router-link to="/eu-cr" role="tab">I am EU citizen and want to vode in CR</router-link>
                             </li>
                             </li>
                     </ul>
@@ -259,33 +259,33 @@
             </div>
 
             <div id="eu-cr" class="pane" v-if="$route.path=='/eu-cr'">
-                <h3 class="section-title">Chci volit české kandidáty</h3>
+                <h3 class="section-title">I want to vote for Czech candidates</h3>
 
-                <p class="new-p">Podmínkou je, aby byla osoba registrována k trvalému nebo přechodnému pobytu na území ČR minimálně 45 dní před volbami a byla na seznamu voličů do Evropského parlamentu.</p>
+                <p class="new-p">You are eligible if you were registered with temporary or permanent residence in the Czech Republic at least 45 days before the election and were on the European Parliament electoral roll.</p>
 
                 <ul class="new-p">
-                    <li>V případě, že se osoba již zúčastnila voleb do EP v minulosti a byla tak zapsaná na seznam voličů do EP, může se v daném volebním okrsku voleb opět účastnit.</li>
-                    <li>V případě, že je osoba již zapsaná ve volebním rejstříku pro komunální volby, může požádat nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) o přesun svých údajů ze stálého seznamu voličů do seznamu voličů pro volby do EP <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">vyplněním žádosti</a>. Tuto žádost je nutné podat osobně.</li>
-                    <li>V případě, že osoba zatím ve volbách do EP nevolila, musí nejpozději 40 dní před volbami (tj. do 14. dubna 2019 do 16:00) příslušný obecní úřad <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">požádat o zapsání na seznam voličů</a>. Tuto žádost je nutné podat osobně.</li>
+                    <li>If you have already voted in a previous EP election and were registered on the EP electoral roll, you may vote in the election again.</li>
+                    <li>If you are already on the municipal electoral roll, you may apply to have your details transferred to the EP electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</li>
+                    <li>If you have not yet voted in the EP election, you must apply at the local authority to register on the electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</li>
                 </ul>
 
-                <h3 class="section-title">Chci volit v místě svého trvalého bydliště v ČR</h3>
-                <p class="new-p">Splňujete-li výše popsané podmínky, nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).</p>
+                <h3 class="section-title">I want to vote where I have permanent residence in CZ</h3>
+                <p class="new-p">If you meet the above criteria, nothing stands in your way. Take your valid ID on election day to your polling place (according to your permanent address).</p>
 
-                <h3 class="section-title">Chci volit v kterémkoliv volebním obvodě v ČR</h3>
-                <p class="new-p">Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.</p>
+                <h3 class="section-title">I want to vote somewhere else in CZ</h3>
+                <p class="new-p">If you want to vote somewhere other than your permanent address, you will need a voter card.</p>
 
-                <h3 class="section-title">O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
+                <h3 class="section-title">You can apply for a voter card at your municipal office, either:</h3>
                 <ul class="new-p">
-                    <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                    <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
+                    <li><strong class="emphasized">in person</strong> – directly at the office with valid ID no later than 22 May 2019,</li>
+                    <li><strong class="emphasized">in writing</strong> – through your data box or by post with a certified signature. Your application must arrive by 17 May 2019 at 16:00.</li>
                 </ul>
 
                 <p class="new-p">
-                    <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+                    <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Create a written application for voter card</router-link>
                 </p>
-                <h3 class="section-title">Chci volit kandidáty z jiné členské země EU</h3>
-                <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
+                <h3 class="section-title">I want to vote for candidates from another EU country</h3>
+                <p class="new-p">Voting takes place in the territory of the EU Member State and follows the rules of the EU Member State.</p>
 
             </div>
             <div id="form" class="pane table" v-if="$route.path=='/form'">
