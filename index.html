@@ -288,7 +288,7 @@
                 <p class="new-p">Voting takes place in the territory of the EU Member State and follows the rules of the EU Member State.</p>
 
             </div>
-            <div id="form" class="pane table" v-if="$route.path=='/form'">
+            <div id="form" class="form pane table" v-if="$route.path=='/form'">
                 <div class="form-group warning">
                     <div class="left">
                         <img src="assets/images/lock.png" width="41" height="50" />
@@ -439,7 +439,7 @@
                 </div>        
                 <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
             </div>
-            <div id="form" class="pane table" v-if="$route.path=='/en/form'">
+            <div id="en-form" class="form pane table" v-if="$route.path=='/en/form'">
                 <div class="form-group warning">
                     <div class="left">
                         <img src="assets/images/lock.png" width="41" height="50" />
@@ -590,7 +590,7 @@
                 </div>        
                 <router-link tag="button" to="/en/preview" class="btn btn-primary btn-primary-new">Create application</router-link>
             </div>
-            <transition  v-on:after-enter="generatePreview">
+            <transition v-on:after-enter="generatePreview">
                 <div id="preview" class="pane" v-if="$route.path=='/preview'">
                     <div>
                         <h3>1. Zkontrolujte žádost</h3>
@@ -632,56 +632,101 @@
                         <p>
                             Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
                         </p>
-                    </div>
-                    <div id="document-template" style="display:none;">
-                        <div id="document-to-print" class="pageA4">
-                            <p class="">
-                                Číslo voličského průkazu:
-                            </p>
-                            <p class="">
-                                Obecní úřad
-                                V ………………………………….. dne ......................... 2019
-                            </p>
-                            <p class="">
-                                <strong>ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
-                                pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019</strong>
-                            </p>
-                            <p class="">
-                                Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
-                                zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad #obecni-urad# o
-                                vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
-                                5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
-                            </p>
-                            <p class="">
-                                <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
-                                <strong>Datum narození:</strong> {{userData.birthdate}} <br>
-                                <strong>Trvalý pobyt:</strong> {{userData.addressLine1}} {{userData.city}} {{userData.postalCode}} <br>
-                                <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
-                            </p>
-                            <p class=""><strong>Beru na vědomí, že</strong><br>
-                                podle ustanovení § 30 odst. 3 zákona o volbách do EP mne voličský průkaz opravňuje ve dnech konání voleb
-                                do Evropského parlamentu k hlasování v jakémkoli volebním okrsku na území České republiky.
-                            </p>
-                            <p class=""><strong>K tomu sděluji, že voličský průkaz:</strong><br>
-                                <input type="checkbox" name="pdf-delivery" id="pdf-in-person" disabled>
-                                    <label for="pdf-in-person">převezmu osobně</label><br>
-                                <input type="checkbox" name="pdf-delivery" id="pdf-representative" disabled>
-                                    <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
-                                <input type="checkbox" name="pdf-delivery" id="pdf-my-address" disabled>
-                                    <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
-                                <input type="checkbox" name="pdf-delivery" id="pdf-other-address" disabled>
-                                    <label for="pdf-other-address">žádám zaslat na jinou adresu:</label> #jmeno2# #adresat2# #ulice2# #mesto2# #psc2# #stat2#
-                            </p>
-                            <p class="">
-                                <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
-                            </p>
-                            <p>
-                                Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
-                            </p>
-                        </div>
                     </div>                                
                 </div>
             </transition>
+            <transition v-on:after-enter="generatePreview">
+                <div id="en-preview" class="pane" v-if="$route.path=='/en/preview'">
+                    <div>
+                        <h3>1. Review the application</h3>
+                        <p>Please check the details generated by the application.</p>
+                        <p>If your details are correct, download the application to your computer or mobile device and continue to select the delivery of your voting card in the next step.</p>
+                        <p>If some details are incorrect, nothing happens. You can easily change the details.</p>
+                        <p>If you don’t see a preview of your application, don’t worry. You can review your application directly from your computer.</p>
+                        <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Download application</button>
+                        <router-link tag="button" to="/en/orm" class="btn btn-primary">Change details</router-link>                
+                    </div>
+                    <div id="preview-gif"></div>
+                    <div>
+                        <h3>2. Deliver the application to your office</h3>
+                        <div>
+                            <h4>Via data box</h4>
+                            <p>If you have a data box, it’s enough to send your completed application as a PDF attachment to the address of the appropriate office.</p>
+                                <p>#Adresa datovky#</p>
+                                <p>Your application does not need to be signed so you do not need to sign or verify your signature - your identity is verified by logging in to your data box.</p>
+                                <p>Send your application no later than 16:00 on 17th May 2019.</p>
+                        </div>
+                        <div>
+                            <h4>Via post</h4>
+                            <p>Print your completed application and send it with a verified signature to the address of your office:</p>
+                            <p>#Adresa úřadu#</p>
+                            <p>Your application must be delivered (received, not only sent) by 16:00 on 17th May 2019.</p>
+                        </div>
+                        <div>
+                            <h4>In person</h4>
+                            <p>If you can go to your office personally, you don’t need to make an appointment. You only need to go to the appropriate office with your proof of identity (I.D. card or passport).</p>
+                            <p>#Adresa úřadu#</p>
+                            <p>You can go to the office no later than 16:00 on 22nd May 2019.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>3. We wish you good voting!</h3>
+                        <p>
+                            Come on 24th (14:00 - 22:00) or 25th (14:00 - 22:00) May 2019 with your voting card and proof of identity to <u>any polling station in CZ</u>.
+                        </p>
+                        <p>
+                            Meanwhile, you can spread the word of the possibility to apply for your voting card to your family, friends, colleagues etc.
+                        </p>
+                    </div>                                
+                </div>
+            </transition>
+            </div>
+    </div>
+    <div id="document-template" style="display:none;">
+        <div id="document-to-print" class="pageA4">
+            <p class="">
+                Číslo voličského průkazu:
+            </p>
+            <p class="">
+                Obecní úřad
+                V ………………………………….. dne ......................... 2019
+            </p>
+            <p class="">
+                <strong>ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
+                pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019</strong>
+            </p>
+            <p class="">
+                Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
+                zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad #obecni-urad# o
+                vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
+                5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
+            </p>
+            <p class="">
+                <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
+                <strong>Datum narození:</strong> {{userData.birthdate}} <br>
+                <strong>Trvalý pobyt:</strong> {{userData.addressLine1}} {{userData.city}} {{userData.postalCode}} <br>
+                <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
+            </p>
+            <p class=""><strong>Beru na vědomí, že</strong><br>
+                podle ustanovení § 30 odst. 3 zákona o volbách do EP mne voličský průkaz opravňuje ve dnech konání voleb
+                do Evropského parlamentu k hlasování v jakémkoli volebním okrsku na území České republiky.
+            </p>
+            <p class=""><strong>K tomu sděluji, že voličský průkaz:</strong><br>
+                <input type="checkbox" name="pdf-delivery" id="pdf-in-person" disabled>
+                    <label for="pdf-in-person">převezmu osobně</label><br>
+                <input type="checkbox" name="pdf-delivery" id="pdf-representative" disabled>
+                    <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                <input type="checkbox" name="pdf-delivery" id="pdf-my-address" disabled>
+                    <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                <input type="checkbox" name="pdf-delivery" id="pdf-other-address" disabled>
+                    <label for="pdf-other-address">žádám zaslat na jinou adresu:</label> #jmeno2# #adresat2# #ulice2# #mesto2# #psc2# #stat2#
+            </p>
+            <p class="">
+                <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
+            </p>
+            <p>
+                Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
+            </p>
         </div>
     </div>
     <script>
@@ -751,37 +796,37 @@
             top: -1em;
         }
 
-        #form .row {
+        .form .row {
             margin: 15px 0px;
         }
-        #form label {
+        .form label {
             font-weight: normal;
         }
-        #form .form-group {
+        .form .form-group {
             margin-bottom: 0px;
         }
-        #form .form-group:nth-child(2n+1) {
+        .form .form-group:nth-child(2n+1) {
             background-color: rgb(228, 228, 228)
         }
-        #form .form-group:nth-child(2n) {
+        .form .form-group:nth-child(2n) {
             background-color: rgb(215, 215, 215)
         }
 
-        #form .form-group.warning {
+        .form .form-group.warning {
             background-color: rgb(255, 255, 204);
         }
-        #form .form-group .left {
+        .form .form-group .left {
             width: 300px;
             position: absolute;
             padding: 50px 20px;
         }
-        #form .form-group .left img {
+        .form .form-group .left img {
             float: left;
         }
-        #form .form-group .left h3 {
+        .form .form-group .left h3 {
             margin-left: 60px;
         }
-        #form .form-group .right {
+        .form .form-group .right {
             margin-left: 300px;
             padding: 50px 0px;
             min-height: 160px;
