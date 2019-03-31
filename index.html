@@ -292,21 +292,14 @@
                 <div class="form-group warning">
                     <div class="left">
                         <img src="assets/images/lock.png" width="41" height="50" />
-                        <h3 class="section-title" v-if="lang=='cs'">Soukromí</h3>
-                        <h3 class="section-title" v-if="lang=='en'">Privacy</h3>
+                        <h3 class="section-title">Soukromí</h3>
                     </div>
                     <div class="right">
-                        <strong v-if="lang=='cs'">Než začneme…</strong>
-                        <strong v-if="lang=='en'">Before we begin…</strong>
-                        <p v-if="lang=='cs'">
+                        <strong>Než začneme…</strong>
+                        <p>
                             Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.<br>
                             Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.<br>
                             Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu.
-                        </p>
-                        <p v-if="lang=='en'">
-                            We will not send your details to anyone, nor do we process them.<br>
-                            No need to worry - the whole application is made only on your own computer.<br>
-                            If you want to be 100% sure, disconnect from the internet while you complete the application.
                         </p>
                     </div>
                 </div>
@@ -399,10 +392,48 @@
                         <div class="right">
                             <div class="row">
                                 <label for="delivery">Voličský průkaz po vyhotovení:</label><br>
-                                <input type="radio" name="delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
-                                <input type="radio" name="delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
-                                <input type="radio" name="delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
-                                <input type="radio" name="delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
+                                <div class="col-xs-10" v-if="userData.delivery=='other-address'">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <label for="delivery-address-name">Jméno</label>
+                                            <input id="delivery-address-name" v-model="userData.deliveryAddress.name" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <label for="delivery-address-line0">Upřesnění adresy</label>
+                                            <label for="delivery-address-line0">Nepovinné (např firma nebo číslo bytu)</label>
+                                            <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <label for="delivery-address-line1">Ulice a číslo popisné</label>
+                                            <input id="delivery-address-line1" v-model="userData.deliveryAddress.line1" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label for="delivery-postal-code">PSČ</label>
+                                            <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <label for="delivery-locality">Město</label>
+                                            <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <label for="delivery-address-country">Stát</label>
+                                            <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <p>V případě, že chcete doručit průkaz mimo Českou republiku, ujistěte se, prosím, u příslušného úřadu, zda průkaz dokažou včas doručit.</p>
+                                </div>
                             </div>
                         </div>
                 </div>        
@@ -512,10 +543,48 @@
                         <div class="right">
                             <div class="row">
                                 <label for="delivery">When completed, the voter card will be:</label><br>
-                                <input type="radio" name="delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
-                                <input type="radio" name="delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
-                                <input type="radio" name="delivery" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
-                                <input type="radio" name="delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
+                                <div class="col-xs-10" v-if="userData.delivery=='other-address'">
+                                        <div class="row">
+                                            <div class="col-xs-10">
+                                                <label for="delivery-address-name">Name</label>
+                                                <input id="delivery-address-name" v-model="userData.deliveryAddress.name" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-10">
+                                                <label for="delivery-address-line0">Address details</label>
+                                                <label for="delivery-address-line0">(Optional, e.g. company name or flat number)</label>
+                                                <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-10">
+                                                <label for="delivery-address-line1">Street and house number</label>
+                                                <input id="delivery-address-line1" v-model="userData.deliveryAddress.line1" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <label for="delivery-postal-code">Postcode</label>
+                                                <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
+                                            </div>
+                                            <div class="col-xs-7">
+                                                <label for="delivery-locality">City</label>
+                                                <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-10">
+                                                <label for="delivery-address-country">Country</label>
+                                                <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <p>In case you want to deliver a card outside the Czech Republic, please make sure that the card is delivered in time to the appropriate authority.</p>
+                                </div>
                             </div>
                         </div>
                 </div>        
@@ -638,7 +707,8 @@
             data: {
                 routes: routes,
                 userData: {
-                    municipality: {}
+                    municipality: {},
+                    deliveryAddress: {}
                 }
             },
             methods: {
