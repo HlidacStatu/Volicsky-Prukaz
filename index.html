@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -28,6 +27,9 @@
     <link href="assets/hlidac.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
+    <!-- html2pdf on jsdelivr needs to be fixed to bundle
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.9.1/dist/html2pdf.js" integrity="sha256-vzO/Is3piKqdqLXRh5RUecYxetRt2RQwjJ9tQMTNi3A=" crossorigin="anonymous"></script>-->
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script>
         var _showFAD = true;
         (function (i, s, o, g, r, a, m) {
@@ -286,14 +288,13 @@
                 <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
 
             </div>
-
-            <div id="form" class="pane" v-if="$route.path=='/form'">
-                <div class="section warning">
-                    <div class="label">
+            <div id="form" class="pane table" v-if="$route.path=='/form'">
+                <div class="form-group warning">
+                    <div class="left">
                         <img src="assets/images/lock.png" width="41" height="50" />
-                        <h3>Soukromí</h3>
+                        <h3 class="section-title">Soukromí</h3>
                     </div>
-                    <div class="content">
+                    <div class="right">
                         <strong>Než začneme…</strong>
                         <p>
                             Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.
@@ -301,18 +302,199 @@
                             Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu.
                         </p>
                     </div>
-                    
                 </div>
-
+                <div class="form-group">
+                    <div class="left">
+                        <img src="assets/images/id-card.png" width="50" height="38" />
+                        <h3 class="section-title">Moje identita</h3>
+                    </div>
+                    <div class="right">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <label for="name">Jméno a Příjmení</label>
+                                <input id="name" v-model="userData.fullName" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <label for="bday">Datum Narození</label>
+                                <input id="bday" v-model="userData.birthdate" class="form-control" type="date">
+                            </div>
+                            <div class="col-xs-5">
+                                <label for="tel">Telefon</label>
+                                <input id="tel" v-model="userData.phone" class="form-control" type="tel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left">
+                        <img src="assets/images/home.png" width="50" height="40" />
+                        <h3 class="section-title">Moje adresa trvalého pobytu</h3>
+                    </div>
+                    <div class="right">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <label for="address-line1">Ulice a číslo popisné</label>
+                                <input id="address-line1" v-model="userData.addressLine1" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <label for="postal-code">PSČ</label>
+                                <input id="postal-code" v-model="userData.postalCode" class="form-control" type="text">
+                            </div>
+                            <div class="col-xs-7">
+                                <label for="locality">Město</label>
+                                <input id="locality" v-model="userData.city" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left">
+                        <img src="assets/images/office.png" width="39" height="50" />
+                        <h3 class="section-title">Můj obecní úřad</h3>
+                    </div>
+                    <div class="right">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <label for="office-name">Název úřadu</label>
+                                <input id="office-name" v-model="userData.municipality.name" class="form-control" type="text" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <label for="office-street">Ulice a číslo popisné</label>
+                                <input id="office-street" v-model="userData.municipality.addressLine1" class="form-control" type="text" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <label for="office-zip">PSČ</label>
+                                <input id="office-zip" v-model="userData.municipality.postalCode" class="form-control" type="text" autocomplete="off">
+                            </div>
+                            <div class="col-xs-7">
+                                <label for="office-city">Město</label>
+                                <input id="office-city" v-model="userData.municipality.city" class="form-control" type="text" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10">Nelekněte se, PSČ vašeho obecního úřadu se může od vašeho lišit.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <div class="left">
+                            <img src="assets/images/envelope.png" width="50" height="39" />
+                            <h3 class="section-title">Doručení</h3>
+                        </div>
+                        <div class="right">
+                            <div class="row">
+                                <label for="delivery">Voličský průkaz po vyhotovení:</label><br>
+                                <input type="radio" name="delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
+                                <input type="radio" name="delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                                <input type="radio" name="delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                                <input type="radio" name="delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
+                            </div>
+                        </div>
+                </div>        
                 <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
             </div>
-            <div id="form" class="pane" v-if="$route.path=='/preview'">
-
-                <router-link tag="button" to="/" class="btn btn-primary btn-primary-new">Stáhnout žádost</router-link>
-            </div>
+            <transition  v-on:after-enter="generatePreview">
+                <div id="preview" class="pane" v-if="$route.path=='/preview'">
+                    <div>
+                        <h3>1. Zkontrolujte žádost</h3>
+                        <p>Zkontrolujte, prosím, údaje ve vygenerované žádosti.</p>
+                        <p>Pokud jsou všechny údaje v pořádku, stáhněte žádost do svého počítače nebo mobilního zařízení a pokračujte volbou doručení v následujícím kroku.</p>
+                        <p>Je-li některá z vyplněných informací v nepořádku, nic se neděje. Údaje můžete snadno změnit.</p>
+                        <p>Pokud se vám náhled žádosti nezobrazuje, nevadí. Žádost můžete stáhnout a zkontrolovat přímo z vašeho počítače.</p>
+                        <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Stáhnout žádost</button>
+                        <router-link tag="button" to="/form" class="btn btn-primary">Změnit údaje</router-link>                
+                    </div>
+                    <div id="preview-gif"></div>
+                    <div>
+                        <h3>2. Doručte žádost na váš úřad</h3>
+                        <div>
+                            <h4>Skrz datovou schránku</h4>
+                            <p>Pokud máte datovou schránku, stačí odeslat vytvořenou žádost jako přílohu ve formátu PDF na adresu příslušného úřadu.</p>
+                                <p>#Adresa datovky#</p>
+                                <p>Žádost nemusí být podepsaná a tím pádem nemusíte podpis ani ověřovat – vaše identita je ověřena přihlášením do datové schránky.</p>
+                                <p>Žádost odešlete nejpozději do 17. května 2019 v 16:00 hodin.</p>
+                        </div>
+                        <div>
+                            <h4>Poštou</h4>
+                            <p>Vytvořenou žádost vytiskněte a s úředně ověřeným podpisem odešlete na adresu vašeho úřadu:</p>
+                            <p>#Adresa úřadu#</p>
+                            <p>Žádost musí být doručena (doručena, nikoliv odeslána) do 17. května 2019 v 16:00 hodin.</p>
+                        </div>
+                        <div>
+                            <h4>Osobně</h4>
+                            <p>Pokud se můžete na úřad dostavit osobně, nepotřebujete předem žádnou písemnou žádost. Stačí, pokud se dostavíte na příslušný úřad s platným dokladem totožnosti (občanský průkaz nebo pas).</p>
+                            <p>#Adresa úřadu#</p>
+                            <p>Na úřad můžete přijít podat žádost nejpozději 22. května 2019 do 16:00 hodin.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>3. Přejeme dobrou volbu!</h3>
+                        <p>
+                            Dostavte se s vaším volebním průkazem a platným průkazem totožnosti  24. (14:00 - 22:00) nebo 25. května 2019 (8:00 - 14:00) do <u>kterékoliv volební místnosti v ČR</u>.
+                        </p>
+                        <p>
+                            Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
+                        </p>
+                    </div>
+                    <div id="document-template" style="display:none;">
+                        <div id="document-to-print" class="pageA4">
+                            <p class="">
+                                Číslo voličského průkazu:
+                            </p>
+                            <p class="">
+                                Obecní úřad
+                                V ………………………………….. dne ......................... 2019
+                            </p>
+                            <p class="">
+                                <strong>ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
+                                pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019</strong>
+                            </p>
+                            <p class="">
+                                Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
+                                zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad #obecni-urad# o
+                                vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
+                                5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
+                            </p>
+                            <p class="">
+                                <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
+                                <strong>Datum narození:</strong> {{userData.birthdate}} <br>
+                                <strong>Trvalý pobyt:</strong> {{userData.addressLine1}} {{userData.city}} {{userData.postalCode}} <br>
+                                <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
+                            </p>
+                            <p class=""><strong>Beru na vědomí, že</strong><br>
+                                podle ustanovení § 30 odst. 3 zákona o volbách do EP mne voličský průkaz opravňuje ve dnech konání voleb
+                                do Evropského parlamentu k hlasování v jakémkoli volebním okrsku na území České republiky.
+                            </p>
+                            <p class=""><strong>K tomu sděluji, že voličský průkaz:</strong><br>
+                                <input type="checkbox" name="pdf-delivery" id="pdf-in-person" disabled>
+                                    <label for="pdf-in-person">převezmu osobně</label><br>
+                                <input type="checkbox" name="pdf-delivery" id="pdf-representative" disabled>
+                                    <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                                <input type="checkbox" name="pdf-delivery" id="pdf-my-address" disabled>
+                                    <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                                <input type="checkbox" name="pdf-delivery" id="pdf-other-address" disabled>
+                                    <label for="pdf-other-address">žádám zaslat na jinou adresu:</label> #jmeno2# #adresat2# #ulice2# #mesto2# #psc2# #stat2#
+                            </p>
+                            <p class="">
+                                <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
+                            </p>
+                            <p>
+                                Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
+                            </p>
+                        </div>
+                    </div>                                
+                </div>
+            </transition>
         </div>
     </div>
-
     <script>
         const routes = [
             { path: '/cr-cr' },
@@ -331,8 +513,37 @@
         window.app = new Vue({
             router: router,
             el: '#app',
-            data: { routes: routes }
-        });
+            data: {
+                routes: routes,
+                userData: {
+                    municipality: {}
+                }
+            },
+            methods: {
+                generatePreviewfinished: function() {
+                    var imageElement = this.worker.prop.img;
+                    imageElement.setAttribute('height',500);
+                    imageElement.setAttribute('width',350);
+                    document.getElementById('preview-gif').appendChild(imageElement);
+                },
+                generatePreview: function() {
+                    var element = document.getElementById('document-to-print');
+                    var target_element = document.getElementById('preview-gif');
+                    var opt = {
+                    };
+                    this.worker = html2pdf().from(element).toImg('datauristring',opt).then(this.generatePreviewfinished);
+                },
+                downloadPdf: function() {
+                    var element = document.getElementById('document-to-print');
+                    html2pdf().from(element).set({
+                        margin: 1,
+                        filename: 'Zadost-Volicsky-Prukaz-' + new Date().toLocaleDateString() + '.pdf',
+                        html2canvas: { scale: 2 },
+                        jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
+                    }).save();
+                }
+            }
+        });   
     </script>
     <style>
         body {
@@ -347,23 +558,50 @@
             position: relative;
             top: -1em;
         }
-        #form .section.warning {
-            background-color: rgb(247, 248, 172);
+
+        #form .row {
+            margin: 15px 0px;
         }
-        #form .section .label {
+        #form label {
+            font-weight: normal;
+        }
+        #form .form-group {
+            margin-bottom: 0px;
+        }
+        #form .form-group:nth-child(2n+1) {
+            background-color: rgb(228, 228, 228)
+        }
+        #form .form-group:nth-child(2n) {
+            background-color: rgb(215, 215, 215)
+        }
+
+        #form .form-group.warning {
+            background-color: rgb(255, 255, 204);
+        }
+        #form .form-group .left {
             width: 300px;
             position: absolute;
             padding: 50px 20px;
         }
-        #form .section .label img {
+        #form .form-group .left img {
             float: left;
         }
-        #form .section .content {
-            margin-left: 300px;
-            padding: 50px 20px;
-            min-height: 200px;
+        #form .form-group .left h3 {
+            margin-left: 60px;
         }
-
+        #form .form-group .right {
+            margin-left: 300px;
+            padding: 50px 0px;
+            min-height: 160px;
+        }
+        .pageA4 {
+            width: 794px;
+            /*height: 1122px;*/           
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            position: relative;          
+        }
     </style>
 
 <footer>
