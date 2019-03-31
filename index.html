@@ -282,7 +282,7 @@
                 </ul>
 
                 <p class="new-p">
-                    <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Create a written application for voter card</router-link>
+                    <router-link tag="button" to="/en/form" class="btn btn-primary btn-primary-new">Create a written application for voter card</router-link>
                 </p>
                 <h3 class="section-title">I want to vote for candidates from another EU country</h3>
                 <p class="new-p">Voting takes place in the territory of the EU Member State and follows the rules of the EU Member State.</p>
@@ -292,14 +292,21 @@
                 <div class="form-group warning">
                     <div class="left">
                         <img src="assets/images/lock.png" width="41" height="50" />
-                        <h3 class="section-title">Soukromí</h3>
+                        <h3 class="section-title" v-if="lang=='cs'">Soukromí</h3>
+                        <h3 class="section-title" v-if="lang=='en'">Privacy</h3>
                     </div>
                     <div class="right">
-                        <strong>Než začneme…</strong>
-                        <p>
-                            Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.
-                            Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.
+                        <strong v-if="lang=='cs'">Než začneme…</strong>
+                        <strong v-if="lang=='en'">Before we begin…</strong>
+                        <p v-if="lang=='cs'">
+                            Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.<br>
+                            Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.<br>
                             Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu.
+                        </p>
+                        <p v-if="lang=='en'">
+                            We will not send your details to anyone, nor do we process them.<br>
+                            No need to worry - the whole application is made only on your own computer.<br>
+                            If you want to be 100% sure, disconnect from the internet while you complete the application.
                         </p>
                     </div>
                 </div>
@@ -401,6 +408,119 @@
                 </div>        
                 <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
             </div>
+            <div id="form" class="pane table" v-if="$route.path=='/en/form'">
+                <div class="form-group warning">
+                    <div class="left">
+                        <img src="assets/images/lock.png" width="41" height="50" />
+                        <h3 class="section-title">Privacy</h3>
+                    </div>
+                    <div class="right">
+                        <strong>Before we begin…</strong>
+                        <p>
+                            We will not send your details to anyone, nor do we process them.<br>
+                            No need to worry - the whole application is made only on your own computer.<br>
+                            If you want to be 100% sure, disconnect from the internet while you complete the application.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left">
+                        <img src="assets/images/id-card.png" width="50" height="38" />
+                        <h3 class="section-title">My identity</h3>
+                    </div>
+                    <div class="right">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <label for="name">Full name</label>
+                                <input id="name" v-model="userData.fullName" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <label for="bday">Date of birth</label>
+                                <input id="bday" v-model="userData.birthdate" class="form-control" type="date">
+                            </div>
+                            <div class="col-xs-5">
+                                <label for="tel">Telephone</label>
+                                <input id="tel" v-model="userData.phone" class="form-control" type="tel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left">
+                        <img src="assets/images/home.png" width="50" height="40" />
+                        <h3 class="section-title">My permanent address</h3>
+                    </div>
+                    <div class="right">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <label for="address-line1">Street and house number</label>
+                                <input id="address-line1" v-model="userData.addressLine1" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <label for="postal-code">Postcode</label>
+                                <input id="postal-code" v-model="userData.postalCode" class="form-control" type="text">
+                            </div>
+                            <div class="col-xs-7">
+                                <label for="locality">City</label>
+                                <input id="locality" v-model="userData.city" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="left">
+                        <img src="assets/images/office.png" width="39" height="50" />
+                        <h3 class="section-title">My municipal office</h3>
+                    </div>
+                    <div class="right">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <label for="office-name">Office name</label>
+                                <input id="office-name" v-model="userData.municipality.name" class="form-control" type="text" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <label for="office-street">Street and house number</label>
+                                <input id="office-street" v-model="userData.municipality.addressLine1" class="form-control" type="text" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <label for="office-zip">Postcode</label>
+                                <input id="office-zip" v-model="userData.municipality.postalCode" class="form-control" type="text" autocomplete="off">
+                            </div>
+                            <div class="col-xs-7">
+                                <label for="office-city">City</label>
+                                <input id="office-city" v-model="userData.municipality.city" class="form-control" type="text" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10">Don’t worry, the office’s postcode may be different from yours.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <div class="left">
+                            <img src="assets/images/envelope.png" width="50" height="39" />
+                            <h3 class="section-title">Delivery</h3>
+                        </div>
+                        <div class="right">
+                            <div class="row">
+                                <label for="delivery">When completed, the voter card will be:</label><br>
+                                <input type="radio" name="delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
+                                <input type="radio" name="delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
+                                <input type="radio" name="delivery" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
+                                <input type="radio" name="delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
+                            </div>
+                        </div>
+                </div>        
+                <router-link tag="button" to="/en/preview" class="btn btn-primary btn-primary-new">Create application</router-link>
+            </div>
             <transition  v-on:after-enter="generatePreview">
                 <div id="preview" class="pane" v-if="$route.path=='/preview'">
                     <div>
@@ -501,7 +621,9 @@
             { path: '/cr-eu' },
             { path: '/eu-cr' },
             { path: '/form' },
-            { path: '/preview' }
+            { path: '/preview' },
+            { path: '/en/form' },
+            { path: '/en/preview' }
         ];
         const paths = routes.map(function (route) { return route.path })
         const router = new VueRouter({ routes: routes });
