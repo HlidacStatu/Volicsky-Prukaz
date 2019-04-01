@@ -27,6 +27,7 @@
     <link href="assets/hlidac.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
     <!-- html2pdf on jsdelivr needs to be fixed to bundle
     <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.9.1/dist/html2pdf.js" integrity="sha256-vzO/Is3piKqdqLXRh5RUecYxetRt2RQwjJ9tQMTNi3A=" crossorigin="anonymous"></script>-->
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
@@ -680,29 +681,27 @@
                 </div>
             </transition>
             </div>
-        <div id="document-template" style="display:none;">        
+        <div id="document-template" style="display:none;">
             <div id="document-to-print-cr" class="pageA4">
-                <p class="">
-                    Číslo voličského průkazu:
+                <div>
+                        <div style="width: 60%; margin-left: 40%; padding: 15px 10px 15px 10px; border-width: 1px; border-style: solid;">
+                            <strong>Číslo voličského průkazu: </strong>
+                        </div>
+                </div>
+                <p style="text-align: center; font-weight: bold; padding: 20px 5px 20px 5px;">
+                    ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
+                    pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019
                 </p>
-                <p class="">
-                    Obecní úřad
-                    V ………………………………….. dne ......................... 2019
-                </p>
-                <p class="">
-                    <strong>ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
-                    pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019</strong>
-                </p>
-                <p class="">
+                <p style="text-align: justify; padding: 20px 5px 20px 5px;">
                     Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
-                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad #obecni-urad# o
+                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad <strong> {{userData.municipality.name +', '}}{{userData.municipality.addressLine1 +', '}}{{userData.municipality.postalCode +' '}}{{userData.municipality.city}}</strong> o
                     vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
                     5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
                 </p>
                 <p class="">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
-                    <strong>Datum narození:</strong> {{userData.birthdate}} <br>
-                    <strong>Trvalý pobyt:</strong> {{userData.addressLine1}} {{userData.city}} {{userData.postalCode}} <br>
+                    <strong>Datum narození:</strong> {{userData.birthdate | dateCZ}} <br>
+                    <strong>Trvalý pobyt:</strong> {{userData.addressLine1 +', '}}{{userData.postalCode +' '}}{{userData.city}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
                 <p class=""><strong>Beru na vědomí, že</strong><br>
@@ -718,12 +717,12 @@
                         <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
                     <input type="checkbox" name="pdf-delivery" id="pdf-other-address" v-bind:checked="userData.delivery=='other-address'">
                         <label for="pdf-other-address">žádám zaslat na jinou adresu: </label>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.name}} </span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line0}} </span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line1}} </span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.postalCode}} </span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.locality}} </span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.country}} </span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.name +', '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line0 +', '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line1 +', '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.postalCode +' '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.locality +', '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.country}}</span>
                 </p>
                 <p class="">
                     <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
@@ -785,7 +784,12 @@
                         jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
                     }).save();
                 }
-            }
+            },
+            filters: {
+                dateCZ: function (date) {
+                    return moment(date).format('DD.MM.YYYY');
+                }
+            }         
         });   
     </script>
     <style>
