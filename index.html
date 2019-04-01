@@ -211,11 +211,9 @@
                             </li>
                             <li role="presentation" :class="$route.path=='/cr-eu' ? 'active': ''">
                                 <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
-                            </li>
-        
+                            </li>        
                             <li role="presentation" :class="$route.path=='/eu-cr' ? 'active': ''">
                                 <router-link to="/eu-cr" role="tab">I am EU citizen and want to vode in CR</router-link>
-                            </li>
                             </li>
                     </ul>
                 </div>
@@ -299,7 +297,8 @@
                         <p>
                             Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.<br>
                             Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.<br>
-                            Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu.
+                            Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu<br>
+                            nebo si <a href="files/Zadost-Volicsky-Prukaz-EU2019-CR.pdf">stáhněte</a> čistý formulář.
                         </p>
                     </div>
                 </div>
@@ -681,54 +680,61 @@
                 </div>
             </transition>
             </div>
-    </div>
-    <div id="document-template" style="display:none;">
-        <div id="document-to-print" class="pageA4">
-            <p class="">
-                Číslo voličského průkazu:
-            </p>
-            <p class="">
-                Obecní úřad
-                V ………………………………….. dne ......................... 2019
-            </p>
-            <p class="">
-                <strong>ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
-                pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019</strong>
-            </p>
-            <p class="">
-                Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
-                zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad #obecni-urad# o
-                vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
-                5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
-            </p>
-            <p class="">
-                <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
-                <strong>Datum narození:</strong> {{userData.birthdate}} <br>
-                <strong>Trvalý pobyt:</strong> {{userData.addressLine1}} {{userData.city}} {{userData.postalCode}} <br>
-                <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
-            </p>
-            <p class=""><strong>Beru na vědomí, že</strong><br>
-                podle ustanovení § 30 odst. 3 zákona o volbách do EP mne voličský průkaz opravňuje ve dnech konání voleb
-                do Evropského parlamentu k hlasování v jakémkoli volebním okrsku na území České republiky.
-            </p>
-            <p class=""><strong>K tomu sděluji, že voličský průkaz:</strong><br>
-                <input type="checkbox" name="pdf-delivery" id="pdf-in-person" disabled>
-                    <label for="pdf-in-person">převezmu osobně</label><br>
-                <input type="checkbox" name="pdf-delivery" id="pdf-representative" disabled>
-                    <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
-                <input type="checkbox" name="pdf-delivery" id="pdf-my-address" disabled>
-                    <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
-                <input type="checkbox" name="pdf-delivery" id="pdf-other-address" disabled>
-                    <label for="pdf-other-address">žádám zaslat na jinou adresu:</label> #jmeno2# #adresat2# #ulice2# #mesto2# #psc2# #stat2#
-            </p>
-            <p class="">
-                <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
-            </p>
-            <p>
-                Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
-            </p>
+        <div id="document-template" style="display:none;">        
+            <div id="document-to-print-cr" class="pageA4">
+                <p class="">
+                    Číslo voličského průkazu:
+                </p>
+                <p class="">
+                    Obecní úřad
+                    V ………………………………….. dne ......................... 2019
+                </p>
+                <p class="">
+                    <strong>ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
+                    pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019</strong>
+                </p>
+                <p class="">
+                    Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
+                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad #obecni-urad# o
+                    vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
+                    5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
+                </p>
+                <p class="">
+                    <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
+                    <strong>Datum narození:</strong> {{userData.birthdate}} <br>
+                    <strong>Trvalý pobyt:</strong> {{userData.addressLine1}} {{userData.city}} {{userData.postalCode}} <br>
+                    <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
+                </p>
+                <p class=""><strong>Beru na vědomí, že</strong><br>
+                    podle ustanovení § 30 odst. 3 zákona o volbách do EP mne voličský průkaz opravňuje ve dnech konání voleb
+                    do Evropského parlamentu k hlasování v jakémkoli volebním okrsku na území České republiky.
+                </p>
+                <p class=""><strong>K tomu sděluji, že voličský průkaz:</strong><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-in-person" v-bind:checked="userData.delivery=='in-person'">
+                        <label for="pdf-in-person">převezmu osobně</label><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-representative" v-bind:checked="userData.delivery=='representative'">
+                        <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-my-address" v-bind:checked="userData.delivery=='my-address'">
+                        <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-other-address" v-bind:checked="userData.delivery=='other-address'">
+                        <label for="pdf-other-address">žádám zaslat na jinou adresu: </label>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.name}} </span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line0}} </span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line1}} </span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.postalCode}} </span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.locality}} </span>
+                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.country}} </span>
+                </p>
+                <p class="">
+                    <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
+                </p>
+                <p>
+                    Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
+                </p>
+            </div>
         </div>
     </div>
+    
     <script>
         const routes = [
             { path: '/cr-cr' },
@@ -764,17 +770,17 @@
                     document.getElementById('preview-gif').appendChild(imageElement);
                 },
                 generatePreview: function() {
-                    var element = document.getElementById('document-to-print');
+                    var element = document.getElementById('document-to-print-cr');
                     var target_element = document.getElementById('preview-gif');
                     var opt = {
                     };
                     this.worker = html2pdf().from(element).toImg('datauristring',opt).then(this.generatePreviewfinished);
                 },
                 downloadPdf: function() {
-                    var element = document.getElementById('document-to-print');
+                    var element = document.getElementById('document-to-print-cr');
                     html2pdf().from(element).set({
                         margin: 1,
-                        filename: 'Zadost-Volicsky-Prukaz-' + new Date().toLocaleDateString() + '.pdf',
+                        filename: 'Zadost-Volicsky-Prukaz-EU2019-CR.pdf',
                         html2canvas: { scale: 2 },
                         jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
                     }).save();
