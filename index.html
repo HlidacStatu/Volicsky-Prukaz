@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
     <title>Rychlá žádost o voličský průkaz</title>
+
+    <link rel="canonical" href="https://volby.hlidacstatu.cz/" />
     <meta name="description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
     <!-- open graph specification if anyone shares -->
     <meta property="og:title" content="Rychlá žádost o voličský průkaz" />
-    <!-- needs update <meta property="og:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
     <meta property="og:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://volby.hlidacstatu.cz/" />
-    <meta name="twitter:card" content="summary" />
+    <!-- needs update <meta property="og:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
+
+    <meta name="twitter:site" content="Voličské Průkazy" />
     <meta name="twitter:url" content="https://volby.hlidacstatu.cz/" />
-    <!-- needs update <meta name="twitter:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
     <meta name="twitter:title" content="Rychlá žádost o voličský průkaz" />
     <meta name="twitter:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
+    <!-- needs update <meta name="twitter:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
 
-    <link rel="canonical" href="https://volby.hlidacstatu.cz/" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="assets/site.css" rel="stylesheet">
     <link href="assets/globalsite.css" rel="stylesheet">
+    <link href="/assets/social-share-kit.css" rel="stylesheet"/>
     <link href="assets/hlidac.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.5.4/dist/vuejs-datepicker.min.js" integrity="sha256-ZUTpdoIYoQnvkgbRBu2l3X8MIOQv/riZxzQKNbpp3Ec=" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.5.4/dist/locale/translations/cs.js" integrity="sha256-xbb1bpFdnZO6hB8Of8lcT0g9hDP23Deyi8u32Y7FSLw=" crossorigin="anonymous"></script> -->
     <!-- html2pdf on jsdelivr needs to be fixed to bundle
     <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.9.1/dist/html2pdf.js" integrity="sha256-vzO/Is3piKqdqLXRh5RUecYxetRt2RQwjJ9tQMTNi3A=" crossorigin="anonymous"></script>-->
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
@@ -40,25 +49,9 @@
                 m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-154075-22', 'auto');
+        ga('create', 'UA-154075-24', 'auto');
         ga('send', 'pageview');
     </script>
-    <script>
-        _showFAD = false;
-    </script>
-    <script type='text/javascript'>
-        var appInsights=window.appInsights||function(config)
-        {
-            function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
-            var t = { config:config},u=document,e=window,o='script',s=u.createElement(o),i,f;for(s.src=config.url||'//az416426.vo.msecnd.net/scripts/a/ai.0.js',u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=['Event','Exception','Metric','PageView','Trace','Ajax'];i.length;)r('track'+i.pop());return r('setAuthenticatedUserContext'),r('clearAuthenticatedUserContext'),config.disableExceptionTracking||(i='onerror',r('_'+i),f=e[i],e[i]=function(config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o),s}),t
-        }({
-            instrumentationKey:'7b640525-5d24-4ad7-87e1-0f2c24cc1945'
-        });
-
-        window.appInsights=appInsights;
-        appInsights.trackPageView();
-    </script>
-    
 </head>
 
 <body class="body">
@@ -137,9 +130,9 @@
 
 
                 <li class="level2"><a href="https://www.hlidacstatu.cz/data">Datové sady</a></li>
-<li class="level2"><a href="https://www.hlidacstatu.cz/Reporty">Analýzy & reporty</a></li>
-<li class="level2"><a href="https://www.hlidacstatu.cz/texty">Komentáře</a></li>
-<li class="level2"><a href="https://platforma.hlidacstatu.cz/">Platforma</a></li>
+                <li class="level2"><a href="https://www.hlidacstatu.cz/Reporty">Analýzy & reporty</a></li>
+                <li class="level2"><a href="https://www.hlidacstatu.cz/texty">Komentáře</a></li>
+                <li class="level2"><a href="https://platforma.hlidacstatu.cz/">Platforma</a></li>
 
 
                 <li class="level2">
@@ -204,7 +197,7 @@
         </div>
 
         <div class="body">
-            <div class="row">
+            <div id="navigation" class="row">
                 <div class="col-xs-offset-0 col-xs-12 col-md-offset-0 col-md-12">
                     <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" :class="$route.path=='/cr-cr' ? 'active': ''">
@@ -212,13 +205,14 @@
                             </li>
                             <li role="presentation" :class="$route.path=='/cr-eu' ? 'active': ''">
                                 <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
-                            </li>        
+                            </li>
                             <li role="presentation" :class="$route.path=='/eu-cr' ? 'active': ''">
                                 <router-link to="/eu-cr" role="tab">I am EU citizen and want to vode in CR</router-link>
                             </li>
                     </ul>
                 </div>
             </div>
+
             <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
                 <h3 class="section-title">Chci volit v místě svého trvalého bydliště</h3>
                 <p class="new-p">
@@ -287,6 +281,7 @@
                 <p class="new-p">Voting takes place in the territory of the EU Member State and follows the rules of the EU Member State.</p>
 
             </div>
+
             <div id="form" class="form pane table" v-if="$route.path=='/form'">
                 <div class="form-group warning">
                     <div class="left">
@@ -299,7 +294,7 @@
                             Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.<br>
                             Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.<br>
                             Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu<br>
-                            nebo si stáhněte a vyplňte <a href="assets/files/Zadost-Volicsky-Prukaz-EU2019-CR.pdf">šablonu žádosti</a> ručně sami.                            
+                            nebo si stáhněte a vyplňte <a href="assets/files/Zadost-Volicsky-Prukaz-EU2019-CR.pdf">šablonu žádosti</a> ručně sami.
                         </p>
                     </div>
                 </div>
@@ -310,17 +305,18 @@
                     </div>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10">
-                                <label for="name">Jméno a Příjmení</label>
+                            <div class="col-xs-10 a" :class="validate('name',userData.fullName)">
+                                <label for="name" class="required">Jméno a Příjmení</label>
                                 <input id="name" v-model="userData.fullName" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-5">
+                            <div class="col-xs-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Datum Narození</label>
-                                <input id="bday" v-model="userData.birthdate" class="form-control" type="date">
+                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')"></vuejs-datepicker>
+                                <!-- needs fix: format="d. M. yyyy" language="cs" -->
                             </div>
-                            <div class="col-xs-5">
+                            <div class="col-xs-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telefon</label>
                                 <input id="tel" v-model="userData.phone" class="form-control" type="tel">
                             </div>
@@ -333,18 +329,18 @@
                         <h3 class="section-title">Moje adresa trvalého pobytu</h3>
                     </div>
                     <div class="right">
-                        <div class="row">
+                        <div class="row" :class="validate('line1',userData.addressLine1)">
                             <div class="col-xs-10">
                                 <label for="address-line1">Ulice a číslo popisné</label>
                                 <input id="address-line1" v-model="userData.addressLine1" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-3">
+                            <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
                                 <input id="postal-code" v-model="userData.postalCode" class="form-control" type="text">
                             </div>
-                            <div class="col-xs-7">
+                            <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">Město</label>
                                 <input id="locality" v-model="userData.city" class="form-control" type="text">
                             </div>
@@ -436,9 +432,10 @@
                                 </div>
                             </div>
                         </div>
-                </div>        
+                </div>
                 <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
             </div>
+
             <div id="en-form" class="form pane table" v-if="$route.path=='/en/form'">
                 <div class="form-group warning">
                     <div class="left">
@@ -450,7 +447,8 @@
                         <p>
                             We will not send your details to anyone, nor do we process them.<br>
                             No need to worry - the whole application is made only on your own computer.<br>
-                            If you want to be 100% sure, disconnect from the internet while you complete the application.
+                            If you want to be 100% sure, disconnect from the internet while you complete the application<br>
+                            or <a href="assets/files/Zadost-Volicsky-Prukaz-EU2019-CR.pdf">download the application</a> and complete it manually.
                         </p>
                     </div>
                 </div>
@@ -461,17 +459,17 @@
                     </div>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10">
+                            <div class="col-xs-10" :class="validate('name',userData.fullName)">
                                 <label for="name">Full name</label>
                                 <input id="name" v-model="userData.fullName" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-5">
+                            <div class="col-xs-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Date of birth</label>
-                                <input id="bday" v-model="userData.birthdate" class="form-control" type="date">
+                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')"></vuejs-datepicker>
                             </div>
-                            <div class="col-xs-5">
+                            <div class="col-xs-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telephone</label>
                                 <input id="tel" v-model="userData.phone" class="form-control" type="tel">
                             </div>
@@ -485,17 +483,17 @@
                     </div>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10">
+                            <div class="col-xs-10" :class="validate('line1',userData.addressLine1)">
                                 <label for="address-line1">Street and house number</label>
                                 <input id="address-line1" v-model="userData.addressLine1" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-3">
+                            <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
                                 <input id="postal-code" v-model="userData.postalCode" class="form-control" type="text">
                             </div>
-                            <div class="col-xs-7">
+                            <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">City</label>
                                 <input id="locality" v-model="userData.city" class="form-control" type="text">
                             </div>
@@ -587,9 +585,10 @@
                                 </div>
                             </div>
                         </div>
-                </div>        
+                </div>
                 <router-link tag="button" to="/en/preview" class="btn btn-primary btn-primary-new">Create application</router-link>
             </div>
+
             <transition v-on:after-enter="generatePreview">
                 <div id="preview" class="pane" v-if="$route.path=='/preview'">
                     <div>
@@ -599,7 +598,7 @@
                         <p>Je-li některá z vyplněných informací v nepořádku, nic se neděje. Údaje můžete snadno změnit.</p>
                         <p>Pokud se vám náhled žádosti nezobrazuje, nevadí. Žádost můžete stáhnout a zkontrolovat přímo z vašeho počítače.</p>
                         <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Stáhnout žádost</button>
-                        <router-link tag="button" to="/form" class="btn btn-primary">Změnit údaje</router-link>                
+                        <router-link tag="button" to="/form" class="btn btn-primary">Změnit údaje</router-link>
                     </div>
                     <div id="preview-gif"></div>
                     <div>
@@ -632,9 +631,10 @@
                         <p>
                             Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
                         </p>
-                    </div>                                
+                    </div>
                 </div>
             </transition>
+
             <transition v-on:after-enter="generatePreview">
                 <div id="en-preview" class="pane" v-if="$route.path=='/en/preview'">
                     <div>
@@ -644,7 +644,7 @@
                         <p>If some details are incorrect, nothing happens. You can easily change the details.</p>
                         <p>If you don’t see a preview of your application, don’t worry. You can review your application directly from your computer.</p>
                         <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Download application</button>
-                        <router-link tag="button" to="/en/form" class="btn btn-primary">Change details</router-link>                
+                        <router-link tag="button" to="/en/form" class="btn btn-primary">Change details</router-link>
                     </div>
                     <div id="preview-gif"></div>
                     <div>
@@ -677,10 +677,10 @@
                         <p>
                             Meanwhile, you can spread the word of the possibility to apply for your voting card to your family, friends, colleagues etc.
                         </p>
-                    </div>                                
+                    </div>
                 </div>
             </transition>
-            </div>
+        </div>
         <div id="document-template" style="display:none;">
             <div id="document-to-print-cr" class="pageA4">
                 <div>
@@ -733,7 +733,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         const routes = [
             { path: '/cr-cr' },
@@ -759,9 +759,24 @@
                 userData: {
                     municipality: {},
                     deliveryAddress: {}
+                },
+                validatiors: {
+                    name: { pattern: /^.{2,}\ .{2,}$/ },
+                    bday: { pattern: /^[0-9]{1,2}\. ?[0-9]{1,2}\. ?[0-9]{4}$/ },
+                    tel: { pattern: /^\+?[0-9 \-\.]{9,}$/ },
+                    line1: { pattern: /^.{2,} \d{1,}$/ },
+                    "postal-code": { pattern: /^[0-9]{3} ?[0-9]{2}$/ },
+                    locality: { pattern: /^.{2,40}$/ }
                 }
             },
             methods: {
+                validate: function(field,data) {
+                    if (data===undefined) return ''
+                    if (this.validatiors[field]===undefined) return '';
+                    if (this.validatiors[field].pattern===undefined) return '';
+                    var valid = this.validatiors[field].pattern.test(data);
+                    return valid ? '' : 'has-error';
+                },
                 generatePreviewfinished: function() {
                     var imageElement = this.worker.prop.img;
                     imageElement.setAttribute('height',500);
@@ -787,10 +802,13 @@
             },
             filters: {
                 dateCZ: function (date) {
-                    return moment(date).format('DD.MM.YYYY');
+                    return moment(date).format('DD. MM. YYYY');
                 }
-            }         
-        });   
+            },
+            components: {
+                vuejsDatepicker: vuejsDatepicker
+            }
+        });
     </script>
     <style>
         body {
@@ -843,11 +861,11 @@
         }
         .pageA4 {
             width: 794px;
-            /*height: 1122px;*/           
+            /*height: 1122px;*/
             border: 0px;
             padding: 0px;
             margin: 0px;
-            position: relative;          
+            position: relative;
         }
     </style>
 
