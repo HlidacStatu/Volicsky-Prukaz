@@ -10,7 +10,7 @@
 
     <link rel="canonical" href="https://volby.hlidacstatu.cz/" />
     <meta name="description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
     <!-- open graph specification if anyone shares -->
     <meta property="og:title" content="Rychlá žádost o voličský průkaz" />
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="assets/site.css" rel="stylesheet">
     <link href="assets/globalsite.css" rel="stylesheet">
-    <link href="/assets/social-share-kit.css" rel="stylesheet"/>
+    <link href="assets/social-share-kit.css" rel="stylesheet"/>
     <link href="assets/hlidac.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
@@ -54,243 +54,182 @@
     </script>
 </head>
 
-<body class="body">
+<body class="new-body">
     <div id="fb-root"></div>
     <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v2.9";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v2.9";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
 
-    <header class="clearfix">
-        <a href="https://www.hlidacstatu.cz/" class="logo">
+    <div class="header__navbar">
+        <a href="/" class="logo">
             <svg width="46" height="46" viewBox="0 0 46 46">
-                <!-- TODO: zmenit na male!!!! -->
                 <use xlink:href="assets/images/defs.svg#logo"></use>
             </svg>
             Hlídač <strong>Státu</strong>
         </a>
-        <nav>
+        <nav class="navbar__level1">
             <a href="#" class="hamburger"></a>
 
             <ul>
-                <style>
-.blink {
-    animation: blinker 1s linear infinite;
-}
-@keyframes blinker {
-    50% {
-    opacity: 0;
-    }
-}
-</style>
-<li>
-    &nbsp;<a href="https://www.darujme.cz/projekt/1200384"
-                onclick="return trackOutLink(this,'header');"
-                data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Podpořte nás" data-content="Už více než rok kontrolujeme politiky a úředníky zda s našimi penězi zacházejí správně. Už více než rok jim pomáháme zavádět moderní e-government. Do Hlídače Státu dáváme své peníze a veškerý čas, avšak to nestačí. Chceme-li dál měnit prostředí v ČR, potřebujeme vaši pomoc."><span style="color:red;">Podpořte nás</span></a>
-    &nbsp;<a href="https://www.hlidacstatu.cz/PridatSe" style="margin-left:0px;"
-                onclick="return trackOutLink(this,'header');"
-                data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Přidejte se k nám, hlídejte s námi politiky a stát." data-content="Pokud chcete, stejně jako já a dobrovolníci kolem Hlídačů, dál zlepšovat český stát, potřebujeme zrychlit a nabrat sílu. Hlídače musí dělat větší team lidí. Potřebujeme programátory, analytiky, právníky, redaktory, marketing a další. Přidejte se k nám."><span class="text-success">Přidejte se k nám</span></a>
-</li>
-<li>
-    &nbsp;<b style="margin-left:20px">HLÍDAČI</b>
-    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacstatu.cz/Smlouvy"
-                                            onclick="return trackOutLink(this,'header');"
-                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač Smluv"
-                                            data-content="Prohledáváme jak informace o smlouvě, tak samotné texty smluv, smlouvy kontrolujeme, napojujeme na rejstříky firem a politiky. Analyzujeme propojení firem a státu ze všech stran.">Smluv</a>
+                <li class="navbar__watchers">
+                    <span class="watcher">Hlídače:</span>
+                    <a href="https://www.hlidacstatu.cz/smlouvy">Smluv</a>
+                    <a href="https://www.hlidacstatu.cz/osoby">Osob</a>
+                    <a href="https://www.hlidacstatu.cz/ucty">Financí</a>
+                    <a href="https://www.hlidacstatu.cz/VerejneZakazky">Veřejných zakázek</a>
+                    <a href="https://www.hlidacstatu.cz/StatniWeby">Webů</a>
+                </li>
 
-    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacstatu.cz/VerejneZakazky"
-                                            onclick="return trackOutLink(this,'header');"
-                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač Veřejných zakázak"
-                                            data-content="Prohledáváme informace o všech plánovaných i ukončených veřejných zakázkách státní správy a upozorníme vás na nově vypsané zakázky.">Veř.zakázek</a>
+                <li class="hidden-sm hidden-xs">
+                        <a href="https://www.hlidacstatu.cz/account/Login?returnUrl=%2F" id="loginLink">
+                            <img src="assets/images/icon-user.svg" style="padding-right: 8px;">
+                            Přihlášení
+                        </a>
+                        <a href="https://www.hlidacstatu.cz/account/Register?nextUrl=%2F" id="regLink">Registrace</a>
+                </li>
 
-    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacstatu.cz/osoby"
-                                            onclick="return trackOutLink(this,'header');"
-                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač politiků a osob"
-                                            data-content="Informace o politicích, sponzorech politických stran a osob navázaných na politiky. Dary, vazby na firmy a vazby na smlouvy uzavírané se státem.">Osob</a>
-    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacstatu.cz/ucty"
-                                            onclick="return trackOutLink(this,'header');"
-                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač politických financí"
-                                            data-content="Příjmy a výdaje z transparentních účtů politických stran, hnutí a osobností kandidujících ve volbách. Postupně přidáme analýzy příjmů, výdajů, sponzorujících osob a firem. Údaje budeme kontrolovat zejména ve vztahu k volebnímu zákonu, který používání transparentních účtu přikazuje a ve vztahu k registru smluv.">Financí</a>
-    &nbsp;<span class="small">►</span><a class="tight" href="https://www.hlidacStatu.cz/StatniWeby"
-                                            onclick="return trackOutLink(this,'header');"
-                                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="Hlídač Státních Webů"
-                                            data-content="Hlídání dostupnosti a funkčnosti státní webů.Měříme každou minutu, zda důležité weby státu vůbec běží, a pokud ano, tak jak rychle odpovídají.">Webů</a>
-</li>
-
-
-
-
-                    <li class="separator"><a href="/account/Login" id="loginLink">Přihlásit se</a></li>
-
-
-
+                <!-- mobile menu items below -->
                 <li class="level2"><a href="https://www.hlidacstatu.cz/data">Datové sady</a></li>
-                <li class="level2"><a href="https://www.hlidacstatu.cz/Reporty">Analýzy & reporty</a></li>
+                <li class="level2"><a href="https://www.hlidacstatu.cz/reporty">Analýzy a reporty</a></li>
                 <li class="level2"><a href="https://www.hlidacstatu.cz/texty">Komentáře</a></li>
-                <li class="level2"><a href="https://platforma.hlidacstatu.cz/">Platforma</a></li>
+                <li class="level2"><a href="https://platforma.hlidacstatu.cz">Fórum</a></li>
+
+                <li class="level2">
+                    <a href="https://www.darujme.cz/projekt/1200384">Podpořte nás</a>
+                    <a href="https://www.hlidacstatu.cz/PridatSe">Přidejte se k nám</a>
+                </li>
 
 
                 <li class="level2">
-                    <div class="social">
-                        <a href="https://www.facebook.com/sharer/sharer.php?sdk=joey&u=https%3A%2F%2Fwww.hlidacstatu.cz%2F&display=popup&ref=plugin&src=share_button" target="_blank" class="social-fb">
-                            <svg width="16" height="16" viewBox="0 0 16 16">
-                                <use xlink:href="assets/images/defs.svg#facebook"></use>
-                            </svg>
-                            Sdílet
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fwww.hlidacstatu.cz%2F&ref_src=twsrc%5Etfw&text=Hl%C3%ADda%C4%8D%20st%C3%A1tu%20-%20ve%C5%99ejn%C3%A1%20kontrola%20st%C3%A1tn%C3%ADch%20a%20ve%C5%99ejn%C3%BDch%20instituc%C3%AD.%20Ve%C5%99ejnoprosp%C4%9B%C5%A1n%C3%BD%20projekt.%20Hl%C3%ADda%C4%8D%20smluv%20a%20registr%20smluv.%20Hl%C3%ADda%C4%8D%20Web%C5%AF.&tw_p=tweetbutton&url=https%3A%2F%2Fwww.hlidacstatu.cz%2F" target="_blank" class="social-tw">
-                            <svg width="17" height="14" viewBox="0 0 17 14">
-                                <use xlink:href="assets/images/defs.svg#twitter"></use>
-                            </svg>
-                            Tweet
-                        </a>
-                    </div>
+                        <a href="https://www.hlidacstatu.cz/Account/Login">Přihlášení</a>
+                        <a href="https://www.hlidacstatu.cz/account/Register">Registrace</a>
                 </li>
-
             </ul>
         </nav>
-        <nav class="level2">
-            <ul>
-
-                <li><a href="https://www.hlidacstatu.cz/data"><span class="small blink" style="color:red">►</span>Datové sady</a></li>
-<li><a href="https://www.hlidacstatu.cz/Reporty">Analýzy & reporty</a></li>
-<li><a href="https://www.hlidacstatu.cz/texty">Komentáře</a></li>
-<li><a href="https://platforma.hlidacstatu.cz/">Platforma</a></li>
-
-
-                <li class="separator">
-                    <div class="social">
-                        <a href="https://www.facebook.com/sharer/sharer.php?sdk=joey&u=https%3A%2F%2Fwww.hlidacstatu.cz%2F&display=popup&ref=plugin&src=share_button" target="_blank" class="social-fb">
-                            <svg width="16" height="16" viewBox="0 0 16 16">
-                                <use xlink:href="assets/images/defs.svg#facebook"></use>
-                            </svg>
-                            Sdílet
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fwww.hlidacstatu.cz%2F&ref_src=twsrc%5Etfw&text=Hl%C3%ADda%C4%8D%20st%C3%A1tu%20-%20ve%C5%99ejn%C3%A1%20kontrola%20st%C3%A1tn%C3%ADch%20a%20ve%C5%99ejn%C3%BDch%20instituc%C3%AD.%20Ve%C5%99ejnoprosp%C4%9B%C5%A1n%C3%BD%20projekt.%20Hl%C3%ADda%C4%8D%20smluv%20a%20registr%20smluv.%20Hl%C3%ADda%C4%8D%20Web%C5%AF.&tw_p=tweetbutton&url=https%3A%2F%2Fwww.hlidacstatu.cz%2F" target="_blank" class="social-tw">
-                            <svg width="17" height="14" viewBox="0 0 17 14">
-                                <use xlink:href="assets/images/defs.svg#twitter"></use>
-                            </svg>
-                            Tweet
-                        </a>
-                    </div>
-                </li>
-
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
-            <span></span>
     </div>
 
+    <div id="app">
 
+        <div class="header__content">
+            <!-- desktop menu items only -->
+            <div class="navbar__level2">
+                <ul>
+                    <li class=""><a href="https://www.hlidacstatu.cz/data">Datové sady</a></li>
+                    <li class=""><a href="https://www.hlidacstatu.cz/reporty">Analýzy a reporty</a></li>
+                    <li class=""><a href="https://www.hlidacstatu.cz/texty">Komentáře</a></li>
+                    <li class=""><a href="https://platforma.hlidacstatu.cz/">Fórum</a></li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.hlidacstatu.cz/pridatse">Přidat se</a>
 
-
-    <div id="app" class="container">
-        <div class="col-md-10 col-md-offset-1">
-            <h1 class="new-title">Volby do Evropského parlamentu 2019</h1>
-            <p class="new-p center-block text-center">Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. (od 8:00 do 14:00)</strong></p>
+                        <a href="https://www.darujme.cz/projekt/1200384">Podpořit nás</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header__title">
+                <h1>Volby do Evropského parlamentu 2019</h1>
+                <span>Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. (od 8:00 do 14:00)</strong></span>
+            </div>
+            <!-- desktop menu items only -->
+            <div id="navigation" class="row">
+                <ul>
+                    <li :class="$route.path=='/cr-cr' ? 'active': ''">
+                        <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link>
+                    </li>
+                    <li :class="$route.path=='/cr-eu' ? 'active': ''">
+                        <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
+                    </li>
+                    <li :class="$route.path=='/eu-cr' ? 'active': ''">
+                        <router-link to="/eu-cr" role="tab">I am EU citizen and want to vote in CR</router-link>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="body">
-            <div id="navigation" class="row">
-                <div class="col-xs-offset-0 col-xs-12 col-md-offset-0 col-md-12">
-                    <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" :class="$route.path=='/cr-cr' ? 'active': ''">
-                                <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link>
-                            </li>
-                            <li role="presentation" :class="$route.path=='/cr-eu' ? 'active': ''">
-                                <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
-                            </li>
-                            <li role="presentation" :class="$route.path=='/eu-cr' ? 'active': ''">
-                                <router-link to="/eu-cr" role="tab">I am EU citizen and want to vote in CR</router-link>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-
+        <div class="body container">
             <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
-                <h3 class="section-title">Chci volit v místě svého trvalého bydliště</h3>
+                <h2>Chci volit v místě svého trvalého bydliště</h2>
                 <p class="new-p">
                     Nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).
                 </p>
-                <h3 class="section-title">Chci volit v kterémkoliv volebním obvodě v ČR</h3>
+                <h2>Chci volit v kterémkoliv volebním obvodě v ČR</h2>
                 <p class="new-p">
                     Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz.
                 </p>
-                <h3 class="section-title">O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
+                <h3>O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</h3>
                 <ul class="new-p">
-                    <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                    <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.
-                    </li>
+                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</span></li>
+                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</span></li>
                 </ul>
                 <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
             </div>
 
             <div id="cr-eu" class="pane" v-if="$route.path=='/cr-eu'">
-                <h3 class="section-title">Chci volit české kandidáty</h3>
+                <h2>Chci volit české kandidáty</h2>
 
                 <p class="new-p">Pro české kandidáty nelze hlasovat ze zahraničí.</p>
                 <p class="new-p">Ze zahraničí může občan, který žije dlouhodobě mimo ČR, zastupitelský úřad požádat o zápis do zvláštního seznamu voličů a následně se na něj obrátit s žádostí o vydání voličského průkazu. S tímto průkazem pak může volit v den voleb ve kterékoliv volební místosti na území ČR.</p>
 
-                <h4 class="section-title">O voličský průkaz můžete zažádat na svém zastupitelském úřadě a to buď:</h4>
+                <h3>O voličský průkaz můžete zažádat na svém zastupitelském úřadě a to buď:</h3>
                 <ul class="new-p">
-                    <li><strong class="emphasized">osobně</strong> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</li>
-                    <li><strong class="emphasized">písemně</strong> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</li>
+                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</span></li>
+                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte doručit do 17. 5. 2019 v 16:00 skrz vaší datovou schránku nebo poštou s úředně ověřeným podpisem.</span></li>
                 </ul>
 
                 <p class="new-p">
                     <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
                 </p>
 
-                <h3 class="section-title">Chci volit kandidáty z jiné členské země EU</h3>
+                <h2>Chci volit kandidáty z jiné členské země EU</h2>
                 <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
             </div>
 
             <div id="eu-cr" class="pane" v-if="$route.path=='/eu-cr'">
-                <h3 class="section-title">I want to vote for Czech candidates</h3>
+                <h2>I want to vote for Czech candidates</h2>
 
                 <p class="new-p">You are eligible if you were registered with temporary or permanent residence in the Czech Republic at least 45 days before the election and were on the European Parliament electoral roll.</p>
 
                 <ul class="new-p">
-                    <li>If you have already voted in a previous EP election and were registered on the EP electoral roll, you may vote in the election again.</li>
-                    <li>If you are already on the municipal electoral roll, you may apply to have your details transferred to the EP electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</li>
-                    <li>If you have not yet voted in the EP election, you must apply at the local authority to register on the electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</li>
+                    <li><span>If you have already voted in a previous EP election and were registered on the EP electoral roll, you may vote in the election again.</span></li>
+                    <li><span>If you are already on the municipal electoral roll, you may apply to have your details transferred to the EP electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
+                    <li><span>If you have not yet voted in the EP election, you must apply at the local authority to register on the electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
                 </ul>
 
-                <h3 class="section-title">I want to vote where I have permanent residence in CZ</h3>
+                <h3>I want to vote where I have permanent residence in CZ</h3>
                 <p class="new-p">If you meet the above criteria, nothing stands in your way. Take your valid ID on election day to your polling place (according to your permanent address).</p>
 
-                <h3 class="section-title">I want to vote somewhere else in CZ</h3>
+                <h3>I want to vote somewhere else in CZ</h3>
                 <p class="new-p">If you want to vote somewhere other than your permanent address, you will need a voter card.</p>
 
-                <h3 class="section-title">You can apply for a voter card at your municipal office, either:</h3>
+                <h4>You can apply for a voter card at your municipal office, either:</h4>
                 <ul class="new-p">
-                    <li><strong class="emphasized">in person</strong> – directly at the office with valid ID no later than 22 May 2019,</li>
-                    <li><strong class="emphasized">in writing</strong> – through your data box or by post with a certified signature. Your application must arrive by 17 May 2019 at 16:00.</li>
+                    <li><strong class="emphasized">in person</strong><span> – directly at the office with valid ID no later than 22 May 2019,</span></li>
+                    <li><strong class="emphasized">in writing</strong><span> – through your data box or by post with a certified signature. Your application must arrive by 17 May 2019 at 16:00.</span></li>
                 </ul>
 
                 <p class="new-p">
                     <router-link tag="button" to="/en/form" class="btn btn-primary btn-primary-new">Create a written application for voter card</router-link>
                 </p>
-                <h3 class="section-title">I want to vote for candidates from another EU country</h3>
+                <h2>I want to vote for candidates from another EU country</h2>
                 <p class="new-p">Voting takes place in the territory of the EU Member State and follows the rules of the EU Member State.</p>
 
             </div>
 
             <div id="form" class="form pane table" v-if="$route.path=='/form'">
-                <div class="form-group warning">
+                <div class="form-group">
                     <div class="left">
                         <img src="assets/images/lock.png" width="41" height="50" />
-                        <h3 class="section-title">Soukromí</h3>
                     </div>
+                    <h2>Soukromí</h2>
                     <div class="right">
-                        <strong>Než začneme…</strong>
-                        <p>
+                        <h3>Než začneme…</h3>
+                        <p class="new-p">
                             Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.<br>
                             Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.<br>
                             Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu<br>
@@ -300,12 +239,12 @@
                 </div>
                 <div class="form-group">
                     <div class="left">
-                        <img src="assets/images/id-card.png" width="50" height="38" />
-                        <h3 class="section-title">Moje identita</h3>
+                        <img src="assets/images/id-card.png" width="50" height="38" class="idcard" />
                     </div>
+                    <h2>Moje identita</h2>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10 a" :class="validate('name',userData.fullName)">
+                            <div class="col-xs-10" :class="validate('name',userData.fullName)">
                                 <label for="name" class="required">Jméno a Příjmení</label>
                                 <input id="name" v-model="userData.fullName" class="form-control" type="text">
                             </div>
@@ -326,8 +265,8 @@
                 <div class="form-group">
                     <div class="left">
                         <img src="assets/images/home.png" width="50" height="40" />
-                        <h3 class="section-title">Moje adresa trvalého pobytu</h3>
                     </div>
+                    <h2>Moje adresa trvalého pobytu</h2>
                     <div class="right">
                         <div class="row" :class="validate('line1',userData.addressLine1)">
                             <div class="col-xs-10">
@@ -350,8 +289,8 @@
                 <div class="form-group">
                     <div class="left">
                         <img src="assets/images/office.png" width="39" height="50" />
-                        <h3 class="section-title">Můj obecní úřad</h3>
                     </div>
+                    <h2>Můj obecní úřad</h2>
                     <div class="right">
                         <div class="row">
                             <div class="col-xs-10">
@@ -383,11 +322,11 @@
                 <div class="form-group">
                         <div class="left">
                             <img src="assets/images/envelope.png" width="50" height="39" />
-                            <h3 class="section-title">Doručení</h3>
                         </div>
+                        <h2>Doručení</h2>
                         <div class="right">
-                            <div class="row">
-                                <label for="delivery">Voličský průkaz po vyhotovení:</label><br>
+                            <div class="radios row col-xs-10">
+                                <h4>Voličský průkaz po vyhotovení:</h4>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
@@ -437,14 +376,14 @@
             </div>
 
             <div id="en-form" class="form pane table" v-if="$route.path=='/en/form'">
-                <div class="form-group warning">
+                <div class="form-group">
                     <div class="left">
                         <img src="assets/images/lock.png" width="41" height="50" />
-                        <h3 class="section-title">Privacy</h3>
                     </div>
+                    <h2>Privacy</h2>
                     <div class="right">
-                        <strong>Before we begin…</strong>
-                        <p>
+                        <h3>Before we begin…</h3>
+                        <p class="new-p">
                             We will not send your details to anyone, nor do we process them.<br>
                             No need to worry - the whole application is made only on your own computer.<br>
                             If you want to be 100% sure, disconnect from the internet while you complete the application<br>
@@ -454,9 +393,9 @@
                 </div>
                 <div class="form-group">
                     <div class="left">
-                        <img src="assets/images/id-card.png" width="50" height="38" />
-                        <h3 class="section-title">My identity</h3>
+                        <img src="assets/images/id-card.png" width="50" height="38" class="idcard" />
                     </div>
+                    <h2>My identity</h2>
                     <div class="right">
                         <div class="row">
                             <div class="col-xs-10" :class="validate('name',userData.fullName)">
@@ -479,8 +418,8 @@
                 <div class="form-group">
                     <div class="left">
                         <img src="assets/images/home.png" width="50" height="40" />
-                        <h3 class="section-title">My permanent address</h3>
                     </div>
+                    <h2>My permanent address</h2>
                     <div class="right">
                         <div class="row">
                             <div class="col-xs-10" :class="validate('line1',userData.addressLine1)">
@@ -503,8 +442,8 @@
                 <div class="form-group">
                     <div class="left">
                         <img src="assets/images/office.png" width="39" height="50" />
-                        <h3 class="section-title">My municipal office</h3>
                     </div>
+                    <h2>My municipal office</h2>
                     <div class="right">
                         <div class="row">
                             <div class="col-xs-10">
@@ -536,10 +475,10 @@
                 <div class="form-group">
                         <div class="left">
                             <img src="assets/images/envelope.png" width="50" height="39" />
-                            <h3 class="section-title">Delivery</h3>
                         </div>
+                        <h2>Delivery</h2>
                         <div class="right">
-                            <div class="row">
+                            <div class="radios row col-xs-10">
                                 <label for="delivery">When completed, the voter card will be:</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
@@ -591,50 +530,52 @@
 
             <transition v-on:after-enter="generatePreview">
                 <div id="preview" class="pane" v-if="$route.path=='/preview'">
-                    <div>
-                        <h3>1. Zkontrolujte žádost</h3>
+                    <h2>1. Zkontrolujte žádost</h2>
+                    <div class="preview-wrapper" @click="showOverlay"><img></div>
+                    <div class="left">
                         <p>Zkontrolujte, prosím, údaje ve vygenerované žádosti.</p>
                         <p>Pokud jsou všechny údaje v pořádku, stáhněte žádost do svého počítače nebo mobilního zařízení a pokračujte volbou doručení v následujícím kroku.</p>
                         <p>Je-li některá z vyplněných informací v nepořádku, nic se neděje. Údaje můžete snadno změnit.</p>
                         <p>Pokud se vám náhled žádosti nezobrazuje, nevadí. Žádost můžete stáhnout a zkontrolovat přímo z vašeho počítače.</p>
                         <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Stáhnout žádost</button>
-                        <router-link tag="button" to="/form" class="btn btn-primary">Změnit údaje</router-link>
+                        <router-link tag="button" to="/form" class="btn btn-default">Změnit údaje</router-link>
                     </div>
-                    <div id="preview-gif"></div>
+                    <h2>2. Doručte žádost na váš úřad</h2>
                     <div>
-                        <h3>2. Doručte žádost na váš úřad</h3>
-                        <div>
-                            <h4>Skrz datovou schránku</h4>
+                        <div class="col-md-4">
+                            <h3>Skrz datovou schránku</h3>
                             <p>Pokud máte datovou schránku, stačí odeslat vytvořenou žádost jako přílohu ve formátu PDF na adresu příslušného úřadu.</p>
-                                <!-- 
-                                    <p>#Adresa_datove_schranky#</p>
-                                -->
-                                <p>Žádost nemusí být podepsaná a tím pádem nemusíte podpis ani ověřovat – vaše identita je ověřena přihlášením do datové schránky.</p>
-                                <p>Žádost odešlete nejpozději do 17. května 2019 v 16:00 hodin.</p>
+                            <p><strong>{{userData.municipality.databox}}</strong></p>
+                            <p>Žádost nemusí být podepsaná a tím pádem nemusíte podpis ani ověřovat – vaše identita je ověřena přihlášením do datové schránky.</p>
+                            <p>Žádost odešlete nejpozději do 17. května 2019 v 16:00 hodin.</p>
                         </div>
-                        <div>
-                            <h4>Poštou</h4>
+                        <div class="col-md-4">
+                            <h3>Poštou</h3>
                             <p>Vytvořenou žádost vytiskněte a s úředně ověřeným podpisem odešlete na adresu vašeho úřadu:</p>
                             <p>
+                                <strong>
                                     {{userData.municipality.name}}<br>
                                     {{userData.municipality.addressLine1}}<br>
                                     {{userData.municipality.postalCode +' '}}{{userData.municipality.city}}
+                                </strong>
                             </p>
                             <p>Žádost musí být doručena (doručena, nikoliv odeslána) do 17. května 2019 v 16:00 hodin.</p>
                         </div>
-                        <div>
-                            <h4>Osobně</h4>
+                        <div class="col-md-4">
+                            <h3>Osobně</h3>
                             <p>Pokud se můžete na úřad dostavit osobně, nepotřebujete předem žádnou písemnou žádost. Stačí, pokud se dostavíte na příslušný úřad s platným dokladem totožnosti (občanský průkaz nebo pas).</p>
                             <p>
+                                <strong>
                                     {{userData.municipality.name}}<br>
                                     {{userData.municipality.addressLine1}}<br>
                                     {{userData.municipality.postalCode +' '}}{{userData.municipality.city}}
+                                </strong>
                             </p>
                             <p>Na úřad můžete přijít podat žádost nejpozději 22. května 2019 do 16:00 hodin.</p>
                         </div>
                     </div>
-                    <div>
-                        <h3>3. Přejeme dobrou volbu!</h3>
+                    <h2>3. Přejeme dobrou volbu!</h2>
+                    <div class="col-md-8">
                         <p>
                             Dostavte se s vaším volebním průkazem a platným průkazem totožnosti  24. (14:00 - 22:00) nebo 25. května 2019 (8:00 - 14:00) do <u>kterékoliv volební místnosti v ČR</u>.
                         </p>
@@ -647,50 +588,52 @@
 
             <transition v-on:after-enter="generatePreview">
                 <div id="en-preview" class="pane" v-if="$route.path=='/en/preview'">
-                    <div>
-                        <h3>1. Review the application</h3>
+                    <h2>1. Review the application</h2>
+                    <div class="preview-wrapper"><img></div>
+                    <div class="left">
                         <p>Please check the details generated by the application.</p>
                         <p>If your details are correct, download the application to your computer or mobile device and continue to select the delivery of your voting card in the next step.</p>
                         <p>If some details are incorrect, nothing happens. You can easily change the details.</p>
                         <p>If you don’t see a preview of your application, don’t worry. You can review your application directly from your computer.</p>
                         <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Download application</button>
-                        <router-link tag="button" to="/en/form" class="btn btn-primary">Change details</router-link>
+                        <router-link tag="button" to="/en/form" class="btn btn-default">Change details</router-link>
                     </div>
-                    <div id="preview-gif"></div>
+                    <h2>2. Deliver the application to your office</h2>
                     <div>
-                        <h3>2. Deliver the application to your office</h3>
-                        <div>
-                            <h4>Via data box</h4>
+                        <div class="col-md-4">
+                            <h3>Via data box</h3>
                             <p>If you have a data box, it’s enough to send your completed application as a PDF attachment to the address of the appropriate office.</p>
-                                <!-- 
-                                    <p>#Adresa_datove_schranky#</p>
-                                -->
+                                <p><strong>{{userData.municipality.databox}}</strong></p>
                                 <p>Your application does not need to be signed so you do not need to sign or verify your signature - your identity is verified by logging in to your data box.</p>
                                 <p>Send your application no later than 16:00 on 17th May 2019.</p>
                         </div>
-                        <div>
-                            <h4>Via post</h4>
+                        <div class="col-md-4">
+                            <h3>Via post</h3>
                             <p>Print your completed application and send it with a verified signature to the address of your office:</p>
                             <p>
+                                <string>
                                     {{userData.municipality.name}}<br>
                                     {{userData.municipality.addressLine1}}<br>
                                     {{userData.municipality.postalCode +' '}}{{userData.municipality.city}}
+                                </string>
                             </p>
                             <p>Your application must be delivered (received, not only sent) by 16:00 on 17th May 2019.</p>
                         </div>
-                        <div>
-                            <h4>In person</h4>
+                        <div class="col-md-4">
+                            <h3>In person</h3>
                             <p>If you can go to your office personally, you don’t need to make an appointment. You only need to go to the appropriate office with your proof of identity (I.D. card or passport).</p>
                             <p>
+                                <strong>
                                     {{userData.municipality.name}}<br>
                                     {{userData.municipality.addressLine1}}<br>
                                     {{userData.municipality.postalCode +' '}}{{userData.municipality.city}}
+                                </strong>
                             </p>
                             <p>You can go to the office no later than 16:00 on 22nd May 2019.</p>
                         </div>
                     </div>
-                    <div>
-                        <h3>3. We wish you good voting!</h3>
+                    <h2>3. We wish you good voting!</h2>
+                    <div class="col-md-8">
                         <p>
                             Come on 24th (14:00 - 22:00) or 25th (14:00 - 22:00) May 2019 with your voting card and proof of identity to <u>any polling station in CZ</u>.
                         </p>
@@ -701,7 +644,7 @@
                 </div>
             </transition>
         </div>
-        <!--div id="document-template" style="display:none;">-->
+        <div id="overlay" v-show="overlayVisible" @click="showOverlay"><img></div>
         <div id="document-template">
             <div id="document-to-print-cr" class="pageA4">
                 <div>
@@ -715,7 +658,7 @@
                 </p>
                 <p style="text-align: justify; padding: 15px 5px 20px 5px;">
                     Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
-                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad <strong> {{userData.municipality.name +', '}}{{userData.municipality.addressLine1 +', '}}{{userData.municipality.postalCode +' '}}{{userData.municipality.city}}</strong> o
+                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad <strong>{{userData.municipality.name +', '}}{{userData.municipality.addressLine1 +', '}}{{userData.municipality.postalCode +' '}}{{userData.municipality.city}}</strong> o
                     vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
                     5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
                 </p>
@@ -751,7 +694,7 @@
                     podpis voliče - žadatele</p>
                 <p style="padding: 20px 5px 10px 5px;">
                     <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
-                </p>                
+                </p>
             </div>
         </div>
     </div>
@@ -789,7 +732,8 @@
                     line1: { pattern: /^.{2,} \d{1,}$/ },
                     "postal-code": { pattern: /^[0-9]{3} ?[0-9]{2}$/ },
                     locality: { pattern: /^.{2,40}$/ }
-                }
+                },
+                overlayVisible: false
             },
             methods: {
                 validate: function(field,data) {
@@ -800,17 +744,17 @@
                     return valid ? '' : 'has-error';
                 },
                 generatePreviewfinished: function() {
-                    var imageElement = this.worker.prop.img;
-                    imageElement.setAttribute('height',500);
-                    imageElement.setAttribute('width',350);
-                    document.getElementById('preview-gif').appendChild(imageElement);
+                    var imageData = this.worker.prop.img.src;
+                    document.querySelector('.preview-wrapper img').src=imageData;
+                    document.querySelector('#overlay img').src=imageData;
                 },
                 generatePreview: function() {
                     var element = document.getElementById('document-to-print-cr');
-                    var target_element = document.getElementById('preview-gif');
-                    var opt = {
-                    };
+                    var opt = {};
                     this.worker = html2pdf().from(element).toImg('datauristring',opt).then(this.generatePreviewfinished);
+                },
+                showOverlay: function() {
+                    this.overlayVisible = !this.overlayVisible;
                 },
                 downloadPdf: function() {
                     var element = document.getElementById('document-to-print-cr');
@@ -833,7 +777,14 @@
         });
     </script>
     <style>
-        body {
+        #app {
+            background-color: white;
+        }
+
+        .body {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1170px;
         }
 
         div#app {
@@ -846,45 +797,168 @@
             top: -1em;
         }
 
-        .form .row {
-            margin: 15px 0px;
-        }
-        .form label {
-            font-weight: normal;
-        }
-        .form .form-group {
-            margin-bottom: 0px;
-        }
-        .form .form-group:nth-child(2n+1) {
-            background-color: rgb(228, 228, 228)
-        }
-        .form .form-group:nth-child(2n) {
-            background-color: rgb(215, 215, 215)
+        .pane h2:first-of-type, .pane div.form-group:first-of-type > h2 {
+            border-top: 0px none;
+            margin-top: 0px;
         }
 
-        .form .form-group.warning {
-            background-color: rgb(255, 255, 204);
+        .pane h2, .pane div.form-group > h2 {
+            font-weight: 600;
+            border-top: 1px dashed lightgray;
+            padding-top: 40px;
+            margin-top: 40px;
+            clear: both;
         }
-        .form .form-group .left {
-            width: 300px;
+
+        .pane p.new-p {
+            color: #818C99;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .pane ul.new-p .emphasized {
+            font-style: normal;
+            line-height: 2em;
+        }
+
+        .pane ul.new-p {
+            color:#38CAAA;
+            font-weight: 300;
+        }
+
+        .pane ul.new-p li span {
+            color: #818C99;
+        }
+
+        .header__title strong {
+            color: white;
+            font-weight: normal;
+        }
+
+        #navigation {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        #navigation ul {
+            list-style-type: none;
+            list-style-type: none;
+            padding: 0px;
+        }
+
+        #navigation ul li {
+            display: inline-block;
+        }
+
+        #navigation ul li + li {
+            margin-left: 5px;
+        }
+
+        #navigation ul a {
+            border: 1px solid white;
+            border-radius: 4px;
+            padding: 20px 50px;
+            color: white;
+            font-size: 1.2em;
+            display: inline-block;
+        }
+
+        #navigation ul li.active a {
+            background-color: white;
+            color: #0074E4;
+        }
+
+        .form .form-group {
+            margin-bottom: 0px;
+            position: relative;
+        }
+
+        .form .left {
             position: absolute;
-            padding: 50px 20px;
+            left: 0px;
+            top: 30px;
         }
-        .form .form-group .left img {
-            float: left;
+
+        .form .left img.idcard {
+            margin-top: 10px;
         }
-        .form .form-group .left h3 {
-            margin-left: 60px;
+
+        .form h2, .form .right {
+            padding-left: 100px;
         }
-        .form .form-group .right {
-            margin-left: 300px;
-            padding: 50px 0px;
-            min-height: 160px;
+
+        .form .row {
+            margin-bottom: 20px;
+            color: #818C99;
+            font-size: 18px;
         }
+
+        .form label {
+            font-weight: 300;
+        }
+
+        .form .radios label {
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        .form input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        #preview .btn-default,#en-preview .btn-default {
+            margin-left: 5px;
+        }
+
+        #preview p, #en-preview p {
+            color: #818C99;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        #preview strong, #en-preview strong {
+            color: black;
+        }
+
+        .preview-wrapper {
+            display: inline-block;
+            float: right;
+            box-shadow: 0 2px 20px lightgray;
+            margin: 20px 40px;
+            margin-top: -50px;
+            padding: 10px;
+        }
+
+        .preview-wrapper:hover {
+            cursor: pointer;
+            box-shadow: 0 2px 20px lightblue;
+        }
+
+        .preview-wrapper img {
+            width: 400px;
+            height: 300px;
+        }
+
+        #overlay {
+            position: absolute;
+            top: 300px;
+            left: 50%;
+            margin-left: -400px;
+            box-shadow: 0 2px 20px lightgray;
+            padding: 20px;
+            background-color: white;
+        }
+        #overlay img {
+            width: 800px;
+            height: 600px;
+        }
+
+        #document-template { display: none }
+
         .pageA4 {
             width: 600px;
             /*width: 794px;
-            height: 1122px;*/           
+            height: 1122px;*/
             border: 0px;
             padding: 0px;
             margin: 0px;
@@ -965,7 +1039,7 @@
                             Uložení záložky je snadné, stačí kliknout na ikonu  <a style="font-size:120%" href="#" class="bookmark bookmarkOff" onclick="javascript:return false;"></a>.
                             Pokud už je konkrétní záložka vytvořená, pak je vybarvena červeně <a style="font-size:120%" href="#" class="bookmark bookmarkOn" onclick="javascript:return false;"></a>.
                         </p>
-                        <p>Abychom ale vědeli, komu jaké záložky patří, <a href="/account/login" class="btn btn-default">musíte se zalogovat</a>.</p>
+                        <p>Abychom ale vědeli, komu jaké záložky patří, <a href="https://www.hlidacstatu.cz/account/login" class="btn btn-default">musíte se zalogovat</a>.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>

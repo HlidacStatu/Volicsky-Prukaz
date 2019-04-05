@@ -857,7 +857,7 @@ select {
 
 .header__content {
   background: #003688;
-  background-image: url("/Content/img/header-bg.jpg");
+  background-image: url("images/header-bg.jpg");
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
