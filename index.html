@@ -207,7 +207,7 @@
                                 <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
                             </li>
                             <li role="presentation" :class="$route.path=='/eu-cr' ? 'active': ''">
-                                <router-link to="/eu-cr" role="tab">I am EU citizen and want to vode in CR</router-link>
+                                <router-link to="/eu-cr" role="tab">I am EU citizen and want to vote in CR</router-link>
                             </li>
                     </ul>
                 </div>
@@ -606,20 +606,30 @@
                         <div>
                             <h4>Skrz datovou schránku</h4>
                             <p>Pokud máte datovou schránku, stačí odeslat vytvořenou žádost jako přílohu ve formátu PDF na adresu příslušného úřadu.</p>
-                                <p>#Adresa datovky#</p>
+                                <!-- 
+                                    <p>#Adresa_datove_schranky#</p>
+                                -->
                                 <p>Žádost nemusí být podepsaná a tím pádem nemusíte podpis ani ověřovat – vaše identita je ověřena přihlášením do datové schránky.</p>
                                 <p>Žádost odešlete nejpozději do 17. května 2019 v 16:00 hodin.</p>
                         </div>
                         <div>
                             <h4>Poštou</h4>
                             <p>Vytvořenou žádost vytiskněte a s úředně ověřeným podpisem odešlete na adresu vašeho úřadu:</p>
-                            <p>#Adresa úřadu#</p>
+                            <p>
+                                    {{userData.municipality.name}}<br>
+                                    {{userData.municipality.addressLine1}}<br>
+                                    {{userData.municipality.postalCode +' '}}{{userData.municipality.city}}
+                            </p>
                             <p>Žádost musí být doručena (doručena, nikoliv odeslána) do 17. května 2019 v 16:00 hodin.</p>
                         </div>
                         <div>
                             <h4>Osobně</h4>
                             <p>Pokud se můžete na úřad dostavit osobně, nepotřebujete předem žádnou písemnou žádost. Stačí, pokud se dostavíte na příslušný úřad s platným dokladem totožnosti (občanský průkaz nebo pas).</p>
-                            <p>#Adresa úřadu#</p>
+                            <p>
+                                    {{userData.municipality.name}}<br>
+                                    {{userData.municipality.addressLine1}}<br>
+                                    {{userData.municipality.postalCode +' '}}{{userData.municipality.city}}
+                            </p>
                             <p>Na úřad můžete přijít podat žádost nejpozději 22. května 2019 do 16:00 hodin.</p>
                         </div>
                     </div>
@@ -652,20 +662,30 @@
                         <div>
                             <h4>Via data box</h4>
                             <p>If you have a data box, it’s enough to send your completed application as a PDF attachment to the address of the appropriate office.</p>
-                                <p>#Adresa datovky#</p>
+                                <!-- 
+                                    <p>#Adresa_datove_schranky#</p>
+                                -->
                                 <p>Your application does not need to be signed so you do not need to sign or verify your signature - your identity is verified by logging in to your data box.</p>
                                 <p>Send your application no later than 16:00 on 17th May 2019.</p>
                         </div>
                         <div>
                             <h4>Via post</h4>
                             <p>Print your completed application and send it with a verified signature to the address of your office:</p>
-                            <p>#Adresa úřadu#</p>
+                            <p>
+                                    {{userData.municipality.name}}<br>
+                                    {{userData.municipality.addressLine1}}<br>
+                                    {{userData.municipality.postalCode +' '}}{{userData.municipality.city}}
+                            </p>
                             <p>Your application must be delivered (received, not only sent) by 16:00 on 17th May 2019.</p>
                         </div>
                         <div>
                             <h4>In person</h4>
                             <p>If you can go to your office personally, you don’t need to make an appointment. You only need to go to the appropriate office with your proof of identity (I.D. card or passport).</p>
-                            <p>#Adresa úřadu#</p>
+                            <p>
+                                    {{userData.municipality.name}}<br>
+                                    {{userData.municipality.addressLine1}}<br>
+                                    {{userData.municipality.postalCode +' '}}{{userData.municipality.city}}
+                            </p>
                             <p>You can go to the office no later than 16:00 on 22nd May 2019.</p>
                         </div>
                     </div>
@@ -681,55 +701,57 @@
                 </div>
             </transition>
         </div>
-        <div id="document-template" style="display:none;">
+        <!--div id="document-template" style="display:none;">-->
+        <div id="document-template">
             <div id="document-to-print-cr" class="pageA4">
                 <div>
-                        <div style="width: 60%; margin-left: 40%; padding: 15px 10px 15px 10px; border-width: 1px; border-style: solid;">
+                        <div style="width: 380px; margin-left: 200px; padding: 15px 10px 15px 10px; margin-right: 10px; border-width: 1px; border-style: solid;">
                             <strong>Číslo voličského průkazu: </strong>
                         </div>
                 </div>
-                <p style="text-align: center; font-weight: bold; padding: 20px 5px 20px 5px;">
+                <p style="text-align: center; font-weight: bold; padding: 40px 5px 15px 5px;">
                     ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
                     pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019
                 </p>
-                <p style="text-align: justify; padding: 20px 5px 20px 5px;">
+                <p style="text-align: justify; padding: 15px 5px 20px 5px;">
                     Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
                     zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad <strong> {{userData.municipality.name +', '}}{{userData.municipality.addressLine1 +', '}}{{userData.municipality.postalCode +' '}}{{userData.municipality.city}}</strong> o
                     vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
                     5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
                 </p>
-                <p class="">
+                <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
                     <strong>Datum narození:</strong> {{userData.birthdate | dateCZ}} <br>
                     <strong>Trvalý pobyt:</strong> {{userData.addressLine1 +', '}}{{userData.postalCode +' '}}{{userData.city}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
-                <p class=""><strong>Beru na vědomí, že</strong><br>
+                <p style="text-align: justify; padding: 10px 5px 10px 5px;">
+                    <strong>Beru na vědomí, že</strong><br>
                     podle ustanovení § 30 odst. 3 zákona o volbách do EP mne voličský průkaz opravňuje ve dnech konání voleb
                     do Evropského parlamentu k hlasování v jakémkoli volebním okrsku na území České republiky.
                 </p>
-                <p class=""><strong>K tomu sděluji, že voličský průkaz:</strong><br>
-                    <input type="checkbox" name="pdf-delivery" id="pdf-in-person" v-bind:checked="userData.delivery=='in-person'">
+                <p style="padding: 10px 5px 10px 5px;">
+                    <strong>K tomu sděluji, že voličský průkaz:</strong><br>
+                    <input type="checkbox" name="pdf-delivery" id="pdf-in-person" style="margin-left: 5px;" v-bind:checked="userData.delivery=='in-person'">
                         <label for="pdf-in-person">převezmu osobně</label><br>
-                    <input type="checkbox" name="pdf-delivery" id="pdf-representative" v-bind:checked="userData.delivery=='representative'">
+                    <input type="checkbox" name="pdf-delivery" id="pdf-representative" style="margin-left: 5px;" v-bind:checked="userData.delivery=='representative'">
                         <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
-                    <input type="checkbox" name="pdf-delivery" id="pdf-my-address" v-bind:checked="userData.delivery=='my-address'">
+                    <input type="checkbox" name="pdf-delivery" id="pdf-my-address" style="margin-left: 5px;" v-bind:checked="userData.delivery=='my-address'">
                         <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
-                    <input type="checkbox" name="pdf-delivery" id="pdf-other-address" v-bind:checked="userData.delivery=='other-address'">
+                    <input type="checkbox" name="pdf-delivery" id="pdf-other-address" style="margin-left: 5px;" v-bind:checked="userData.delivery=='other-address'">
                         <label for="pdf-other-address">žádám zaslat na jinou adresu: </label>
                             <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.name +', '}}</span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line0 +', '}}</span>
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line0 != false">{{userData.deliveryAddress.line0 +', '}}</span>
                             <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line1 +', '}}</span>
                             <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.postalCode +' '}}</span>
                             <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.locality +', '}}</span>
                             <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.country}}</span>
                 </p>
-                <p class="">
+                <p style="width: 250px; margin-left: 330px; padding: 15px 10px 15px 10px; margin-right: 10px; text-align: center;">………………………………………<br>
+                    podpis voliče - žadatele</p>
+                <p style="padding: 20px 5px 10px 5px;">
                     <strong>VOLIČSKÝ PRŮKAZ PŘEVZAL VOLIČ OSOBNĚ DNE:</strong> ……………………………..
-                </p>
-                <p>
-                    Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
-                </p>
+                </p>                
             </div>
         </div>
     </div>
@@ -860,8 +882,9 @@
             min-height: 160px;
         }
         .pageA4 {
-            width: 794px;
-            /*height: 1122px;*/
+            width: 600px;
+            /*width: 794px;
+            height: 1122px;*/           
             border: 0px;
             padding: 0px;
             margin: 0px;
