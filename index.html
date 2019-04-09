@@ -240,13 +240,13 @@
                     <div class="right">
                         <div class="row">
                             <div class="col-xs-10" :class="validate('name',userData.fullName)">
-                                <label for="name" class="required">Jméno a Příjmení</label>
+                                <label for="name" class="required">Jméno a příjmení</label>
                                 <input id="name" v-model="userData.fullName" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-5" :class="validate('bday',userData.birthdate)">
-                                <label for="bday">Datum Narození</label>
+                                <label for="bday">Datum narození</label>
                                 <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')"></vuejs-datepicker>
                                 <!-- needs fix: format="d. M. yyyy" language="cs" -->
                             </div>
