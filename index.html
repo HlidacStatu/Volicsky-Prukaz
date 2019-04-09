@@ -654,14 +654,21 @@
                 </p>
                 <p style="text-align: justify; padding: 15px 5px 20px 5px;">
                     Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
-                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad <strong>{{(userData.municipality.name || '') +', '}}{{(userData.municipality.addressLine1 || '') +', '}}{{(userData.municipality.postalCode || '') +' '}} {{userData.municipality.city || ''}}</strong> o
-                    vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
+                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad&nbsp;
+                        <strong>
+                            <span v-if="userData.municipality.name">{{userData.municipality.name +', '}}</span>
+                            <span v-if="userData.municipality.addressLine1">{{userData.municipality.addressLine1 +', '}}</span>
+                            <span v-if="userData.municipality.postalCode">{{userData.municipality.postalCode +' '}}</span>
+                            <span v-if="userData.municipality.city">{{userData.municipality.city +' '}}</span>                            
+                            <span v-if="!userData.municipality.name && !userData.municipality.addressLine1 && !userData.municipality.postalCode && !userData.municipality.city">………………………………………………………………………………</span>
+                        </strong>
+                    o&nbsp;vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
                     5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
                 </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
                     <strong>Datum narození:</strong> {{userData.birthdate | dateCZ || ''}} <br>
-                    <strong>Trvalý pobyt:</strong> {{(userData.addressLine1 || '') +', '}}{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>
+                    <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || ''}}<span v-if="userData.addressLine1">, </span>{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>                    
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
                 <p style="text-align: justify; padding: 10px 5px 10px 5px;">
@@ -679,12 +686,12 @@
                         <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
                     <input type="checkbox" name="pdf-delivery" id="pdf-other-address" style="margin-left: 5px;" v-bind:checked="userData.delivery=='other-address'">
                         <label for="pdf-other-address">žádám zaslat na jinou adresu: </label>
-                            <span v-if="userData.delivery=='other-address'">{{(userData.deliveryAddress.name || '') +', '}}</span>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line0 != false">{{(userData.deliveryAddress.line0  || '') +', '}}</span>
-                            <span v-if="userData.delivery=='other-address'">{{(userData.deliveryAddress.line1 || '') +', '}}</span>
-                            <span v-if="userData.delivery=='other-address'">{{(userData.deliveryAddress.postalCode || '') +' '}}</span>
-                            <span v-if="userData.delivery=='other-address'">{{(userData.deliveryAddress.locality || '') +', '}}</span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.country || ''}}</span>
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.name">{{userData.deliveryAddress.name +', '}}</span>
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line0">{{userData.deliveryAddress.line0 +', '}}</span>
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line1">{{userData.deliveryAddress.line1 +', '}}</span>
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.postalCode">{{userData.deliveryAddress.postalCode +' '}}</span>
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.locality">{{userData.deliveryAddress.locality +', '}}</span>                            
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.country">{{userData.deliveryAddress.country}}</span>
                 </p>
                 <p style="width: 250px; margin-left: 330px; padding: 15px 10px 15px 10px; margin-right: 10px; text-align: center;">………………………………………<br>
                     podpis voliče - žadatele</p>
