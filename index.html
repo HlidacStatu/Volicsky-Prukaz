@@ -704,7 +704,12 @@
             { path: '/en/preview' }
         ];
         const paths = routes.map(function (route) { return route.path })
-        const router = new VueRouter({ routes: routes });
+        const router = new VueRouter({
+            routes: routes,
+            scrollBehavior: function(to, from, savedPosition) {
+                return { x:0, y: 0 }
+            }
+        });
         router.beforeEach(function (to, from, next) {
             if (paths.indexOf(to.path) == -1) {
                 next({ path: '/cr-cr', replace: true });
