@@ -252,6 +252,7 @@
                             </div>
                             <div class="col-xs-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telefon</label>
+                                <label for="tel" class="optional">(nepovinný)</label>
                                 <input id="tel" v-model="userData.phone" class="form-control" type="tel">
                             </div>
                         </div>
@@ -404,6 +405,7 @@
                             </div>
                             <div class="col-xs-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telephone</label>
+                                <label for="tel" class="optional">(nepovinný)</label>
                                 <input id="tel" v-model="userData.phone" class="form-control" type="tel">
                             </div>
                         </div>
@@ -589,8 +591,8 @@
                         <p>If your details are correct, download the application to your computer or mobile device and continue to select the delivery of your voting card in the next step.</p>
                         <p>If some details are incorrect, nothing happens. You can easily change the details.</p>
                         <p>If you don’t see a preview of your application, don’t worry. You can review your application directly from your computer.</p>
-                        <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Download application</button>
-                        <router-link tag="button" to="/en/form" class="btn btn-default">Change details</router-link>
+                        <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf" style="padding: 0px 25px">Download application</button>
+                        <router-link tag="button" to="/en/form" class="btn btn-default" style="padding: 0px 25px">Change details</router-link>
                     </div>
                     <h2>2. Deliver the application to your office</h2>
                     <div>
@@ -605,11 +607,11 @@
                             <h3>Via post</h3>
                             <p>Print your completed application and send it with a verified signature to the address of your office:</p>
                             <p>
-                                <string>
+                                <strong>
                                     {{userData.municipality.name || ''}}<br>
                                     {{userData.municipality.addressLine1 || ''}}<br>
                                     {{(userData.municipality.postalCode || '') +' '}} {{userData.municipality.city || ''}}
-                                </string>
+                                </strong>
                             </p>
                             <p>Your application must be delivered (received, not only sent) by 16:00 on 17th May 2019.</p>
                         </div>
@@ -734,7 +736,7 @@
                 validatiors: {
                     name: { pattern: /^.{2,}\ .{2,}$/ },
                     bday: { pattern: /^[0-9]{1,2}\. ?[0-9]{1,2}\. ?[0-9]{4}$/ },
-                    tel: { pattern: /^\+?[0-9 \-\.]{9,}$/ },
+                    tel: { pattern: /^(\+?[0-9 \-\.]{9,})?$/ },
                     line1: { pattern: /^.{2,} \d{1,}$/ },
                     "postal-code": { pattern: /^[0-9]{3} ?[0-9]{2}$/ },
                     locality: { pattern: /^.{2,40}$/ }
@@ -800,9 +802,6 @@
             margin-left: auto;
             margin-right: auto;
             max-width: 1170px;
-        }
-
-        div#app {
         }
 
         .pane {
