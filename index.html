@@ -608,7 +608,7 @@
                                 <string>
                                     {{userData.municipality.name || ''}}<br>
                                     {{userData.municipality.addressLine1 || ''}}<br>
-                                    {{userData.municipality.postalCode || '' +' '}} {{userData.municipality.city || ''}}
+                                    {{(userData.municipality.postalCode || '') +' '}} {{userData.municipality.city || ''}}
                                 </string>
                             </p>
                             <p>Your application must be delivered (received, not only sent) by 16:00 on 17th May 2019.</p>
@@ -620,7 +620,7 @@
                                 <strong>
                                     {{userData.municipality.name || ''}}<br>
                                     {{userData.municipality.addressLine1 || ''}}<br>
-                                    {{userData.municipality.postalCode || '' +' '}} {{userData.municipality.city || ''}}
+                                    {{(userData.municipality.postalCode || '') +' '}} {{userData.municipality.city || ''}}
                                 </strong>
                             </p>
                             <p>You can go to the office no later than 16:00 on 22nd May 2019.</p>
@@ -652,14 +652,14 @@
                 </p>
                 <p style="text-align: justify; padding: 15px 5px 20px 5px;">
                     Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
-                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad <strong>{{userData.municipality.name || '' +', '}}{{userData.municipality.addressLine1 || '' +', '}}{{userData.municipality.postalCode || '' +' '}} {{userData.municipality.city || ''}}</strong> o
+                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad <strong>{{(userData.municipality.name || '') +', '}}{{(userData.municipality.addressLine1 || '') +', '}}{{(userData.municipality.postalCode || '') +' '}} {{userData.municipality.city || ''}}</strong> o
                     vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
                     5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
                 </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
                     <strong>Datum narození:</strong> {{userData.birthdate | dateCZ || ''}} <br>
-                    <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || '' +', '}}{{userData.postalCode || '' +' '}}{{userData.city || ''}}<br>
+                    <strong>Trvalý pobyt:</strong> {{(userData.addressLine1 || '') +', '}}{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
                 <p style="text-align: justify; padding: 10px 5px 10px 5px;">
@@ -677,11 +677,11 @@
                         <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
                     <input type="checkbox" name="pdf-delivery" id="pdf-other-address" style="margin-left: 5px;" v-bind:checked="userData.delivery=='other-address'">
                         <label for="pdf-other-address">žádám zaslat na jinou adresu: </label>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.name || '' +', '}}</span>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line0 != false">{{userData.deliveryAddress.line0  || '' +', '}}</span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.line1 || '' +', '}}</span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.postalCode || '' +' '}}</span>
-                            <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.locality || '' +', '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{(userData.deliveryAddress.name || '') +', '}}</span>
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line0 != false">{{(userData.deliveryAddress.line0  || '') +', '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{(userData.deliveryAddress.line1 || '') +', '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{(userData.deliveryAddress.postalCode || '') +' '}}</span>
+                            <span v-if="userData.delivery=='other-address'">{{(userData.deliveryAddress.locality || '') +', '}}</span>
                             <span v-if="userData.delivery=='other-address'">{{userData.deliveryAddress.country || ''}}</span>
                 </p>
                 <p style="width: 250px; margin-left: 330px; padding: 15px 10px 15px 10px; margin-right: 10px; text-align: center;">………………………………………<br>
