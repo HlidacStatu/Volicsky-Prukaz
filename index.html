@@ -336,7 +336,7 @@
                                     <div class="row">
                                         <div class="col-xs-10">
                                             <label for="delivery-address-line0">Upřesnění adresy</label>
-                                            <label for="delivery-address-line0">Nepovinné (např firma nebo číslo bytu)</label>
+                                            <label for="delivery-address-line0" class="optional">(nepovinné, např firma nebo číslo bytu)</label>
                                             <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
                                         </div>
                                     </div>
@@ -488,7 +488,7 @@
                                         <div class="row">
                                             <div class="col-xs-10">
                                                 <label for="delivery-address-line0">Address details</label>
-                                                <label for="delivery-address-line0">(Optional, e.g. company name or flat number)</label>
+                                                <label for="delivery-address-line0" class="optional">(optional, e.g. company name or flat number)</label>
                                                 <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
                                             </div>
                                         </div>
@@ -912,6 +912,12 @@
 
         .form input[type="radio"] {
             margin-right: 5px;
+        }
+
+        .form label.optional {
+            font-size: small;
+            position: absolute;
+            right: 15px;
         }
 
         #preview .btn-default,#en-preview .btn-default {
