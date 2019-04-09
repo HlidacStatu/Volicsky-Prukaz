@@ -272,8 +272,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" results-display="zip" results-value="zip" @selected="zipSelected"></autocomplete>
-                                <!-- <input id="postal-code" v-model="userData.postalCode" class="form-control" type="text"> -->
+                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" results-display="zip" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">Město</label>
@@ -425,7 +424,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
-                                <input id="postal-code" v-model="userData.postalCode" class="form-control" type="text">
+                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" results-display="zip" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">City</label>
