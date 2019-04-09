@@ -276,7 +276,7 @@
                                 <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" results-display="zip" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
-                                <label for="locality">Město</label>
+                                <label for="locality">Obec</label>
                                 <input id="locality" v-model="userData.city" class="form-control" type="text">
                             </div>
                         </div>
@@ -306,7 +306,7 @@
                                 <input id="office-zip" v-model="userData.municipality.postalCode" class="form-control" type="text" autocomplete="off">
                             </div>
                             <div class="col-xs-7">
-                                <label for="office-city">Město</label>
+                                <label for="office-city">Obec</label>
                                 <input id="office-city" v-model="userData.municipality.city" class="form-control" type="text" autocomplete="off">
                             </div>
                         </div>
@@ -353,7 +353,7 @@
                                             <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
                                         </div>
                                         <div class="col-xs-7">
-                                            <label for="delivery-locality">Město</label>
+                                            <label for="delivery-locality">Obec</label>
                                             <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
                                         </div>
                                     </div>
