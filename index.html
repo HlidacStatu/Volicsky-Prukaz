@@ -36,9 +36,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.5.4/dist/vuejs-datepicker.min.js" integrity="sha256-ZUTpdoIYoQnvkgbRBu2l3X8MIOQv/riZxzQKNbpp3Ec=" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.5.4/dist/locale/translations/cs.js" integrity="sha256-xbb1bpFdnZO6hB8Of8lcT0g9hDP23Deyi8u32Y7FSLw=" crossorigin="anonymous"></script> -->
-    <!-- html2pdf on jsdelivr needs to be fixed to bundle
-    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.9.1/dist/html2pdf.js" integrity="sha256-vzO/Is3piKqdqLXRh5RUecYxetRt2RQwjJ9tQMTNi3A=" crossorigin="anonymous"></script>-->
+    <script src="assets/lang-cs.js"></script>
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuejs-auto-complete@0.9.0/dist/build.js" integrity="sha256-qvRQkAxxZ/CcJDP23qVbV8L8PLp3PAgISaXr+jmugnY=" crossorigin="anonymous"></script>
     <script src="assets/citycouncils.js"></script>
@@ -247,7 +245,7 @@
                         <div class="row">
                             <div class="col-xs-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Datum narození</label>
-                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')"></vuejs-datepicker>
+                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :language="cs"></vuejs-datepicker>
                                 <!-- needs fix: format="d. M. yyyy" language="cs" -->
                             </div>
                             <div class="col-xs-5" :class="validate('tel',userData.phone)">
@@ -729,6 +727,7 @@
             el: '#app',
             data: {
                 citiesSmall: citiesParsed.slice(0,1000),
+                cs: window.csLang                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ,
                 routes: routes,
                 overlayVisible: false,
                 userData: {
