@@ -657,7 +657,7 @@
                             <span v-if="userData.municipality.name">{{userData.municipality.name +', '}}</span>
                             <span v-if="userData.municipality.addressLine1">{{userData.municipality.addressLine1 +', '}}</span>
                             <span v-if="userData.municipality.postalCode">{{userData.municipality.postalCode +' '}}</span>
-                            <span v-if="userData.municipality.city">{{userData.municipality.city +' '}}</span>                            
+                            <span v-if="userData.municipality.city">{{userData.municipality.city +' '}}</span>
                             <span v-if="!userData.municipality.name && !userData.municipality.addressLine1 && !userData.municipality.postalCode && !userData.municipality.city">………………………………………………………………………………</span>
                         </strong>
                     o&nbsp;vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
@@ -666,7 +666,7 @@
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
                     <strong>Datum narození:</strong> {{userData.birthdate | dateCZ || ''}} <br>
-                    <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || ''}}<span v-if="userData.addressLine1">, </span>{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>                    
+                    <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || ''}}<span v-if="userData.addressLine1">, </span>{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
                 <p style="text-align: justify; padding: 10px 5px 10px 5px;">
@@ -688,7 +688,7 @@
                             <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line0">{{userData.deliveryAddress.line0 +', '}}</span>
                             <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line1">{{userData.deliveryAddress.line1 +', '}}</span>
                             <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.postalCode">{{userData.deliveryAddress.postalCode +' '}}</span>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.locality">{{userData.deliveryAddress.locality +', '}}</span>                            
+                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.locality">{{userData.deliveryAddress.locality +', '}}</span>
                             <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.country">{{userData.deliveryAddress.country}}</span>
                 </p>
                 <p style="width: 250px; margin-left: 330px; padding: 15px 10px 15px 10px; margin-right: 10px; text-align: center;">………………………………………<br>
@@ -727,7 +727,7 @@
             el: '#app',
             data: {
                 citiesSmall: citiesParsed.slice(0,1000),
-                cs: window.csLang                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ,
+                cs: window.csLang,
                 routes: routes,
                 overlayVisible: false,
                 userData: {
