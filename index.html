@@ -752,6 +752,7 @@
             methods: {
                 zipSelected: function(result) {
                     this.userData.city = result.selectedObject.city;
+                    this.userData.postalCode = result.selectedObject.zip;
                     this.userData.municipality.name = result.selectedObject.name;
                     this.userData.municipality.addressLine1 = (result.selectedObject.street ? result.selectedObject.street : result.selectedObject.city)+' '+result.selectedObject.houseNumber;
                     this.userData.municipality.city = result.selectedObject.city;
