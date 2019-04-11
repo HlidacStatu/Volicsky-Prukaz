@@ -130,7 +130,7 @@
             </div>
             <div class="header__title">
                 <h1>Volby do Evropského parlamentu 2019</h1>
-                <span>Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. (od 8:00 do 14:00)</strong></span>
+                <span>Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. 2019 (od 8:00 do 14:00)</strong></span>
             </div>
             <!-- desktop menu items only -->
             <div id="navigation" class="row">
@@ -152,14 +152,14 @@
             <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
                 <h2>Chci volit v místě svého trvalého bydliště</h2>
                 <p class="new-p">
-                    Nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti v den voleb do volební místnosti ve svém volebním obvodě (dle trvalého bydliště).
+                    Nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti (občanský průkaz, cestovní, diplomatický nebo služební pas České republiky) v den voleb do volební místnosti ve vašem volebním obvodu (dle trvalého bydliště).
                 </p>
                 <h2>Chci volit v kterémkoliv volebním obvodě v ČR</h2>
                 <p class="new-p">
-                    Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz. O voličský průkaz můžete zažádat na svém obecním úřadě a to buď:</p>
+                    Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz. O voličský průkaz můžete zažádat na svém obecním úřadu a to buď:</p>
                 <ul class="new-p">
                     <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</span></li>
-                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte doručit do 17. 5. 2019 v 16:00 pomocí vaší datové schránky nebo poštou s úředně ověřeným podpisem.</span></li>
+                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do 17. 5. 2019 v 16:00 pomocí vaší datové schránky nebo poštou s úředně ověřeným podpisem.</span></li>
                 </ul>
                 <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
             </div>
@@ -219,10 +219,14 @@
                     <h2>Soukromí</h2>
                     <div class="right">
                         <p class="new-p">
-                            Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.<br>
-                            Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.<br>
-                            Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu<br>
+                            Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.
+                            Nemusíte se ale ničeho bát – celá žádost vzniká pouze na vašem počítači.
+                            Pokud chcete mít 100% jistotu, klidně se při vytváření žádosti odpojte od internetu
                             nebo si stáhněte a vyplňte <a href="assets/files/Zadost-Volicsky-Prukaz-EU2019-CR.pdf">šablonu žádosti</a> ručně sami.
+                        </p>
+                        <p class="new-p">
+                            Pokud se můžete na váš obecní úřad dostavit osobně, nepotřebujete předem žádnou písemnou žádost vytvářet.
+                            Stačí, pokud se dostavíte na úřad s platným dokladem totožnosti.
                         </p>
                     </div>
                 </div>
@@ -304,7 +308,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-10">Nelekněte se, PSČ vašeho obecního úřadu se může od vašeho lišit.</div>
+                            <div class="col-xs-10">Nelekněte se, PSČ adresy vašeho obecního úřadu se může od vašeho lišit od PSČ adresy vašeho trvalého bydliště.</div>
                         </div>
                     </div>
                 </div>
@@ -522,10 +526,10 @@
                     <h2>1. Zkontrolujte žádost</h2>
                     <div class="preview-wrapper" @click="showOverlay"><img></div>
                     <div class="left">
-                        <p>Zkontrolujte, prosím, údaje ve vygenerované žádosti.</p>
-                        <p>Pokud jsou všechny údaje v pořádku, stáhněte žádost do svého počítače nebo mobilního zařízení a pročtěte si následující sekci s informacemi o způsobu doručení žádosti.</p>
+                        <p>Zkontrolujte si, prosíme, údaje ve vygenerované žádosti.</p>
+                        <p>Pokud jsou všechny údaje v pořádku, žádost si stáhněte do svého počítače nebo mobilního zařízení a pročtěte si následující sekci s informacemi o jejím způsobu doručení žádosti.</p>
                         <p>Pokud není některá z vyplněných informací správná, nic se neděje. Údaje můžete snadno změnit.</p>
-                        <p>Pokud se vám náhled žádosti nezobrazuje, nevadí. Žádost můžete stáhnout a zkontrolovat přímo z vašeho počítače.</p>
+                        <p>Pokud se vám náhled žádosti nezobrazuje, nevadí. Žádost můžete stáhnout a zkontrolovat přímo na vašem zařízení.</p>
                         <button class="btn btn-primary btn-primary-new" v-on:click="downloadPdf">Stáhnout žádost</button>
                         <router-link tag="button" to="/form" class="btn btn-default">Změnit údaje</router-link>
                     </div>
@@ -533,14 +537,14 @@
                     <div>
                         <div class="col-md-4">
                             <h3>Pomocí datové schránky</h3>
-                            <p>Pokud máte datovou schránku, stačí odeslat vytvořenou žádost jako přílohu ve formátu PDF do datové schránky příslušného úřadu:</p>
+                            <p>Pokud máte datovou schránku, stačí odeslat vytvořenou žádost jako přílohu ve formátu PDF do datové schránky vašeho obecního úřadu:</p>
                             <p><strong>{{userData.municipality.databox}}</strong></p>
-                            <p>Žádost nemusí být podepsaná a tím pádem nemusíte podpis ani ověřovat – vaše identita je ověřena přihlášením do datové schránky.</p>
-                            <p>Žádost odešlete nejpozději do 17. května 2019 v 16:00 hodin.</p>
+                            <p>Žádost nemusí být podepsaná (nebo opatřena elektronickým podpisem) a tím pádem nemusíte podpis ani ověřovat – vaše identita je ověřena přihlášením do datové schránky.</p>
+                            <p>Žádost odešlete nejpozději do 17. 5. 2019 v 16:00 hodin.</p>
                         </div>
                         <div class="col-md-4">
                             <h3>Poštou</h3>
-                            <p>Vytvořenou žádost vytiskněte a s úředně ověřeným podpisem odešlete na adresu vašeho úřadu:</p>
+                            <p>Vytvořenou žádost vytiskněte, opatřete ji úředně ověřeným podpisem (na libovolném obecním úřadu, u notáře apod.) odešlete na adresu vašeho úřadu.</p>
                             <p>
                                 <strong>
                                     {{userData.municipality.name || ''}}<br>
@@ -552,7 +556,8 @@
                         </div>
                         <div class="col-md-4">
                             <h3>Osobně</h3>
-                            <p>Pokud se můžete na úřad dostavit osobně, nepotřebujete předem žádnou písemnou žádost. Stačí, pokud se dostavíte na příslušný úřad s platným dokladem totožnosti (občanský průkaz nebo pas).</p>
+                            <p>Dostavte se na váš obecní úřad s platným dokladem totožnosti.</p>
+                            <p>Na úřad můžete přijít podat žádost nejpozději 22. 5. 2019 do 16:00 hodin. Raději si ale předem zkontrolujte úřední hodiny!</p>
                             <p>
                                 <strong>
                                     {{userData.municipality.name || ''}}<br>
@@ -566,10 +571,10 @@
                     <h2>3. Přejeme dobrou volbu!</h2>
                     <div class="col-md-8">
                         <p>
-                            Dostavte se s vaším volebním průkazem a platným průkazem totožnosti  24. (14:00 - 22:00) nebo 25. května 2019 (8:00 - 14:00) do <u>kterékoliv volební místnosti v ČR</u>.
+                            Dostavte se s vaším volebním průkazem a platným průkazem totožnosti  24. 5. (14:00 - 22:00) nebo 25. 5. 2019 (8:00 - 14:00) do <u>kterékoliv volební místnosti v ČR</u>.
                         </p>
                         <p>
-                            Mezitím můžete dát vědět o možnosti zažádat o voličský průkaz své rodině, kamarádům a kolegům…
+                            <strong>Upozornění:</strong> pokud máte vystaven volební průkaz a chcete volit ve Vaší volební místnosti (dle Vašeho volebního okrsku), musíte mít volební průkaz také sebou. Bez něj Vám volba nebude umožněna!
                         </p>
                     </div>
                 </div>
