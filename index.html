@@ -35,7 +35,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.5.4/dist/vuejs-datepicker.min.js" integrity="sha256-ZUTpdoIYoQnvkgbRBu2l3X8MIOQv/riZxzQKNbpp3Ec=" crossorigin="anonymous"></script>
+    <script src="assets/vuejs-datepicker-patched.min.js"></script>
     <script src="assets/lang-cs.js"></script>
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuejs-auto-complete@0.9.0/dist/build.js" integrity="sha256-qvRQkAxxZ/CcJDP23qVbV8L8PLp3PAgISaXr+jmugnY=" crossorigin="anonymous"></script>
@@ -245,8 +245,7 @@
                         <div class="row">
                             <div class="col-xs-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Datum narození</label>
-                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :language="cs"></vuejs-datepicker>
-                                <!-- needs fix: format="d. M. yyyy" language="cs" -->
+                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :language="cs" :format="csDateFormat" :parse="csDateParse" @selected="birthdateSelected"></vuejs-datepicker>
                             </div>
                             <div class="col-xs-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telefon</label>
@@ -399,7 +398,7 @@
                         <div class="row">
                             <div class="col-xs-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Date of birth</label>
-                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')"></vuejs-datepicker>
+                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :format="csDateFormat" :parse="csDateParse" @input="birthdateSelected"></vuejs-datepicker>
                             </div>
                             <div class="col-xs-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telephone</label>
@@ -665,7 +664,7 @@
                 </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
-                    <strong>Datum narození:</strong> {{userData.birthdate | dateCZ || ''}} <br>
+                    <strong>Datum narození:</strong> {{(userData.birthdate | this.dateCZ) || ''}} <br>
                     <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || ''}}<span v-if="userData.addressLine1">, </span>{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
@@ -722,6 +721,7 @@
                 next({ path: '/cr-cr', replace: true });
             } else next();
         })
+        Vue.filter('dateCZ', function(date) { return moment(date).format('D. M. YYYY'); })
         window.app = new Vue({
             router: router,
             el: '#app',
@@ -741,7 +741,11 @@
                 },
                 validatiors: {
                     name: { pattern: /^.{2,}\ .{2,}$/ },
-                    bday: { pattern: /^[0-9]{1,2}\. ?[0-9]{1,2}\. ?[0-9]{4}$/ },
+                    bday: function(bday) {
+                        var year = bday.getFullYear();
+                        if (year < 1900 || year > (new Date().getFullYear())-18) return false;
+                        return true;
+                    },
                     tel: { pattern: /^(\+?[0-9 \-\.]{9,})?$/ },
                     line1: { pattern: /^.{2,} \d{1,}$/ },
                     "postal-code": { pattern: /^[0-9]{3} ?[0-9]{2}$/ },
@@ -759,11 +763,24 @@
                     this.userData.municipality.databox = result.selectedObject.datovaSchranka;
                     this.userData.municipality.email = result.selectedObject.email;
                 },
+                birthdateSelected: function(result) {
+                    // this.userData.birthdate = result;
+                },
+                csDateFormat: function(date) {
+                    return moment(date).format('D. M. YYYY');
+                },
+                csDateParse: function(dateString) {
+                    return moment(dateString, 'DD-MM-YYYY').toDate();
+                },
                 validate: function(field,data) {
                     if (data===undefined) return ''
                     if (this.validatiors[field]===undefined) return '';
-                    if (this.validatiors[field].pattern===undefined) return '';
-                    var valid = this.validatiors[field].pattern.test(data);
+                    var valid;
+                    if (typeof(this.validatiors[field])==='function') {
+                        valid = this.validatiors[field](data);
+                    } else {
+                        if (this.validatiors[field].pattern===undefined) return '';
+                        valid = this.validatiors[field].pattern.test(data);                    }
                     return valid ? '' : 'has-error';
                 },
                 generatePreviewfinished: function() {
@@ -787,11 +804,6 @@
                         html2canvas: { scale: 2 },
                         jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
                     }).save();
-                }
-            },
-            filters: {
-                dateCZ: function (date) {
-                    return moment(date).format('DD. MM. YYYY');
                 }
             },
             components: {
@@ -941,7 +953,7 @@
         }
 
         .preview-wrapper {
-            display: inline-block;
+            display: block;
             float: right;
             box-shadow: 0 2px 20px lightgray;
             margin: 20px 40px;
