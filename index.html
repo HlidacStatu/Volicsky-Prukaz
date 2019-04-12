@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -666,7 +666,7 @@
                 </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
-                    <strong>Datum narození:</strong> {{(userData.birthdate | this.dateCZ) || ''}} <br>
+                    <strong>Datum narození:</strong> {{userData.birthdate | dateCZ}} <br>
                     <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || ''}}<span v-if="userData.addressLine1">, </span>{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
@@ -723,7 +723,10 @@
                 next({ path: '/cr-cr', replace: true });
             } else next();
         })
-        Vue.filter('dateCZ', function(date) { return moment(date).format('D. M. YYYY'); })
+        Vue.filter('dateCZ', function(dateString) {
+            const date = moment(dateString);
+            return date.isValid() ? date.format('D. M. YYYY') : "";
+        });
         window.app = new Vue({
             router: router,
             el: '#app',
@@ -739,6 +742,7 @@
                         postalCode: '',
                         city: ''
                     },
+                    birthdate: '',
                     deliveryAddress: {}
                 },
                 validatiors: {
@@ -766,7 +770,7 @@
                     this.userData.municipality.email = result.selectedObject.email;
                 },
                 birthdateSelected: function(result) {
-                    // this.userData.birthdate = result;
+                    this.userData.birthdate = result;
                 },
                 csDateFormat: function(date) {
                     return moment(date).format('D. M. YYYY');
