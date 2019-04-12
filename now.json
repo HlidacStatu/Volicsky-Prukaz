@@ -1,7 +1,7 @@
 {
     "name": "volicsky-prukaz",
     "version": 2,
-    "alias": "volicsky-prukaz",
+    "alias": "volby2.hlidacstatu.cz",
     "builds": [
         { "src": "index.html", "use": "@now/static" },
         { "src": "favicon.ico", "use": "@now/static" },
