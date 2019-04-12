@@ -272,7 +272,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" results-display="zip" results-value="zip" @selected="zipSelected"></autocomplete>
+                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" :results-display="function(city){return city.zip + ' ' + city.name}" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">Obec</label>
@@ -425,7 +425,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" results-display="zip" results-value="zip" @selected="zipSelected"></autocomplete>
+                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" :results-display="function(city){return city.zip + ' ' + city.name}" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">City</label>
@@ -728,7 +728,7 @@
             router: router,
             el: '#app',
             data: {
-                citiesSmall: citiesParsed.slice(0,1000),
+                citiesSmall: citiesParsed.filter(function(city){ return !!city.zip; }).sort(),
                 cs: window.csLang,
                 routes: routes,
                 overlayVisible: false,
