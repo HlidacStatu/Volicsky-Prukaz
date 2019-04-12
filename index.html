@@ -664,7 +664,7 @@
                 </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
-                    <strong>Datum narození:</strong> {{(userData.birthdate | this.dateCZ) || ''}} <br>
+                    <strong>Datum narození:</strong> {{(userData.birthdate | dateCZ) || ''}} <br>
                     <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || ''}}<span v-if="userData.addressLine1">, </span>{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
