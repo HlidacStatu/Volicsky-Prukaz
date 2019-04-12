@@ -744,9 +744,9 @@
                 validatiors: {
                     name: { pattern: /^.{2,}\ .{2,}$/ },
                     bday: function(bday) {
-                        var year = bday.getFullYear();
-                        if (year < 1900 || year > (new Date().getFullYear())-18) return false;
-                        return true;
+                        // rozhodny datum pro 18 let je posledni den voleb, tj. 25.5.2019
+                        // pozor, u konstruktoru Date mesic zacina od 0 (leden), proto 4 = kveten
+                        return bday >= new Date(1900, 0, 1) && bday <= new Date(2001, 4, 25); 
                     },
                     tel: { pattern: /^(\+?[0-9 \-\.]{9,})?$/ },
                     line1: { pattern: /^.{2,} \d{1,}$/ },
