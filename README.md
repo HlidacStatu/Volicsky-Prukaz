@@ -1,10 +1,3 @@
-*Jak to rozchodit:* stačí otevřít index.html. Externí assety [vue.js](https://vuejs.org) a [Bootstrap](https://getbootstrap.com) jsou nahrávány z CDN.
-
-# !Work in Progress! - pracujeme na nové verzi, poprvé použité pro volby do evropského parlamentu 2019.
-
-Klid, ještě máte čas - volby se uskuteční **24. května**, žádost je potřeba podat **do 17. května** (datovkou, případně o pár dní dříve poštou). Pokud jste cizinec na území ČR tak máte čas do **14. dubna** požádat o zapsání na seznam voličů. Aplikace bude hotová do konce března.
-
-
 # Volby s volebním průkazem — [volby.hlidacstatu.cz](https://volby.hlidacstatu.cz/)
 ============================
 
