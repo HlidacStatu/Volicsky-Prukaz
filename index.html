@@ -41,7 +41,7 @@
     <script src="assets/lang-cs.js"></script>
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuejs-auto-complete@0.9.0/dist/build.js" integrity="sha256-qvRQkAxxZ/CcJDP23qVbV8L8PLp3PAgISaXr+jmugnY=" crossorigin="anonymous"></script>
-    <script src="assets/citycouncils.js"></script>
+    <script src="assets/citycouncils.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154075-24"></script>
     <script>
@@ -272,7 +272,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" :results-display="function(city){return city.zip + ' ' + city.name}" results-value="zip" @selected="zipSelected"></autocomplete>
+                                <autocomplete :source="cities" :input-class="'form-control'" placeholder="" results-display="zip_city" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">Obec</label>
@@ -425,7 +425,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" :results-display="function(city){return city.zip + ' ' + city.name}" results-value="zip" @selected="zipSelected"></autocomplete>
+                                <autocomplete :source="cities" :input-class="'form-control'" placeholder="" results-display="zip_city" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">City</label>
@@ -731,7 +731,7 @@
             router: router,
             el: '#app',
             data: {
-                citiesSmall: citiesParsed.filter(function(city){ return !!city.zip; }).sort(),
+                cities: cities,
                 cs: window.csLang,
                 routes: routes,
                 overlayVisible: false,
