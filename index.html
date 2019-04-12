@@ -25,6 +25,8 @@
     <meta name="twitter:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <!-- needs update <meta name="twitter:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.5/core.min.js" integrity="sha256-mmU2yAEP5IKCRWRxZEA+e2oGOdfyJGQV+55ZFTLahW8=" crossorigin="anonymous"></script>
+  
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -189,8 +191,8 @@
 
                 <ul class="new-p">
                     <li><span>If you have already voted in a previous EP election and were registered on the EP electoral roll, you may vote in the election again.</span></li>
-                    <li><span>If you are already on the municipal electoral roll, you may apply to have your details transferred to the EP electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
-                    <li><span>If you have not yet voted in the EP election, you must apply at the local authority to register on the electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
+                    <li><span>If you are already on the municipal electoral roll, you may apply to have your details transferred to the EP electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
+                    <li><span>If you have not yet voted in the EP election, you must apply at the local authority to register on the electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
                 </ul>
 
                 <h3>I want to vote where I have permanent residence in CZ</h3>
@@ -270,7 +272,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" results-display="zip" results-value="zip" @selected="zipSelected"></autocomplete>
+                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" :results-display="function(city){return city.zip + ' ' + city.name}" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">Obec</label>
@@ -423,7 +425,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" results-display="zip" results-value="zip" @selected="zipSelected"></autocomplete>
+                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" :results-display="function(city){return city.zip + ' ' + city.name}" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">City</label>
@@ -726,7 +728,7 @@
             router: router,
             el: '#app',
             data: {
-                citiesSmall: citiesParsed.slice(0,1000),
+                citiesSmall: citiesParsed.filter(function(city){ return !!city.zip; }).sort(),
                 cs: window.csLang,
                 routes: routes,
                 overlayVisible: false,
