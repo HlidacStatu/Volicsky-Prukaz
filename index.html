@@ -26,7 +26,6 @@
     <!-- needs update <meta name="twitter:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.5/core.min.js" integrity="sha256-mmU2yAEP5IKCRWRxZEA+e2oGOdfyJGQV+55ZFTLahW8=" crossorigin="anonymous"></script>
-  
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -34,16 +33,16 @@
     <link href="assets/globalsite.css" rel="stylesheet">
     <link href="assets/social-share-kit.css" rel="stylesheet"/>
     <link href="assets/hlidac.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js" integrity="sha256-GT4AUs9RYD3WEeAsoJlvGbT9fxp3TR1iOFZrvBuS8Mo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.js" integrity="sha256-ZXuDnCcIq0+1FwNaovtHEPcdRFEQK10rzx+lYtxxJh8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
     <script src="assets/vuejs-datepicker-patched.min.js"></script>
     <script src="assets/lang-cs.js"></script>
-    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuejs-auto-complete@0.9.0/dist/build.js" integrity="sha256-qvRQkAxxZ/CcJDP23qVbV8L8PLp3PAgISaXr+jmugnY=" crossorigin="anonymous"></script>
-    <script src="assets/citycouncils.js"></script>
+    <script src="assets/citycouncils.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js" identity="sha384-QliZbpszoo4jiVyo529dYiKgGQySM0I/kSJcvQcVkMXCqiIoEfRQLsvUwVNLcOqP" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.min.js" integrity="sha384-tJs0vlPyuG7XcysSkZ0VtWsM/uztJkUtpLwb6HzV5NSgSwGqdW61IBOBJDhbUf+K" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.min.js" integrity="sha384-EnzMJi5PirMz1dgUr9a4DUHwg7e71+fxk3jLLfJn1vljGydxX8c6bdDYdPDE8224" crossorigin="anonymous"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js" integrity="sha384-Ho2Qx5q7Y92BZSxEZtDh2+hUqcudf/uXp77PK0XXawmB+tmreY4nUttlKWXnUWtn" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuejs-auto-complete@0.9.0/dist/build.js" integrity="sha384-asU05qXSwk3ZdJx7bfEM0Iau0NvJdny68xiGvriuI3Y1AtQfRRNd9Mo4IApTgejh" crossorigin="anonymous"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src=“https://www.googletagmanager.com/gtag/js?id=UA-154075-24“></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154075-24"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -272,7 +271,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" :results-display="function(city){return city.zip + ' ' + city.name}" results-value="zip" @selected="zipSelected"></autocomplete>
+                                <autocomplete :source="cities" :input-class="'form-control'" placeholder="" results-display="zip_name" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">Obec</label>
@@ -425,7 +424,7 @@
                         <div class="row">
                             <div class="col-xs-3" :class="validate('postal-code',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
-                                <autocomplete :source="citiesSmall" :input-class="'form-control'" placeholder="" :results-display="function(city){return city.zip + ' ' + city.name}" results-value="zip" @selected="zipSelected"></autocomplete>
+                                <autocomplete :source="cities" :input-class="'form-control'" placeholder="" results-display="zip_name" results-value="zip" @selected="zipSelected"></autocomplete>
                             </div>
                             <div class="col-xs-7" :class="validate('locality',userData.city)">
                                 <label for="locality">City</label>
@@ -666,7 +665,7 @@
                 </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
-                    <strong>Datum narození:</strong> {{(userData.birthdate | this.dateCZ) || ''}} <br>
+                    <strong>Datum narození:</strong> {{userData.birthdate | dateCZ}} <br>
                     <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || ''}}<span v-if="userData.addressLine1">, </span>{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
@@ -723,12 +722,15 @@
                 next({ path: '/cr-cr', replace: true });
             } else next();
         })
-        Vue.filter('dateCZ', function(date) { return moment(date).format('D. M. YYYY'); })
+        Vue.filter('dateCZ', function(dateString) {
+            const date = moment(dateString);
+            return date.isValid() ? date.format('D. M. YYYY') : "";
+        });
         window.app = new Vue({
             router: router,
             el: '#app',
             data: {
-                citiesSmall: citiesParsed.filter(function(city){ return !!city.zip; }).sort(),
+                cities: cities,
                 cs: window.csLang,
                 routes: routes,
                 overlayVisible: false,
@@ -739,6 +741,7 @@
                         postalCode: '',
                         city: ''
                     },
+                    birthdate: '',
                     deliveryAddress: {}
                 },
                 validatiors: {
@@ -746,7 +749,7 @@
                     bday: function(bday) {
                         // rozhodny datum pro 18 let je posledni den voleb, tj. 25.5.2019
                         // pozor, u konstruktoru Date mesic zacina od 0 (leden), proto 4 = kveten
-                        return bday >= new Date(1900, 0, 1) && bday <= new Date(2001, 4, 25); 
+                        return bday >= new Date(1900, 0, 1) && bday <= new Date(2001, 4, 25);
                     },
                     tel: { pattern: /^(\+?[0-9 \-\.]{9,})?$/ },
                     line1: { pattern: /^.{2,} \d{1,}$/ },
@@ -760,8 +763,8 @@
                     this.userData.postalCode = result.selectedObject.zip;
                     this.userData.municipality.name = result.selectedObject.name;
                     this.userData.municipality.addressLine1 = (result.selectedObject.street ? result.selectedObject.street : result.selectedObject.city)+' '+result.selectedObject.houseNumber;
-                    this.userData.municipality.city = result.selectedObject.city;                    
-                    this.userData.municipality.postalCode = result.selectedObject.zip;                    
+                    this.userData.municipality.city = result.selectedObject.city;
+                    this.userData.municipality.postalCode = result.selectedObject.zip;
                     this.userData.municipality.databox = result.selectedObject.datovaSchranka;
                     this.userData.municipality.email = result.selectedObject.email;
                 },
