@@ -17,13 +17,13 @@
     <meta property="og:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://volby.hlidacstatu.cz/" />
-    <!-- needs update <meta property="og:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
+    <meta property="og:image" content="https://volby.hlidacstatu.cz/assets/images/EP2019-sharing-banner.jpg" />
 
     <meta name="twitter:site" content="Voličské Průkazy" />
     <meta name="twitter:url" content="https://volby.hlidacstatu.cz/" />
     <meta name="twitter:title" content="Rychlá žádost o voličský průkaz" />
     <meta name="twitter:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
-    <!-- needs update <meta name="twitter:image" content="https://volby.hlidacstatu.cz/images/fbbanner-hlasovaci-prukaz.jpg" /> -->
+    <meta name="twitter:image" content="https://volby.hlidacstatu.cz/assets/images/EP2019-sharing-banner.jpg" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.5/core.min.js" integrity="sha256-mmU2yAEP5IKCRWRxZEA+e2oGOdfyJGQV+55ZFTLahW8=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
@@ -775,7 +775,7 @@
                     tel: { pattern: /^(\+?[0-9 \-\.]{9,})?$/ },
                     line1: { pattern: /^(.*[^0-9]+) (([1-9][0-9]*)\/)?([1-9][0-9]*[a-cA-C]?)$/ },
                     postalCode: { pattern: /^[1-7][0-9]{4}$/ },
-                    locality: { pattern: /^.{2,40}$/ }, 
+                    locality: { pattern: /^.{2,40}$/ },
                     officeName: { pattern: /^.{2,40}$/ }
                 }
             },
@@ -784,13 +784,13 @@
                     this.userData.city = result.selectedObject.name;
                     this.userData.postalCode = result.selectedObject.zip;
 
-                    /* 
+                    /*
                      * search priority:
                      * 1) town_district_code && city_code
                      * 2) town_district_code
                      * 3) city_code
-                     * 4) zip 
-                     * 
+                     * 4) zip
+                     *
                      * multiple "flat if" (not nested) is for better readability
                      */
 
@@ -809,7 +809,7 @@
                         selectedCity = cities.find(function (cities) { return cities.zip == result.selectedObject.zip; });
                     }
 
-                    if (typeof selectedCity !== 'undefined') {  
+                    if (typeof selectedCity !== 'undefined') {
                         this.userData.municipality.city = selectedCity.city;
                         this.userData.municipality.postalCode = selectedCity.zip;
                         this.userData.municipality.name = selectedCity.name;
