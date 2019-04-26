@@ -137,14 +137,14 @@
             <!-- desktop menu items only -->
             <div id="navigation" class="row">
                 <ul>
-                    <li :class="$route.path=='/cr-cr' ? 'active': ''">
-                        <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link>
+                    <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-cr' ? 'active': ''">
+                        <router-link to="/cr-cr">Jsem občanem ČR<br class="visible-xs-block"> a chci volit v ČR</router-link>
                     </li>
-                    <li :class="$route.path=='/cr-eu' ? 'active': ''">
-                        <router-link to="/cr-eu">Jsem občanem ČR a chci volit v EU</router-link>
+                    <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-eu' ? 'active': ''">
+                        <router-link to="/cr-eu">Jsem občanem ČR<br class="visible-xs-block"> a chci volit v EU</router-link>
                     </li>
-                    <li :class="$route.path=='/eu-cr' ? 'active': ''">
-                        <router-link to="/eu-cr" role="tab">I am EU citizen and want to vote in CR</router-link>
+                    <li class="col-xs-12 col-md-4" :class="$route.path=='/eu-cr' ? 'active': ''">
+                        <router-link to="/eu-cr" role="tab">I am EU citizen<br class="visible-xs-block"> and want to vote in CR</router-link>
                     </li>
                 </ul>
             </div>
@@ -942,11 +942,16 @@
             color: white;
             font-weight: normal;
         }
+        
+        .header__title {
+            text-align: center;
+        }
 
         #navigation {
+            width: 80%;
             margin-top: 50px;
-            margin-bottom: 50px;
-        }
+            margin-bottom: 50px;           
+        }      
 
         #navigation ul {
             list-style-type: none;
@@ -956,16 +961,14 @@
 
         #navigation ul li {
             display: inline-block;
-        }
-
-        #navigation ul li + li {
-            margin-left: 5px;
+            text-align: center;
         }
 
         #navigation ul a {
+            width: 100%;
             border: 1px solid white;
             border-radius: 4px;
-            padding: 20px 50px;
+            padding: 20px 30px;
             color: white;
             font-size: 1.2em;
             display: inline-block;
@@ -1066,6 +1069,12 @@
         }
 
         #document-template { display: none }
+
+        @media (max-width: 767px) {
+            #navigation {
+                width: 100%;                       
+            }
+        }
 
         .pageA4 {
             width: 600px;
