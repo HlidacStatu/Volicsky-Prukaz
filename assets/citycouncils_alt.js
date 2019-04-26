@@ -130,6 +130,16 @@
     "databox":"mwaazct"
   },
   {
+    "city_code":500496,
+    "town_district_code":null,
+    "name":"Město Olomouc",
+    "city":"Olomouc",
+    "street":"Horní náměstí",
+    "houseNumber":"583",
+    "zip":77900,
+    "databox":"kazbzri"
+  },
+  {
     "city_code":500526,
     "town_district_code":null,
     "name":"Obec Bělkovice-Lašťany",
@@ -1518,6 +1528,16 @@
     "houseNumber":"45",
     "zip":67532,
     "databox":"inia9nb"
+  },
+  {
+    "city_code":511382,
+    "town_district_code":null,
+    "name":"Město Přerov",
+    "city":"Přerov",
+    "street":"Bratrská",
+    "houseNumber":"709/34",
+    "zip":75002,
+    "databox":"etwb5sh"
   },
   {
     "city_code":511412,
@@ -5480,6 +5500,16 @@
     "databox":"wqiaj8c"
   },
   {
+    "city_code":532053,
+    "town_district_code":null,
+    "name":"Město Kladno",
+    "city":"Kladno",
+    "street":"náměstí starosty Pavla",
+    "houseNumber":"44",
+    "zip":27201,
+    "databox":"dyubpcm"
+  },
+  {
     "city_code":532061,
     "town_district_code":null,
     "name":"Obec Václavice",
@@ -8798,6 +8828,16 @@
     "houseNumber":"24",
     "zip":37365,
     "databox":"vzyb7ue"
+  },
+  {
+    "city_code":535419,
+    "town_district_code":null,
+    "name":"Město Mladá Boleslav",
+    "city":"Mladá Boleslav",
+    "street":"Komenského náměstí",
+    "houseNumber":"61",
+    "zip":29301,
+    "databox":"82sbpfi"
   },
   {
     "city_code":535427,
@@ -15828,6 +15868,16 @@
     "houseNumber":"185",
     "zip":27021,
     "databox":"sz4bn5c"
+  },
+  {
+    "city_code":544256,
+    "town_district_code":null,
+    "name":"Město České Budějovice",
+    "city":"České Budějovice",
+    "street":"nám. Přemysla Otakara II.",
+    "houseNumber":"1/1",
+    "zip":37001,
+    "databox":"kjgb4yx"
   },
   {
     "city_code":544264,
@@ -25190,6 +25240,16 @@
     "databox":"9eua47u"
   },
   {
+    "city_code":554961,
+    "town_district_code":null,
+    "name":"Město Karlovy Vary",
+    "city":"Karlovy Vary",
+    "street":"Moskevská",
+    "houseNumber":"2035/21",
+    "zip":36001,
+    "databox":"a89bwi8"
+  },
+  {
     "city_code":554979,
     "town_district_code":null,
     "name":"Město Abertamy",
@@ -25228,6 +25288,16 @@
     "houseNumber":"96",
     "zip":36225,
     "databox":"wj9apsp"
+  },
+  {
+    "city_code":555088,
+    "town_district_code":null,
+    "name":"Město Havířov",
+    "city":"Havířov",
+    "street":"Svornosti",
+    "houseNumber":"86/2",
+    "zip":73601,
+    "databox":"7zhb6tn"
   },
   {
     "city_code":555169,
@@ -29920,6 +29990,16 @@
     "databox":"wv7bkgs"
   },
   {
+    "city_code":562335,
+    "town_district_code":null,
+    "name":"Město Děčín",
+    "city":"Děčín",
+    "street":"Mírové nám.",
+    "houseNumber":"1175/5",
+    "zip":40502,
+    "databox":"x9hbpfn"
+  },
+  {
     "city_code":562343,
     "town_district_code":null,
     "name":"Obec Arnoltice",
@@ -30550,6 +30630,16 @@
     "databox":"zj7ed44"
   },
   {
+    "city_code":562971,
+    "town_district_code":null,
+    "name":"Město Chomutov",
+    "city":"Chomutov",
+    "street":"Zborovská",
+    "houseNumber":"4602",
+    "zip":43001,
+    "databox":"497beyz"
+  },
+  {
     "city_code":562980,
     "town_district_code":null,
     "name":"Obec Bílence",
@@ -31058,6 +31148,16 @@
     "houseNumber":"46",
     "zip":43159,
     "databox":"4stbpnp"
+  },
+  {
+    "city_code":563510,
+    "town_district_code":null,
+    "name":"Město Jablonec nad Nisou",
+    "city":"Jablonec nad Nisou",
+    "street":"Mírové náměstí",
+    "houseNumber":"3100/19",
+    "zip":46601,
+    "databox":"wufbr2a"
   },
   {
     "city_code":563528,
@@ -34480,6 +34580,16 @@
     "databox":"axzbjrx"
   },
   {
+    "city_code":567027,
+    "town_district_code":null,
+    "name":"Město Most",
+    "city":"Most",
+    "street":"Radniční",
+    "houseNumber":"1/2",
+    "zip":43401,
+    "databox":"pffbfvy"
+  },
+  {
     "city_code":567043,
     "town_district_code":null,
     "name":"Obec Bečov",
@@ -34728,6 +34838,16 @@
     "houseNumber":"27",
     "zip":43401,
     "databox":"m9vb2tg"
+  },
+  {
+    "city_code":567442,
+    "town_district_code":null,
+    "name":"Město Teplice",
+    "city":"Teplice",
+    "street":"náměstí Svobody",
+    "houseNumber":"2/2",
+    "zip":41501,
+    "databox":"nmrb49w"
   },
   {
     "city_code":567451,
@@ -36758,6 +36878,16 @@
     "houseNumber":"9",
     "zip":58222,
     "databox":"psmayej"
+  },
+  {
+    "city_code":569810,
+    "town_district_code":null,
+    "name":"Město Hradec Králové",
+    "city":"Hradec Králové",
+    "street":"Československé armády",
+    "houseNumber":"408/51",
+    "zip":50003,
+    "databox":"bebb2in"
   },
   {
     "city_code":569828,
@@ -49730,6 +49860,16 @@
     "databox":"3iwbjwr"
   },
   {
+    "city_code":585068,
+    "town_district_code":null,
+    "name":"Město Zlín",
+    "city":"Zlín",
+    "street":"náměstí Míru",
+    "houseNumber":"12",
+    "zip":76001,
+    "databox":"5ttb7bs"
+  },
+  {
     "city_code":585076,
     "town_district_code":null,
     "name":"Obec Biskupice",
@@ -51188,6 +51328,16 @@
     "houseNumber":"44",
     "zip":69663,
     "databox":"nnwa3ff"
+  },
+  {
+    "city_code":586846,
+    "town_district_code":null,
+    "name":"Město Jihlava",
+    "city":"Jihlava",
+    "street":"Masarykovo náměstí",
+    "houseNumber":"97/1",
+    "zip":58601,
+    "databox":"jw5bxb4"
   },
   {
     "city_code":586854,
@@ -53298,6 +53448,16 @@
     "houseNumber":"1",
     "zip":76901,
     "databox":"f5nbrmt"
+  },
+  {
+    "city_code":589250,
+    "town_district_code":null,
+    "name":"Město Prostějov",
+    "city":"Prostějov",
+    "street":"nám. T. G. Masaryka",
+    "houseNumber":"130/14",
+    "zip":79601,
+    "databox":"mrtbrkb"
   },
   {
     "city_code":589268,
@@ -60600,6 +60760,16 @@
     "databox":"rx8a99k"
   },
   {
+    "city_code":598003,
+    "town_district_code":null,
+    "name":"Město Frýdek-Místek",
+    "city":"Frýdek-Místek",
+    "street":"Radniční",
+    "houseNumber":"1148",
+    "zip":73801,
+    "databox":"w4wbu9s"
+  },
+  {
     "city_code":598011,
     "town_district_code":null,
     "name":"Obec Baška",
@@ -61280,6 +61450,16 @@
     "databox":"7x8aqnw"
   },
   {
+    "city_code":598810,
+    "town_district_code":null,
+    "name":"Město Třinec",
+    "city":"Třinec",
+    "street":"Jablunkovská",
+    "houseNumber":"160",
+    "zip":73961,
+    "databox":"4anbqsj"
+  },
+  {
     "city_code":598828,
     "town_district_code":null,
     "name":"Obec Osek",
@@ -61368,6 +61548,16 @@
     "houseNumber":"7",
     "zip":38601,
     "databox":"uz5andu"
+  },
+  {
+    "city_code":598917,
+    "town_district_code":null,
+    "name":"Město Karviná",
+    "city":"Karviná",
+    "street":"Fryštátská",
+    "houseNumber":"72/1",
+    "zip":73301,
+    "databox":"es5bv8q"
   },
   {
     "city_code":598925,
