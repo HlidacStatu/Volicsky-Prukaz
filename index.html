@@ -28,7 +28,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.5/core.min.js" integrity="sha256-mmU2yAEP5IKCRWRxZEA+e2oGOdfyJGQV+55ZFTLahW8=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="assets/site.css" rel="stylesheet">
     <link href="assets/globalsite.css" rel="stylesheet">
@@ -41,7 +40,7 @@
     <script src="assets/cityzipname.min.js"></script>   <!-- cities with zip for zip lookup -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js" identity="sha384-QliZbpszoo4jiVyo529dYiKgGQySM0I/kSJcvQcVkMXCqiIoEfRQLsvUwVNLcOqP" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.min.js" integrity="sha384-tJs0vlPyuG7XcysSkZ0VtWsM/uztJkUtpLwb6HzV5NSgSwGqdW61IBOBJDhbUf+K" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.min.js" integrity="sha384-EnzMJi5PirMz1dgUr9a4DUHwg7e71+fxk3jLLfJn1vljGydxX8c6bdDYdPDE8224" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.min.js" integrity="sha384-EnzMJi5PirMz1dgUr9a4DUHwg7e71+fxk3jLLfJn1vljGydxX8c6bdDYdPDE8224" crossorigin="anonymous"></script>    
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js" integrity="sha384-Ho2Qx5q7Y92BZSxEZtDh2+hUqcudf/uXp77PK0XXawmB+tmreY4nUttlKWXnUWtn" crossorigin="anonymous"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154075-24"></script>
@@ -240,17 +239,17 @@
                     <h2>Moje identita</h2>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10" :class="validate('fullName',userData.fullName)">
+                            <div class="col-xs-12 col-sm-10" :class="validate('fullName',userData.fullName)">
                                 <label for="name" class="required">Jméno a příjmení</label>
                                 <input id="name" v-model="userData.fullName" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-5" :class="validate('bday',userData.birthdate)">
+                            <div class="col-xs-12 col-sm-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Datum narození</label>
                                 <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :language="cs" :format="csDateFormat" :parse="csDateParse" @selected="birthdateSelected"></vuejs-datepicker>
                             </div>
-                            <div class="col-xs-5" :class="validate('tel',userData.phone)">
+                            <div class="col-xs-12 col-sm-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telefon</label>
                                 <label for="tel" class="optional">(nepovinný)</label>
                                 <input id="tel" v-model="userData.phone" class="form-control" type="tel">
@@ -265,13 +264,13 @@
                     <h2>Moje adresa trvalého pobytu</h2>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10" :class="validate('line1',userData.addressLine1)">
+                            <div class="col-xs-12 col-sm-10" :class="validate('line1',userData.addressLine1)">
                                 <label for="address-line1">Ulice a číslo popisné</label>
                                 <input id="address-line1" v-model="userData.addressLine1" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-3" :class="validate('postalCode',userData.postalCode)">
+                            <div class="col-xs-12 col-sm-3" :class="validate('postalCode',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
                                 <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false"
                                     placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip"
@@ -280,7 +279,7 @@
                                     @selected="zipSelected">
                                 </autocomplete>
                             </div>
-                            <div class="col-xs-7" :class="validate('locality',userData.city)">
+                            <div class="col-xs-12 col-sm-7" :class="validate('locality',userData.city)">
                                 <label for="locality">Obec</label>
                                 <input id="locality" v-model="userData.city" class="form-control" type="text">
                             </div>
@@ -294,29 +293,29 @@
                     <h2>Můj obecní úřad</h2>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10" :class="validate('officeName',userData.municipality.name)">
+                            <div class="col-xs-12 col-sm-10" :class="validate('officeName',userData.municipality.name)">
                                 <label for="office-name">Název úřadu</label>
                                 <input id="office-name" v-model="userData.municipality.name" class="form-control" type="text" autocomplete="off">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-10" :class="validate('line1',userData.municipality.addressLine1)">
+                            <div class="col-xs-12 col-sm-10" :class="validate('line1',userData.municipality.addressLine1)">
                                 <label for="office-street">Ulice a číslo popisné</label>
                                 <input id="office-street" v-model="userData.municipality.addressLine1" class="form-control" type="text" autocomplete="off">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-3" :class="validate('postalCode',userData.municipality.postalCode)">
+                            <div class="col-xs-12 col-sm-3" :class="validate('postalCode',userData.municipality.postalCode)">
                                 <label for="office-zip">PSČ</label>
                                 <input id="office-zip" v-model="userData.municipality.postalCode" class="form-control" type="text" autocomplete="off">
                             </div>
-                            <div class="col-xs-7" :class="validate('locality',userData.municipality.city)">
+                            <div class="col-xs-12 col-sm-7" :class="validate('locality',userData.municipality.city)">
                                 <label for="office-city">Obec</label>
                                 <input id="office-city" v-model="userData.municipality.city" class="form-control" type="text" autocomplete="off">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-10">Nelekněte se, PSČ adresy vašeho obecního úřadu se může lišit od PSČ adresy vašeho trvalého bydliště.</div>
+                            <div class="col-xs-12 col-sm-10">Nelekněte se, PSČ adresy vašeho obecního úřadu se může lišit od PSČ adresy vašeho trvalého bydliště.</div>
                         </div>
                     </div>
                 </div>
@@ -334,36 +333,36 @@
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
                                 <div class="col-xs-10" v-if="userData.delivery=='other-address'">
                                     <div class="row">
-                                        <div class="col-xs-10">
+                                        <div class="col-xs-12 col-sm-10">
                                             <label for="delivery-address-name">Jméno</label>
                                             <input id="delivery-address-name" v-model="userData.deliveryAddress.name" class="form-control" type="text">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-10">
+                                        <div class="col-xs-12 col-sm-10">
                                             <label for="delivery-address-line0">Upřesnění adresy</label>
                                             <label for="delivery-address-line0" class="optional">(nepovinné, např firma nebo číslo bytu)</label>
                                             <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-10">
+                                        <div class="col-xs-12 col-sm-10">
                                             <label for="delivery-address-line1">Ulice a číslo popisné</label>
                                             <input id="delivery-address-line1" v-model="userData.deliveryAddress.line1" class="form-control" type="text">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-3">
+                                        <div class="col-xs-12 col-sm-3">
                                             <label for="delivery-postal-code">PSČ</label>
                                             <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
                                         </div>
-                                        <div class="col-xs-7">
+                                        <div class="col-xs-12 col-sm-7">
                                             <label for="delivery-locality">Obec</label>
                                             <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-10">
+                                        <div class="col-xs-12 col-sm-10">
                                             <label for="delivery-address-country">Stát</label>
                                             <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
                                         </div>
@@ -376,8 +375,10 @@
                             </div>
                         </div>
                 </div>
-                <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new">Vytvořit žádost</router-link>
-                <button class="btn btn-default" v-on:click="clearForm('Opravdu si přejete smazat obsah formuláře?', false)">Smazat údaje</button>
+                <div class="right row">
+                    <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Vytvořit žádost</router-link>
+                    <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm('Opravdu si přejete smazat obsah formuláře?', false)">Smazat údaje</button>
+                </div>
             </div>
 
             <div id="en-form" class="form pane table" v-if="$route.path=='/en/form'">
@@ -402,19 +403,19 @@
                     <h2>My identity</h2>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10" :class="validate('fullName',userData.fullName)">
+                            <div class="col-xs-12 col-sm-10" :class="validate('fullName',userData.fullName)">
                                 <label for="name">Full name</label>
                                 <input id="name" v-model="userData.fullName" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-5" :class="validate('bday',userData.birthdate)">
+                            <div class="col-xs-12 col-sm-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Date of birth</label>
                                 <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :format="csDateFormat" :parse="csDateParse" @input="birthdateSelected"></vuejs-datepicker>
                             </div>
-                            <div class="col-xs-5" :class="validate('tel',userData.phone)">
+                            <div class="col-xs-12 col-sm-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telephone</label>
-                                <label for="tel" class="optional">(nepovinný)</label>
+                                <label for="tel" class="optional">(optional)</label>
                                 <input id="tel" v-model="userData.phone" class="form-control" type="tel">
                             </div>
                         </div>
@@ -427,13 +428,13 @@
                     <h2>My permanent address</h2>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10" :class="validate('line1',userData.addressLine1)">
+                            <div class="col-xs-12 col-sm-10" :class="validate('line1',userData.addressLine1)">
                                 <label for="address-line1">Street and house number</label>
                                 <input id="address-line1" v-model="userData.addressLine1" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-3" :class="validate('postalCode',userData.postalCode)">
+                            <div class="col-xs-12 col-sm-3" :class="validate('postalCode',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
                                 <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false"
                                     placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip"
@@ -442,7 +443,7 @@
                                     @selected="zipSelected">
                                 </autocomplete>
                             </div>
-                            <div class="col-xs-7" :class="validate('locality',userData.city)">
+                            <div class="col-xs-12 col-sm-7" :class="validate('locality',userData.city)">
                                 <label for="locality">City</label>
                                 <input id="locality" v-model="userData.city" class="form-control" type="text">
                             </div>
@@ -456,29 +457,29 @@
                     <h2>My municipal office</h2>
                     <div class="right">
                         <div class="row">
-                            <div class="col-xs-10" :class="validate('officeName',userData.municipality.name)">
+                            <div class="col-xs-12 col-sm-10" :class="validate('officeName',userData.municipality.name)">
                                 <label for="office-name">Office name</label>
                                 <input id="office-name" v-model="userData.municipality.name" class="form-control" type="text" autocomplete="off">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-10" :class="validate('line1',userData.municipality.addressLine1)">
+                            <div class="col-xs-12 col-sm-10" :class="validate('line1',userData.municipality.addressLine1)">
                                 <label for="office-street">Street and house number</label>
                                 <input id="office-street" v-model="userData.municipality.addressLine1" class="form-control" type="text" autocomplete="off">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-3" :class="validate('postalCode',userData.municipality.postalCode)">
+                            <div class="col-xs-12 col-sm-3" :class="validate('postalCode',userData.municipality.postalCode)">
                                 <label for="office-zip">Postcode</label>
                                 <input id="office-zip" v-model="userData.municipality.postalCode" class="form-control" type="text" autocomplete="off">
                             </div>
-                            <div class="col-xs-7" :class="validate('locality',userData.municipality.city)">
+                            <div class="col-xs-12 col-sm-7" :class="validate('locality',userData.municipality.city)">
                                 <label for="office-city">City</label>
                                 <input id="office-city" v-model="userData.municipality.city" class="form-control" type="text" autocomplete="off">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-10">Don’t worry, the office’s postcode may be different from yours.</div>
+                            <div class="col-xs-12 col-sm-10">Don’t worry, the office’s postcode may be different from yours.</div>
                         </div>
                     </div>
                 </div>
@@ -496,36 +497,36 @@
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
                                 <div class="col-xs-10" v-if="userData.delivery=='other-address'">
                                         <div class="row">
-                                            <div class="col-xs-10">
+                                            <div class="col-xs-12 col-sm-10">
                                                 <label for="delivery-address-name">Name</label>
                                                 <input id="delivery-address-name" v-model="userData.deliveryAddress.name" class="form-control" type="text">
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-10">
+                                            <div class="col-xs-12 col-sm-10">
                                                 <label for="delivery-address-line0">Address details</label>
                                                 <label for="delivery-address-line0" class="optional">(optional, e.g. company name or flat number)</label>
                                                 <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-10">
+                                            <div class="col-xs-12 col-sm-10">
                                                 <label for="delivery-address-line1">Street and house number</label>
                                                 <input id="delivery-address-line1" v-model="userData.deliveryAddress.line1" class="form-control" type="text">
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-3">
+                                            <div class="col-xs-12 col-sm-3">
                                                 <label for="delivery-postal-code">Postcode</label>
                                                 <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
                                             </div>
-                                            <div class="col-xs-7">
+                                            <div class="col-xs-12 col-sm-7">
                                                 <label for="delivery-locality">City</label>
                                                 <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-10">
+                                            <div class="col-xs-12 col-sm-10">
                                                 <label for="delivery-address-country">Country</label>
                                                 <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
                                             </div>
@@ -538,8 +539,10 @@
                             </div>
                         </div>
                 </div>
-                <router-link tag="button" to="/en/preview" class="btn btn-primary btn-primary-new">Create application</router-link>
-                <button class="btn btn-default" v-on:click="clearForm('Do you really want to reset form?', false)">Reset form</button>
+                <div class="right row">
+                    <router-link tag="button" to="/en/preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Create application</router-link>
+                    <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm('Do you really want to reset form?', false)">Reset form</button>
+                </div>
             </div>
 
             <transition v-on:after-enter="generatePreview">
@@ -1090,7 +1093,29 @@
             width: 150%;
         }
 
+        .btn-primary-new{
+            margin-right: 20px;
+        }
+
         @media (max-width: 767px) {
+            .btn-primary-new{
+            margin-right: 0px;
+            }
+            
+            .form .left {
+                display:none;
+            }
+            
+            .form .right {
+                padding-left: 0px;
+            }
+
+            .form h2 {
+                padding-left: 0px;
+                font-size: 18px;
+                line-height: 18 px;
+            }
+            
             #navigation {
                 width: 100%;
             }
