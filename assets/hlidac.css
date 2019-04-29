@@ -52,14 +52,14 @@ h1 {
 .link--small {
   font-size: 12px; }
 
-.link--blue, .navbar__level1 ul li a, .navbar__level2 ul li a, .watcher-block .block-list a, .watcher-block .block-status-list .status-item a, .footer__content__col a, .header__content .header__title p a {
+.link--blue, .navbar__level1 ul li a, .navbar__level2 ul li a, .watcher-block .block-list a, .watcher-block .block-status-list .status-item a, .footer__content__col a {
   font-size: 16px;
   letter-spacing: 0.36px;
   color: #0074E4;
   text-decoration: none;
   text-transform: none;
   margin: 0; }
-  .link--blue:hover, .navbar__level1 ul li a:hover, .navbar__level2 ul li a:hover, .header__content .header__title p a:hover, .watcher-block .block-list a:hover, .watcher-block .block-status-list .status-item a:hover, .footer__content__col a:hover, .link--blue:active, .navbar__level1 ul li a:active, .navbar__level2 ul li a:active, .watcher-block .block-list a:active, .watcher-block .block-status-list .status-item a:active, .footer__content__col a:active, .link--blue:focus, .navbar__level1 ul li a:focus, .navbar__level2 ul li a:focus, .watcher-block .block-list a:focus, .watcher-block .block-status-list .status-item a:focus, .footer__content__col a:focus, .link--blue:active:hover, .navbar__level1 ul li a:active:hover, .navbar__level2 ul li a:active:hover, .watcher-block .block-list a:active:hover, .watcher-block .block-status-list .status-item a:active:hover, .footer__content__col a:active:hover, .link--blue:active:focus, .navbar__level1 ul li a:active:focus, .navbar__level2 ul li a:active:focus, .watcher-block .block-list a:active:focus, .watcher-block .block-status-list .status-item a:active:focus, .footer__content__col a:active:focus {
+  .link--blue:hover, .navbar__level1 ul li a:hover, .navbar__level2 ul li a:hover, .watcher-block .block-list a:hover, .watcher-block .block-status-list .status-item a:hover, .footer__content__col a:hover, .link--blue:active, .navbar__level1 ul li a:active, .navbar__level2 ul li a:active, .watcher-block .block-list a:active, .watcher-block .block-status-list .status-item a:active, .footer__content__col a:active, .link--blue:focus, .navbar__level1 ul li a:focus, .navbar__level2 ul li a:focus, .watcher-block .block-list a:focus, .watcher-block .block-status-list .status-item a:focus, .footer__content__col a:focus, .link--blue:active:hover, .navbar__level1 ul li a:active:hover, .navbar__level2 ul li a:active:hover, .watcher-block .block-list a:active:hover, .watcher-block .block-status-list .status-item a:active:hover, .footer__content__col a:active:hover, .link--blue:active:focus, .navbar__level1 ul li a:active:focus, .navbar__level2 ul li a:active:focus, .watcher-block .block-list a:active:focus, .watcher-block .block-status-list .status-item a:active:focus, .footer__content__col a:active:focus {
     color: #007cf5;
     text-decoration: underline; }
 
@@ -885,11 +885,6 @@ select {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
-  .header__content .header__title p a {
-    font-size: 16px;
-    color: white;}
-  .header__content .header__title p a:hover, .header__content .header__title p a:active, .header__content .header__title p a:focus .header__title p a:visited{
-    color: #E0E6ED;    }
     @media (min-width: 992px) {
       .header__content .header__title {
         padding-top: 16px; } }
@@ -900,7 +895,7 @@ select {
       line-height: 48px;
       letter-spacing: 0.6px;
       margin: 0 0 5px; }
-    .header__content .header__title p {
+    .header__content .header__title span {
       color: #7cbfff;
       font-size: 16px;
       line-height: 24px;
