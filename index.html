@@ -132,7 +132,12 @@
             </div>
             <div class="header__title">
                 <h1>Volby do Evropského parlamentu 2019</h1>
-                <span>Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. 2019 (od 8:00 do 14:00)</strong></span>
+                <p>
+                    <span>Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. 2019 (od 8:00 do 14:00)</strong></span>
+                </p>
+                <p>
+                    <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet naši <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a>.</span>
+                </p>
             </div>
             <!-- desktop menu items only -->
             <div id="navigation" class="row">
@@ -960,6 +965,16 @@
 
         .header__title {
             text-align: center;
+        }
+
+        .header__title span a {
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+        }
+        .header__content .header__title span a:hover, .header__content .header__title span a:active, .header__content .header__title span a:focus {
+            color: #E0E6ED;    
+            text-decoration: underline;
         }
 
         #navigation {
