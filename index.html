@@ -330,13 +330,13 @@
                         </div>
                         <h2>Doručení</h2>
                         <div class="right">
-                            <div class="radios row col-xs-10">
+                            <div class="radios">
                                 <h4>Voličský průkaz po vyhotovení:</h4>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
-                                <div class="col-xs-10" v-if="userData.delivery=='other-address'">
+                                <div v-if="userData.delivery=='other-address'">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-10">
                                             <label for="delivery-address-name">Jméno</label>
@@ -372,9 +372,15 @@
                                             <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
                                         </div>
                                     </div>
-                                    <p>V případě, že chcete doručit průkaz mimo Českou republiku, raději se u vašeho úřadu ujistěte, zda vám průkaz dokážou včas doručit.</p>
-                                </div>
-                                <div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-10">
+                                            V případě, že chcete doručit průkaz mimo Českou republiku, raději se u vašeho úřadu ujistěte, zda vám průkaz dokážou včas doručit.
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-10">
                                     <strong>Důležité upozornění</strong>: Obecní úřad nebo zastupitelský úřad může voličský průkaz vydat <strong>nejdříve</strong> 15 dnů před prvním dnem konání voleb.
                                 </div>
                             </div>
@@ -494,13 +500,13 @@
                         </div>
                         <h2>Delivery</h2>
                         <div class="right">
-                            <div class="radios row col-xs-10">
+                            <div class="radios">
                                 <label for="delivery">When completed, the voter card will be:</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
                                 <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
-                                <div class="col-xs-10" v-if="userData.delivery=='other-address'">
+                                <div v-if="userData.delivery=='other-address'">
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-10">
                                                 <label for="delivery-address-name">Name</label>
@@ -536,10 +542,16 @@
                                                 <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
                                             </div>
                                         </div>
-                                        <p>In case you want to deliver a card outside the Czech Republic, please make sure that the card is delivered in time to the appropriate authority.</p>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-10">
+                                                In case you want to deliver a card outside the Czech Republic, please make sure that the card is delivered in time to the appropriate authority.
+                                            </div>
+                                        </div>                                        
                                 </div>
-                                <div>
-                                    <strong>Important warning</strong>: the voter card can be issued (and therefore received) <strong>15 days before</strong> the first election day at the earliest.
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <strong>Important warning</strong>: the voter card can be issued (and therefore received) <strong>15 days before</strong> the first election day at the earliest.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1110,6 +1122,10 @@
 
         .btn-primary-new{
             margin-right: 20px;
+        }
+
+        .radios {
+            margin: 10px 0px;
         }
 
         @media (max-width: 767px) {
