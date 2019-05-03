@@ -133,7 +133,7 @@
             <div class="header__title">
                 <h1>Volby do Evropského parlamentu 2019</h1>
                 <p>
-                    <span>Volby do Evropského parlamentu se uskuteční <strong>24. 5. 2019 (od 14:00 do 22:00)</strong> a <strong>25. 5. 2019 (od 8:00 do 14:00)</strong></span>
+                    <span>Volby do Evropského parlamentu se uskuteční <strong>24.&nbsp;5.&nbsp;2019 (od 14:00 do 22:00)</strong> a <strong>25&nbsp;.5.&nbsp;2019 (od 8:00 do 14:00)</strong></span>
                 </p>
                 <p>
                     <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet naši <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a>.</span>
@@ -332,10 +332,12 @@
                         <div class="right">
                             <div class="radios">
                                 <h4>Voličský průkaz po vyhotovení:</h4>
-                                <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
-                                <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
-                                <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
-                                <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
+                                <div class="button-group">
+                                    <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
+                                    <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                                    <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                                    <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
+                                </div>
                                 <div v-if="userData.delivery=='other-address'">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-10">
@@ -501,11 +503,13 @@
                         <h2>Delivery</h2>
                         <div class="right">
                             <div class="radios">
-                                <label for="delivery">When completed, the voter card will be:</label><br>
-                                <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
-                                <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
-                                <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
-                                <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
+                                <h4>When completed, the voter card will be:</h4>
+                                <div class="button-group">
+                                    <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
+                                    <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
+                                    <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
+                                    <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
+                                </div>
                                 <div v-if="userData.delivery=='other-address'">
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-10">
@@ -1060,10 +1064,13 @@
         .form .radios label {
             font-size: 18px;
             line-height: 26px;
+            white-space:normal;
+            margin-right: 10px;
         }
 
         .form input[type="radio"] {
             margin-right: 5px;
+            vertical-align: top;
         }
 
         .form label.optional {
@@ -1131,6 +1138,10 @@
 
         .radios {
             margin: 10px 0px;
+        }
+
+        .radios .button-group {
+            white-space:nowrap;
         }
 
         .preview-buttons .btn{
