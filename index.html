@@ -1193,6 +1193,29 @@
         }
     </style>
 
+<script>
+    const displayVersionLength = 7; // show first 7 chars (like GitHub)
+    const appVersionFile = 'assets/files/appversion.txt';   // file with SHA1 GitHub hash
+
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            displayAppVersion(xmlHttp.responseText);
+        }
+    }
+    xmlHttp.open("GET", appVersionFile, true); 
+    xmlHttp.send();
+
+    function displayAppVersion(retrievedText) { 
+        retrievedText = retrievedText.trim();
+
+        if (retrievedText.match('^[0-9a-fA-F]{5,40}$')) {   // SHA1 regex pattern
+            document.getElementById('appVersion').textContent = retrievedText.substring(0, ((retrievedText.lenght < displayVersionLength) ? retrievedText.lenght : displayVersionLength));  
+        }
+    }
+</script>
+
+
 <footer>
     <div class="container">
         <ul class="list-inline">
@@ -1207,10 +1230,11 @@
             Převzetí údajů a použití dat možné pod <a href="https://www.hlidacstatu.cz/texty/licence">licencí CC BY 3.0</a> anebo po vzájemné <a href="https://www.hlidacstatu.cz/texty/kontakt/">písemné dohodě</a>.
             <a href="https://www.HlidacStatu.cz/texty/provoznipodminky">Podmínky užívání</a>
         </p>
+        <p>
+            Verze aplikace: <span id="appVersion"></span>
+        </p>
     </div>
 </footer>
-
-
 
     <div id="dar-footer-msg">
 
