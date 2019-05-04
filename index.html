@@ -143,13 +143,13 @@
             <div id="navigation" class="row">
                 <ul>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-cr' ? 'active': ''">
-                        <router-link to="/cr-cr">Jsem občanem ČR<br class="visible-xs-block"> a chci volit v ČR</router-link>
+                        <router-link to="/cr-cr#cr-cr">Jsem občanem ČR<br class="visible-xs-block"> a chci volit v ČR</router-link>
                     </li>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-eu' ? 'active': ''">
-                        <router-link to="/cr-eu">Jsem občanem ČR<br class="visible-xs-block"> a chci volit v EU</router-link>
+                        <router-link to="/cr-eu#cr-eu">Jsem občanem ČR<br class="visible-xs-block"> a chci volit v EU</router-link>
                     </li>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/eu-cr' ? 'active': ''">
-                        <router-link to="/eu-cr" role="tab">I am EU citizen<br class="visible-xs-block"> and want to vote in CR</router-link>
+                        <router-link to="/eu-cr#eu-cr" role="tab">I am EU citizen<br class="visible-xs-block"> and want to vote in CR</router-link>
                     </li>
                 </ul>
             </div>
@@ -168,7 +168,7 @@
                     <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. 5. 2019,</span></li>
                     <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do 17. 5. 2019 v 16:00 pomocí vaší datové schránky nebo poštou s úředně ověřeným podpisem.</span></li>
                 </ul>
-                <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+                <router-link tag="button" to="/form#form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
             </div>
 
             <div id="cr-eu" class="pane" v-if="$route.path=='/cr-eu'">
@@ -182,7 +182,7 @@
                 </ul>
 
                 <p class="new-p">
-                    <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+                    <router-link tag="button" to="/form#form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
                 </p>
 
                 <h2>Chci volit kandidáty z jiné členské země EU</h2>
@@ -211,7 +211,7 @@
                 </ul>
 
                 <p class="new-p">
-                    <router-link tag="button" to="/en/form" class="btn btn-primary btn-primary-new">Create a written application for voter card</router-link>
+                    <router-link tag="button" to="/en/form#en-form" class="btn btn-primary btn-primary-new">Create a written application for voter card</router-link>
                 </p>
                 <h2>I want to vote for candidates from another EU country</h2>
                 <p class="new-p">Voting takes place in the territory of the EU Member State and follows the rules of the EU Member State.</p>
@@ -389,7 +389,7 @@
                         </div>
                 </div>
                 <div class="right row">
-                    <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Vytvořit žádost</router-link>
+                    <router-link tag="button" to="/preview#preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Vytvořit žádost</router-link>
                     <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm('Opravdu si přejete smazat obsah formuláře?', false)">Smazat údaje</button>
                 </div>
             </div>
@@ -561,7 +561,7 @@
                         </div>
                 </div>
                 <div class="right row">
-                    <router-link tag="button" to="/en/preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Create application</router-link>
+                    <router-link tag="button" to="/en/preview#en-preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Create application</router-link>
                     <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm('Do you really want to reset form?', false)">Reset form</button>
                 </div>
             </div>
@@ -763,8 +763,15 @@
         const router = new VueRouter({
             routes: routes,
             scrollBehavior: function(to, from, savedPosition) {
-                return { x:0, y: 0 }
-            }
+                if (to.hash) {
+                    const position = {}
+                    position.selector = to.hash
+                    position.offset = { y:20 }
+                    return position
+                } else {
+                    return {x: 0, y: 0}
+                }
+            },
         });
         router.beforeEach(function (to, from, next) {
             if (paths.indexOf(to.path) == -1) {
