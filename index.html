@@ -279,7 +279,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-12 col-sm-3 has-feedback">
+                            <div class="col-xs-12 col-sm-3 has-feedback" :class="validateBorder(userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
                                 <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false" :allow-Only-Values-From-Source="true"
                                     placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip"
@@ -334,84 +334,85 @@
                     </div>
                 </div>
                 <div class="form-group">
-                        <div class="left">
+                     <div class="left">
                             <img src="assets/images/envelope.png" width="50" height="39" />
                         </div>
-                        <h2>Doručení</h2>
-                        <div class="right">
-                            <div class="radios">
-                                <h4>Voličský průkaz po vyhotovení:</h4>
-                                <div class="button-group">
-                                    <input type="radio" name="delivery" v-model="userData.delivery.value" value="in-person" id="in-person" @change="validate('delivery',userData.delivery)"> <label for="in-person">převezmu osobně</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery.value" value="representative" id="representative" @change="validate('delivery',userData.delivery)"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery.value" value="my-address" id="my-address" @change="validate('delivery',userData.delivery)"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery.value" value="other-address" id="other-address" @change="validate('delivery',userData.delivery)"> <label for="other-address">žádám zaslat na jinou adresu</label>
-                                </div>
-                                <div v-if="!userData.delivery.valid" class="has-error has-feedback">
-                                    <p class="form-control ">Zvolte způsob doručení</p>
-                                    <span aria-hidden="true" class="glyphicon form-control-feedback glyphicon-remove"></span>
-                                </div>
-                                <div v-if="userData.delivery.value=='other-address'">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.deliveryAddress.fullName)">
-                                            <label for="delivery-address-name">Jméno</label>
-                                            <input id="delivery-address-name" v-model="userData.deliveryAddress.fullName.value" class="form-control" type="text" @change="validate('fullName',userData.deliveryAddress.fullName)">
-                                            <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.fullName)" aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10">
-                                            <label for="delivery-address-line0">Upřesnění adresy</label>
-                                            <label for="delivery-address-line0" class="optional">(nepovinné, např firma nebo číslo bytu)</label>
-                                            <input id="delivery-address-line0" v-model="userData.deliveryAddress.addressLine0.value" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.deliveryAddress.addressLine1)">
-                                            <label for="delivery-address-line1">Ulice a číslo popisné</label>
-                                            <input id="delivery-address-line1" v-model="userData.deliveryAddress.addressLine1.value" class="form-control" type="text" @change="validate('line1',userData.deliveryAddress.addressLine1)">
-                                            <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.addressLine1)" aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-3 has-feedback" :class="validateBorder(userData.deliveryAddress.postalCode)">
-                                            <label for="delivery-address-postal-code">PSČ</label>
-                                            <input id="delivery-address-postal-code" v-model="userData.deliveryAddress.postalCode.value" class="form-control" type="text" @change="validate('postalCode',userData.deliveryAddress.postalCode)">
-                                            <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.postalCode)" aria-hidden="true"></span>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-7 has-feedback" :class="validateBorder(userData.deliveryAddress.city)">
-                                            <label for="delivery-address-city">Obec</label>
-                                            <input id="delivery-address-city" v-model="userData.deliveryAddress.city.value" class="form-control" type="text" @change="validate('locality',userData.deliveryAddress.city)">
-                                            <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.city)" aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10">
-                                            <label for="delivery-address-country" class="optional">Stát</label>
-                                            <input id="delivery-address-country" v-model="userData.deliveryAddress.country.value" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10">
-                                            V případě, že chcete doručit průkaz mimo Českou republiku, raději se u vašeho úřadu ujistěte, zda vám průkaz dokážou včas doručit.
-                                        </div>
-                                    </div>
-                                </div>                                
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-10">
-                                    <strong>Důležité upozornění</strong>: Obecní úřad nebo zastupitelský úřad může voličský průkaz vydat <strong>nejdříve</strong> 15 dnů před prvním dnem konání voleb.
-                                </div>
-                            </div>
-                            
-                            <!--<div v-if="errors.length" class="error-list has-feedback has-error">
-                                <span v-for="error in errors">{{ error }}<br></span>
-                                <span aria-hidden="true" class="glyphicon form-control-feedback glyphicon-remove"></span>
-                             </div>-->
-                        </div>
+                     <h2>Doručení</h2>
+                     <div class="right">
+                         <div class="radios">
+                             <h4>Voličský průkaz po vyhotovení:</h4>
+                             <div class="button-group">
+                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="in-person" id="in-person" @change="validate('delivery',userData.delivery)"> <label for="in-person">převezmu osobně</label><br>
+                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="representative" id="representative" @change="validate('delivery',userData.delivery)"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="my-address" id="my-address" @change="validate('delivery',userData.delivery)"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="other-address" id="other-address" @change="validate('delivery',userData.delivery)"> <label for="other-address">žádám zaslat na jinou adresu</label>
+                             </div>
+                             <div v-if="!userData.delivery.valid" class="has-error has-feedback">
+                                 <p class="form-control">Zvolte způsob doručení</p>
+                                 <span aria-hidden="true" class="glyphicon form-control-feedback glyphicon-remove"></span>
+                             </div>
+                             <div v-if="userData.delivery.value=='other-address'">
+                                 <div class="row">
+                                     <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.deliveryAddress.fullName)">
+                                         <label for="delivery-address-name">Jméno</label>
+                                         <input id="delivery-address-name" v-model="userData.deliveryAddress.fullName.value" class="form-control" type="text" @change="validate('fullName',userData.deliveryAddress.fullName)">
+                                         <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.fullName)" aria-hidden="true"></span>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-xs-12 col-sm-10">
+                                         <label for="delivery-address-line0">Upřesnění adresy</label>
+                                         <label for="delivery-address-line0" class="optional">(nepovinné, např firma nebo číslo bytu)</label>
+                                         <input id="delivery-address-line0" v-model="userData.deliveryAddress.addressLine0.value" class="form-control" type="text">
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.deliveryAddress.addressLine1)">
+                                         <label for="delivery-address-line1">Ulice a číslo popisné</label>
+                                         <input id="delivery-address-line1" v-model="userData.deliveryAddress.addressLine1.value" class="form-control" type="text" @change="validate('line1',userData.deliveryAddress.addressLine1)">
+                                         <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.addressLine1)" aria-hidden="true"></span>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-xs-12 col-sm-3 has-feedback" :class="validateBorder(userData.deliveryAddress.postalCode)">
+                                         <label for="delivery-address-postal-code">PSČ</label>
+                                         <input id="delivery-address-postal-code" v-model="userData.deliveryAddress.postalCode.value" class="form-control" type="text" @change="validate('postalCode',userData.deliveryAddress.postalCode)">
+                                         <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.postalCode)" aria-hidden="true"></span>
+                                     </div>
+                                     <div class="col-xs-12 col-sm-7 has-feedback" :class="validateBorder(userData.deliveryAddress.city)">
+                                         <label for="delivery-address-city">Obec</label>
+                                         <input id="delivery-address-city" v-model="userData.deliveryAddress.city.value" class="form-control" type="text" @change="validate('locality',userData.deliveryAddress.city)">
+                                         <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.city)" aria-hidden="true"></span>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-xs-12 col-sm-10">
+                                         <label for="delivery-address-country">Stát</label>
+                                         <label for="delivery-address-country" class="optional">(nepovinné)</label>
+                                         <input id="delivery-address-country" v-model="userData.deliveryAddress.country.value" class="form-control" type="text">
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-xs-12 col-sm-10">
+                                         V případě, že chcete doručit průkaz mimo Českou republiku, raději se u vašeho úřadu ujistěte, zda vám průkaz dokážou včas doručit.
+                                     </div>
+                                 </div>
+                             </div>                                
+                         </div>
+                         <div class="row">
+                             <div class="col-xs-12 col-sm-10">
+                                 <strong>Důležité upozornění</strong>: Obecní úřad nebo zastupitelský úřad může voličský průkaz vydat <strong>nejdříve</strong> 15 dnů před prvním dnem konání voleb.
+                             </div>
+                         </div>
+                         
+                         <!--Example to show validation error list
+                             <div v-if="errors.length" class="row has-feedback has-error">
+                             <span v-for="error in errors" class="error-list">{{ error }}<br></span>
+                          </div>-->
+                     </div>
                 </div>
                 <div class="right row">
-                    <span @click.capture="validateForm">
+                    <span @click.capture="validateForm(event, 'Formulář zřejmě není správně vyplněn, pokračovat?\n(u mezinárodních nebo speciálních adres může kontrola signalizovat falešné chyby)\n')">
                         <router-link tag="button" to="/preview#preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Vytvořit žádost</router-link>
                     </span>
                     <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm('Opravdu si přejete smazat obsah formuláře?', false)">Smazat údaje</button>
@@ -466,7 +467,7 @@
                         <img src="assets/images/home.png" width="50" height="40" />
                     </div>
                     <h2>My permanent address</h2>
-                     <div class="right">
+                    <div class="right">
                         <div class="row">
                             <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.addressLine1)">
                                 <label for="address-line1">Street and house number</label>
@@ -475,7 +476,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-12 col-sm-3 has-feedback">
+                            <div class="col-xs-12 col-sm-3 has-feedback" :class="validateBorder(userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
                                 <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false" :allow-Only-Values-From-Source="true"
                                     placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip"
@@ -525,7 +526,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-12 col-sm-10">Nelekněte se, PSČ adresy vašeho obecního úřadu se může lišit od PSČ adresy vašeho trvalého bydliště.</div>
+                            <div class="col-xs-12 col-sm-10">Don’t worry, the office’s postcode may be different from yours.</div>
                         </div>
                     </div>
                 </div>
@@ -539,10 +540,14 @@
                          <div class="radios">
                              <h4>When completed, the voter card will be:</h4>
                              <div class="button-group">
-                                   <input type="radio" name="delivery" v-model="userData.delivery.value" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
-                                   <input type="radio" name="delivery" v-model="userData.delivery.value" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
-                                   <input type="radio" name="delivery" v-model="userData.delivery.value" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
-                                   <input type="radio" name="delivery" v-model="userData.delivery.value" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
+                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="in-person" id="in-person" @change="validate('delivery',userData.delivery)"> <label for="in-person">Collected by me personally</label><br>
+                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="representative" id="representative" @change="validate('delivery',userData.delivery)"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
+                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="my-address" id="my-address" @change="validate('delivery',userData.delivery)"> <label for="my-address">Sent to my permanent address</label><br>
+                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="other-address" id="other-address" @change="validate('delivery',userData.delivery)"> <label for="other-address">Sent to another address</label>
+                             </div>
+                             <div v-if="!userData.delivery.valid" class="has-error has-feedback">
+                                 <p class="form-control">Select delivery method</p>
+                                 <span aria-hidden="true" class="glyphicon form-control-feedback glyphicon-remove"></span>
                              </div>
                              <div v-if="userData.delivery.value=='other-address'">
                                  <div class="row">
@@ -580,7 +585,8 @@
                                  </div>
                                  <div class="row">
                                      <div class="col-xs-12 col-sm-10">
-                                         <label for="delivery-address-country" class="optional">Country</label>
+                                         <label for="delivery-address-country">Country</label>
+                                         <label for="delivery-address-country" class="optional">(optional)</label>
                                          <input id="delivery-address-country" v-model="userData.deliveryAddress.country.value" class="form-control" type="text">
                                      </div>
                                  </div>
@@ -599,7 +605,7 @@
                       </div>
                 </div>
                 <div class="right row">
-                    <span @click.capture="validateForm">
+                    <span @click.capture="validateForm(event, 'There is probably a mistake in the form. Continue to preview?\n(international and special addresses may trigger false errors)\n')">
                         <router-link tag="button" to="/en/preview#en-preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Create application</router-link>
                     </span>
                     <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm('Do you really want to reset form?', false)">Reset form</button>
@@ -901,7 +907,7 @@
                         }
                     }
                 },
-                validateForm: function (e) {
+                validateForm: function (e, text) {
                     this.errors = [];
 
                     this.validateObject(this.userData);
@@ -911,11 +917,11 @@
                         this.validateObject(this.userData.deliveryAddress);
                     };
 
-                    if (this.errors.length > 0 && !confirm("Formulář zřejmě není správně vyplněn, pokračovat?")) e.preventDefault();
+                    if (this.errors.length > 0 && !confirm(text)) e.preventDefault();
                 },
                 zipCleared: function () {
-                this.userData.city = getDefaultUserData();
-                this.userData.postalCode = getDefaultUserData();
+                    this.userData.city = getDefaultDataObject(false, false);
+                    this.userData.postalCode = getDefaultDataObject(false, false);
                 },
                 zipSelected: function (result) {
                     this.userData.city.value = result.selectedObject.name;
@@ -966,9 +972,9 @@
                         this.userData.municipality.postalCode.value = result.selectedObject.zip;
                         this.userData.municipality.postalCode.valid = true;
 
-                        this.userData.municipality.name = getDefaultNotNullableValidDataObject();
-                        this.userData.municipality.addressLine1 = getDefaultNotNullableValidDataObject();
-                        this.userData.municipality.databox = getDefaultNotNullableValidDataObject();
+                        this.userData.municipality.name = getDefaultDataObject(false, false);
+                        this.userData.municipality.addressLine1 = getDefaultDataObject(false, false);
+                        this.userData.municipality.databox = getDefaultDataObject(false, false);
                     }
                 },
                 birthdateSelected: function(result) {
@@ -1043,7 +1049,14 @@
             components: {
                 vuejsDatepicker: vuejsDatepicker,
                 'autocomplete': this['vuejs-autocomplete']
-            }
+            },
+            updated: function() {
+                // fill postal code in autocomplete box when user return back from voter card preview
+                if (typeof this.$refs.autocompleteZIP !== 'undefined' && this.userData.postalCode.value !== null) {
+                    this.$refs.autocompleteZIP.display = this.userData.postalCode.value;
+                    this.$refs.autocompleteZIP.value = this.userData.postalCode.value;
+                }
+            },
         });
     </script>
 
@@ -1144,9 +1157,6 @@
             color: #0074E4;
         }
 
-        .error-list {
-            color: red;
-        }
 
         .form .form-group {
             margin-bottom: 0px;
@@ -1171,6 +1181,10 @@
             margin-bottom: 20px;
             color: #757575;
             font-size: 18px;
+        }
+
+        .form .row .error-list {
+            color: red;
         }
 
         .form label {
@@ -1267,6 +1281,11 @@
 
         .preview-buttons .btn{
             margin: 0px 10px;
+        }
+
+        /* fix border size for validation */
+        .autocomplete__inputs input{   
+            border:1px solid rgba(255,255,255,0.5);
         }
 
         @media (max-width: 767px) {
@@ -1392,8 +1411,7 @@
             </style>
         </noscript>
     </div>
-
-
+    
     <div id="bookmarkInfoAnon" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
