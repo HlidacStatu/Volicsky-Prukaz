@@ -219,7 +219,7 @@
 
             </div>
 
-            <!--fully independent par on selected language BEGIN--> 
+            <!--fully language independent part BEGIN--> 
             <div id="form" class="form pane table" v-if="$route.path=='/form' || $route.path=='/en/form'"> 
                 <div class="form-group">
                     <div class="left">
@@ -413,7 +413,7 @@
                     <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm(texts['formResetConfirm'][getLanguage()], false)">{{texts['formButtonReset'][getLanguage()]}}</button>
                 </div>
             </div>
-            <!--fully independent part on selected language END--> 
+            <!--fully language independent part END--> 
 
             <transition v-on:after-enter="generatePreview">
                 <div id="preview" class="pane" v-if="$route.path=='/preview'">
@@ -757,6 +757,7 @@
                 routes: routes,
                 overlayVisible: false,
                 userData: getDefaultUserData(),
+                nonBreakingHyphen: '&#8209;',
 
                 texts: {    // some localisation texts
                     blockCaptionsPrivacy: { CZ: 'Soukromí', EN: 'Privacy' },
@@ -792,15 +793,15 @@
                 },
             },
             computed: {
-                getVotingInterval: function() {         // format voting interval date text (from config file); function is fix for Internet Explorer
-                    return this.appConfig.votingDays[0].date + '&nbsp;-&nbsp;' + this.appConfig.votingDays.slice(-1)[0].date;
+                getVotingInterval: function() {         // format voting interval date text (from config file) and replace dash with non-breaking hyphen; function is fix for Internet Explorer
+                    return (this.appConfig.votingDays[0].date + '&nbsp;-&nbsp;' + this.appConfig.votingDays.slice(-1)[0].date).replace('-', this.nonBreakingHyphen);
                 },
-                getVotingIntervalWithTime: function() { // // format voting interval date and time text (from config file); function is fix for Internet Explorer
-                    return this.appConfig.votingDays[0].date + ' (' + this.appConfig.votingDays[0].time + ') až ' + this.appConfig.votingDays.slice(-1)[0].date + ' (' + this.appConfig.votingDays.slice(-1)[0].time + ')';
+                getVotingIntervalWithTime: function() { // // format voting interval date and time text (from config file) and replace dash with non-breaking hyphen; function is fix for Internet Explorer
+                    return (this.appConfig.votingDays[0].date + ' (' + this.appConfig.votingDays[0].time + ') až ' + this.appConfig.votingDays.slice(-1)[0].date + ' (' + this.appConfig.votingDays.slice(-1)[0].time + ')').replace('-', this.nonBreakingHyphen);
                 },
             },
             methods: {
-                decoder: function(str) {  // decoder for HTML &nbsp entity
+                decoder: function(str) {  // decoder for HTML entity (&nbsp etc)
                     var textArea = document.createElement('textarea');
                     textArea.innerHTML = str;
                     return textArea.value;
