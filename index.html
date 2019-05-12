@@ -115,7 +115,7 @@
     <div id="app">
 
         <div class="header__content">
-            <!-- desktop menu items only -->
+            <!-- desktop menu items only BEGIN (part of "Hlídač státu") -->
             <div class="navbar__level2">
                 <ul>
                     <li class=""><a href="https://www.hlidacstatu.cz/data">Datové sady</a></li>
@@ -140,7 +140,8 @@
                     <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet naši <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a>.</span>
                 </p>
             </div>
-            <!-- desktop menu items only -->
+            <!-- desktop menu items only END (part of "Hlídač státu") -->
+
             <div id="navigation" class="row">
                 <ul>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-cr' ? 'active': ''">
@@ -231,7 +232,6 @@
                     <div class="right">
                         <p class="new-p" v-html="texts['privacyInfo'][this.getLanguage()]">
                         </p>
-                        <!-- {{texts['privacyInfo'][this.getLanguage()]}}. -->
                         <p class="new-p">
                             {{texts['deliveryInfo'][this.getLanguage()]}}
                         </p>
@@ -335,76 +335,76 @@
                     </div>
                 </div>
                 <div class="form-group">
-                     <div class="left">
-                            <img src="assets/images/envelope.png" width="50" height="39" />
+                    <div class="left">
+                        <img src="assets/images/envelope.png" width="50" height="39" />
+                    </div>
+                    <h2>{{texts['blockCaptionsDeliveryAddress'][this.getLanguage()]}}</h2>
+                    <div class="right">
+                        <div class="radios">
+                            <h4>{{userData.delivery.caption[this.getLanguage()]}}:</h4>
+                            <div class="button-group">
+                                <input type="radio" name="delivery" v-model="userData.delivery.value" value="in-person" id="in-person" @change="userData.delivery.validate()"> <label for="in-person">{{texts['textsDeliveryMethodInPerson'][this.getLanguage()]}}</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery.value" value="representative" id="representative" @change="userData.delivery.validate()"> <label for="representative">{{texts['textsDeliveryMethodRepresentative'][this.getLanguage()]}}</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery.value" value="my-address" id="my-address" @change="userData.delivery.validate()"> <label for="my-address">{{texts['textsDeliveryMethodMyAddress'][this.getLanguage()]}}</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery.value" value="other-address" id="other-address" @change="userData.delivery.validate()"> <label for="other-address">{{texts['textsDeliveryMethodOtherAddress'][this.getLanguage()]}}</label>
+                            </div>
+                            <div v-if="userData.delivery.value=='other-address'">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.deliveryAddress.fullName)">
+                                        <label for="delivery-address-name">{{userData.deliveryAddress.fullName.caption[this.getLanguage()]}}</label>
+                                        <input id="delivery-address-name" v-model="userData.deliveryAddress.fullName.value" class="form-control" type="text" @change="userData.deliveryAddress.fullName.validate()">
+                                        <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.fullName)" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-line0">{{userData.deliveryAddress.addressLine0.caption[this.getLanguage()]}}</label>
+                                        <label for="delivery-address-line0" class="optional">{{texts['optionalAddressLine'][this.getLanguage()]}}</label>
+                                        <input id="delivery-address-line0" v-model="userData.deliveryAddress.addressLine0.value" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.deliveryAddress.addressLine1)">
+                                        <label for="delivery-address-line1">{{userData.deliveryAddress.addressLine1.caption[this.getLanguage()]}}</label>
+                                        <input id="delivery-address-line1" v-model="userData.deliveryAddress.addressLine1.value" class="form-control" type="text" @change="userData.deliveryAddress.addressLine1.validate()">
+                                        <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.addressLine1)" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-3 has-feedback" :class="validateBorder(userData.deliveryAddress.postalCode)">
+                                        <label for="delivery-address-postal-code">{{userData.deliveryAddress.postalCode.caption[this.getLanguage()]}}</label>
+                                        <input id="delivery-address-postal-code" v-model="userData.deliveryAddress.postalCode.value" class="form-control" type="text" @change="userData.deliveryAddress.postalCode.validate()">
+                                        <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.postalCode)" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-7 has-feedback" :class="validateBorder(userData.deliveryAddress.city)">
+                                        <label for="delivery-address-city">{{userData.deliveryAddress.city.caption[this.getLanguage()]}}</label>
+                                        <input id="delivery-address-city" v-model="userData.deliveryAddress.city.value" class="form-control" type="text" @change="userData.deliveryAddress.city.validate()">
+                                        <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.city)" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-country">{{userData.deliveryAddress.country.caption[this.getLanguage()]}}</label>
+                                        <label for="delivery-address-country" class="optional">{{texts['optional'][this.getLanguage()]}}</label>
+                                        <input id="delivery-address-country" v-model="userData.deliveryAddress.country.value" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        {{texts['deliveryTimeWarning'][this.getLanguage()]}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     <h2>{{texts['blockCaptionsDeliveryAddress'][this.getLanguage()]}}</h2>
-                     <div class="right">
-                         <div class="radios">
-                             <h4>{{userData.delivery.caption[this.getLanguage()]}}:</h4>
-                             <div class="button-group">
-                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="in-person" id="in-person" @change="userData.delivery.validate()"> <label for="in-person">{{texts['textsDeliveryMethodInPerson'][this.getLanguage()]}}</label><br>
-                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="representative" id="representative" @change="userData.delivery.validate()"> <label for="representative">{{texts['textsDeliveryMethodRepresentative'][this.getLanguage()]}}</label><br>
-                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="my-address" id="my-address" @change="userData.delivery.validate()"> <label for="my-address">{{texts['textsDeliveryMethodMyAddress'][this.getLanguage()]}}</label><br>
-                                 <input type="radio" name="delivery" v-model="userData.delivery.value" value="other-address" id="other-address" @change="userData.delivery.validate()"> <label for="other-address">{{texts['textsDeliveryMethodOtherAddress'][this.getLanguage()]}}</label>
-                             </div>
-                             <div v-if="userData.delivery.value=='other-address'">
-                                 <div class="row">
-                                     <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.deliveryAddress.fullName)">
-                                         <label for="delivery-address-name">{{userData.deliveryAddress.fullName.caption[this.getLanguage()]}}</label>
-                                         <input id="delivery-address-name" v-model="userData.deliveryAddress.fullName.value" class="form-control" type="text" @change="userData.deliveryAddress.fullName.validate()">
-                                         <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.fullName)" aria-hidden="true"></span>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-xs-12 col-sm-10">
-                                         <label for="delivery-address-line0">{{userData.deliveryAddress.addressLine0.caption[this.getLanguage()]}}</label>
-                                         <label for="delivery-address-line0" class="optional">{{texts['optionalAddressLine'][this.getLanguage()]}}</label>
-                                         <input id="delivery-address-line0" v-model="userData.deliveryAddress.addressLine0.value" class="form-control" type="text">
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-xs-12 col-sm-10 has-feedback" :class="validateBorder(userData.deliveryAddress.addressLine1)">
-                                         <label for="delivery-address-line1">{{userData.deliveryAddress.addressLine1.caption[this.getLanguage()]}}</label>
-                                         <input id="delivery-address-line1" v-model="userData.deliveryAddress.addressLine1.value" class="form-control" type="text" @change="userData.deliveryAddress.addressLine1.validate()">
-                                         <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.addressLine1)" aria-hidden="true"></span>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-xs-12 col-sm-3 has-feedback" :class="validateBorder(userData.deliveryAddress.postalCode)">
-                                         <label for="delivery-address-postal-code">{{userData.deliveryAddress.postalCode.caption[this.getLanguage()]}}</label>
-                                         <input id="delivery-address-postal-code" v-model="userData.deliveryAddress.postalCode.value" class="form-control" type="text" @change="userData.deliveryAddress.postalCode.validate()">
-                                         <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.postalCode)" aria-hidden="true"></span>
-                                     </div>
-                                     <div class="col-xs-12 col-sm-7 has-feedback" :class="validateBorder(userData.deliveryAddress.city)">
-                                         <label for="delivery-address-city">{{userData.deliveryAddress.city.caption[this.getLanguage()]}}</label>
-                                         <input id="delivery-address-city" v-model="userData.deliveryAddress.city.value" class="form-control" type="text" @change="userData.deliveryAddress.city.validate()">
-                                         <span class="glyphicon form-control-feedback" :class="validateIcon(userData.deliveryAddress.city)" aria-hidden="true"></span>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-xs-12 col-sm-10">
-                                         <label for="delivery-address-country">{{userData.deliveryAddress.country.caption[this.getLanguage()]}}</label>
-                                         <label for="delivery-address-country" class="optional">{{texts['optional'][this.getLanguage()]}}</label>
-                                         <input id="delivery-address-country" v-model="userData.deliveryAddress.country.value" class="form-control" type="text">
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-xs-12 col-sm-10">
-                                         {{texts['deliveryTimeWarning'][this.getLanguage()]}}
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="row">
-                             <div class="col-xs-12 col-sm-10">
-                                 {{texts['votingCardReceiveWarning'][this.getLanguage()]}}
-                             </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10">
+                                {{texts['votingCardReceiveWarning'][this.getLanguage()]}}
+                            </div>
                          </div>
 
-                         <div v-if="errors.length" class="row col-xs-12 col-sm-10 has-feedback has-error">
-                             <span v-for="error in errors" class="error-list">{{error}}<br></span>
-                          </div>
+                        <div v-if="getErrors(appConfig.showFullValidationSummary).length > 0" class="row col-xs-12 col-sm-10 has-feedback has-error">
+                            <span v-for="error in getErrors(appConfig.showFullValidationSummary)" class="error-list">{{error.message}}<br></span>
+                        </div>
 
                      </div>
                 </div>
@@ -439,7 +439,7 @@
                         <div class="col-md-4">
                             <h3>Pomocí datové schránky</h3>
                             <p>Pokud máte datovou schránku, stačí odeslat vytvořenou žádost jako přílohu ve formátu PDF do datové schránky vašeho obecního úřadu:</p>
-                            <p><strong>{{userData.municipality.databox.value}}</strong></p>
+                            <p><strong>{{userData.municipality.databox.value || ''}}</strong></p>
                             <p>Žádost nemusí být podepsaná (nebo opatřena elektronickým podpisem) a tím pádem nemusíte podpis ani ověřovat – vaše identita je ověřena přihlášením do datové schránky.</p>
                             <p>Žádost odešlete nejpozději do {{decoder(voterCardRequestdeliveryLastTimePost[getLanguage()])}} hodin.</p>
                         </div>
@@ -447,11 +447,7 @@
                             <h3>Poštou</h3>
                             <p>Vytvořenou žádost vytiskněte, opatřete ji úředně ověřeným podpisem (na libovolném obecním úřadu, u notáře apod.) odešlete na adresu vašeho úřadu.</p>
                             <p>
-                                <strong>
-                                    {{userData.municipality.name.value || ''}}<br>
-                                    {{userData.municipality.addressLine1.value || ''}}<br>
-                                    {{userData.municipality.postalCode.value || '' +' '}} {{userData.municipality.city.value || ''}}
-                                </strong>
+                                <strong v-html="userData.municipality.getSingleLineAddress('<br>')"></strong>
                             </p>
                             <p>Žádost musí být doručena (doručena, nikoliv odeslána) do {{decoder(voterCardRequestdeliveryLastTimePost[getLanguage()])}} hodin.</p>
                         </div>
@@ -459,11 +455,7 @@
                             <h3>Osobně</h3>
                             <p>Dostavte se na váš obecní úřad s platným dokladem totožnosti.</p>
                             <p>
-                                <strong>
-                                    {{userData.municipality.name.value || ''}}<br>
-                                    {{userData.municipality.addressLine1.value || '' }}<br>
-                                    {{userData.municipality.postalCode.value || '' +' '}} {{userData.municipality.city.value || '' }}
-                                </strong>
+                                <strong v-html="userData.municipality.getSingleLineAddress('<br>')"></strong>
                             </p>
                             <p>Na úřad můžete přijít podat žádost nejpozději {{decoder(voterCardRequestdeliveryLastTimePersonal[getLanguage()])}} hodin. Raději si ale předem zkontrolujte úřední hodiny!</p>
                         </div>
@@ -509,11 +501,7 @@
                             <h3>Via post</h3>
                             <p>Print your completed application and send it with a verified signature to the address of your office:</p>
                             <p>
-                                <strong>
-                                    {{userData.municipality.name.value || ''}}<br>
-                                    {{userData.municipality.addressLine1.value || ''}}<br>
-                                    {{(userData.municipality.postalCode.value || '') +' '}} {{userData.municipality.city.value || ''}}
-                                </strong>
+                                <strong v-html="userData.municipality.getSingleLineAddress('<br>')"></strong>
                             </p>
                             <p>Your application must be delivered (received, not only sent) by {{decoder(voterCardRequestdeliveryLastTimePost[getLanguage()])}}.</p>
                         </div>
@@ -521,11 +509,7 @@
                             <h3>In person</h3>
                             <p>If you can go to your office personally, you don’t need to make an appointment. You only need to go to the appropriate office with your proof of identity (I.D. card or passport).</p>
                             <p>
-                                <strong>
-                                    {{userData.municipality.name.value || ''}}<br>
-                                    {{userData.municipality.addressLine1.value || ''}}<br>
-                                    {{(userData.municipality.postalCode.value || '') +' '}} {{userData.municipality.city.value || ''}}
-                                </strong>
+                                <strong v-html="userData.municipality.getSingleLineAddress('<br>')"></strong>
                             </p>
                             <p>You can go to the office no later than {{decoder(voterCardRequestdeliveryLastTimePersonal[getLanguage()])}}.</p>
                         </div>
@@ -542,6 +526,7 @@
                 </div>
             </transition>
         </div>
+
         <div id="overlay" v-show="overlayVisible" @click="showOverlay"><img></div>
         <div id="document-template">
             <div id="document-to-print-cr" class="pageA4">
@@ -558,6 +543,7 @@
                     Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
                     zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad&nbsp;
                         <strong>
+                            <!-- address isn't refactored because technology for PDF generator will be changed -->
                             <span v-if="userData.municipality.name.value">{{userData.municipality.name.value +', '}}</span>
                             <span v-if="userData.municipality.addressLine1.value">{{userData.municipality.addressLine1.value +', '}}</span>
                             <span v-if="userData.municipality.postalCode.value">{{userData.municipality.postalCode.value +' '}}</span>
@@ -587,6 +573,7 @@
                         <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
                     <input type="checkbox" name="pdf-delivery" id="pdf-other-address" style="margin-left: 5px;" v-bind:checked="userData.delivery.value=='other-address'">
                         <label for="pdf-other-address">žádám zaslat na jinou adresu: </label>
+                            <!-- address isn't refactored because technology for PDF generator will be changed -->
                             <span v-if="userData.delivery.value=='other-address' && userData.deliveryAddress.fullName.value">{{userData.deliveryAddress.fullName.value +', '}}</span>
                             <span v-if="userData.delivery.value=='other-address' && userData.deliveryAddress.addressLine0.value">{{userData.deliveryAddress.addressLine0.value +', '}}</span>
                             <span v-if="userData.delivery.value=='other-address' && userData.deliveryAddress.addressLine1.value">{{userData.deliveryAddress.addressLine1.value +', '}}</span>
@@ -637,6 +624,13 @@
             return date.isValid() ? date.format('D. M. YYYY') : "";
         });
 
+        function sprintf (str) {   // simple javascript sprintf implementation (IE doesn't support ES6 with Template Literals)
+            for (var i=1; i < arguments.length; i++ ) {
+                str = str.replace( /%s/, arguments[i] );
+            }
+            return str;
+        };
+
         // generic object for user data property
         function getDefaultDataObject(nullable, valid, caption, validator) {
             return {
@@ -679,7 +673,7 @@
             }
         };
 
-        // generic object for user data
+         // generic object for user data
         function getDefaultUserData() {
             return {
                 municipality: {
@@ -687,7 +681,13 @@
                     addressLine1: getDefaultDataObject(false, true, { 'CZ': 'Ulice a číslo popisné', 'EN': 'Address line' }, validatiors.addressLine1),
                     postalCode: getDefaultDataObject(false, true, { 'CZ': 'PSČ', 'EN': 'Postcode' }, validatiors.postalCode),
                     city: getDefaultDataObject(false, true, { 'CZ': 'Město', 'EN': 'City' }, validatiors.cityName),
-                    databox: getDefaultDataObject(true, true, { 'CZ': 'Datová schránka', 'EN': 'databox' }) // user can't fill the databox ID manually and databox ID isn't displayed in the form => value must be null in default to disable displaying validation message when user doesn't select postal code/municipality
+                    databox: getDefaultDataObject(true, true, { 'CZ': 'Datová schránka', 'EN': 'databox' }),     // user can't fill the databox ID manually and databox ID isn't displayed in the form => value must be null in default to disable displaying validation message when user doesn't select postal code/municipality
+                    getSingleLineAddress: function(fieldSeparator){ // return address in the single line, fields are delimited with fieldSeparator
+                        return '' +
+                            (this.name.value || '') + fieldSeparator +
+                            (this.addressLine1.value || '') + fieldSeparator +
+                            (this.postalCode.value || '') + ' ' + (this.city.value || '');
+                    },
                 },
                 fullName: getDefaultDataObject(false, true, { 'CZ': 'Jméno a příjmení', 'EN': 'Full name' }, validatiors.fullName),
                 birthdate: getDefaultDataObject(false, true, { 'CZ': 'Datum narození', 'EN': 'Birth date' }, validatiors.bday),
@@ -702,8 +702,8 @@
                     addressLine1: getDefaultDataObject(false, true, { 'CZ': 'Adresa', 'EN': 'Address line' }, validatiors.addressLine1),
                     postalCode: getDefaultDataObject(false, true, { 'CZ': 'PSČ', 'EN': 'Postcode' }, validatiors.postalCode),
                     city: getDefaultDataObject(false, true, { 'CZ': 'Město', 'EN': 'City' }, validatiors.cityName),
-                    country: getDefaultDataObject(true, true, { 'CZ': 'Stát', 'EN': 'Country' }, validatiors.country)   // country is not mandatory
-                }
+                    country: getDefaultDataObject(true, true, { 'CZ': 'Stát', 'EN': 'Country' }, validatiors.country),   // country is not mandatory
+                },
             }
         };
 
@@ -745,7 +745,7 @@
                 message: { 'CZ': 'Není zvolen způsob převzetí voličského průkazu', 'EN': 'Please select delivery method type' }
             },
             bday: {
-                method: function (day) { return day >= new Date(1900, 0, 1) && day <= app.csDateTimeParse(appConfig.electionDays[appConfig.electionDays.length - 1].endTime).subtract(appConfig.minimumAge,'years').subtract(1,'day')}, // birthday must be between 1.1.1900 and last election day minus 18 years
+                method: function (day) { return day >= new Date(1900, 0, 1) && day <= app.csDateTimeParse(appConfig.electionDays[appConfig.electionDays.length - 1].endTime).subtract(appConfig.minimumAge,'years').subtract(1,'day')}, // birthday must be between 1.1.1900 and last election day minus XX years
                 message: { 'CZ': 'Minimální věk je ' + appConfig.minimumAge + ' let v poslední den voleb', 'EN': 'Minimum age is ' + appConfig.minimumAge + ' years on the last election day' }
             }
         };
@@ -812,13 +812,13 @@
                 },
             },
             methods: {
-                sprintf: function (str) {   // simple javascript sprintf implementation (IE doesn't support ES6 with Template Literals)
-                    for (var i=1; i < arguments.length; i++ ) {
-                        str = str.replace( /%s/, arguments[i] );
-                    }
-                    return str;
+                getErrors: function (full) {
+                    return this.errors.filter(function(error) {
+                        return (full || error.important)
+                    });
                 },
-                decoder: function(str) {  // decoder for HTML entity (&nbsp etc.), shortest alternative for v-html tag
+
+                decoder: function (str) {  // decoder for HTML entity (&nbsp etc.), shortest alternative for v-html tag
                     var textArea = document.createElement('textarea');
                     textArea.innerHTML = str;
                     return textArea.value;
@@ -831,17 +831,23 @@
                 },
                 validateUserDataObject: function (obj, group) {     // validate user data object properties
                     for (var userProp in obj) {
-                        if (obj[userProp] !== null && typeof obj[userProp].nullable !== 'undefined' && !obj[userProp].nullable && obj[userProp].value == null) {
+                        if (typeof obj[userProp] == 'undefined' || typeof obj[userProp] == 'function' || obj[userProp] == null || typeof obj[userProp].value == 'undefined'){
+                            continue;
+                        }
+
+                        // After page load, the object is in the valid state in order to prevent displaying error (red border) in corresponding field because it is empty.
+                        // After user submits form then object is set to invalid state when empty (or invalid value) and then error is displayed.
+                        if (!obj[userProp].nullable && obj[userProp].value == null) {
                             obj[userProp].resetToNullInvalid();
                         }
 
-                        if (obj[userProp] !== null && typeof obj[userProp].valid !== 'undefined' && !obj[userProp].valid) {
+                        if (!obj[userProp].valid) {
                             var errorMessage = obj[userProp].getMessageForValidation(this.getLanguage());
                             if (errorMessage !== null) {            // custom error text if set
-                                this.errors.push(errorMessage);
+                                this.errors.push({important: true, message: errorMessage});
                             }
-                            else if (this.appConfig.showFullValidationSummary) {    // object doesn't have custom error message, show generic error message when it's enabled in config file
-                                this.errors.push(this.sprintf(this.texts.genericErrorMessage[this.getLanguage()], group + obj[userProp].caption[this.getLanguage()]));
+                            else {
+                                this.errors.push({important: false, message: sprintf(this.texts.genericErrorMessage[this.getLanguage()], group + obj[userProp].caption[this.getLanguage()])});
                             }
                         }
                     }
@@ -982,7 +988,10 @@
             created: function () {
 
                 // prepare (read, parse and format in both languages) date/time property from config file
-                // see example in vue app data definition
+                // date and time information are rendered with non-wrap characters instead of spaces or dashes
+                // see example in this Vue app data definition
+
+                var tmpDate = null; // temporary variable for store parsed datetime (prevent to multiple parsing same strings)
 
                 // get election days from config file, parse them into moment.js object and store (cache) into preformated localised strings votingInterval and votingIntervalWithTime
                 for (var i = 0; i < this.appConfig.electionDays.length ; i++ ) {
@@ -990,52 +999,55 @@
                         // first day - nothing to append before
                     }
                     else if (i < this.appConfig.electionDays.length - 1 ) {
-                        // middle day - divider is comma
+                        // day between first and last - append comma before day
                         this.votingInterval['CZ'] += ', ';
                         this.votingInterval['EN'] += ', ';
                         this.votingIntervalWithTime['CZ'] += ', ';
                         this.votingIntervalWithTime['EN'] += ', ';
                     }
                     else if (i < this.appConfig.electionDays.length ) {
-                        // last day - divider is and
+                        // last day - append "and" before day
                         this.votingInterval['CZ'] += (' ' + this.texts['conjunctionAND']['CZ'] + ' ');
                         this.votingInterval['EN'] += (' ' + this.texts['conjunctionAND']['EN'] + ' ');
                         this.votingIntervalWithTime['CZ'] += (' ' + this.texts['conjunctionAND']['CZ'] + ' ');
                         this.votingIntervalWithTime['EN'] += (' ' + this.texts['conjunctionAND']['EN'] + ' ');
                     }
-                    this.votingInterval['CZ'] += this.convertToNonBreak(this.csDateFormat(this.csDateTimeParse(this.appConfig.electionDays[i].startTime)));
-                    this.votingInterval['EN'] += this.convertToNonBreak(this.enDateFormat(this.csDateTimeParse(this.appConfig.electionDays[i].startTime)));
+
+                    tmpDate = this.csDateTimeParse(this.appConfig.electionDays[i].startTime);
+                    this.votingInterval['CZ'] += this.convertToNonBreak(this.csDateFormat(tmpDate));
+                    this.votingInterval['EN'] += this.convertToNonBreak(this.enDateFormat(tmpDate));
 
                     this.votingIntervalWithTime['CZ'] += (
-                            this.convertToNonBreak(this.csDateFormat(this.csDateTimeParse(this.appConfig.electionDays[i].startTime))) +
-                            ' ' + this.convertToNonBreak('('+ this.csTimeFormat(this.csDateTimeParse(this.appConfig.electionDays[i].startTime)) +
-                            ' - ' + this.csTimeFormat(this.csDateTimeParse(this.appConfig.electionDays[i].endTime)) +')')
-                            );
-
+                        this.convertToNonBreak(this.csDateFormat(tmpDate)) +
+                        ' ' + this.convertToNonBreak('('+ this.csTimeFormat(tmpDate) +
+                        ' - ' + this.convertToNonBreak(this.csTimeFormat(this.csDateTimeParse(this.appConfig.electionDays[i].endTime))) +')')
+                    );
                     this.votingIntervalWithTime['EN'] += (
-                        this.convertToNonBreak(this.enDateFormat(this.csDateTimeParse(this.appConfig.electionDays[i].startTime))) +
-                        ' ' + this.convertToNonBreak('('+ this.enTimeFormat(this.csDateTimeParse(this.appConfig.electionDays[i].startTime)) +
-                        ' - ' + this.enTimeFormat(this.csDateTimeParse(this.appConfig.electionDays[i].endTime)) +')')
-                        );
+                        this.convertToNonBreak(this.enDateFormat(tmpDate)) +
+                        ' ' + this.convertToNonBreak('('+ this.enTimeFormat(tmpDate) +
+                        ' - ' + this.convertToNonBreak(this.enTimeFormat(this.csDateTimeParse(this.appConfig.electionDays[i].endTime))) +')')
+                    );
                 }
 
+                tmpDate = this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.personal);
                 this.voterCardRequestdeliveryLastTimePersonal['CZ'] =
-                    this.convertToNonBreak(this.csDateFormat(this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.personal))) +
-                    ' v ' + this.convertToNonBreak(this.csTimeFormat(this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.personal)));
+                    this.convertToNonBreak(this.csDateFormat(tmpDate)) +
+                    ' v ' + this.convertToNonBreak(this.csTimeFormat(tmpDate));
 
                 this.voterCardRequestdeliveryLastTimePersonal['EN'] =
-                    this.convertToNonBreak(this.enTimeFormat(this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.personal))) +
-                    ' at ' + this.convertToNonBreak(this.enDateFormat(this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.personal)));
+                    this.convertToNonBreak(this.enTimeFormat(tmpDate)) +
+                    ' at ' + this.convertToNonBreak(this.enDateFormat(tmpDate));
 
+                tmpDate = this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.post);
                 this.voterCardRequestdeliveryLastTimePost['CZ'] =
-                    this.convertToNonBreak(this.csDateFormat(this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.post))) +
-                    ' v ' +  this.convertToNonBreak(this.csTimeFormat(this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.post)));
+                    this.convertToNonBreak(this.csDateFormat(tmpDate)) +
+                    ' v ' +  this.convertToNonBreak(this.csTimeFormat(tmpDate));
 
                 this.voterCardRequestdeliveryLastTimePost['EN'] =
-                    this.convertToNonBreak(this.enTimeFormat(this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.post))) +
-                    ' at ' + this.convertToNonBreak(this.enDateFormat(this.csDateTimeParse(this.appConfig.voterCardRequestdeliveryLastTime.post)));
+                    this.convertToNonBreak(this.enTimeFormat(tmpDate)) +
+                    ' at ' + this.convertToNonBreak(this.enDateFormat(tmpDate));
 
-                var tmpDate = this.csDateTimeParse(this.appConfig.electionDays[0].startTime).subtract( this.appConfig.minimumDaysForRegisterOnElectoralRollBeforeElection,'days');
+                tmpDate = this.csDateTimeParse(this.appConfig.electionDays[0].startTime).subtract(this.appConfig.minimumDaysForRegisterOnElectoralRollBeforeElection,'days');
                 this.minimumDateForRegisterOnElectoralRollBeforeElection =
                     this.convertToNonBreak(this.enTimeFormat(tmpDate)) + ' on ' + this.convertToNonBreak(this.enDateFormat(tmpDate));
             }
@@ -1335,25 +1347,21 @@
     </style>
 
     <script>
-        const displayVersionLength = 7;            // show first 7 chars (like GitHub)
+        // script for get application version from external file and put then into the DOM element with ID 'appVersion'
+        const displayVersionLength = 7;            // show first 7 chars from hash (like GitHub)
         const appVersionFile = 'appversion.txt';   // file with SHA1 GitHub hash
 
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                displayAppVersion(xmlHttp.responseText);
+                var retrievedText = xmlHttp.responseText.trim();
+                if (retrievedText.match('^[0-9a-fA-F]{5,40}$')) {   // SHA1 regex pattern
+                    document.getElementById('appVersion').textContent = retrievedText.substring(0, ((retrievedText.lenght < displayVersionLength) ? retrievedText.lenght : displayVersionLength));
+                }
             }
         }
         xmlHttp.open("GET", appVersionFile, true);
         xmlHttp.send();
-
-        function displayAppVersion(retrievedText) {
-            retrievedText = retrievedText.trim();
-
-            if (retrievedText.match('^[0-9a-fA-F]{5,40}$')) {   // SHA1 regex pattern
-                document.getElementById('appVersion').textContent = retrievedText.substring(0, ((retrievedText.lenght < displayVersionLength) ? retrievedText.lenght : displayVersionLength));
-            }
-        }
     </script>
 
     <footer>

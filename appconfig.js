@@ -17,5 +17,5 @@ const appConfig = {
     minimumDaysForRegisterOnElectoralRollBeforeElection: 40,         //  apply to have your details transferred (or register) to the EP electoral roll no later than 40 days before the election
     applicationTemplate: "assets/files/Zadost-Volicsky-Prukaz-EU2019-CR.pdf",
     filenameForDownloadApplication: "Zadost-Volicsky-Prukaz-EU2019-CR.pdf",
-    showFullValidationSummary: false        // true = show all error, false = show only important info
+    showFullValidationSummary: true        // true = show all error, false = show only important info
 }
