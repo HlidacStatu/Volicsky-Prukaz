@@ -136,20 +136,20 @@
                     <span>Volby do Evropského parlamentu se uskuteční <strong>24.&nbsp;5.&nbsp;2019 (od 14:00 do 22:00)</strong> a <strong>25&nbsp;.5.&nbsp;2019 (od 8:00 do 14:00)</strong></span>
                 </p>
                 <p>
-                    <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet naši <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a>.</span>
+                    <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a>.</span>
                 </p>
             </div>
             <!-- desktop menu items only -->
             <div id="navigation" class="row">
                 <ul>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-cr' ? 'active': ''">
-                        <router-link to="/cr-cr">Jsem občanem ČR<br class="visible-xs-block"> a chci volit v ČR</router-link>
+                        <router-link to="/cr-cr">Jsem občanem ČR<br class="menu-fix"> a chci volit v ČR</router-link>
                     </li>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-eu' ? 'active': ''">
-                        <router-link to="/cr-eu">Jsem občanem ČR<br class="visible-xs-block"> a chci volit v EU</router-link>
+                        <router-link to="/cr-eu">Jsem občanem ČR<br class="menu-fix"> a chci volit v EU</router-link>
                     </li>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/eu-cr' ? 'active': ''">
-                        <router-link to="/eu-cr" role="tab">I am EU citizen<br class="visible-xs-block"> and want to vote in CR</router-link>
+                        <router-link to="/eu-cr" role="tab">I am EU citizen<br class="menu-fix"> and want to vote in CR</router-link>
                     </li>
                 </ul>
             </div>
@@ -390,7 +390,7 @@
                 </div>
                 <div class="right row">
                     <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Vytvořit žádost</router-link>
-                    <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm('Opravdu si přejete smazat obsah formuláře?', false)">Smazat údaje</button>
+                    <button class="btn btn-default btn-default-new col-xs-12 col-sm-4" v-on:click="clearForm('Opravdu si přejete smazat obsah formuláře?', false)">Smazat údaje</button>
                 </div>
             </div>
 
@@ -562,7 +562,7 @@
                 </div>
                 <div class="right row">
                     <router-link tag="button" to="/en/preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Create application</router-link>
-                    <button class="btn btn-default col-xs-12 col-sm-4" v-on:click="clearForm('Do you really want to reset form?', false)">Reset form</button>
+                    <button class="btn btn-default btn-default-new col-xs-12 col-sm-4" v-on:click="clearForm('Do you really want to reset form?', false)">Reset form</button>
                 </div>
             </div>
 
@@ -580,7 +580,7 @@
                             <p>Pokud není některá z vyplněných informací správná, nic se neděje. Údaje můžete snadno změnit.</p>
                             <div class="preview-buttons row clearfix">
                                 <button class="btn btn-primary btn-primary-new pull-left col-xs-12 col-sm-5" v-on:click="downloadPdf">Stáhnout <br class="visible-sm-block">žádost</button>
-                                <router-link tag="button" to="/form" class="btn btn-default pull-right col-xs-12 col-sm-5">Změnit <br class="visible-sm-block">údaje</router-link>
+                                <router-link tag="button" to="/form" class="btn btn-default btn-default-new pull-right col-xs-12 col-sm-5">Změnit <br class="visible-sm-block">údaje</router-link>
                             </div>
                         </div>
                     </div>
@@ -644,7 +644,7 @@
                             <p>If some details are incorrect, nothing happens. You can easily change the details.</p>                            
                             <div class="preview-buttons row clearfix">
                                 <button class="btn btn-primary btn-primary-new pull-left col-xs-12 col-sm-5" v-on:click="downloadPdf">Download <br class="visible-sm-block">application</button>
-                                <router-link tag="button" to="/en/form" class="btn btn-default pull-right col-xs-12 col-sm-5">Change <br class="visible-sm-block">details</router-link>
+                                <router-link tag="button" to="/en/form" class="btn btn-default btn-default-new pull-right col-xs-12 col-sm-5">Change <br class="visible-sm-block">details</router-link>
                             </div>
                         </div>
                     </div>
@@ -1139,8 +1139,17 @@
             width: 150%;
         }
 
+        .btn-default-new{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            line-height: 24px;
+        }
+        
         .btn-primary-new{
             margin-right: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            line-height: 24px;
         }
 
         .radios {
@@ -1155,16 +1164,24 @@
             margin: 0px 10px;
         }
 
-        @media (max-width: 425px) {
-            .preview-wrapper{
-                margin: 10px 0px;                
+        @media (min-width: 1361px) {
+            .menu-fix {
+               display: none;
             }
-
-            #overlay {
-                display: none;
+        }    
+        
+        @media (max-width: 1360px) {
+            .menu-fix {
+               display: block;
             }
         }
 
+        @media (max-width: 991px) {
+            .menu-fix {
+               display: none;
+            }
+        }
+        
         @media (max-width: 767px) {
             .btn-primary-new{
                 margin-right: 0px;
@@ -1192,6 +1209,10 @@
                 margin: 5px 0px;
             }
 
+            .preview-wrapper{
+                margin: 10px 0px;                
+            }
+
             #overlay {
                 top: 600px;            
             }
@@ -1201,16 +1222,18 @@
             }
         }
 
-        @media (max-width: 1024px) {
-            .preview-buttons .btn {
-               padding: 0px 0px;
+        @media (max-width: 425px) {
+            #overlay {
+                display: none;
+            }
+
+            .menu-fix {
+               display: block;
             }
         }
 
         .pageA4 {
             width: 600px;
-            /*width: 794px;
-            height: 1122px;*/
             border: 0px;
             padding: 0px;
             margin: 0px;
