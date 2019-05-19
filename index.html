@@ -444,21 +444,30 @@
                         <div class="col-md-4">
                             <h3>{{getLocalisedText('previewStep2ViaDataboxHeader')}}</h3>
                             <p><span v-html="getLocalisedText('previewStep2ViaDataboxInfo')"></span></p>
-                            <p><strong>{{userData.municipality.databox.value || ''}}</strong></p>
+                            <p>
+                                <strong v-if="userData.municipality.databox.hasValue()">
+                                    <a v-bind:href="appConfig.databoxMunicipalityLink.replace('%IDDS%', (userData.municipality.databox.value))" target="_blank">{{userData.municipality.databox.value}}</a>
+                                </strong>
+                                <i v-else>{{getLocalisedText('previewStep2MunicipalityNotSelected')}}</i>
+                            </p>
                             <p>{{getLocalisedText('previewStep2ViaDataboxSignature')}}</p>
                             <p>{{getLocalisedText('previewStep2ViaDataboxLatestDate')}} <span v-html="voterCardRequestdeliveryLastTimePost[getLanguage()]"></span>.</p>
                         </div>
                         <div class="col-md-4">
                             <h3>{{getLocalisedText('previewStep2ViaPostHeader')}}</h3>
                             <p>{{getLocalisedText('previewStep2ViaPostInfo')}}</p>
-                            <p><strong v-html="userData.municipality.getSingleLineAddress('<br>')"></strong></p>
+                            <p>
+                                <strong v-if="userData.municipality.getSingleLineAddress('').trim().length > 0" v-html="userData.municipality.getSingleLineAddress('<br>')"></strong>
+                                <i v-else>{{getLocalisedText('previewStep2MunicipalityNotSelected')}}</i>
+                            </p>
                             <p>{{getLocalisedText('previewStep2ViaPostLatestDate')}} <span v-html="voterCardRequestdeliveryLastTimePost[getLanguage()]"></span>.</p>
                         </div>
                         <div class="col-md-4">
                             <h3>{{getLocalisedText('previewStep2InPerson')}}</h3>
                             <p><span v-html="getLocalisedText('previewStep2InPersonInfo').replace('%Y%',userData.municipality.coordinateY.value).replace('%X%',userData.municipality.coordinateX.value)"></span></p>
                             <p>
-                                <strong v-html="userData.municipality.getSingleLineAddress('<br>')"></strong>
+                                <strong v-if="userData.municipality.getSingleLineAddress('').trim().length > 0" v-html="userData.municipality.getSingleLineAddress('<br>')"></strong>
+                                <i v-else>{{getLocalisedText('previewStep2MunicipalityNotSelected')}}</i>
                             </p>
                             <p>{{getLocalisedText('previewStep2InPersonLatestDate')}} <span v-html="voterCardRequestdeliveryLastTimePersonal[getLanguage()]"></span>.</p>
                             <p>{{getLocalisedText('previewStep2InPersonWarning')}}</p>
@@ -479,6 +488,8 @@
 
         </div>
 
+        <!-- Section will be rewrited when changing technology for generating PDF BEGIN.
+        (probably each election type will have own application template with relevant laws etc.) -->
         <div id="overlay" v-show="overlayVisible" @click="showOverlay"><img></div>
         <div id="document-template">
             <div id="document-to-print-cr" class="pageA4">
@@ -540,6 +551,8 @@
                 </p>
             </div>
         </div>
+        <!-- Section will be rewrited when changing technology for generating PDF END. -->
+
     </div>
 
     <script>
@@ -614,6 +627,9 @@
                     else {
                         return this.validator.message[language];
                     }
+                },
+                hasValue: function() {
+                    return this.value != 'undefined' && this.value != null && this.value.length > 0;
                 },
                 validate: function () { // method for validating object
                     this.valid = false;

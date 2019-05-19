@@ -24,6 +24,7 @@ const appConfig = {
         EN: 'https://euandi2019.eu'
     },
     databoxLink: "https://www.mojedatovaschranka.cz",
-    searchMapyCZ: "https://mapy.cz/zakladni?q=jtsk:%Y%,%X%",    // https://mapy.cz/zakladni?q=jtsk:801310.09,1077249.26
+    databoxMunicipalityLink: "https://www.mojedatovaschranka.cz/sds/detail.do?dbid=%IDDS%", // https://www.mojedatovaschranka.cz/sds/detail.do?dbid=48cbwvk
+    searchMapyCZLink: "https://mapy.cz/zakladni?q=jtsk:%Y%,%X%",    // https://mapy.cz/zakladni?q=jtsk:801310.09,1077249.26
     showFullValidationSummary: true        // true = show all error, false = show only important info
 }

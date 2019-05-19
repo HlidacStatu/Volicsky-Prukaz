@@ -85,6 +85,7 @@ const localisationTexts = {
     previewStep1ChangeDetails:  { 'CZ': 'Změnit \núdaje', 'EN': 'Change \ndetails' },
 
     previewStep2Header:  { 'CZ': '2. Doručte žádost na váš úřad', 'EN': '2. Deliver the application to your office' },
+    previewStep2MunicipalityNotSelected:  { 'CZ': '(úřad nebyl při vyplňování žádosti vybrán)', 'EN': '(you didn\'t select municipality in previous step)' },
     previewStep2ViaDataboxHeader:  { 'CZ': 'Pomocí datové schránky', 'EN': 'Via data box' },
     previewStep2ViaDataboxInfo:  {
         'CZ': 'Pokud máte datovou schránku, stačí odeslat vytvořenou žádost jako přílohu ve formátu PDF do <a href="' + appConfig.databoxLink + '" target="_blank">datové schránky</a> vašeho obecního úřadu:',
@@ -105,8 +106,8 @@ const localisationTexts = {
 
     previewStep2InPerson:  { 'CZ': 'Osobně', 'EN': 'In person' },
     previewStep2InPersonInfo:  {
-        'CZ': 'Vytvořenou žádost vytiskněte a dostavte se <a href="' + appConfig.searchMapyCZ + '" target="_blank">na váš obecní úřad</a> s platným dokladem totožnosti:',
-        'EN': 'If you can go <a href="' + appConfig.searchMapyCZ + '" target="_blank">to your office</a> personally, you don’t need to make an appointment. You only need to go to the appropriate office with your proof of identity (I.D. card or passport):'
+        'CZ': 'Vytvořenou žádost vytiskněte a dostavte se <a href="' + appConfig.searchMapyCZLink + '" target="_blank">na váš obecní úřad</a> s platným dokladem totožnosti:',
+        'EN': 'If you can go <a href="' + appConfig.searchMapyCZLink + '" target="_blank">to your office</a> personally, you don’t need to make an appointment. You only need to go to the appropriate office with your proof of identity (I.D. card or passport):'
     },
     previewStep2InPersonLatestDate:  { 'CZ': 'Na úřad můžete přijít podat žádost nejpozději', 'EN': 'You can go to the office no later than' },
     previewStep2InPersonWarning:  { 'CZ': 'Raději si ale předem zkontrolujte úřední hodiny!', 'EN': 'Check the office hours at your local office first!' },
