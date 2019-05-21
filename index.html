@@ -951,10 +951,10 @@
                     }
                     else if (i < this.appConfig.electionDays.length ) {
                         // last day - append "and" before day
-                        this.votingInterval['CZ'] += (' ' + this.localisationTexts['conjunctionAND']['CZ'] + ' ');
-                        this.votingInterval['EN'] += (' ' + this.localisationTexts['conjunctionAND']['EN'] + ' ');
-                        this.votingIntervalWithTime['CZ'] += (' ' + this.localisationTexts['conjunctionAND']['CZ'] + ' ');
-                        this.votingIntervalWithTime['EN'] += (' ' + this.localisationTexts['conjunctionAND']['EN'] + ' ');
+                        this.votingInterval['CZ'] += (' ' + this.localisationTexts.conjunctionAND['CZ'] + ' ');
+                        this.votingInterval['EN'] += (' ' + this.localisationTexts.conjunctionAND['EN'] + ' ');
+                        this.votingIntervalWithTime['CZ'] += (' ' + this.localisationTexts.conjunctionAND['CZ'] + ' ');
+                        this.votingIntervalWithTime['EN'] += (' ' + this.localisationTexts.conjunctionAND['EN'] + ' ');
                     }
 
                     tmpDate = this.csDateTimeParse(this.appConfig.electionDays[i].startTime);
