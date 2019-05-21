@@ -4,6 +4,8 @@
     "alias": "volby2.hlidacstatu.cz",
     "builds": [
         { "src": "index.html", "use": "@now/static" },
+        { "src": "appconfig.js", "use": "@now/static" },
+        { "src": "appversion.txt", "use": "@now/static" },
         { "src": "favicon.ico", "use": "@now/static" },
         { "src": "assets/**", "use": "@now/static" }
     ],
@@ -11,4 +13,4 @@
         "enabled": true,
         "silent": false
     }
-  }
+}
