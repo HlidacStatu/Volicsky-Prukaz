@@ -1,17 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
     <title>Rychlá žádost o voličský průkaz</title>
-
     <link rel="canonical" href="https://volby.hlidacstatu.cz/" />
     <meta name="description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
-
     <!-- open graph specification if anyone shares -->
     <meta property="og:title" content="Rychlá žádost o voličský průkaz" />
     <meta property="og:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
@@ -19,13 +17,11 @@
     <meta property="og:url" content="https://volby.hlidacstatu.cz/" />
     <meta property="og:image" content="https://volby.hlidacstatu.cz/assets/images/EP2019-sharing-banner.jpg" />
     <meta property="fb:app_id" content="803455203348459" />
-
     <meta name="twitter:site" content="Voličské Průkazy" />
     <meta name="twitter:url" content="https://volby.hlidacstatu.cz/" />
     <meta name="twitter:title" content="Rychlá žádost o voličský průkaz" />
     <meta name="twitter:description" content="Nemůžete volit v místě svého bydliště? Požádejte si o voličský průkaz hned teď. Stačí Vám adresa a datum narození." />
     <meta name="twitter:image" content="https://volby.hlidacstatu.cz/assets/images/EP2019-sharing-banner.jpg" />
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.5/core.min.js" integrity="sha256-mmU2yAEP5IKCRWRxZEA+e2oGOdfyJGQV+55ZFTLahW8=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -36,12 +32,12 @@
     <script src="assets/vuejs-datepicker-patched.min.js"></script>
     <script src="assets/vuejs-auto-complete-0.10.0-min.js"></script>
     <script src="assets/lang-cs.js"></script>
-    <script src="assets/citycouncils_alt.min.js"></script>  <!-- city councils (alternate, new version) -->
-    <script src="assets/cityzipname.min.js"></script>   <!-- cities with zip for zip lookup -->
+    <script src="assets/citycouncils_alt.min.js"></script> <!-- city councils (alternate, new version) -->
+    <script src="assets/cityzipname.min.js"></script> <!-- cities with zip for zip lookup -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js" identity="sha384-QliZbpszoo4jiVyo529dYiKgGQySM0I/kSJcvQcVkMXCqiIoEfRQLsvUwVNLcOqP" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.min.js" integrity="sha384-tJs0vlPyuG7XcysSkZ0VtWsM/uztJkUtpLwb6HzV5NSgSwGqdW61IBOBJDhbUf+K" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.min.js" integrity="sha384-EnzMJi5PirMz1dgUr9a4DUHwg7e71+fxk3jLLfJn1vljGydxX8c6bdDYdPDE8224" crossorigin="anonymous"></script>    
-    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js" integrity="sha384-Ho2Qx5q7Y92BZSxEZtDh2+hUqcudf/uXp77PK0XXawmB+tmreY4nUttlKWXnUWtn" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.min.js" integrity="sha384-EnzMJi5PirMz1dgUr9a4DUHwg7e71+fxk3jLLfJn1vljGydxX8c6bdDYdPDE8224" crossorigin="anonymous"></script>
+    <script src="assets/html2pdf.bundle.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154075-24"></script>
     <script>
@@ -55,14 +51,13 @@
 <body class="new-body">
     <div id="fb-root"></div>
     <script>
-            (function (d, s, id) {
+        (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
                 js = d.createElement(s); js.id = id;
                 js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v2.9";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
-
     <div class="header__navbar">
         <a href="/" class="logo">
             <svg width="46" height="46" viewBox="0 0 46 46">
@@ -72,47 +67,39 @@
         </a>
         <nav class="navbar__level1">
             <a href="#" class="hamburger"></a>
-
             <ul>
                 <li class="navbar__watchers">
-                    <span class="watcher">Hlídače:</span>
-                    <a href="https://www.hlidacstatu.cz/smlouvy">Smluv</a>
-                    <a href="https://www.hlidacstatu.cz/osoby">Osob</a>
-                    <a href="https://www.hlidacstatu.cz/ucty">Financí</a>
+                    <a href="https://www.hlidacstatu.cz/smlouvy">Smlouvy</a>
                     <a href="https://www.hlidacstatu.cz/VerejneZakazky">Veřejných zakázek</a>
-                    <a href="https://www.hlidacstatu.cz/StatniWeby">Webů</a>
+                    <a href="https://www.hlidacstatu.cz/Dotace">Dotace</a>
+                    <a href="https://www.hlidacstatu.cz/ucty">Insolvence</a>
+                    <a href="https://www.hlidacstatu.cz/Sponzori">Sponzori</a>
+                    <a href="https://www.hlidacstatu.cz/StatniWeby">Weby státu</a>
                 </li>
-
                 <li class="hidden-sm hidden-xs">
-                        <a href="https://www.hlidacstatu.cz/account/Login?returnUrl=%2F" id="loginLink">
-                            <img src="assets/images/icon-user.svg" style="padding-right: 8px;">
-                            Přihlášení
-                        </a>
-                        <a href="https://www.hlidacstatu.cz/account/Register?nextUrl=%2F" id="regLink">Registrace</a>
+                    <a href="https://www.hlidacstatu.cz/account/Login?returnUrl=%2F" id="loginLink">
+                        <img src="assets/images/icon-user.svg" style="padding-right: 8px;">
+                        Přihlášení
+                    </a>
+                    <a href="https://www.hlidacstatu.cz/account/Register?nextUrl=%2F" id="regLink">Registrace</a>
                 </li>
-
                 <!-- mobile menu items below -->
                 <li class="level2"><a href="https://www.hlidacstatu.cz/data">Datové sady</a></li>
                 <li class="level2"><a href="https://www.hlidacstatu.cz/reporty">Analýzy a reporty</a></li>
                 <li class="level2"><a href="https://www.hlidacstatu.cz/texty">Komentáře</a></li>
                 <li class="level2"><a href="https://platforma.hlidacstatu.cz">Fórum</a></li>
-
                 <li class="level2">
                     <a href="https://www.darujme.cz/projekt/1200384">Podpořte nás</a>
                     <a href="https://www.hlidacstatu.cz/PridatSe">Přidejte se k nám</a>
                 </li>
-
-
                 <li class="level2">
-                        <a href="https://www.hlidacstatu.cz/Account/Login">Přihlášení</a>
-                        <a href="https://www.hlidacstatu.cz/account/Register">Registrace</a>
+                    <a href="https://www.hlidacstatu.cz/Account/Login">Přihlášení</a>
+                    <a href="https://www.hlidacstatu.cz/account/Register">Registrace</a>
                 </li>
             </ul>
         </nav>
     </div>
-
     <div id="app">
-
         <div class="header__content">
             <!-- desktop menu items only -->
             <div class="navbar__level2">
@@ -125,99 +112,142 @@
                 <ul>
                     <li>
                         <a href="https://www.hlidacstatu.cz/pridatse">Přidat se</a>
-
                         <a href="https://www.darujme.cz/projekt/1200384">Podpořit nás</a>
                     </li>
                 </ul>
             </div>
             <div class="header__title">
-                <h1>Volby do Evropského parlamentu 2019</h1>
+                <h1>Volby do krajských zastupitelstev</h1>
                 <p>
-                    <span>Volby do Evropského parlamentu se uskuteční <strong>24.&nbsp;5.&nbsp;2019 (od 14:00 do 22:00)</strong> a <strong>25&nbsp;.5.&nbsp;2019 (od 8:00 do 14:00)</strong></span>
+                    <span>Volby do zastupitelstev 13 krajů a do Senátu se uskuteční <strong>2. a 3. října 2020</strong>. Druhé kolo voleb do Senátu proběhne <strong>9. a 10. října 2020.</strong></span>
                 </p>
                 <p>
-                    <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a>.</span>
+                    <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a> nebo si nastudovat <a class="link" href="https://programydovoleb.cz/" title="Volebni programy" target="_blank">volební programy stran a kandidátů</a>.</span>
                 </p>
             </div>
             <!-- desktop menu items only -->
             <div id="navigation" class="row">
                 <ul>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-cr' ? 'active': ''">
-                        <router-link to="/cr-cr">Jsem občanem ČR<br class="menu-fix"> a chci volit v ČR</router-link>
+                        <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link>
+                    </li>
+                    <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-ka' ? 'active': ''">
+                        <router-link to="/cr-ka">Jsem v karanténě v ČR a chci volit</router-link>
                     </li>
                     <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-eu' ? 'active': ''">
-                        <router-link to="/cr-eu">Jsem občanem ČR<br class="menu-fix"> a chci volit v EU</router-link>
-                    </li>
-                    <li class="col-xs-12 col-md-4" :class="$route.path=='/eu-cr' ? 'active': ''">
-                        <router-link to="/eu-cr" role="tab">I am EU citizen<br class="menu-fix"> and want to vote in CR</router-link>
+                        <router-link to="/cr-eu">Jsem občanem ČR a chci volit v zahraničí</router-link>
                     </li>
                 </ul>
             </div>
         </div>
-
         <div class="body container">
             <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
                 <h2>Chci volit v místě svého trvalého bydliště</h2>
                 <p class="new-p">
                     Nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti (občanský průkaz, cestovní, diplomatický nebo služební pas České republiky) v den voleb do volební místnosti ve vašem volebním obvodu (dle trvalého bydliště).
                 </p>
-                <h2>Chci volit v kterémkoliv volebním obvodě v ČR</h2>
+                <h2>Chci volit v kterémkoliv volebním obvodě v ČR - <span class="text-danger">NENÍ MOŽNÉ</span></h2>
+                <p class="new-p"><strong>Ve volbách do zastupitelstev krajů můžete volit <span class="text-danger">pouze ve volebním okrsku, který spadá do kraje, ve kterém máte trvalé bydliště</span></strong>. Jinak řečeno, do krajských voleb nemůžete volit v jiném kraji, než je vaše trvalé bydliště.</p>
+                <p class="new-p"><strong>V senátních volbách</strong>, jejichž první kolo se koná ve stejném termínu, můžete hlasovat <strong class="text-danger">v jen v obcích ve svém volebním obvodu</strong>, ve kterých probíhají volby. Zde je podrobné <a href="https://www.mvcr.cz/soubor/uzemni-vymezeni-volebnich-obvodu-pro-volby-do-senatu-ve-kterych-se-budou-konat-ve-dnech-2-a-3-rijna-2020-volby-do-1-3-senatu-parlamentu-ceske-republiky.aspx" target="_blank">územní vymezení volebních obvodů pro volby do Senátu 2020</a>.</p>
                 <p class="new-p">
                     Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz. O voličský průkaz můžete zažádat na svém obecním úřadu a to buď:</p>
                 <ul class="new-p">
-                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. 5. 2019,</span></li>
-                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do 17. 5. 2019 v 16:00 pomocí vaší datové schránky nebo poštou s úředně ověřeným podpisem.</span></li>
+                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 30. září 2020 do 16:00,</span></li>
+                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do 25. září 2020 pomocí vaší datové schránky nebo poštou s úředně ověřeným podpisem.</span></li>
                 </ul>
                 <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
             </div>
-
+            <div id="cr-ka" class="pane" v-if="$route.path=='/cr-ka'">
+                <h2>Chci volit, ale jsem v karanténě, izolaci či v nemocnici</h2>
+                <p class="new-p">
+                    Tuto situaci řeší nově schválený zákon <a href="https://www.mvcr.cz/soubor/zakon-c-350-2020-sb-o-zvlastnich-zpusobech-hlasovani-ve-volbach-do-zastupitelstev-kraju-a-do-senatu-v-roce-2020.aspx">350/2020 Sb. o zvláštních způsobech hlasování ve volbách do zastupitelstev krajů a do Senátu</a> v roce 2020.
+                </p>
+                <p>Zákon je určen pro osoby, jimž krajská hygienická stanice nebo lékař nařídil karanténu nebo izolaci z důvodu onemocnění covid-19. Je určen také voličům umístěným v zařízeních, která byla rozhodnutím krajské hygienické stanice uzavřena.
+                </p>
+                <h2>Omezení při volbách do Senátu</h2>
+                <p class="new-p">
+                    Pokud jste v době <strong>voleb do Senátu</strong> v nemocnici, porodnici, sanatoriu, ústavu sociální péče nebo v obdobném ústavu a zařízení (dále jen „zdravotnické zařízení“), které se nachází v jiném volebním okrsku /obci, než je vaše trvalé bydliště, můžete hlasovat pouze tehdy, pokud je toto zařízení ve <a href="https://www.mvcr.cz/soubor/uzemni-vymezeni-volebnich-obvodu-pro-volby-do-senatu-ve-kterych-se-budou-konat-ve-dnech-2-a-3-rijna-2020-volby-do-1-3-senatu-parlamentu-ceske-republiky.aspx" target="_blank">stejném volebním obvodu</a>, jako je vaše trvalé bydliště. Jinak řečeno, pokud máte trvalé bydliště v Plzni, a jste v nemocnici v Brně, hlasovat do Senátu nemůžete.
+                </p>
+                <h2>Omezení při volbách do krajských zastupitelstev</h2>
+                <p class="new-p"><strong>Ve volbách do zastupitelstev krajů můžete volit <span class="text-danger">pouze ve volebním okrsku, který spadá do kraje, ve kterém máte trvalé bydliště</span></strong>. Jinak řečeno, do krajských voleb nemůžete volit v jiném kraji, než je vaše trvalé bydliště.</p>
+                <h2>Jsem ve zdravotnickém zařízení, jak mohu hlasovat?</h2>
+                <p class="new-p">
+                    Pokud splňujete omezující podmínky pro hlasování výše, pak máte dvě možnosti:
+                    <ul class="new-p">
+                        <li><strong class="emphasized">zápis do zvláštního seznamu voličů</strong><span> – při dlouhodobém pobytu v zařízení se nechte zapsat do zvláštního seznamu voličů. O podrobnostech vás bude informovat správa zdravotnického zařízení. Zápís do zvláštního seznamu voličů musí být odeslán na obecní úřad (kde sídlí zdravotnické zařízení) nejpozději 25. září 2020 do 14.00 hod.</span>
+                            <div>V době hlasování za vámi přijedou členové volební komise s přenosnou volební schránkou. Hlasovací lístky a úřední obálku obdržíte od členů okrskové volební komise.</div>
+                        </li>
+                        <li><strong class="emphasized">na základě voličského průkazu</strong><span> – žádost musíte úřadu doručit do 25. září 2020 pomocí vaší datové schránky nebo poštou s úředně ověřeným podpisem.</span>
+                            <div>V době hlasování za vámi přijedou členové volební komise s přenosnou volební schránkou. Hlasovací lístky a úřední obálku obdržíte od členů okrskové volební komise. Musíte se prokázat občanským průkazem nebo cestovním pasem.</div>
+                        </li>
+                        <li><strong class="emphasized">zařízení je ve stejném volebním okrsku</strong><span> jako je vaše trvalé bydliště.
+                                Můžete požádat obecní úřad nebo i ve dnech voleb „svou“ okrskovou volební komisi o to, abyste mohl/a hlasovat mimo volební místnost. Okrsková volební komise za vámi vyšledva své členy s přenosnou volební schránkou, úřední obálkou a hlasovacími lístky.
+                                Musíte se prokázat občanským průkazem nebo cestovním pasem.</span>
+                        </li>
+                    </ul>
+                </p>
+                <h2>Jsem v karanténě nebo mám COVID-19, jak mohu hlasovat?</h2>
+                <p class="new-p">
+                    Tento způsob hlasování můžete využít pouze tehdy, pokud jste <span class="text-danger">v seznamu osob v karanténě/izolaci nařízené krajskou hygienickou službou nebo v seznamu ČSSZ evidované jako v karanténě (nejspíše dle neschopenky) nebo máte potvrzení o karanténě od KHS či lékaře</span>.
+                </p>
+                <p class="new-p">
+                    Pro vás se zavádí tři možnosti zvláštního způsobu hlasování:
+                    <ul class="new-p">
+                        <li><strong class="emphasized">Hlasování z motorového vozidla u volebního stanoviště (tzv. drive-in hlasování)</strong><span> – tato volební stanoviště budou zřízena pro každý okres, bude jich tedy 78. Stanoviště budou uzpůsobena pro průjezd motorového vozidla, jejich vybavení zajistí armáda. Takto může volič hlasovat <strong>pouze ve středu 30. září od 7 do 15 hodin.</strong>
+                                a pro druhé kolo voleb do Senátu <strong>pouze ve středu 7. října od 7 do 15 hodin.</strong>
+                            </span>
+                            <div>Umístění drive-in stanovišť ještě nebylo zveřejněno.</div>
+                        </li>
+                        <li><strong class="emphasized">v pobytovém zařízení sociálních služeb, které bylo uzavřeno</strong><span> – pokud krajská hygienická stanice nahlásí uzavřená zařízení na svém území krajskému úřadu, ten do nich vyšle speciální komisi pro hlasování. Takto hlasovat bude možné <strong>od čtvrtka 1. října od 7 hodin do pátku 2. října do 18 hodin</strong>, pro druhé kolo voleb do Senátu pak <strong>od čtvrtka 7. října od 7 hodin do pátku 8. října do 18 hodin</strong>.
+                            </span>
+                        </li>
+                        <li><strong class="emphasized">do zvláštní přenosné volební schránky</strong><span> -
+                                pokud jste v nařízené karanténě či izolaci a nemůžete využít drive-in hlasování, můžete <strong>do čtvrtka 1. října, resp. čtvrtka 7. října do 20 hodin oznámit krajskému úřadu</strong>, že žádáte o příjezd speciální volební komise. Tuto komisi budou tvořit členové drive-in týmu a přijedou s přenosnou volební schránkou za vámi domů. Toto hlasování bude probíhat
+                                <strong>od pátku 2. října od 7 hodin do soboty 3. října do 14 hodin</strong>, pro druhé kolo voleb do Senátu pak <strong>od pátku 8. října od 7 hodin do soboty 9. října do 14 hodin</strong>.
+                            </span>
+                        </li>
+                    </ul>
+                </p>
+                <p class="new-p">
+                    Při hlasování se musíte prokázat platným občanským průkazem, pokud jste požádali o voličský průkaz, tak i tím.
+                </p>
+                <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
+            </div>
             <div id="cr-eu" class="pane" v-if="$route.path=='/cr-eu'">
-                <h2>Chci volit české kandidáty</h2>
-
-                <p class="new-p">Pro české kandidáty nelze hlasovat ze zahraničí.</p>
-                <p class="new-p">Ze zahraničí může občan, který žije dlouhodobě mimo ČR, zastupitelský úřad požádat o zápis do zvláštního seznamu voličů a následně se na něj obrátit s žádostí o vydání voličského průkazu. S tímto průkazem pak může volit v den voleb ve kterékoliv volební místosti na území ČR. O voličský průkaz můžete zažádat na svém zastupitelském úřadě a to buď:</p>
+                <h2>Chci volit v zahraničí</h2>
+                <p class="new-p">Ze zahraničí může občan, který žije dlouhodobě mimo ČR, zastupitelský úřad požádat o zápis do zvláštního seznamu voličů a následně se na něj obrátit s žádostí o vydání voličského průkazu. O voličský průkaz můžete zažádat na svém zastupitelském úřadě a to buď:</p>
                 <ul class="new-p">
                     <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději 22. května 2019,</span></li>
                     <li><strong class="emphasized">písemně</strong><span> – žádost musíte doručit do 17. 5. 2019 v 16:00 pomocí vaší datové schránky nebo poštou s úředně ověřeným podpisem.</span></li>
                 </ul>
 
-                <p class="new-p">
+<p class="new-p"><strong>Ve volbách do zastupitelstev krajů můžete volit <span class="text-danger">pouze ve volebním okrsku, který spadá do kraje, ve kterém máte trvalé bydliště</span></strong>. Jinak řečeno, do krajských voleb nemůžete volit v jiném kraji, než je vaše trvalé bydliště.</p>
+                <p class="new-p"><strong>V senátních volbách</strong>, jejichž první kolo se koná ve stejném termínu, můžete hlasovat <strong class="text-danger">v jen v obcích ve svém volebním obvodu</strong>, ve kterých probíhají volby. Zde je podrobné <a href="https://www.mvcr.cz/soubor/uzemni-vymezeni-volebnich-obvodu-pro-volby-do-senatu-ve-kterych-se-budou-konat-ve-dnech-2-a-3-rijna-2020-volby-do-1-3-senatu-parlamentu-ceske-republiky.aspx" target="_blank">územní vymezení volebních obvodů pro volby do Senátu 2020</a>.</p>                <p class="new-p">
                     <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
                 </p>
-
-                <h2>Chci volit kandidáty z jiné členské země EU</h2>
-                <p class="new-p">Hlasování probíhá na území daného členského státu EU a řídí se pravidly daného členského státu EU.</p>
             </div>
-
             <div id="eu-cr" class="pane" v-if="$route.path=='/eu-cr'">
                 <h2>I want to vote for Czech candidates</h2>
-
                 <p class="new-p">You are eligible if you were registered with temporary or permanent residence in the Czech Republic at least 45 days before the election and were on the European Parliament electoral roll.</p>
-
                 <ul class="new-p">
                     <li><span>If you have already voted in a previous EP election and were registered on the EP electoral roll, you may vote in the election again.</span></li>
                     <li><span>If you are already on the municipal electoral roll, you may apply to have your details transferred to the EP electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
                     <li><span>If you have not yet voted in the EP election, you must apply at the local authority to register on the electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
                 </ul>
-
                 <h3>I want to vote where I have permanent residence in CZ</h3>
                 <p class="new-p">If you meet the above criteria, nothing stands in your way. Take your valid ID on election day to your polling place (according to your permanent address).</p>
-
                 <h3>I want to vote somewhere else in CZ</h3>
                 <p class="new-p">If you want to vote somewhere other than your permanent address, you will need a voter card. You can apply for a voter card at your municipal office, either:</p>
                 <ul class="new-p">
                     <li><strong class="emphasized">in person</strong><span> – directly at the office with valid ID no later than 22 May 2019,</span></li>
                     <li><strong class="emphasized">in writing</strong><span> – through your data box or by post with a certified signature. Your application must arrive by 17 May 2019 at 16:00.</span></li>
                 </ul>
-
                 <p class="new-p">
                     <router-link tag="button" to="/en/form" class="btn btn-primary btn-primary-new">Create a written application for voter card</router-link>
                 </p>
                 <h2>I want to vote for candidates from another EU country</h2>
                 <p class="new-p">Voting takes place in the territory of the EU Member State and follows the rules of the EU Member State.</p>
-
             </div>
-
             <div id="form" class="form pane table" v-if="$route.path=='/form'">
                 <div class="form-group">
                     <div class="left">
@@ -252,7 +282,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Datum narození</label>
-                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :language="cs" :format="csDateFormat" :parse="csDateParse" @selected="birthdateSelected"></vuejs-datepicker>
+                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control" :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :language="cs" :format="csDateFormat" :parse="csDateParse" @selected="birthdateSelected"></vuejs-datepicker>
                             </div>
                             <div class="col-xs-12 col-sm-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telefon</label>
@@ -277,11 +307,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-3" :class="validate('postalCode',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
-                                <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false"
-                                    placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip"
-                                    search-from-beginning="true" allow-only-values-from-source="false" min-legth-for-search-begin="0"
-                                    max-result-items="15" more-results-exists-text="(...upřesněte zadání...)" ref="autocompleteZIP"
-                                    @selected="zipSelected">
+                                <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false" placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip" search-from-beginning="true" allow-only-values-from-source="false" min-legth-for-search-begin="0" max-result-items="15" more-results-exists-text="(...upřesněte zadání...)" ref="autocompleteZIP" @selected="zipSelected">
                                 </autocomplete>
                             </div>
                             <div class="col-xs-12 col-sm-7" :class="validate('locality',userData.city)">
@@ -325,75 +351,74 @@
                     </div>
                 </div>
                 <div class="form-group">
-                        <div class="left">
-                            <img src="assets/images/envelope.png" width="50" height="39" />
-                        </div>
-                        <h2>Doručení</h2>
-                        <div class="right">
-                            <div class="radios">
-                                <h4>Voličský průkaz po vyhotovení:</h4>
-                                <div class="button-group">
-                                    <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
-                                </div>
-                                <div v-if="userData.delivery=='other-address'">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10">
-                                            <label for="delivery-address-name">Jméno</label>
-                                            <input id="delivery-address-name" v-model="userData.deliveryAddress.name" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10">
-                                            <label for="delivery-address-line0">Upřesnění adresy</label>
-                                            <label for="delivery-address-line0" class="optional">(nepovinné, např firma nebo číslo bytu)</label>
-                                            <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10">
-                                            <label for="delivery-address-line1">Ulice a číslo popisné</label>
-                                            <input id="delivery-address-line1" v-model="userData.deliveryAddress.line1" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-3">
-                                            <label for="delivery-postal-code">PSČ</label>
-                                            <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
-                                        </div>
-                                        <div class="col-xs-12 col-sm-7">
-                                            <label for="delivery-locality">Obec</label>
-                                            <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10">
-                                            <label for="delivery-address-country">Stát</label>
-                                            <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-10">
-                                            V případě, že chcete doručit průkaz mimo Českou republiku, raději se u vašeho úřadu ujistěte, zda vám průkaz dokážou včas doručit.
-                                        </div>
-                                    </div>
-                                </div>                                
+                    <div class="left">
+                        <img src="assets/images/envelope.png" width="50" height="39" />
+                    </div>
+                    <h2>Doručení</h2>
+                    <div class="right">
+                        <div class="radios">
+                            <h4>Voličský průkaz po vyhotovení:</h4>
+                            <div class="button-group">
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">převezmu osobně</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">žádám zaslat na jinou adresu</label>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-10">
-                                    <strong>Důležité upozornění</strong>: Obecní úřad nebo zastupitelský úřad může voličský průkaz vydat <strong>nejdříve</strong> 15 dnů před prvním dnem konání voleb.
+                            <div v-if="userData.delivery=='other-address'">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-name">Jméno</label>
+                                        <input id="delivery-address-name" v-model="userData.deliveryAddress.name" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-line0">Upřesnění adresy</label>
+                                        <label for="delivery-address-line0" class="optional">(nepovinné, např firma nebo číslo bytu)</label>
+                                        <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-line1">Ulice a číslo popisné</label>
+                                        <input id="delivery-address-line1" v-model="userData.deliveryAddress.line1" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-3">
+                                        <label for="delivery-postal-code">PSČ</label>
+                                        <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-7">
+                                        <label for="delivery-locality">Obec</label>
+                                        <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-country">Stát</label>
+                                        <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        V případě, že chcete doručit průkaz mimo Českou republiku, raději se u vašeho úřadu ujistěte, zda vám průkaz dokážou včas doručit.
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10">
+                                <strong>Důležité upozornění</strong>: Obecní úřad nebo zastupitelský úřad může voličský průkaz vydat <strong>nejdříve</strong> 15 dnů před prvním dnem konání voleb.
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="right row">
                     <router-link tag="button" to="/preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Vytvořit žádost</router-link>
                     <button class="btn btn-default btn-default-new col-xs-12 col-sm-4" v-on:click="clearForm('Opravdu si přejete smazat obsah formuláře?', false)">Smazat údaje</button>
                 </div>
             </div>
-
             <div id="en-form" class="form pane table" v-if="$route.path=='/en/form'">
                 <div class="form-group">
                     <div class="left">
@@ -424,7 +449,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-5" :class="validate('bday',userData.birthdate)">
                                 <label for="bday">Date of birth</label>
-                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control"  :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :format="csDateFormat" :parse="csDateParse" @input="birthdateSelected"></vuejs-datepicker>
+                                <vuejs-datepicker id="bday" v-model="userData.birthdate" input-class="form-control" :typeable="true" :initial-view="'year'" :monday-first="true" :open-date="new Date('1991-01-01')" :format="csDateFormat" :parse="csDateParse" @input="birthdateSelected"></vuejs-datepicker>
                             </div>
                             <div class="col-xs-12 col-sm-5" :class="validate('tel',userData.phone)">
                                 <label for="tel">Telephone</label>
@@ -449,11 +474,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-3" :class="validate('postalCode',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
-                                <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false"
-                                    placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip"
-                                    search-from-beginning="true" allow-only-values-from-source="false" min-legth-for-search-begin="0"
-                                    max-result-items="15" more-results-exists-text="(...be more specific...)" ref="autocompleteZIP"
-                                    @selected="zipSelected">
+                                <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false" placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip" search-from-beginning="true" allow-only-values-from-source="false" min-legth-for-search-begin="0" max-result-items="15" more-results-exists-text="(...be more specific...)" ref="autocompleteZIP" @selected="zipSelected">
                                 </autocomplete>
                             </div>
                             <div class="col-xs-12 col-sm-7" :class="validate('locality',userData.city)">
@@ -497,75 +518,74 @@
                     </div>
                 </div>
                 <div class="form-group">
-                        <div class="left">
-                            <img src="assets/images/envelope.png" width="50" height="39" />
-                        </div>
-                        <h2>Delivery</h2>
-                        <div class="right">
-                            <div class="radios">
-                                <h4>When completed, the voter card will be:</h4>
-                                <div class="button-group">
-                                    <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
-                                    <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
-                                </div>
-                                <div v-if="userData.delivery=='other-address'">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-10">
-                                                <label for="delivery-address-name">Name</label>
-                                                <input id="delivery-address-name" v-model="userData.deliveryAddress.name" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-10">
-                                                <label for="delivery-address-line0">Address details</label>
-                                                <label for="delivery-address-line0" class="optional">(optional, e.g. company name or flat number)</label>
-                                                <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-10">
-                                                <label for="delivery-address-line1">Street and house number</label>
-                                                <input id="delivery-address-line1" v-model="userData.deliveryAddress.line1" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-3">
-                                                <label for="delivery-postal-code">Postcode</label>
-                                                <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
-                                            </div>
-                                            <div class="col-xs-12 col-sm-7">
-                                                <label for="delivery-locality">City</label>
-                                                <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-10">
-                                                <label for="delivery-address-country">Country</label>
-                                                <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-10">
-                                                In case you want to deliver a card outside the Czech Republic, please make sure that the card is delivered in time to the appropriate authority.
-                                            </div>
-                                        </div>                                        
+                    <div class="left">
+                        <img src="assets/images/envelope.png" width="50" height="39" />
+                    </div>
+                    <h2>Delivery</h2>
+                    <div class="right">
+                        <div class="radios">
+                            <h4>When completed, the voter card will be:</h4>
+                            <div class="button-group">
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="in-person" id="in-person"> <label for="in-person">Collected by me personally</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="representative" id="representative"> <label for="representative">Collected by another person with Power of Attorney with my officially authenticated signature</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="my-address" id="my-address"> <label for="my-address">Sent to my permanent address</label><br>
+                                <input type="radio" name="delivery" v-model="userData.delivery" value="other-address" id="other-address"> <label for="other-address">Sent to another address</label>
+                            </div>
+                            <div v-if="userData.delivery=='other-address'">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-name">Name</label>
+                                        <input id="delivery-address-name" v-model="userData.deliveryAddress.name" class="form-control" type="text">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-10">
-                                        <strong>Important warning</strong>: the voter card can be issued (and therefore received) <strong>15 days before</strong> the first election day at the earliest.
+                                        <label for="delivery-address-line0">Address details</label>
+                                        <label for="delivery-address-line0" class="optional">(optional, e.g. company name or flat number)</label>
+                                        <input id="delivery-address-line0" v-model="userData.deliveryAddress.line0" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-line1">Street and house number</label>
+                                        <input id="delivery-address-line1" v-model="userData.deliveryAddress.line1" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-3">
+                                        <label for="delivery-postal-code">Postcode</label>
+                                        <input id="delivery-postal-code" v-model="userData.deliveryAddress.postalCode" class="form-control" type="text">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-7">
+                                        <label for="delivery-locality">City</label>
+                                        <input id="delivery-locality" v-model="userData.deliveryAddress.locality" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <label for="delivery-address-country">Country</label>
+                                        <input id="delivery-address-country" v-model="userData.deliveryAddress.country" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        In case you want to deliver a card outside the Czech Republic, please make sure that the card is delivered in time to the appropriate authority.
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-10">
+                                    <strong>Important warning</strong>: the voter card can be issued (and therefore received) <strong>15 days before</strong> the first election day at the earliest.
+                                </div>
+                            </div>
                         </div>
+                    </div>
                 </div>
                 <div class="right row">
                     <router-link tag="button" to="/en/preview" class="btn btn-primary btn-primary-new col-xs-12 col-sm-4">Create application</router-link>
                     <button class="btn btn-default btn-default-new col-xs-12 col-sm-4" v-on:click="clearForm('Do you really want to reset form?', false)">Reset form</button>
                 </div>
             </div>
-
             <transition v-on:after-enter="generatePreview">
                 <div id="preview" class="pane" v-if="$route.path=='/preview'">
                     <h2>1. Zkontrolujte žádost</h2>
@@ -621,7 +641,10 @@
                     <h2>3. Přejeme dobrou volbu!</h2>
                     <div class="col-md-8">
                         <p>
-                            Dostavte se s vaším volebním průkazem a platným průkazem totožnosti  24. 5. 2019 (14:00 - 22:00) nebo 25. 5. 2019 (8:00 - 14:00) do <u>kterékoliv volební místnosti v ČR</u>.
+                            Pro volby do krajského zastupitelstva se dostavte s vaším volebním průkazem a platným průkazem totožnosti 2. 10. 2020 či 3. 10. 2020 do volebního okrsku, který spadá do kraje, ve kterém máte trvalé bydliště.
+                        </p>
+                        <p>
+                            Pro volby do senátu volbách můžete hlasovat v jen v obcích ve svém volebním obvodu, ve kterých probíhají volby, ve dnech 9. 10. 2020 či 10. 10. 2020 pro volby v prvním kole, a .
                         </p>
                         <p>
                             <strong>Upozornění:</strong> pokud máte vystaven volební průkaz a chcete volit ve volební místnosti vašeho volebního okrsku, musíte mít volební průkaz také sebou. Bez něj vám volba nebude umožněna!
@@ -629,7 +652,6 @@
                     </div>
                 </div>
             </transition>
-
             <transition v-on:after-enter="generatePreview">
                 <div id="en-preview" class="pane" v-if="$route.path=='/en/preview'">
                     <h2>1. Review the application</h2>
@@ -638,10 +660,10 @@
                             <p>Please check the details generated by the application.</p>
                             <p>If you don’t see a preview of your application, don’t worry. You can review your application directly from your computer.</p>
                         </div>
-                        <div class="preview-wrapper col-xs-12 col-sm-5" @click="showOverlay"><img></div> 
-                        <div class="left col-xs-12 col-sm-6">    
+                        <div class="preview-wrapper col-xs-12 col-sm-5" @click="showOverlay"><img></div>
+                        <div class="left col-xs-12 col-sm-6">
                             <p>If your details are correct, download the application to your computer or mobile device and continue to select the delivery of your voting card in the next section.</p>
-                            <p>If some details are incorrect, nothing happens. You can easily change the details.</p>                            
+                            <p>If some details are incorrect, nothing happens. You can easily change the details.</p>
                             <div class="preview-buttons row clearfix">
                                 <button class="btn btn-primary btn-primary-new pull-left col-xs-12 col-sm-5" v-on:click="downloadPdf">Download <br class="visible-sm-block">application</button>
                                 <router-link tag="button" to="/en/form" class="btn btn-default btn-default-new pull-right col-xs-12 col-sm-5">Change <br class="visible-sm-block">details</router-link>
@@ -698,26 +720,25 @@
         <div id="document-template">
             <div id="document-to-print-cr" class="pageA4">
                 <div>
-                        <div style="width: 380px; margin-left: 200px; padding: 15px 10px 15px 10px; margin-right: 10px; border-width: 1px; border-style: solid;">
-                            <strong>Číslo voličského průkazu: </strong>
-                        </div>
+                    <div style="width: 380px; margin-left: 200px; padding: 15px 10px 15px 10px; margin-right: 10px; border-width: 1px; border-style: solid;">
+                        <strong>Číslo voličského průkazu: </strong>
+                    </div>
                 </div>
                 <p style="text-align: center; font-weight: bold; padding: 40px 5px 15px 5px;">
                     ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>
-                    pro hlasování ve volbách do Evropského parlamentu konaných ve dnech 24. a 25. 5. 2019
+                    pro hlasování ve volbách do zastupitelstev krajů a do Senátu konaných ve dnech 2. a 3. října 2020 a 9. a 10. října 2020.
                 </p>
                 <p style="text-align: justify; padding: 15px 5px 20px 5px;">
-                    Podle ustanovení § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých
+                    Podle ustanovení § 33 zákona č. 275/2012 Sb., o volbě prezidenta republiky a o změně některých zákonů (zákon o volbě prezidenta republiky), § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky a o změně a doplnění některých dalších zákonů, ve znění pozdějších předpisů, § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých zákonů, ve znění pozdějších předpisů, § 26a zákona č. 130/2000 Sb., o volbách do zastupitelstev krajů a o změně některých
                     zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad&nbsp;
-                        <strong>
-                            <span v-if="userData.municipality.name">{{userData.municipality.name +', '}}</span>
-                            <span v-if="userData.municipality.addressLine1">{{userData.municipality.addressLine1 +', '}}</span>
-                            <span v-if="userData.municipality.postalCode">{{userData.municipality.postalCode +' '}}</span>
-                            <span v-if="userData.municipality.city">{{userData.municipality.city +' '}}</span>
-                            <span v-if="!userData.municipality.name && !userData.municipality.addressLine1 && !userData.municipality.postalCode && !userData.municipality.city">………………………………………………………………………………</span>
-                        </strong>
-                    o&nbsp;vydání voličského průkazu pro hlasování ve volbách do Evropského parlamentu konaných ve dnech <strong>24. a 25.
-                    5. 2019</strong>, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
+                    <strong>
+                        <span v-if="userData.municipality.name">{{userData.municipality.name +', '}}</span>
+                        <span v-if="userData.municipality.addressLine1">{{userData.municipality.addressLine1 +', '}}</span>
+                        <span v-if="userData.municipality.postalCode">{{userData.municipality.postalCode +' '}}</span>
+                        <span v-if="userData.municipality.city">{{userData.municipality.city +' '}}</span>
+                        <span v-if="!userData.municipality.name && !userData.municipality.addressLine1 && !userData.municipality.postalCode && !userData.municipality.city">………………………………………………………………………………</span>
+                    </strong>
+                    o&nbsp;vydání voličského průkazu pro hlasování ve volbách do zastupitelstev krajů a do Senátu konaných ve dnech 2. a 3. října 2020, a 9. a 10. října 2020., neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
                 </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
@@ -725,27 +746,22 @@
                     <strong>Trvalý pobyt:</strong> {{userData.addressLine1 || ''}}<span v-if="userData.addressLine1">, </span>{{(userData.postalCode || '') +' '}}{{userData.city || ''}}<br>
                     <strong>Telefonní kontakt:</strong> {{userData.phone}} <br>
                 </p>
-                <p style="text-align: justify; padding: 10px 5px 10px 5px;">
-                    <strong>Beru na vědomí, že</strong><br>
-                    podle ustanovení § 30 odst. 3 zákona o volbách do EP mne voličský průkaz opravňuje ve dnech konání voleb
-                    do Evropského parlamentu k hlasování v jakémkoli volebním okrsku na území České republiky.
-                </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>K tomu sděluji, že voličský průkaz:</strong><br>
                     <input type="checkbox" name="pdf-delivery" id="pdf-in-person" style="margin-left: 5px;" v-bind:checked="userData.delivery=='in-person'">
-                        <label for="pdf-in-person">převezmu osobně</label><br>
+                    <label for="pdf-in-person">převezmu osobně</label><br>
                     <input type="checkbox" name="pdf-delivery" id="pdf-representative" style="margin-left: 5px;" v-bind:checked="userData.delivery=='representative'">
-                        <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
+                    <label for="pdf-representative">převezme osoba, která se prokáže plnou mocí s mým úředně ověřeným podpisem</label><br>
                     <input type="checkbox" name="pdf-delivery" id="pdf-my-address" style="margin-left: 5px;" v-bind:checked="userData.delivery=='my-address'">
-                        <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
+                    <label for="pdf-my-address">žádám zaslat na adresu mého trvalého pobytu</label><br>
                     <input type="checkbox" name="pdf-delivery" id="pdf-other-address" style="margin-left: 5px;" v-bind:checked="userData.delivery=='other-address'">
-                        <label for="pdf-other-address">žádám zaslat na jinou adresu: </label>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.name">{{userData.deliveryAddress.name +', '}}</span>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line0">{{userData.deliveryAddress.line0 +', '}}</span>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line1">{{userData.deliveryAddress.line1 +', '}}</span>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.postalCode">{{userData.deliveryAddress.postalCode +' '}}</span>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.locality">{{userData.deliveryAddress.locality +', '}}</span>
-                            <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.country">{{userData.deliveryAddress.country}}</span>
+                    <label for="pdf-other-address">žádám zaslat na jinou adresu: </label>
+                    <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.name">{{userData.deliveryAddress.name +', '}}</span>
+                    <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line0">{{userData.deliveryAddress.line0 +', '}}</span>
+                    <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.line1">{{userData.deliveryAddress.line1 +', '}}</span>
+                    <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.postalCode">{{userData.deliveryAddress.postalCode +' '}}</span>
+                    <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.locality">{{userData.deliveryAddress.locality +', '}}</span>
+                    <span v-if="userData.delivery=='other-address' && userData.deliveryAddress.country">{{userData.deliveryAddress.country}}</span>
                 </p>
                 <p style="width: 250px; margin-left: 330px; padding: 15px 10px 15px 10px; margin-right: 10px; text-align: center;">………………………………………<br>
                     podpis voliče - žadatele</p>
@@ -755,574 +771,516 @@
             </div>
         </div>
     </div>
-
     <script>
-        const routes = [
-            { path: '/cr-cr' },
-            { path: '/cr-eu' },
-            { path: '/eu-cr' },
-            { path: '/form' },
-            { path: '/preview' },
-            { path: '/en/form' },
-            { path: '/en/preview' }
-        ];
-        const paths = routes.map(function (route) { return route.path })
-        const router = new VueRouter({
+    const routes = [
+        { path: '/cr-cr' },
+        { path: '/cr-ka' },
+        { path: '/cr-eu' },
+        { path: '/eu-cr' },
+        { path: '/form' },
+        { path: '/preview' },
+        { path: '/en/form' },
+        { path: '/en/preview' }
+    ];
+    const paths = routes.map(function(route) { return route.path })
+    const router = new VueRouter({
+        routes: routes,
+        scrollBehavior: function(to, from, savedPosition) {
+            return { x: 0, y: 0 }
+        }
+    });
+    router.beforeEach(function(to, from, next) {
+        if (paths.indexOf(to.path) == -1) {
+            next({ path: '/cr-cr', replace: true });
+        } else next();
+    })
+    Vue.filter('dateCZ', function(dateString) {
+        const date = moment(dateString);
+        return date.isValid() ? date.format('D. M. YYYY') : "";
+    });
+    window.app = new Vue({
+        router: router,
+        el: '#app',
+        data: {
+            cities: cities,
+            citiesZipName: citiesZipName,
+            cs: window.csLang,
             routes: routes,
-            scrollBehavior: function(to, from, savedPosition) {
-                return { x:0, y: 0 }
-            }
-        });
-        router.beforeEach(function (to, from, next) {
-            if (paths.indexOf(to.path) == -1) {
-                next({ path: '/cr-cr', replace: true });
-            } else next();
-        })
-        Vue.filter('dateCZ', function(dateString) {
-            const date = moment(dateString);
-            return date.isValid() ? date.format('D. M. YYYY') : "";
-        });
-        window.app = new Vue({
-            router: router,
-            el: '#app',
-            data: {
-                cities: cities,
-                citiesZipName: citiesZipName,
-                cs: window.csLang,
-                routes: routes,
-                overlayVisible: false,
-                userData: {
-                    municipality: {
-                        name: null,
-                        addressLine1: null,
-                        postalCode: null,
-                        city: null
-                    },
-                    fullName: null,
-                    birthdate: null,
-                    phone: null,
+            overlayVisible: false,
+            userData: {
+                municipality: {
+                    name: null,
                     addressLine1: null,
                     postalCode: null,
-                    city: null,
-                    deliveryAddress: {
-                        name: null,
-                        line0: null,
-                        line1: null,
-                        postalCode: null,
-                        locality: null,
-                        country: null
-                    }
+                    city: null
                 },
-                validatiors: {
-                    fullName: { pattern: /^.{2,}\ .{2,}$/ },
-                    bday: function (bday) {
-                        // birthday must be between 1.1.1900 and last vote day (25.5.2019) minus 18 years
-                        return bday >= new Date(1900, 0, 1) && bday <= new Date(2001, 4, 25);
-                    },
-                    tel: { pattern: /^(\+?[0-9 \-\.]{9,})?$/ },
-                    line1: { pattern: /^(.*[^0-9]+) (([1-9][0-9]*)\/)?([1-9][0-9]*[a-cA-C]?)$/ },
-                    postalCode: { pattern: /^[1-7][0-9]{4}$/ },
-                    locality: { pattern: /^.{2,40}$/ },
-                    officeName: { pattern: /^.{2,40}$/ }
+                fullName: null,
+                birthdate: null,
+                phone: null,
+                addressLine1: null,
+                postalCode: null,
+                city: null,
+                deliveryAddress: {
+                    name: null,
+                    line0: null,
+                    line1: null,
+                    postalCode: null,
+                    locality: null,
+                    country: null
                 }
             },
-            methods: {
-                zipSelected: function (result) {
-                    this.userData.city = result.selectedObject.name;
-                    this.userData.postalCode = result.selectedObject.zip;
-
-                    /*
-                     * search priority:
-                     * 1) town_district_code && city_code
-                     * 2) town_district_code
-                     * 3) city_code
-                     * 4) zip
-                     *
-                     * multiple "flat if" (not nested) is for better readability
-                     */
-
-                    var selectedCity;
-
-                    if (typeof result.selectedObject.town_district_code !== undefined && result.selectedObject.town_district_code != null && typeof result.selectedObject.city_code !== undefined && result.selectedObject.city_code != null) {
-                        selectedCity = cities.find(function (cities) { return cities.town_district_code == result.selectedObject.town_district_code && cities.city_code == result.selectedObject.city_code; });
-                    }
-                    if (typeof selectedCity == 'undefined' && typeof result.selectedObject.town_district_code !== undefined && result.selectedObject.town_district_code != null) {
-                        selectedCity = cities.find(function (cities) { return cities.town_district_code == result.selectedObject.town_district_code; });
-                    }
-                    if (typeof selectedCity == 'undefined' && typeof result.selectedObject.city_code !== undefined && result.selectedObject.city_code != null) {
-                        selectedCity = cities.find(function (cities) { return cities.city_code == result.selectedObject.city_code; });
-                    }
-                    if (typeof selectedCity == 'undefined' && typeof result.selectedObject.zip !== undefined &&  result.selectedObject.zip != null) {
-                        selectedCity = cities.find(function (cities) { return cities.zip == result.selectedObject.zip; });
-                    }
-
-                    if (typeof selectedCity !== 'undefined') {
-                        this.userData.municipality.city = selectedCity.city;
-                        this.userData.municipality.postalCode = selectedCity.zip;
-                        this.userData.municipality.name = selectedCity.name;
-                        this.userData.municipality.addressLine1 = (selectedCity.street ? selectedCity.street : selectedCity.city) + ' ' + selectedCity.houseNumber;
-                        this.userData.municipality.databox = selectedCity.databox;
-                    }
-                    else {  // not found - clearing values and only set known values (from search condition)
-                        this.userData.municipality.city = result.selectedObject.name;
-                        this.userData.municipality.postalCode = result.selectedObject.zip;
-
-                        this.userData.municipality.name = '';
-                        this.userData.municipality.addressLine1 = '';
-                        this.userData.municipality.databox = '';
-                    }
+            validatiors: {
+                fullName: { pattern: /^.{2,}\ .{2,}$/ },
+                bday: function(bday) {
+                    // birthday must be between 1.1.1900 and last vote day (25.5.2019) minus 18 years
+                    return bday >= new Date(1900, 0, 1) && bday <= new Date(2001, 4, 25);
                 },
-                birthdateSelected: function(result) {
-                    // this.userData.birthdate = result;
-                },
-                csDateFormat: function(date) {
-                    return moment(date).format('D. M. YYYY');
-                },
-                csDateParse: function(dateString) {
-                    return moment(dateString, 'DD-MM-YYYY').toDate();
-                },
-                validate: function(field,data) {
-                    if (data===undefined || data===null) return ''
-                    if (this.validatiors[field]===undefined) return '';
-                    var valid;
-                    if (typeof(this.validatiors[field])==='function') {
-                        valid = this.validatiors[field](data);
-                    } else {
-                        if (this.validatiors[field].pattern===undefined) return '';
-                        valid = this.validatiors[field].pattern.test(data);                    }
-                    return valid ? '' : 'has-error';
-                },
-                generatePreviewfinished: function() {
-                    var imageData = this.worker.prop.img.src;
-                    document.querySelector('.preview-wrapper img').src=imageData;
-                    document.querySelector('#overlay img').src=imageData;
-                },
-                generatePreview: function() {
-                    var element = document.getElementById('document-to-print-cr');
-                    var opt = {};
-                    this.worker = html2pdf().from(element).toImg('datauristring',opt).then(this.generatePreviewfinished);
-                },
-                showOverlay: function() {
-                    this.overlayVisible = !this.overlayVisible;
-                },
-                downloadPdf: function() {
-                    var element = document.getElementById('document-to-print-cr');
-                    html2pdf().from(element).set({
-                        margin: 1,
-                        filename: 'Zadost-Volicsky-Prukaz-EU2019-CR.pdf',
-                        html2canvas: { scale: 2 },
-                        jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
-                    }).save();
-                },
-                clearForm: function(text, bypass) {
-                    if (bypass || confirm(text)) {
-                        this.userData.fullName = null;
-                        this.userData.birthdate = null;
-                        this.userData.phone = null;
-                        this.userData.addressLine1 = null;
-                        this.userData.postalCode = null;
-                        this.userData.city = null;
-                        this.userData.municipality.name = null;
-                        this.userData.municipality.addressLine1 = null;
-                        this.userData.municipality.postalCode = null;
-                        this.userData.municipality.city = null;
-                        this.userData.deliveryAddress.name = null;
-                        this.userData.deliveryAddress.line0 = null;
-                        this.userData.deliveryAddress.line1 = null;
-                        this.userData.deliveryAddress.postalCode = null;
-                        this.userData.deliveryAddress.locality = null;
-                        this.userData.deliveryAddress.country = null;
-                        this.$refs.autocompleteZIP.clear();
-                    }
-                },
-            },
-            components: {
-                vuejsDatepicker: vuejsDatepicker,
-                'autocomplete': this['vuejs-autocomplete']
+                tel: { pattern: /^(\+?[0-9 \-\.]{9,})?$/ },
+                line1: { pattern: /^(.*[^0-9]+) (([1-9][0-9]*)\/)?([1-9][0-9]*[a-cA-C]?)$/ },
+                postalCode: { pattern: /^[1-7][0-9]{4}$/ },
+                locality: { pattern: /^.{2,40}$/ },
+                officeName: { pattern: /^.{2,40}$/ }
             }
-        });
+        },
+        methods: {
+            zipSelected: function(result) {
+                this.userData.city = result.selectedObject.name;
+                this.userData.postalCode = result.selectedObject.zip;
+
+                /*
+                 * search priority:
+                 * 1) town_district_code && city_code
+                 * 2) town_district_code
+                 * 3) city_code
+                 * 4) zip
+                 *
+                 * multiple "flat if" (not nested) is for better readability
+                 */
+
+                var selectedCity;
+
+                if (typeof result.selectedObject.town_district_code !== undefined && result.selectedObject.town_district_code != null && typeof result.selectedObject.city_code !== undefined && result.selectedObject.city_code != null) {
+                    selectedCity = cities.find(function(cities) { return cities.town_district_code == result.selectedObject.town_district_code && cities.city_code == result.selectedObject.city_code; });
+                }
+                if (typeof selectedCity == 'undefined' && typeof result.selectedObject.town_district_code !== undefined && result.selectedObject.town_district_code != null) {
+                    selectedCity = cities.find(function(cities) { return cities.town_district_code == result.selectedObject.town_district_code; });
+                }
+                if (typeof selectedCity == 'undefined' && typeof result.selectedObject.city_code !== undefined && result.selectedObject.city_code != null) {
+                    selectedCity = cities.find(function(cities) { return cities.city_code == result.selectedObject.city_code; });
+                }
+                if (typeof selectedCity == 'undefined' && typeof result.selectedObject.zip !== undefined && result.selectedObject.zip != null) {
+                    selectedCity = cities.find(function(cities) { return cities.zip == result.selectedObject.zip; });
+                }
+
+                if (typeof selectedCity !== 'undefined') {
+                    this.userData.municipality.city = selectedCity.city;
+                    this.userData.municipality.postalCode = selectedCity.zip;
+                    this.userData.municipality.name = selectedCity.name;
+                    this.userData.municipality.addressLine1 = (selectedCity.street ? selectedCity.street : selectedCity.city) + ' ' + selectedCity.houseNumber;
+                    this.userData.municipality.databox = selectedCity.databox;
+                } else { // not found - clearing values and only set known values (from search condition)
+                    this.userData.municipality.city = result.selectedObject.name;
+                    this.userData.municipality.postalCode = result.selectedObject.zip;
+
+                    this.userData.municipality.name = '';
+                    this.userData.municipality.addressLine1 = '';
+                    this.userData.municipality.databox = '';
+                }
+            },
+            birthdateSelected: function(result) {
+                // this.userData.birthdate = result;
+            },
+            csDateFormat: function(date) {
+                return moment(date).format('D. M. YYYY');
+            },
+            csDateParse: function(dateString) {
+                return moment(dateString, 'DD-MM-YYYY').toDate();
+            },
+            validate: function(field, data) {
+                if (data === undefined || data === null) return ''
+                if (this.validatiors[field] === undefined) return '';
+                var valid;
+                if (typeof(this.validatiors[field]) === 'function') {
+                    valid = this.validatiors[field](data);
+                } else {
+                    if (this.validatiors[field].pattern === undefined) return '';
+                    valid = this.validatiors[field].pattern.test(data);
+                }
+                return valid ? '' : 'has-error';
+            },
+            generatePreviewfinished: function() {
+                var imageData = this.worker.prop.img.src;
+                document.querySelector('.preview-wrapper img').src = imageData;
+                document.querySelector('#overlay img').src = imageData;
+            },
+            generatePreview: function() {
+                var element = document.getElementById('document-to-print-cr');
+                var opt = {};
+                this.worker = html2pdf().from(element).toImg('datauristring', opt).then(this.generatePreviewfinished);
+            },
+            showOverlay: function() {
+                this.overlayVisible = !this.overlayVisible;
+            },
+            downloadPdf: function() {
+                var element = document.getElementById('document-to-print-cr');
+                html2pdf().from(element).set({
+                    margin: 1,
+                    filename: 'Zadost-Volicsky-Prukaz-EU2019-CR.pdf',
+                    html2canvas: { scale: 2 },
+                    jsPDF: { orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true }
+                }).save();
+            },
+            clearForm: function(text, bypass) {
+                if (bypass || confirm(text)) {
+                    this.userData.fullName = null;
+                    this.userData.birthdate = null;
+                    this.userData.phone = null;
+                    this.userData.addressLine1 = null;
+                    this.userData.postalCode = null;
+                    this.userData.city = null;
+                    this.userData.municipality.name = null;
+                    this.userData.municipality.addressLine1 = null;
+                    this.userData.municipality.postalCode = null;
+                    this.userData.municipality.city = null;
+                    this.userData.deliveryAddress.name = null;
+                    this.userData.deliveryAddress.line0 = null;
+                    this.userData.deliveryAddress.line1 = null;
+                    this.userData.deliveryAddress.postalCode = null;
+                    this.userData.deliveryAddress.locality = null;
+                    this.userData.deliveryAddress.country = null;
+                    this.$refs.autocompleteZIP.clear();
+                }
+            },
+        },
+        components: {
+            vuejsDatepicker: vuejsDatepicker,
+            'autocomplete': this['vuejs-autocomplete']
+        }
+    });
     </script>
     <style>
-        #app {
-            background-color: white;
-        }
+    #app {
+        background-color: white;
+    }
 
-        .body {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 1170px;
-        }
+    .body {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1170px;
+    }
 
-        .pane {
-            padding: 15px;
-            margin: 0px;
-            position: relative;
-            top: -1em;
-        }
+    .pane {
+        padding: 15px;
+        margin: 0px;
+        position: relative;
+        top: -1em;
+    }
 
-        .pane h2, .pane div.form-group > h2 {
-            font-weight: 600;
-            padding-top: 40px;
-            clear: both;
-        }
+    .pane h2,
+    .pane div.form-group>h2 {
+        font-weight: 600;
+        padding-top: 40px;
+        clear: both;
+    }
 
-        .pane p.new-p {
-            color: #757575;
-            font-size: 18px;
-            font-weight: 300;
-        }
+    .pane p.new-p {
+        color: #757575;
+        font-size: 18px;
+        font-weight: 300;
+    }
 
-        .pane ul.new-p .emphasized {
-            font-style: normal;
-            line-height: 2em;
-        }
+    .pane ul.new-p .emphasized {
+        font-style: normal;
+        line-height: 2em;
+    }
 
-        .pane ul.new-p {
-            color:#38CAAA;
-            font-weight: 300;
-        }
+    .pane ul.new-p {
+        color: #38CAAA;
+        font-weight: 300;
+    }
 
-        .pane ul.new-p li span {
-            color: #757575;
-        }
+    .pane ul.new-p li span {
+        color: #757575;
+    }
 
-        .header__title strong {
-            color: white;
-            font-weight: normal;
-        }
+    .header__title strong {
+        color: white;
+        font-weight: normal;
+    }
 
-        .header__title {
-            text-align: center;
-        }
+    .header__title {
+        text-align: center;
+    }
 
-        .header__title span a {
-            font-size: 16px;
-            color: white;
-            text-decoration: none;
-        }
-        .header__content .header__title span a:hover, .header__content .header__title span a:active, .header__content .header__title span a:focus {
-            color: #E0E6ED;    
-            text-decoration: underline;
-        }
+    .header__title span a {
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+    }
 
-        #navigation {
-            width: 80%;
-            max-width: 1300px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
+    .header__content .header__title span a:hover,
+    .header__content .header__title span a:active,
+    .header__content .header__title span a:focus {
+        color: #E0E6ED;
+        text-decoration: underline;
+    }
 
-        #navigation ul {
-            list-style-type: none;
-            list-style-type: none;
-            padding: 0px;
-        }
+    #navigation {
+        width: 80%;
+        max-width: 1300px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
 
-        #navigation ul li {
-            display: inline-block;
-            text-align: center;
-        }
+    #navigation ul {
+        list-style-type: none;
+        list-style-type: none;
+        padding: 0px;
+    }
 
-        #navigation ul a {
-            width: 100%;
-            border: 1px solid white;
-            border-radius: 4px;
-            padding: 20px 30px;
-            margin: 5px 0px;
-            color: white;
-            font-size: 1.2em;
-            display: inline-block;
-        }
+    #navigation ul li {
+        display: inline-block;
+        text-align: center;
+    }
 
-        #navigation ul li.active a {
-            background-color: white;
-            color: #0074E4;
-        }
+    #navigation ul a {
+        width: 100%;
+        border: 1px solid white;
+        border-radius: 4px;
+        padding: 20px 30px;
+        margin: 5px 0px;
+        color: white;
+        font-size: 1.2em;
+        display: inline-block;
+    }
 
-        .form .form-group {
-            margin-bottom: 0px;
-            position: relative;
+    #navigation ul li.active a {
+        background-color: white;
+        color: #0074E4;
+    }
+
+    .form .form-group {
+        margin-bottom: 0px;
+        position: relative;
+    }
+
+    .form .left {
+        position: absolute;
+        left: 0px;
+        top: 30px;
+    }
+
+    .form .left img.idcard {
+        margin-top: 10px;
+    }
+
+    .form h2,
+    .form .right {
+        padding-left: 100px;
+    }
+
+    .form .row {
+        margin-bottom: 20px;
+        color: #757575;
+        font-size: 18px;
+    }
+
+    .form label {
+        font-weight: 300;
+    }
+
+    .form .radios label {
+        font-size: 18px;
+        line-height: 26px;
+        white-space: normal;
+        margin-right: 10px;
+    }
+
+    .form input[type="radio"] {
+        margin-right: 5px;
+        vertical-align: top;
+    }
+
+    .form label.optional {
+        font-size: small;
+        position: absolute;
+        right: 15px;
+    }
+
+    #preview .btn-default,
+    #en-preview .btn-default {
+        margin-left: 5px;
+    }
+
+    #preview p,
+    #en-preview p {
+        color: #757575;
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    #preview strong,
+    #en-preview strong {
+        color: black;
+    }
+
+    .preview-wrapper {
+        display: block;
+        float: right;
+        box-shadow: 0 2px 20px lightgray;
+        margin-top: -50px;
+        padding: 10px;
+    }
+
+    .preview-wrapper:hover {
+        cursor: pointer;
+        box-shadow: 0 2px 20px lightblue;
+    }
+
+    .preview-wrapper img {
+        width: 100%;
+    }
+
+    #overlay {
+        position: absolute;
+        top: 300px;
+        left: 50%;
+        margin-left: -400px;
+        box-shadow: 0 2px 20px lightgray;
+        padding: 20px;
+        background-color: white;
+    }
+
+    #overlay img {
+        width: 90%;
+        max-width: 800px;
+    }
+
+    #document-template {
+        display: none;
+    }
+
+    .autocomplete__results {
+        width: 150%;
+    }
+
+    .btn-default-new {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        line-height: 24px;
+    }
+
+    .btn-primary-new {
+        margin-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        line-height: 24px;
+    }
+
+    .radios {
+        margin: 10px 0px;
+    }
+
+    .radios .button-group {
+        white-space: nowrap;
+    }
+
+    .preview-buttons .btn {
+        margin: 0px 10px;
+    }
+
+    @media (min-width: 1361px) {
+        .menu-fix {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1360px) {
+        .menu-fix {
+            display: block;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .menu-fix {
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .btn-primary-new {
+            margin-right: 0px;
         }
 
         .form .left {
-            position: absolute;
-            left: 0px;
-            top: 30px;
+            display: none;
         }
 
-        .form .left img.idcard {
-            margin-top: 10px;
+        .form .right {
+            padding-left: 0px;
         }
 
-        .form h2, .form .right {
-            padding-left: 100px;
-        }
-
-        .form .row {
-            margin-bottom: 20px;
-            color: #757575;
+        .form h2 {
+            padding-left: 0px;
             font-size: 18px;
+            line-height: 18 px;
         }
 
-        .form label {
-            font-weight: 300;
-        }
-
-        .form .radios label {
-            font-size: 18px;
-            line-height: 26px;
-            white-space:normal;
-            margin-right: 10px;
-        }
-
-        .form input[type="radio"] {
-            margin-right: 5px;
-            vertical-align: top;
-        }
-
-        .form label.optional {
-            font-size: small;
-            position: absolute;
-            right: 15px;
-        }
-
-        #preview .btn-default,#en-preview .btn-default {
-            margin-left: 5px;
-        }
-
-        #preview p, #en-preview p {
-            color: #757575;
-            font-size: 16px;
-            font-weight: 300;
-        }
-
-        #preview strong, #en-preview strong {
-            color: black;
-        }
-
-        .preview-wrapper {
-            display: block;
-            float: right;
-            box-shadow: 0 2px 20px lightgray;
-            margin-top: -50px;
-            padding: 10px;
-        }
-
-        .preview-wrapper:hover {
-            cursor: pointer;
-            box-shadow: 0 2px 20px lightblue;
-        }
-
-        .preview-wrapper img {
+        #navigation {
             width: 100%;
         }
 
-        #overlay {
-            position: absolute;
-            top: 300px;
-            left: 50%;
-            margin-left: -400px;
-            box-shadow: 0 2px 20px lightgray;
-            padding: 20px;
-            background-color: white;
-        }
-        #overlay img {
-            width: 90%;
-            max-width: 800px;
+        .preview-buttons .btn {
+            margin: 5px 0px;
         }
 
-         #document-template { 
-             display: none;
-         }
-
-        .autocomplete__results {
-            width: 150%;
-        }
-
-        .btn-default-new{
-            padding-top: 15px;
-            padding-bottom: 15px;
-            line-height: 24px;
-        }
-        
-        .btn-primary-new{
-            margin-right: 20px;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            line-height: 24px;
-        }
-
-        .radios {
+        .preview-wrapper {
             margin: 10px 0px;
         }
 
-        .radios .button-group {
-            white-space:nowrap;
+        #overlay {
+            top: 600px;
         }
 
-        .preview-buttons .btn{
-            margin: 0px 10px;
+        #overlay img {
+            max-width: 660px;
+        }
+    }
+
+    @media (max-width: 425px) {
+        #overlay {
+            display: none;
         }
 
-        @media (min-width: 1361px) {
-            .menu-fix {
-               display: none;
-            }
-        }    
-        
-        @media (max-width: 1360px) {
-            .menu-fix {
-               display: block;
-            }
+        .menu-fix {
+            display: block;
         }
+    }
 
-        @media (max-width: 991px) {
-            .menu-fix {
-               display: none;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .btn-primary-new{
-                margin-right: 0px;
-            }
-            
-            .form .left {
-                display:none;
-            }
-            
-            .form .right {
-                padding-left: 0px;
-            }
-
-            .form h2 {
-                padding-left: 0px;
-                font-size: 18px;
-                line-height: 18 px;
-            }
-            
-            #navigation {
-                width: 100%;
-            }
-
-            .preview-buttons .btn {
-                margin: 5px 0px;
-            }
-
-            .preview-wrapper{
-                margin: 10px 0px;                
-            }
-
-            #overlay {
-                top: 600px;            
-            }
-
-            #overlay img {
-                max-width: 660px;
-            }
-        }
-
-        @media (max-width: 425px) {
-            #overlay {
-                display: none;
-            }
-
-            .menu-fix {
-               display: block;
-            }
-        }
-
-        .pageA4 {
-            width: 600px;
-            border: 0px;
-            padding: 0px;
-            margin: 0px;
-            position: relative;
-        }
+    .pageA4 {
+        width: 600px;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        position: relative;
+    }
     </style>
-
-<footer>
-    <div class="container">
-        <ul class="list-inline">
-            <li><a href="https://www.hlidacstatu.cz/texty/vize">Vize Hlídače Státu</a></li>
-            <li><a href="https://www.hlidacstatu.cz/texty/O-Registru">O registru smluv</a></li>
-            <li><a href="https://www.hlidacstatu.cz/texty/kontakt">Kontakt</a></li>
-            <li><a href="https://www.darujme.cz/projekt/1200384" onclick="return trackOutLink(this,'footer');"><span style="color:red;">Finanční podpora</span></a></li>
-            <li><a href="https://www.HlidacStatu.cz/api">API a opendata pro vývojáře</a></li>
-        </ul>
-        <p>
-            &copy; Hlídač Státu z.ú. & Michal Bláha.
-            Převzetí údajů a použití dat možné pod <a href="https://www.hlidacstatu.cz/texty/licence">licencí CC BY 3.0</a> anebo po vzájemné <a href="https://www.hlidacstatu.cz/texty/kontakt/">písemné dohodě</a>.
-            <a href="https://www.HlidacStatu.cz/texty/provoznipodminky">Podmínky užívání</a>
-        </p>
-    </div>
-</footer>
-
-
-
-    <div id="dar-footer-msg">
-
-        <div id="ad1">
-            <div class="fund-list grey" style="display: block;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-10 col-xs-12">
-                            <p class="small">
-                                Pokud vás zaujme nějaký dokument, profil firmy, výsledek hledání či prakticky jakýkoliv údaj na Hlídači,
-                                <b>nemusíte si ho pamatovat</b>. Stačí si ho uložit do záložek a my si to zapamatujeme za vás.
-                            </p>
-                            <p class="small">
-                                Uložení záložky je snadné, stačí kliknout na ikonu  <a style="font-size:120%" href="#" class="bookmark bookmarkOff" onclick="javascript:return false;"></a>.
-                                Pokud už je konkrétní záložka vytvořená, pak je vybarvena červeně <a style="font-size:120%" href="#" class="bookmark bookmarkOn" onclick="javascript:return false;"></a>.
-                            </p>
-                        </div>
-                        <div class="col-sm-2 col-xs-12">
-                            <a style="margin-top:15px;" class="fund-daruj-btn pull-right text-right" onclick="ga('send', 'event', 'darujAdFooter', 'daruj-btn', '1'); return false;" id="fund-daruj-btn" target="_blank" href="#">Chápu, díky!</a>
-                        </div>
-                        <div class="fund-zavri">
-                            <a id="fund-info-btn" onclick="ga('send', 'event', 'darujAdFooter', 'viceinfo', '1');" target="_blank" href="https://www.hlidacstatu.cz/texty/zalozky-si-za-vas-zapamatuji-vse-co-potrebujete/">Více informací</a>
-                            <a id="fund-zavri-btn" onclick="ga('send', 'event', 'darujAdFooter', 'zavri', '1');" style="margin-left:30px;color:#ff5900" href="#"><span class="glyphicon glyphicon-remove"></span></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+    <footer>
+        <div class="container">
+            <ul class="list-inline">
+                <li><a href="https://www.hlidacstatu.cz/texty/vize">Vize Hlídače Státu</a></li>
+                <li><a href="https://www.hlidacstatu.cz/texty/O-Registru">O registru smluv</a></li>
+                <li><a href="https://www.hlidacstatu.cz/texty/kontakt">Kontakt</a></li>
+                <li><a href="https://www.darujme.cz/projekt/1200384" onclick="return trackOutLink(this,'footer');"><span style="color:red;">Finanční podpora</span></a></li>
+                <li><a href="https://www.HlidacStatu.cz/api">API a opendata pro vývojáře</a></li>
+            </ul>
+            <p>
+                &copy; Hlídač Státu z.ú. & Michal Bláha & Česko.Digital.
+                Převzetí údajů a použití dat možné pod <a href="https://www.hlidacstatu.cz/texty/licence">licencí CC BY 3.0</a> anebo po vzájemné <a href="https://www.hlidacstatu.cz/texty/kontakt/">písemné dohodě</a>.
+                <a href="https://www.HlidacStatu.cz/texty/provoznipodminky">Podmínky užívání</a>
+            </p>
         </div>
-        <noscript>
-            <style>
-                #dar-footer-msg {
-                    display: none;
-                }
-            </style>
-        </noscript>
-    </div>
-
-
-        <div id="bookmarkInfoAnon" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Záložky</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            Pokud vás zaujme nějaký dokument, profil firmy, výsledek hledání či prakticky jakýkoliv údaj na Hlídači,
-                            <b>nemusíte si ho pamatovat</b>. Stačí si ho uložit do záložek a my si to zapamatujeme za vás.
-                        </p>
-                        <p>
-                            Uložení záložky je snadné, stačí kliknout na ikonu  <a style="font-size:120%" href="#" class="bookmark bookmarkOff" onclick="javascript:return false;"></a>.
-                            Pokud už je konkrétní záložka vytvořená, pak je vybarvena červeně <a style="font-size:120%" href="#" class="bookmark bookmarkOn" onclick="javascript:return false;"></a>.
-                        </p>
-                        <p>Abychom ale vědeli, komu jaké záložky patří, <a href="https://www.hlidacstatu.cz/account/login" class="btn btn-default">musíte se zalogovat</a>.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
+    </footer>
 </body>
 
 </html>
