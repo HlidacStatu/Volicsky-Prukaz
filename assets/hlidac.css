@@ -1604,3 +1604,10 @@ select {
     color: #28313B; }
     .breadcrumb .breadcrumb > li:not(.no-chevron):last-of-type:after, .breadcrumb .breadcrumb > li:last-of-type:after {
       content: none; }
+
+
+
+
+.smaller {
+  font-size: 90% !important;
+}
