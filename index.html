@@ -58,6 +58,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.min.js" integrity="sha384-tJs0vlPyuG7XcysSkZ0VtWsM/uztJkUtpLwb6HzV5NSgSwGqdW61IBOBJDhbUf+K" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.0.2/dist/vue-router.min.js" integrity="sha384-EnzMJi5PirMz1dgUr9a4DUHwg7e71+fxk3jLLfJn1vljGydxX8c6bdDYdPDE8224" crossorigin="anonymous"></script>
     <script src="assets/html2pdf.bundle.min.js"></script>
+    <script src="assets/mojeid_connect.2.0.0.js" id="mojeid-connect-script" data-jsrsasign="assets/jsrsasign-all-min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154075-24"></script>
     <script>
@@ -65,6 +66,38 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-154075-24');
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            window.mojeID = mojeid_connect.createMojeidConnect({
+            clientName: "Volicsky prukaz",
+            formCallback: r => {
+                if (!r) return false;
+                if (r.mojeid_address_def) {
+                    const address = JSON.parse(r.mojeid_address_def);
+                    app.userData.addressLine1 = address.street_address;
+                    app.$refs.autocompleteZIP.select(citiesZipName.filter(i => i.zip === parseInt(address.postal_code) && i.name.startsWith(address.locality))[0]);
+                }
+                if (r.given_name && r.family_name) {
+                    app.userData.fullName = `${r.given_name} ${r.family_name}`;
+                }
+                if (r.birthdate) {
+                    app.userData.birthdate = new Date(r.birthdate);
+                }
+                if (r.phone_number) {
+                    app.userData.phone = r.phone_number;
+                }
+            },
+            claims: [
+                'family_name',
+                'given_name',
+                'email',
+                'phone_number',
+                'mojeid_address_def',
+                'birthdate'
+            ]
+            });
+        });
+            
     </script>
 </head>
 
@@ -313,6 +346,9 @@
                     </div>
                     <h2>Moje identita</h2>
                     <div class="right">
+                        <div class="row">
+                            <button onclick="mojeID.requestAuthentication()" class="btn btn-mojeid">Vyplnit přes mojeID</button>
+                        </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-10" :class="validate('fullName',userData.fullName)">
                                 <label for="name" class="required">Jméno a příjmení</label>
@@ -820,6 +856,7 @@
     ];
     const paths = routes.map(function(route) { return route.path })
     const router = new VueRouter({
+        mode: 'history',
         routes: routes,
         scrollBehavior: function(to, from, savedPosition) {
             return { x: 0, y: 0 }
