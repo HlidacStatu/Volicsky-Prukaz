@@ -85,13 +85,21 @@
                         );
                     }
                     if (r.given_name && r.family_name) {
-                        app.userData.fullName = `${r.given_name} ${r.family_name}`;
+                        const fullName = `${r.given_name} ${r.family_name}`;
+                        app.userData.fullName = fullName;
+                        app.userData.deliveryAddress.name = fullName;
                     }
                     if (r.birthdate) {
                         app.userData.birthdate = new Date(r.birthdate);
                     }
                     if (r.phone_number) {
                         app.userData.phone = r.phone_number;
+                    }
+                    if (r.address) {
+                        app.userData.deliveryAddress.line1 = r.address.street_address;
+                        app.userData.deliveryAddress.postalCode = r.address.postal_code;
+                        app.userData.deliveryAddress.locality = r.address.locality;
+                        app.userData.deliveryAddress.country = r.address.country;
                     }
                 },
                 claims: [
@@ -100,6 +108,7 @@
                     "email",
                     "phone_number",
                     "mojeid_address_def",
+                    "address",
                     "birthdate",
                 ],
             });
