@@ -67,37 +67,43 @@
         gtag('js', new Date());
         gtag('config', 'UA-154075-24');
 
-        document.addEventListener("DOMContentLoaded", ()=>{
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector("#navigation a").click();
             window.mojeID = mojeid_connect.createMojeidConnect({
-            clientName: "Volicsky prukaz",
-            formCallback: r => {
-                if (!r) return false;
-                if (r.mojeid_address_def) {
-                    const address = JSON.parse(r.mojeid_address_def);
-                    app.userData.addressLine1 = address.street_address;
-                    app.$refs.autocompleteZIP.select(citiesZipName.filter(i => i.zip === parseInt(address.postal_code) && i.name.startsWith(address.locality))[0]);
-                }
-                if (r.given_name && r.family_name) {
-                    app.userData.fullName = `${r.given_name} ${r.family_name}`;
-                }
-                if (r.birthdate) {
-                    app.userData.birthdate = new Date(r.birthdate);
-                }
-                if (r.phone_number) {
-                    app.userData.phone = r.phone_number;
-                }
-            },
-            claims: [
-                'family_name',
-                'given_name',
-                'email',
-                'phone_number',
-                'mojeid_address_def',
-                'birthdate'
-            ]
+                clientName: "Volicsky prukaz",
+                formCallback: (r) => {
+                    if (!r) return false;
+                    if (r.mojeid_address_def) {
+                        const address = JSON.parse(r.mojeid_address_def);
+                        app.userData.addressLine1 = address.street_address;
+                        app.$refs.autocompleteZIP.select(
+                        citiesZipName.filter(
+                            (i) =>
+                            i.zip === parseInt(address.postal_code) &&
+                            i.name.startsWith(address.locality)
+                        )[0]
+                        );
+                    }
+                    if (r.given_name && r.family_name) {
+                        app.userData.fullName = `${r.given_name} ${r.family_name}`;
+                    }
+                    if (r.birthdate) {
+                        app.userData.birthdate = new Date(r.birthdate);
+                    }
+                    if (r.phone_number) {
+                        app.userData.phone = r.phone_number;
+                    }
+                },
+                claims: [
+                    "family_name",
+                    "given_name",
+                    "email",
+                    "phone_number",
+                    "mojeid_address_def",
+                    "birthdate",
+                ],
             });
-        });
-            
+        });            
     </script>
 </head>
 
@@ -856,7 +862,7 @@
     ];
     const paths = routes.map(function(route) { return route.path })
     const router = new VueRouter({
-        mode: 'history',
+        mode: 'abstract',
         routes: routes,
         scrollBehavior: function(to, from, savedPosition) {
             return { x: 0, y: 0 }
