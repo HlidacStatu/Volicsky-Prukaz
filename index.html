@@ -70,7 +70,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelector("#navigation a").click();
             window.mojeID = mojeid_connect.createMojeidConnect({
-                clientName: "Volicsky prukaz",
+                clientName: "Žádost o voličský průkaz",
                 formCallback: (r) => {
                     if (!r) return false;
                     if (r.mojeid_address_def) {
