@@ -67,6 +67,8 @@
         gtag('js', new Date());
         gtag('config', 'UA-154075-24');
 
+        const formatPostalCode = (postalCode) => postalCode.replace(/\s/g, "");
+
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelector("#navigation a").click();
             window.mojeID = mojeid_connect.createMojeidConnect({
@@ -79,7 +81,7 @@
                         app.$refs.autocompleteZIP.select(
                         citiesZipName.filter(
                             (i) =>
-                            i.zip === parseInt(address.postal_code) &&
+                            i.zip === parseInt(formatPostalCode(address.postal_code)) &&
                             i.name.startsWith(address.locality)
                         )[0]
                         );
@@ -97,7 +99,7 @@
                     }
                     if (r.address) {
                         app.userData.deliveryAddress.line1 = r.address.street_address;
-                        app.userData.deliveryAddress.postalCode = r.address.postal_code;
+                        app.userData.deliveryAddress.postalCode = formatPostalCode(r.address.postal_code);
                         app.userData.deliveryAddress.locality = r.address.locality;
                         app.userData.deliveryAddress.country = r.address.country;
                     }
