@@ -190,9 +190,9 @@
     "name": "Městská část Praha 12",
     "zip": "14300",
     "city": "Praha 4",
-    "houseNumber": "830",
-    "street": "Písková",
-    "address": "Písková 830, 14300 Praha 4",
+    "houseNumber": "2375/6",
+    "street": "Generála Šišky",
+    "address": "Generála Šišky 2375/6, 14300 Praha 4",
     "datovaSchranka": "ktcbbxd",
     "email": "podatelna@p12.mepnet.cz",
     "zip_name": "14300 - Městská část Praha 12"

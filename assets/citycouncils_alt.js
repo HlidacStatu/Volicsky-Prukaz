@@ -63354,8 +63354,8 @@
     "town_district_code":547107,
     "name":"Městská část Praha 12",
     "city":"Praha 4",
-    "street":"Písková",
-    "houseNumber":"830/25",
+    "street":"Generála Šišky",
+    "houseNumber":"2375/6",
     "zip":14300,
     "databox":"ktcbbxd"
   },
