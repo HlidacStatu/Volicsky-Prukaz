@@ -62770,6 +62770,16 @@
     "databox":"eu6army"
   },
   {
+    "city_code":505927,
+    "town_district_code":555321,
+    "name":"Statutární město Opava",
+    "city":"Opava",
+    "street":"Horní náměstí",
+    "houseNumber":"382/69",
+    "zip":74601,
+    "databox":"5eabx4t"
+  },
+  {
     "city_code":null,
     "town_district_code":555410,
     "name":"Městská část Zlatníky",
