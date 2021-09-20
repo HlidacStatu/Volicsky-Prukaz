@@ -51683,7 +51683,7 @@
   {
     "name":"Milostovice",
     "city_code":505927,
-    "town_district_code":555436,
+    "town_district_code":555321,
     "zip":74601,
     "zip_name":"74601 - Milostovice"
   },
@@ -51710,36 +51710,36 @@
   },
   {
     "name":"Stěbořice",
-    "city_code":510343,
-    "town_district_code":null,
+    "city_code":505927,
+    "town_district_code":555321,
     "zip":74601,
     "zip_name":"74601 - Stěbořice"
   },
   {
     "name":"Vávrovice - Předměstí",
     "city_code":505927,
-    "town_district_code":556700,
+    "town_district_code":555321,
     "zip":74601,
     "zip_name":"74601 - Vávrovice (Předměstí)"
   },
   {
     "name":"Vlaštovičky",
     "city_code":505927,
-    "town_district_code":555461,
+    "town_district_code":555321,
     "zip":74601,
     "zip_name":"74601 - Vlaštovičky"
   },
   {
     "name":"Zlatníky",
     "city_code":505927,
-    "town_district_code":555410,
+    "town_district_code":555321,
     "zip":74601,
     "zip_name":"74601 - Zlatníky"
   },
   {
     "name":"Malé Hoštice",
     "city_code":505927,
-    "town_district_code":555339,
+    "town_district_code":555321,
     "zip":74705,
     "zip_name":"74705 - Malé Hoštice"
   },
@@ -51774,14 +51774,14 @@
   {
     "name":"Podvihov",
     "city_code":505927,
-    "town_district_code":555401,
+    "town_district_code":555321,
     "zip":74706,
     "zip_name":"74706 - Podvihov"
   },
   {
     "name":"Podvihov - Komárovské Chaloupky",
     "city_code":505927,
-    "town_district_code":555401,
+    "town_district_code":555321,
     "zip":74706,
     "zip_name":"74706 - Podvihov (Komárovské Chaloupky)"
   },
