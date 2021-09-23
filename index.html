@@ -399,7 +399,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-3" :class="validate('postalCode',userData.postalCode)">
                                 <label for="postal-code">PSČ</label>
-                                <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false" placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip" search-from-beginning="true" allow-only-values-from-source="false" min-legth-for-search-begin="0" max-result-items="15" more-results-exists-text="(...upřesněte zadání...)" ref="autocompleteZIP" @selected="zipSelected">
+                                <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false" placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip" search-from-beginning="true" allow-only-values-from-source="false" min-legth-for-search-begin="0" max-result-items="25" more-results-exists-text="(...upřesněte zadání...)" ref="autocompleteZIP" @selected="zipSelected">
                                 </autocomplete>
                             </div>
                             <div class="col-xs-12 col-sm-7" :class="validate('locality',userData.city)">
@@ -566,7 +566,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-3" :class="validate('postalCode',userData.postalCode)">
                                 <label for="postal-code">Postcode</label>
-                                <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false" placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip" search-from-beginning="true" allow-only-values-from-source="false" min-legth-for-search-begin="0" max-result-items="15" more-results-exists-text="(...be more specific...)" ref="autocompleteZIP" @selected="zipSelected">
+                                <autocomplete :source="citiesZipName" :input-class="'form-control'" :show-no-results="false" placeholder="" results-display="zip_name" results-value="zip" results-display-after-item-selected="zip" search-from-beginning="true" allow-only-values-from-source="false" min-legth-for-search-begin="0" max-result-items="25" more-results-exists-text="(...be more specific...)" ref="autocompleteZIP" @selected="zipSelected">
                                 </autocomplete>
                             </div>
                             <div class="col-xs-12 col-sm-7" :class="validate('locality',userData.city)">
