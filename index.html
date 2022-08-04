@@ -195,10 +195,10 @@
             <!-- desktop menu items only -->
             <div id="navigation" class="row">
                 <ul>
-                    <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-cr' ? 'active': ''">
+                    <li class="col-xs-12 col-md-6" :class="$route.path=='/cr-cr' ? 'active': ''">
                         <router-link to="/cr-cr">Jsem občanem ČR a chci volit ve svém volebním okrsku (Volby do zastupitelstev obcí i do Senátu)</router-link>
                     </li>
-                    <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-eu' ? 'active': ''">
+                    <li class="col-xs-12 col-md-6" :class="$route.path=='/cr-eu' ? 'active': ''">
                         <router-link to="/cr-eu">Jsem občanem ČR a chci volit jinde než ve svém volebním okrsku (Pouze volby do Senátu)</router-link>
                     </li>
                 </ul>
@@ -207,11 +207,11 @@
         <div class="body container">
             <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
                 <p class="new-p">Volby do zastupitelstev obcí a měst ČR a jedné třetiny Senátu (I. kolo) se uskuteční ve dnech 23. a 24. září 2022. Hlasovací lístky s kandidáty do zastupitelstev obcí i hlasovací lístky s kandidáty do Senátu (pouze ve volebních obvodech, kde se doplňující volby konají) obdrží voliči nejpozději 3 dny před dnem voleb (20. září 2022). II. kolo voleb do Senátu se bude konat 30. září 2022 a 1. října 2022. Hlasovací lístky pro druhé kolo budou voličům poskytnuty až ve volební místnosti.</p>
-                <p class="new-p">Volební místnosti budou ve dnech prvního i druhého kola voleb pro voliče v ČR otevřeny:
+                <p class="new-p" style="text-align: center;">Volební místnosti budou ve dnech prvního i druhého kola voleb pro voliče v ČR otevřeny:
                     <br>
-                    V pátek od 14.00 hodin do 22.00 hodin
+                    <strong class="text-danger">V pátek od 14.00 hodin do 22.00 hodin</strong>
                     <br> 
-                    a v sobotu 8.00 hodin do 14.00 hodin.
+                    <strong class="text-danger">a v sobotu 8.00 hodin do 14.00 hodin.</strong>
                 </p>
                 <h2>Chci volit v místě svého trvalého bydliště</h2>
                 <p class="new-p">
@@ -221,18 +221,18 @@
                     Pokud nemůžete jít (závažné, zejména zdravotní důvody), požádejte svůj obecní úřad (v den voleb svoji okrskovou volební komisi) o možnost volby mimo volební místnost. Volební komise vyšle své členy s přenosnou volební schránkou (volební urnou).
                 </p>
                 <h2>Chci volit v jiném volebním obvodě (pouze v případě voleb do Senátu) - <span class="text-danger">potřebuji voličský průkaz</span></h2>
-                <p class="new-p">Na voličský průkaz může volič hlasovat v jakémkoliv volebním okrsku na území České republiky nebo ve zvláštním volebním okrsku v zahraničí. Žádost o průkaz i vyzvednutí průkazu si naplánujte včas! Berte v potaz nejen vlastní možnosti, ale i pracovní dobu příslušných úřadů.</p>
+                <p class="new-p">Na voličský průkaz může volič hlasovat v jakémkoliv volebním okrsku na území České republiky. <span class="text-danger">Žádost o průkaz i vyzvednutí průkazu si naplánujte včas! Berte v potaz nejen vlastní možnosti, ale i pracovní dobu příslušných úřadů.</span></p>
                 <p class="new-p">
                     Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz. O voličský průkaz můžete zažádat pouze sám za sebe (= ne jako zástupce žadatele) na svém obecním úřadu podle místa trvalého bydliště, a to buď:</p>
                 <ul class="new-p">
-                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději <strong>do 21. září 2022 do 16.00 hodin</strong>,</span></li>
-                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do <strong>do 16. září 2022</strong> pomocí vaší datové schránky nebo v listinné podobě s úředně ověřeným podpisem (poštou apod.).</span></li>
+                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději <strong class="text-danger">do 21. září 2022 do 16.00 hodin</strong>,</span></li>
+                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do <strong class="text-danger">do 16. září 2022</strong> pomocí vaší datové schránky nebo v listinné podobě s úředně ověřeným podpisem (poštou apod.).</span></li>
                 </ul>
                 <p class="new-p smaller">
                     Voličský průkaz úřad vydá nejdříve 15 dní před volbami a to bude 8. září 2022. Předá jej osobně vám nebo tomu, kdo má vaši plnou moc s ověřeným podpisem, nebo vám jej zašle. Voličský průkaz si můžete nechat na základě žádosti zaslat i na adresu zastupitelského úřadu, kde jste se rozhodl/a hlasovat (a zde si ho "vyzvednout" až v den voleb).
                 </p>
                 <p class="new-p smaller">
-                    O voličský průkaz před druhým kolem voleb do Senátu, které se bude konat 30. září a 1. října 2022, lze pouze osobně a úřad může vydávat voličské průkazy do 28. září 2022 do 16.00 hodin.
+                    O voličský průkaz před druhým kolem voleb do Senátu, které se bude konat 30. září a 1. října 2022, lze pouze <span class="emphasized">osobně</span> a úřad může vydávat voličské průkazy do 28. září 2022 do 16.00 hodin.
                 </p>
                 <p class="new-p smaller"><strong>Pozor!</strong> Pokud jste řádně požádali o voličský průkaz a rozhodnete se hlasovat ve "svém" volebním okrsku, musíte voličský průkaz odevzdat okrskové volební komisi. Občanka/pas nestačí. Jinak nebudete moci hlasovat.</p>
 
@@ -242,9 +242,9 @@
             </div>
             <div id="cr-eu" class="pane" v-if="$route.path=='/cr-eu'">
                 <h2>Chci volit v jiném volebním okrsku</h2>
-                <p class="new-p">U volby <strong>do zastupitelstva nelze</strong> využít jiné možnosti, než hlasování v místě bydliště. O voličský průkaz při tomto hlasování nežádejte.</p>
+                <p class="new-p">U volby <strong>do zastupitelstva <span class="text-danger">nelze</span></strong> využít jiné možnosti, než hlasování v místě bydliště. O voličský průkaz při tomto hlasování nežádejte.</p>
 
-                <p class="new-p">V případě volby <strong>do Senátu lze</strong> využít volby v jiném místě než v místě bydliště pomocí voličského průkazu.</p>
+                <p class="new-p">V případě volby <strong>do Senátu <span class="text-danger">lze</span></strong> využít volby v jiném místě než v místě bydliště pomocí voličského průkazu.</p>
 
                 <p class="new-p"><strong>V ČR - </strong>O voličský průkaz může volič žádat u obecního úřadu (magistrátu, městského úřadu, úřadu městyse, úřadu městské části nebo městského obvodu územně členěného statutárního města, úřadu městské části hlavního města Prahy) v místě svého trvalého pobytu.</p>
 
@@ -270,7 +270,7 @@
 
                 <p class="new-p">Požádat o voličský průkaz lze v písemné nebo elektronické podobě nejpozději do 16. září 2022, nebo osobně na příslušném úřadu a to do 21. září 2022 do 16.00 hodin. Při osobní žádosti si naplánujte návštěvu úřadu včas (pracovní doba úřadu, dovolené apod.). O vydání žádá pouze volič, nelze žádat v zastoupení voliče a to ani s plnou mocí s ověřeným podpisem voliče. </p>
                 <p class="new-p">Úřad, u kterého bylo o voličský průkaz zažádáno vydá průkaz nejdříve 15 dnů přede dnem voleb (8. září 2022). Průkaz si může vyzvednout sám žadatel, nebo osoba s plnou mocí s ověřeným podpisem voliče. Podle požadavku voliče může úřad průkaz i zaslat na adresu voliče.</p>
-                <p class="new-p">O voličský průkaz před druhým kolem voleb do Senátu, které se bude konat 30. září a 1. října 2022, lze pouze osobně a úřad může vydávat voličské průkazy do 28. září 2022 do 16.00 hodin.</p>
+                <p class="new-p">O voličský průkaz před druhým kolem voleb do Senátu, které se bude konat 30. září a 1. října 2022, lze pouze <span class="empasized">osobně</span> a úřad může vydávat voličské průkazy do 28. září 2022 do 16.00 hodin.</p>
 
                  <p class="new-p">
                     <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
