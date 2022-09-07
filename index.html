@@ -184,45 +184,56 @@
                 </ul>
             </div>
             <div class="header__title">
-                <h1>Volby do Poslanecké sněmovny Parlamentu ČR</h1>
+                <h1>Volby do zastupitelstev obcí a Senátu 2022</h1>
                 <p>
-                    <span>Volby do Poslanecké sněmovny Parlamentu ČR se uskuteční <strong>8. a 9. října 2021</strong>.</span>
+                    <span>Volby do zastupitelstev obcí a jedné třetiny Senátu (I. kolo) 2022 se uskuteční <strong>23. a 24. září 2022</strong>.</span>
                 </p>
                 <p>
-                    <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a> nebo si nastudovat <a class="link" href="https://programydovoleb.cz/" title="Volebni programy" target="_blank">volební programy stran a kandidátů</a>.</span>
+                    <span>Nejste rozhodnuti koho volit? Můžete si nastudovat <a class="link" href="https://programydovoleb.cz/" title="Volebni programy" target="_blank">volební programy stran a kandidátů</a>.</span>
+                    <!-- <span>Nejste rozhodnuti koho volit? Můžete vyzkoušet <a class="link" href="https://volebnikalkulacka.cz/" title="Volební kalkulačka" target="_blank">Volební kalkulačku</a> nebo si nastudovat <a class="link" href="https://programydovoleb.cz/" title="Volebni programy" target="_blank">volební programy stran a kandidátů</a>.</span> -->
                 </p>
             </div>
             <!-- desktop menu items only -->
             <div id="navigation" class="row">
                 <ul>
-                    <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-cr' ? 'active': ''">
-                        <router-link to="/cr-cr">Jsem občanem ČR a chci volit v ČR</router-link>
+                    <li class="col-xs-12 col-md-6" :class="$route.path=='/cr-cr' ? 'active': ''">
+                        <router-link to="/cr-cr">Jsem občanem ČR a chci volit ve svém volebním okrsku (Volby do zastupitelstev obcí i do Senátu)</router-link>
                     </li>
-                    <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-ka' ? 'active': ''">
-                        <router-link to="/cr-ka">Jsem v karanténě v ČR a chci volit</router-link>
-                    </li>
-                    <li class="col-xs-12 col-md-4" :class="$route.path=='/cr-eu' ? 'active': ''">
-                        <router-link to="/cr-eu">Jsem občanem ČR a chci volit v zahraničí</router-link>
+                    <li class="col-xs-12 col-md-6" :class="$route.path=='/cr-eu' ? 'active': ''">
+                        <router-link to="/cr-eu">Jsem občanem ČR a chci volit jinde než ve svém volebním okrsku (Pouze volby do Senátu)</router-link>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="body container">
             <div id="cr-cr" class="pane" v-if="$route.path=='/cr-cr'">
+                <p class="new-p">Volby do zastupitelstev obcí a měst ČR a jedné třetiny Senátu (I. kolo) se uskuteční ve dnech 23. a 24. září 2022. Hlasovací lístky s kandidáty do zastupitelstev obcí i hlasovací lístky s kandidáty do Senátu (pouze ve volebních obvodech, kde se doplňující volby konají) obdrží voliči nejpozději 3 dny před dnem voleb (20. září 2022). II. kolo voleb do Senátu se bude konat 30. září 2022 a 1. října 2022. Hlasovací lístky pro druhé kolo budou voličům poskytnuty až ve volební místnosti.</p>
+                <p class="new-p" style="text-align: center;">Volební místnosti budou ve dnech prvního i druhého kola voleb pro voliče v ČR otevřeny:
+                    <br>
+                    <strong class="text-danger">V pátek od 14.00 hodin do 22.00 hodin</strong>
+                    <br> 
+                    <strong class="text-danger">a v sobotu 8.00 hodin do 14.00 hodin.</strong>
+                </p>
                 <h2>Chci volit v místě svého trvalého bydliště</h2>
                 <p class="new-p">
                     Nic vám nebrání v cestě. Dostavte se s platným průkazem totožnosti (občanský průkaz, cestovní, diplomatický nebo služební pas České republiky) v den voleb do volební místnosti ve vašem volebním obvodu (dle trvalého bydliště).
                 </p>
-                <h2>Chci volit v kterémkoliv volebním obvodě v ČR - <span class="text-danger">pak potřebujete voličský průkaz</span></h2>
-                <p class="new-p"><strong>Na voličský průkaz</strong> může volič hlasovat v jakémkoliv volebním okrsku na území České republiky nebo ve zvláštním volebním okrsku v zahraničí.</p>
+                <p class="new-p">
+                    Pokud nemůžete jít (závažné, zejména zdravotní důvody), požádejte svůj obecní úřad (v den voleb svoji okrskovou volební komisi) o možnost volby mimo volební místnost. Volební komise vyšle své členy s přenosnou volební schránkou (volební urnou).
+                </p>
+                <h2>Chci volit v jiném volebním obvodě (pouze v případě voleb do Senátu) - <span class="text-danger">potřebuji voličský průkaz</span></h2>
+                <p class="new-p">Na voličský průkaz může volič hlasovat v jakékoliv obci ve svém volebním obvodu. <span class="text-danger">Žádost o průkaz i vyzvednutí průkazu si naplánujte včas! Berte v potaz nejen vlastní možnosti, ale i pracovní dobu příslušných úřadů.</span></p>
                 <p class="new-p">
                     Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz. O voličský průkaz můžete zažádat pouze sám za sebe (= ne jako zástupce žadatele) na svém obecním úřadu podle místa trvalého bydliště, a to buď:</p>
                 <ul class="new-p">
-                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději <strong>6. října 2021 do 16:00</strong>,</span></li>
-                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do <strong>1. října 2021</strong> pomocí vaší datové schránky nebo v listinné podobě s úředně ověřeným podpisem (poštou apod.).</span></li>
+                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději <strong class="text-danger">do 21. září 2022 do 16.00 hodin</strong>,</span></li>
+                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do <strong class="text-danger">do 16. září 2022</strong> pomocí vaší datové schránky nebo v listinné podobě s úředně ověřeným podpisem (poštou apod.).</span></li>
                 </ul>
                 <p class="new-p smaller">
-                    Voličský průkaz úřad vydá nejdříve 23. září 2021. Předá jej osobně vám nebo tomu, kdo má vaši plnou moc s ověřeným podpisem, nebo vám jej zašle. Voličský průkaz si můžete nechat na základě žádosti zaslat i na adresu zastupitelského úřadu, kde jste se rozhodl/a hlasovat (a zde si ho "vyzvednout" až v den voleb).
+                    Voličský průkaz úřad vydá nejdříve 15 dní před volbami a to bude 8. září 2022. Předá jej osobně vám nebo tomu, kdo má vaši plnou moc s ověřeným podpisem, nebo vám jej zašle. Voličský průkaz si můžete nechat na základě žádosti zaslat i na adresu zastupitelského úřadu, kde jste se rozhodl/a hlasovat (a zde si ho "vyzvednout" až v den voleb).
+                </p>
+                <p class="new-p smaller">
+                    O voličský průkaz před druhým kolem voleb do Senátu, které se bude konat 30. září a 1. října 2022, lze pouze <span class="emphasized">osobně</span> a úřad může vydávat voličské průkazy do 28. září 2022 do 16.00 hodin.
                 </p>
                 <p class="new-p smaller"><strong>Pozor!</strong> Pokud jste řádně požádali o voličský průkaz a rozhodnete se hlasovat ve "svém" volebním okrsku, musíte voličský průkaz odevzdat okrskové volební komisi. Občanka/pas nestačí. Jinak nebudete moci hlasovat.</p>
 
@@ -230,112 +241,46 @@
                 <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
                 <div class="text-muted">(v Safari nemusí být žádost čitelná. Zkuste Chrome)</div>
             </div>
-            <div id="cr-ka" class="pane" v-if="$route.path=='/cr-ka'">
-                <h2>Chci volit, ale jsem v karanténě, izolaci či v nemocnici</h2>
-                <p class="new-p">
-                    Tuto situaci řeší nově schválený zákon <a href="https://www.senat.cz/xqw/xervlet/pssenat/htmlhled?action=doc&value=100176">o zvláštních způsobech hlasování ve volbách do Poslanecké sněmovny Parlamentu České republiky v roce 2021</a>. Zatím není ve sbírce zákonů, proto odkazujeme na schválené změní, které podepsal prezident.
-                </p>
-                <p class="new-p">
-                    <strong>POZOR:</strong> zvláštní způsoby hlasování se použijí, bude-li dne 15. září 2021 trvat stav pandemické pohotovosti nebo nouzový stav vyhlášený alespoň pro část území České republiky z důvodu ohrožení zdraví šířením onemocnění covid-19.
-                </p>
-                <p>Zákon je určen pro osoby, jimž krajská hygienická stanice nebo lékař nařídil karanténu nebo izolaci z důvodu onemocnění covid-19. Je určen také voličům umístěným v zařízeních, která byla rozhodnutím krajské hygienické stanice uzavřena.
-                </p>
-
-                <h2>Jsem v karanténě nebo mám COVID-19, jak mohu hlasovat?</h2>
-                <p class="new-p">
-                    Tento způsob hlasování můžete využít pouze tehdy, pokud jste <span class="text-danger">v seznamu osob v karanténě/izolaci nařízené krajskou hygienickou službou nebo v seznamu ČSSZ evidované jako v karanténě (nejspíše dle neschopenky) nebo máte potvrzení o karanténě od KHS či lékaře</span>.
-                </p>
-                <p class="new-p">
-                    Pro vás se zavádí tři možnosti zvláštního způsobu hlasování:
-                    <ul class="new-p">
-                        <li><strong class="emphasized">hlasování z motorového vozidla u volebního stanoviště (tzv. drive-in hlasování)</strong><span> – tato volební stanoviště budou zřízena pro každý okres, bude jich tedy 78. Stanoviště budou uzpůsobena pro průjezd motorového vozidla. Zde můžete hlasovat <strong>pouze ve středu 6. října od 8 do 17 hodin.</strong>.
-                            </span>
-                            <div>Umístění drive-in stanovišť ještě nebylo zveřejněno, dá se očekávat, že bude podobný jako při loňských krajských volbách, kde <a href='https://programydovoleb.cz/koronavirus-jak-hlasovat-kam-jet' target="_blank">do přehledného seznamu<a/> je sestavil Štěpán Ryšaný z <a href='https://programydovoleb.cz/koronavirus-jak-hlasovat-kam-jet' target="_blank">programydovoleb.cz.</a></div>
-                        </li>
-                        <li><strong class="emphasized">v pobytovém zařízení sociálních služeb, které bylo uzavřeno</strong><span> – pokud krajská hygienická stanice nahlásí uzavřená zařízení na svém území krajskému úřadu, ten do nich vyšle speciální komisi pro hlasování. Takto hlasovat bude možné <strong>od čtvrtka 7. října od 8 hodin do pátku 8. října do 18 hodin</strong>.
-                            </span>
-                        </li>
-                        <li><strong class="emphasized">do zvláštní přenosné volební schránky</strong><span> -
-                                pokud jste v nařízené karanténě či izolaci a nemůžete využít drive-in hlasování, můžete <strong>do čtvrtka 7. října do 20 hodin oznámit krajskému úřadu</strong>, že žádáte o příjezd speciální volební komise. Tuto komisi budou tvořit členové drive-in týmu a přijedou s přenosnou volební schránkou za vámi domů. Toto hlasování bude probíhat
-                                <strong>od pátku 8. října od 8 hodin do soboty 9. října do 14 hodin</strong>.
-                            </span>
-                        </li>
-                    </ul>
-                </p>
-                <p class="new-p">
-                    Při hlasování se musíte prokázat platným občanským průkazem, a pokud jste požádali o voličský průkaz, tak i tím.
-                </p>
-                <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
-                                <div class="text-muted">(v Safari nemusí být žádost čitelná. Zkuste Chrome)</div>
-
-            </div>
             <div id="cr-eu" class="pane" v-if="$route.path=='/cr-eu'">
-                <h2>Chci volit v zahraničí</h2>
-                <p class="new-p">V zahraničí můžete hlasovat na zastupitelském a konzulárním úřadu České republiky na základě <strong>zápisu do zvláštního seznamu voličů vedeného zastupitelským úřadem</strong> nebo na základě <strong>voličského průkazu</strong></p>
+                <h2>Chci volit v jiném volebním okrsku</h2>
+                <p class="new-p">U volby <strong>do zastupitelstva <span class="text-danger">nelze</span></strong> využít jiné možnosti, než hlasování v místě bydliště. O voličský průkaz při tomto hlasování nežádejte.</p>
 
-                <h2>Hlasování na základě zápisu do zvláštního seznamu voličů vedeného zastupitelským úřadem</h2>
-                <p class="new-p">Ze zahraničí může občan, který žije dlouhodobě mimo ČR, zastupitelský úřad požádat o zápis do zvláštního seznamu voličů a následně se na něj obrátit s žádostí o vydání voličského průkazu. 
+                <p class="new-p">V případě volby <strong>do Senátu <span class="text-danger">lze</span></strong> využít volby v jiném místě než v místě bydliště pomocí voličského průkazu.</p>
 
-                <div class="row">
-                    <div class="col-xs-1 col-md-2"></div>
-                    <div class="col-xs-11 col-md-10 ">
-                        <h3 class="">Pokud nejste ve zvláštním seznamu voličů</h3>
-                        <p class="new-p smaller">Žádost o zápis podat musíte  na svém zastupitelském úřadě a to buď:</p>
-                        <p class="new-p smaller">Písemnou žádost o zápis musíte doložit <strong>originálem</strong>, popř. <strong>ověřenou kopií dokladů potvrzujících totožnost voliče</strong>, jeho státní občanství ČR a bydliště v územním obvodu zastupitelského úřadu. Za doklad potvrzující bydliště v územním obvodu zastupitelského úřadu se považuje úřední doklad vydaný orgánem státu působnosti příslušným k evidenci obyvatel, popř. k vydávání povolení k pobytu.</p>
-                        <p class="new-p smaller">Pro žádost není předepsaný formulář. Na žádosti se nevyžaduje ověřený podpis voliče.</p>
-                        <p class="new-p smaller">POZOR! Žádost musíte doručit nebo předat zastupitelskému úřadu nejpozději <strong class="text-danger" style="color: #a94442;">29. srpna 2021</strong>.</p>
-                        <p class="new-p smaller">
-                            Pokud jste ve zvláštním seznamu voličů a máte trvalý pobyt na území České republiky, jste vyškrtnut/a ze stálého seznamu voličů vedeného obecním úřadem, v jehož územním obvodu jste přihlášen/a k trvalému pobytu. Pokud byste chtěl/a volit v budoucnu opět na území České republiky, musíte <a href="https://www.mvcr.cz/clanek/aktualni-volby-do-poslanecke-snemovny-psp-2021-hlasovani-v-zahranici-2021.aspx">požádat zastupitelský úřad</a> o vyškrtnutí ze zvláštního seznamu voličů.
-                        </p>
-                    </div>
-                </div>
-<hr/>
+                <p class="new-p" style="padding-top: 20px;"><strong>V ČR - </strong>O voličský průkaz může volič žádat u obecního úřadu (magistrátu, městského úřadu, úřadu městyse, úřadu městské části nebo městského obvodu územně členěného statutárního města, úřadu městské části hlavního města Prahy) v místě svého trvalého pobytu.</p>
+
+                <p class="new-p">Na voličský průkaz může volič hlasovat v jakékoliv obci ve svém volebním obvodu, kde se volby do Senátu konají. <span class="text-danger">Žádost o průkaz i vyzvednutí průkazu si naplánujte včas! Berte v potaz nejen vlastní možnosti, ale i pracovní dobu příslušných úřadů.</span></p>
+
+                <p class="new-p">Pokud chcete volit mimo své trvalé bydliště, potřebujete tzv. voličský průkaz. O voličský průkaz můžete zažádat pouze sám za sebe (= ne jako zástupce žadatele) na svém obecním úřadu podle místa trvalého bydliště, a to buď:</p>
+
                 <ul class="new-p" style="padding-top: 20px;">
-                    <li><strong class="emphasized">Hlasování na základě zápisu do zvláštního seznamu voličů vedeného zastupitelským úřadem</strong><span> – Pokud jste zapsaný/á do zvláštního seznamu voličů a nebudete se vyskytovat v době voleb v územním obvodu tohoto zastupitelského úřadu, můžete zastupitelský úřad požádat o vydání voličského průkazu, na který jste oprávněn/a hlasovat v jakémkoliv zvláštním volebním okrsku v zahraničí a v jakémkoliv volebním okrsku na území České republiky.</span>
-                        
-                    </li>
-                    <li><strong class="emphasized">Hlasování na základě voličského průkazu</strong><span> – voličský průkaz musíte získat na svém zastupitelském úřadu anebo <a href="#/cr-cr" >v místě trvalého bydliště</a></strong>.
-                        </span>
-                    </li>
+                    <li><strong class="emphasized">osobně</strong><span> – dostavte se přímo na úřad s platným dokladem totožnosti nejpozději <strong class="text-danger">do 21. září 2022 do 16.00 hodin</strong>,</span></li>
+                    <li><strong class="emphasized">písemně</strong><span> – žádost musíte úřadu doručit do <strong class="text-danger">do 16. září 2022</strong> pomocí vaší datové schránky nebo v listinné podobě s úředně ověřeným podpisem (poštou apod.).</span></li>
                 </ul>
-                <p class="new-p smaller">
-                    Seznam zastupitelských úřadů, u kterých je možné podat žádost o zápis do zvláštního seznamu voličů nebo žádost o voličský průkaz najdete na <a href='https://www.mzv.cz/jnp/cz/o_ministerstvu/adresar_diplomatickych_misi/ceske_urady_v_zahranici/index.html'>webu Ministerstva zahraničních věcí</a>.
-                </p>
-                <p>Pokud budete hlasovat ve zvláštním volebním okrsku v zahraničí, obdržíte hlasovací lístky až ve volební místnosti.</p>
-                <h2>Kdy jsou v zahraničí otevřeny volební místnosti?</h2>
+
+                <p class="new-p">Voličský průkaz úřad vydá nejdříve 15 dní před volbami a to bude 8. září 2022. Předá jej osobně vám nebo tomu, kdo má vaši plnou moc s ověřeným podpisem, nebo vám jej zašle.</p>
+
+                <p class="new-p">O voličský průkaz před druhým kolem voleb do Senátu, které se bude konat 30. září a 1. října 2022, lze pouze <strong class="emphasized">osobně</strong> a úřad může vydávat voličské průkazy do 28. září 2022 do 16.00 hodin.</p>
+                <p class="new-p">Pozor! Pokud jste řádně požádali o voličský průkaz a rozhodnete se nakonec hlasovat ve svém volebním okrsku, musíte voličský průkaz odevzdat okrskové volební komisi. Občanka/pas nestačí. Jinak nebudete moci hlasovat.</p>
+
+                <p class="new-p" style="padding-top: 20px;"><strong>V ČR (ve zdravotnickém zařízení) - </strong>Lze volit pouze jsou-li splněny následující podmínky: </p>
                 <ul class="new-p">
-                    <li><strong class="emphasized">čtvrtek 7. října od 14:00 do 21:00 a v pátek 8. října od 14:00 do 21:00 místního času</strong> <span>- pro místa, kde nastává shodně označený hodinový čas <strong>o více jak 2 hodiny později</strong>  ve srovnání s hodinovým časem na území České republiky (týká se ZÚ Los Angeles, Bogota, Lima, Mexiko, Chicago, Havana, New York, Ottawa, Santiago de Chile, Toronto, Washington, Brasília, Buenos Aires, Sao Paulo), </span></li>
-                    <li><strong class="emphasized">pátek 8. října od 12:00 do 22:00 a v sobotu 9. října od 8:00 do 12:00 místního času</strong><span> - pro místa, kde nastává shodně označený hodinový čas <strong>o nejvýše jak 2 hodiny později</strong> ve srovnání s hodinovým časem na území České republiky (týká se ZÚ Akkra, Bamako, Ménaka, Rabat, Abuja, Alžír, Dublin, Lisabon, Londýn, Manchester, Tunis, Dakar),</span></li>
-                    <li><strong class="emphasized">pátek 8. října od 14:00 do 22:00 a v sobotu 9. října od 8:00 do 14:00 místního času</strong> <span>- pro ostatní místa</span></li>
+                    <li><span>Zdravotnické zařízení se nachází ve volebním obvodu, kde jsou volby do Senátu vyhlášeny, a volič je zároveň v tomto volebním obvodu přihlášen k trvalému pobytu.</span></li>
+                    <li><span>Volič se nechá zapsat do zvláštního seznamu voličů (zajišťuje zdrav. zařízení předáním seznamu na příslušný úřad nejpozději do 16. září 2022), nebo v termínu voleb využije svůj voličský průkaz, kdy přenosné volební schránky předáním svého voličského průkazu.</span></li>
                 </ul>
+                <p class="new-p" style="padding-top: 20px;"><strong>V zahraničí - </strong>Ve volbách do Senátu není možné hlasovat na zastupitelských úřadech v zahraničí.</p>
+                <p class="new-p">Občané ČR žijící v zahraničí, kteří se chtějí voleb účastnit, se musí ve dnech voleb dostavit na území ČR.</p>
+                <ul class="new-p">
+                    <li><span>Pokud je volič zapsán na zvláštním seznamu voličů na zastupitelském úřadě, může si tam zažádat o voličský průkaz a na něj pak hlasovat v kterémkoliv volebním obvodu a kterékoliv volební místnosti na území ČR, kde se volby konají.</span></li>
+                    <li><span>Pokud nemá volič trvalý pobyt na území ČR a není zapsán na zastupitelském úřadě ve zvláštním seznamu voličů, nemůže volit. Lze ale požádat o zápis do zvláštního seznamu voličů, nejpozději však 40 dnů před konáním voleb do 16.00 (tedy nejpozději do 14. srpna 2022).</span></li>
+                </ul>
+
 
                  <p class="new-p">
                     <router-link tag="button" to="/form" class="btn btn-primary btn-primary-new">Vytvořit písemnou žádost o voličský průkaz</router-link>
                                 <div class="text-muted">(v Safari nemusí být žádost čitelná. Zkuste Chrome)</div>
 
                 </p>
-            </div>
-            <div id="eu-cr" class="pane" v-if="$route.path=='/eu-cr'">
-                <h2>I want to vote for Czech candidates</h2>
-                <p class="new-p">You are eligible if you were registered with temporary or permanent residence in the Czech Republic at least 45 days before the election and were on the European Parliament electoral roll.</p>
-                <ul class="new-p">
-                    <li><span>If you have already voted in a previous EP election and were registered on the EP electoral roll, you may vote in the election again.</span></li>
-                    <li><span>If you are already on the municipal electoral roll, you may apply to have your details transferred to the EP electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-to-transfer-data-from-the-appendix-to-the-permanent-list-of-voters-to-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
-                    <li><span>If you have not yet voted in the EP election, you must apply at the local authority to register on the electoral roll no later than 40 days before the election (i.e. before 16:00 on 14th April 2019). <a class="link--blue" href="https://www.mvcr.cz/mvcren/file/application-for-entry-onto-the-list-of-voters-for-the-european-parliament-elections-in-the-czech-republic-pdf.aspx">The application</a> must be made in person.</span></li>
-                </ul>
-                <h3>I want to vote where I have permanent residence in CZ</h3>
-                <p class="new-p">If you meet the above criteria, nothing stands in your way. Take your valid ID on election day to your polling place (according to your permanent address).</p>
-                <h3>I want to vote somewhere else in CZ</h3>
-                <p class="new-p">If you want to vote somewhere other than your permanent address, you will need a voter card. You can apply for a voter card at your municipal office, either:</p>
-                <ul class="new-p">
-                    <li><strong class="emphasized">in person</strong><span> – directly at the office with valid ID no later than 22 May 2019,</span></li>
-                    <li><strong class="emphasized">in writing</strong><span> – through your data box or by post with a certified signature. Your application must arrive by 17 May 2019 at 16:00.</span></li>
-                </ul>
-                <p class="new-p">
-                    <router-link tag="button" to="/en/form" class="btn btn-primary btn-primary-new">Create a written application for voter card</router-link>
-                </p>
-                <h2>I want to vote for candidates from another EU country</h2>
-                <p class="new-p">Voting takes place in the territory of the EU Member State and follows the rules of the EU Member State.</p>
             </div>
             <div id="form" class="form pane table" v-if="$route.path=='/form'">
                 <div class="form-group">
@@ -348,7 +293,7 @@
                             Vámi vyplněné osobní údaje nikomu neodesíláme, ani je dále nezpracováváme.
                             Nemusíte se ničeho bát – celá žádost vzniká pouze na vašem počítači.
                             Pokud chcete mít 100% jistotu, můžete se při vytváření žádosti odpojit od internetu
-                            nebo si stáhněte a vyplňte <a href="assets/files/Zadost-Volicsky-Prukaz-Volby2021-CR.pdf">šablonu žádosti</a> ručně sami.
+                            nebo si stáhněte a vyplňte <a href="assets/files/Zadost-Volicsky-Prukaz-Volby2022-CR.pdf">šablonu žádosti</a> ručně sami.
                         </p>
                         <p class="new-p">
                             Pokud se můžete na váš obecní úřad dostavit osobně, nepotřebujete předem žádnou písemnou žádost vytvářet.
@@ -522,7 +467,7 @@
                             We will not send your details to anyone, nor do we process them.<br>
                             No need to worry - the whole application is made only on your own computer.<br>
                             If you want to be 100% sure, disconnect from the internet while you complete the application<br>
-                            or <a href="assets/files/Zadost-Volicsky-Prukaz-Volby2021-CR.pdf">download the application</a> and complete it manually.
+                            or <a href="assets/files/Zadost-Volicsky-Prukaz-Volby2022-CR.pdf">download the application</a> and complete it manually.
                         </p>
                     </div>
                 </div>
@@ -733,7 +678,7 @@
                     <h2>3. Přejeme dobrou volbu!</h2>
                     <div class="col-md-8">
                         <p>
-                            Pro volby do Poslanecké sněmovny Parlamentu ČR se dostavte s vaším volebním průkazem a platným průkazem totožnosti 8. 10. 2021 či 9. 10. 2021 do libovolného volebního okrsku.
+                            Pro volby do zastupitelstev obcí a Senátu ČR se dostavte s vaším volebním průkazem a platným průkazem totožnosti 23. 9. 2022 či 24. 9. 2022 do libovolného volebního okrsku.
                         </p>
                         <p>
                             <strong>Upozornění:</strong> pokud máte vystaven volební průkaz a chcete volit ve volební místnosti vašeho volebního okrsku, musíte mít volební průkaz také sebou. Bez něj vám volba nebude umožněna!
@@ -814,11 +759,10 @@
                     </div>
                 </div>
                 <p style="text-align: center; font-weight: bold; padding: 40px 5px 15px 5px;">
-                    ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>pro hlasování ve volbách do Poslanecké sněmovny Parlamentu ČR<br/> konaných ve dnech 8. a 9. října 2021.
+                    ŽÁDOST O VYDÁNÍ VOLIČSKÉHO PRŮKAZU<br>pro hlasování ve volbách do Senátu ČR<br/> konaných ve dnech 23. a 24. září 2022.
                 </p>
                 <p style="text-align: justify; padding: 15px 5px 20px 5px;">
-                    Podle ustanovení § 33 zákona č. 275/2012 Sb., o volbě prezidenta republiky a o změně některých zákonů (zákon o volbě prezidenta republiky), § 6a zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky a o změně a doplnění některých dalších zákonů, ve znění pozdějších předpisů, § 30 zákona č. 62/2003 Sb., o volbách do Evropského parlamentu a o změně některých zákonů, ve znění pozdějších předpisů, § 26a zákona č. 130/2000 Sb., o volbách do zastupitelstev krajů a o změně některých
-                    zákonů, ve znění pozdějších předpisů (dále jen zákon o volbách do EP), žádám Obecní úřad&nbsp;
+                    Podle ustanovení § 33 zákona č. 275/2012 Sb., o&nbsp;volbě prezidenta republiky a o&nbsp;změně některých zákonů (zákon o&nbsp;volbě prezidenta republiky),§ 6a zákona č. 247/1995 Sb., o&nbsp;volbách do Parlamentu České republiky a o&nbsp;změně a doplnění některých dalších zákonů, ve znění pozdějších předpisů, § 30 zákona č. 62/2003 Sb., o&nbsp;volbách do Evropského parlamentu a o&nbsp;změně některých zákonů, ve znění pozdějších předpisů, § 26a zákona č. 130/2000 Sb., o&nbsp;volbách do zastupitelstev krajů a o&nbsp;změně některých zákonů, ve znění pozdějších předpisů (dále jen zákon o&nbsp;volbách do EP), žádám&nbsp;
                     <strong>
                         <span v-if="userData.municipality.name">{{userData.municipality.name +', '}}</span>
                         <span v-if="userData.municipality.addressLine1">{{userData.municipality.addressLine1 +', '}}</span>
@@ -826,7 +770,7 @@
                         <span v-if="userData.municipality.city">{{userData.municipality.city +' '}}</span>
                         <span v-if="!userData.municipality.name && !userData.municipality.addressLine1 && !userData.municipality.postalCode && !userData.municipality.city">………………………………………………………………………………</span>
                     </strong>
-                    o&nbsp;vydání voličského průkazu pro hlasování ve volbách do Poslanecké sněmovny Parlamentu ČR konaných ve dnech 8. a 9. října 2021, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
+                    o&nbsp;vydání voličského průkazu pro hlasování ve volbách do Senátu ČR konaných ve dnech 23. a 24. září 2022, neboť nebudu moci volit ve volebním okrsku, v jehož seznamu voličů jsem zapsán(a).
                 </p>
                 <p style="padding: 10px 5px 10px 5px;">
                     <strong>Jméno a příjmení žadatele (voliče):</strong> {{userData.fullName}} <br>
@@ -1014,7 +958,7 @@
                 var element = document.getElementById('document-to-print-cr');
                 html2pdf().from(element).set({
                     margin: 1,
-                    filename: 'Zadost-Volicsky-Prukaz-Volby2021-CR.pdf',
+                    filename: 'Zadost-Volicsky-Prukaz-Volby2022-CR.pdf',
                     html2canvas: { scale: 2 },
                     jsPDF: { orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true }
                 }).save();
